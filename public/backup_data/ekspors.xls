@@ -1,0 +1,997 @@
+<h2 align="center">
+      KLASIFIKASI KASUS BERDASARKAN JENIS MASALAH
+      </h2>
+      <h3>Kota Administrasi :<br>
+      Kecamatan : KOTA JAKARTA SELATAN<br>
+      Kelurahan : </h3>
+      <table border="1" width="auto">
+      <tr>
+      <td><strong>No</strong></td>
+      <td><strong>Nama Bangunan</strong></td>
+      <td><strong>Nama Pemohon</strong></td>
+      <td><strong>Alamat</strong></td>
+      <td><strong>Latitude</strong></td>
+      <td><strong>Longitude</strong></td>
+      <td><strong>Kabupaten/Kota</strong></td>
+      <td><strong>Kecamatan</strong></td>
+      <td><strong>Keluarahan</strong></td>
+      <td><strong>Wil</strong></td>
+      <td><strong>Penggunaan Bangunan</strong></td>
+      <td><strong>No SIPPT</strong></td>
+      <td><strong>Tanggal SIPPT</strong></td>
+      <td><strong>Luas Area</strong> M<sup>2</sup></td>
+      <td><strong>No KRK</strong></td>
+      <td><strong>No RTLB</strong></td>
+      <td><strong>Tanggal RTLB</strong></td>
+      <td><strong>Luas Seluruh Lantai Bangunan</strong> M<sup>2</sup></td>
+      <td><strong>Luas Daerah Perencanaan</strong> M<sup>2</sup></td>
+      <td><strong>KDB</strong> %</td>
+      <td><strong>KLB</strong> %</td>
+      <td><strong>KDH</strong> %</td>
+      <td><strong>Tinggi Bangunan</strong>Lantai</td>
+      <td><strong>Jumlah SRAH</strong></td>
+      <td><strong>Volume SRAH</strong> M<sup>3</sup></td>
+      <td><strong>Keterangan</strong></td>
+      <td><strong>Luas Lantai</strong> M<sup>2</sup></td>
+      <td><strong>Perkiraan Kebutuhan Air</strong></td>
+      <td><strong>Data Air Tanah</strong></td>
+      <td><strong>Data PDAM</strong> M<sup>3</sup></td>
+      <td><strong>Kapasitas / IPAL / STP</strong></td>
+      <td><strong>Pilihan SKPD</strong></td>
+      <td><strong>Data SKPD/UKPD</strong></td>
+      <td><strong>Keterangan SKPD</strong></td>
+      <td><strong>Pilihan Pengelola / Pemilik Bangunan</strong></td>
+      <td><strong>Keterangan Pengelola / Pemilik Bangunan</strong></td>
+      <td><strong>Pilihan Inspeksi Lapangan</strong></td>
+      <td><strong>Keterangan Inspeksi Lapangan</strong></td>
+      <td><strong>Tanggal</strong></td></tr><tr>
+        <td>1</td>
+        
+       <td align="middle">GEDUNG KEPLAND</td>
+       <td align="middle">PT. Kepland Investama</td>
+       <td align="middle">The Landmark Tower A Lt. B 1, No.1, Jl. Jend. Sudirman, RT.3/RW.3, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12910</td>
+       <td align="middle">-6.2041116</td>
+       <td align="middle">106.8232461</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">SETIA BUDI</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">1185/GSB/JS/SB/IX/2012</td>
+            <td align="middle">775/S/SD/DTR/IX/2012</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">76116,65</td>
+            <td align="middle">10428</td>
+            <td align="middle">36,09</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">18 49</td>
+            <td align="middle">4</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>2</td>
+        
+       <td align="middle">INDOCEMENT</td>
+       <td align="middle"></td>
+       <td align="middle">Wisma Indocement, Jl. Jend. Sudirman No.Kav 70-71, Setia Budi, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12910</td>
+       <td align="middle">-6.2051862</td>
+       <td align="middle">106.82295670000008</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">SETIA BUDI</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">smr 1: 0     smr 2: 0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>3</td>
+        
+       <td align="middle">SUDIRMAN PLAZA</td>
+       <td align="middle">PT. Insan Asia Nusantara</td>
+       <td align="middle">Sudirman Plaza, No.76-78, Setia Budi, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 10250</td>
+       <td align="middle">-6.2082454</td>
+       <td align="middle">106.82244679999997</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">SETIA BUDI</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor, hunian dan fas.</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">1370/GSB/S/SB/IX/2004</td>
+            <td align="middle">376/S/SD/DTK/IX/04</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">81618</td>
+            <td align="middle">11186</td>
+            <td align="middle">38,96</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">1 5 21 35</td>
+            <td align="middle">20</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">sumur tertutup pengerjaan MRT</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>4</td>
+        
+       <td align="middle">CHASE PLAZA</td>
+       <td align="middle">PT. Duta Anggada Realty</td>
+       <td align="middle">Chase Plaza, Jl. Jend. Sudirman, Karet, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920</td>
+       <td align="middle">-6.210214</td>
+       <td align="middle">106.82184600000005</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">1103/GSB/JS/SB/XI/2014</td>
+            <td align="middle">9/S/SD/DPK/II/2015</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">381576,22</td>
+            <td align="middle">42518</td>
+            <td align="middle">36,63</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">77</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>5</td>
+        
+       <td align="middle">INTERNATIONAL FINANCIAL CENTER</td>
+       <td align="middle"></td>
+       <td align="middle">Jalan Jendral Sudirman Kav. 22-23, RT.10/RW.1, Karet, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920</td>
+       <td align="middle">-6.211288100000001</td>
+       <td align="middle">106.82114120000006</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>6</td>
+        
+       <td align="middle">INTERNATIONAL FINANCIAL CENTER</td>
+       <td align="middle"></td>
+       <td align="middle">Jl. Jend. Sudirman No.Kav.24, RT.10/RW.1, Karet, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920</td>
+       <td align="middle">-6.211838999999999</td>
+       <td align="middle">106.82082000000003</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">sudah di tutup</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>7</td>
+        
+       <td align="middle">SONA TOPAS</td>
+       <td align="middle"></td>
+       <td align="middle">Sona Topas Tower, Jl. Jend. Sudirman No.26, Karet, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920</td>
+       <td align="middle">-6.212886</td>
+       <td align="middle">106.82045199999993</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>8</td>
+        
+       <td align="middle">MAYAPADA TOWER 2</td>
+       <td align="middle"></td>
+       <td align="middle">Jl. Jend. Sudirman Kav. 27, Karet, Kecamatan Setiabudi, RT.4/RW.2, Karet, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920</td>
+       <td align="middle">-6.2133296</td>
+       <td align="middle">106.82031810000001</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">1369</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>9</td>
+        
+       <td align="middle">MAYAPADA TOWER 1</td>
+       <td align="middle"></td>
+       <td align="middle">Mayapada Tower Kavling 28 Lantai 1 - 2 - 3 - B1 - GF, Jl. Jend. Sudirman, RT.4/RW.2, Karet, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 10250</td>
+       <td align="middle">-6.2137166</td>
+       <td align="middle">106.820022</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>10</td>
+        
+       <td align="middle">WTC 2</td>
+       <td align="middle">PT. Jakarta Land</td>
+       <td align="middle">Gedung World Trade Center Ground Floor, Jl. Jendral Sudirman Kav.29 Jakarta, RT.8/RW.3, Karet, Setia Budi, Wil. Kota Jakarta Selatan, Jakarta 12920</td>
+       <td align="middle">-6.215103999999999</td>
+       <td align="middle">106.82025599999997</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">0085/GSB/JS/SB/I/2014</td>
+            <td align="middle">89/S/SD/DTR/IV/2014</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">225955</td>
+            <td align="middle">75557</td>
+            <td align="middle">24,09</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">44</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>11</td>
+        
+       <td align="middle">WTC 1</td>
+       <td align="middle">PT. Jakarta Land</td>
+       <td align="middle">Wisma Metropolitan II Basement, Jl. Jend. Sudirman Kav. 29, Karet, RT.8/RW.3, Karet, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920</td>
+       <td align="middle">-6.214724500000001</td>
+       <td align="middle">106.81905919999997</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>12</td>
+        
+       <td align="middle">SAMPOERNA STRATEGIC SQUARE</td>
+       <td align="middle"></td>
+       <td align="middle">Jalan Jenderal Sudirman Kav. 45, RT.3/RW.4, Karet Semanggi, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12930</td>
+       <td align="middle">-6.217066000000001</td>
+       <td align="middle">106.81779989999995</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET SEMANGGI</td>
+            <td align="middle">P</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>13</td>
+        
+       <td align="middle">PLAZA SENTRAL</td>
+       <td align="middle"></td>
+       <td align="middle">Plaza Sentral, Karet Semanggi, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta</td>
+       <td align="middle">-6.216942299999999</td>
+       <td align="middle">106.81640889999994</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET SEMANGGI</td>
+            <td align="middle">P</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">89</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>14</td>
+        
+       <td align="middle">IAI TOWER</td>
+       <td align="middle"></td>
+       <td align="middle">Plaza Sentral Kav 47 GF, Jl. Jend. Sudirman, RT.5/RW.4, Karet Semanggi, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12930</td>
+       <td align="middle">-6.217307299999999</td>
+       <td align="middle">106.8166344</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET SEMANGGI</td>
+            <td align="middle">P</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>15</td>
+        
+       <td align="middle">UNIKA ATMAJAYA</td>
+       <td align="middle"></td>
+       <td align="middle">Jalan Jendral Sudirman No.51, RT.5/RW.4, Karet Semanggi, Kecamatan Setiabudi, RT.5/RW.4, Karet Semanggi, Setia Budi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12930</td>
+       <td align="middle">-6.2191455</td>
+       <td align="middle">106.81586270000003</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET SEMANGGI</td>
+            <td align="middle">P</td>
+            <td align="middle">Sekolah</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">16/GSB/S/XI/87</td>
+            <td align="middle">99/BP/S/SDTK/N/87</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">23948</td>
+            <td align="middle">27140</td>
+            <td align="middle">16</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">14 9 4 3 2</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>16</td>
+        
+       <td align="middle">PLAZA SEMANGGI</td>
+       <td align="middle"></td>
+       <td align="middle">The Plaza Semanggi, Jl. Jend. Sudirman No.50, Karet Semanggi, Kecamatan Setiabudi, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 12930</td>
+       <td align="middle">-6.2200033</td>
+       <td align="middle">106.81433479999998</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">SETIA BUDI</td><td align="middle">KARET SEMANGGI</td>
+            <td align="middle">P</td>
+            <td align="middle">Kantor, mall</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">smr 1: 0     smr 2: 0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>17</td>
+        
+       <td align="middle">BEJ</td>
+       <td align="middle">PT. Fisrt Jakarta International</td>
+       <td align="middle">Stock Exchange Tower II, GF Suite G-06, Jl. Jend. Sudirman Kav. 52-53, RT.5/RW.3, Senayan, Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190</td>
+       <td align="middle">-6.2234823</td>
+       <td align="middle">106.80864759999997</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">27</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>18</td>
+        
+       <td align="middle">PLAZA BAPINDO TOWER1 (CITYBANK) DAN 2(MANDIRI)</td>
+       <td align="middle"></td>
+       <td align="middle">Jl. Jend. Sudirman No.Kav 54-55, RT.5/RW.3, Senayan, Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190</td>
+       <td align="middle">-6.223938899999999</td>
+       <td align="middle">106.80726389999995</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">1734/GSB/S/KB/IX/92</td>
+            <td align="middle">140/S/SD/DTK/IV/93</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">87499</td>
+            <td align="middle"> 25470.2 </td>
+            <td align="middle">36,395</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">27</td>
+            <td align="middle">4</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">1</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>19</td>
+        
+       <td align="middle">DIRJEN PAJAK</td>
+       <td align="middle"></td>
+       <td align="middle">Jalan Gatot Subroto Kav. 40-42, RT.7/RW.1, Senayan, Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190</td>
+       <td align="middle">-6.225493</td>
+       <td align="middle">106.81591330000003</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">3/09/BP/S/SDTK/VIII/84</td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">5180,4</td>
+            <td align="middle">5896</td>
+            <td align="middle">15</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">7</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>20</td>
+        
+       <td align="middle">SEQUIS CENTER</td>
+       <td align="middle">PT. Prospero Realty</td>
+       <td align="middle">Jl. Jend. Sudirman Kav. 57 Kel. Senayan, Kec. Kebayoran Baru</td>
+       <td align="middle">-6.2246877</td>
+       <td align="middle">106.80654579999998</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">5</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>21</td>
+        
+       <td align="middle">GRAHA CIMB </td>
+       <td align="middle">PT. Grahaniaga Tatautama</td>
+       <td align="middle">Jl. Jend. Sudirman Kav. 58 Kel. Senayan, Kec. Kebayoran Baru</td>
+       <td align="middle">-6.225099999999999</td>
+       <td align="middle">106.80556999999999</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle">1440/GSB/S/KB/IX/96</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle">99930</td>
+            <td align="middle">20003</td>
+            <td align="middle">36,51</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">40</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>22</td>
+        
+       <td align="middle">PLAZA ASIA</td>
+       <td align="middle"></td>
+       <td align="middle">Jl. Jend. Sudirman Kav. 59 Kel. Senayan, Kec. Kebayoran Baru</td>
+       <td align="middle">-6.225451199999999</td>
+       <td align="middle">106.80516310000007</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>23</td>
+        
+       <td align="middle">MENARA SUDIRMAN</td>
+       <td align="middle">PPRS Bukan Hunian Menara Sudirman</td>
+       <td align="middle">Jl. Jend. Sudirman Kav. 60 Kel. Senayan, Kec. Kebayoran Baru</td>
+       <td align="middle">-6.225776845049038</td>
+       <td align="middle">106.8047467400894</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">tidak ada </td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>24</td>
+        
+       <td align="middle">SUMMITMAS I DAN II</td>
+       <td align="middle">PT. Summitmas Property</td>
+       <td align="middle">Jl. Jend. Sudirman Kav. 61-62 Kel. Senayan, Kec. Kebayoran Baru</td>
+       <td align="middle">-6.22616080508092</td>
+       <td align="middle">106.80411910317991</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">KEBAYORAN BARU</td><td align="middle">SENAYAN</td>
+            <td align="middle">S</td>
+            <td align="middle">Kantor</td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">0000-00-00</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">12</td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle"></td>
+            <td align="middle">2018-02-02</td></tr></tr><tr>
+        <td>25</td>
+        
+       <td align="middle">Menara Eifel</td>
+       <td align="middle">fahmi</td>
+       <td align="middle">1212</td>
+       <td align="middle">12121</td>
+       <td align="middle">11212</td>
+        <td align="middle">KOTA JAKARTA SELATAN</td><td align="middle">JAGAKARSA</td><td align="middle">SRENGSENG SAWAH</td>
+            <td align="middle">1112</td>
+            <td align="middle">12121</td>
+            <td align="middle">-</td>
+            <td align="middle">2018-02-05</td>
+            <td align="middle">10</td>
+            <td align="middle">-</td>
+            <td align="middle">-</td>
+            <td align="middle">1970-01-01</td>
+            <td align="middle">10</td>
+            <td align="middle">10</td>
+            <td align="middle">1</td>
+            <td align="middle">1</td>
+            <td align="middle">01</td>
+            <td align="middle">10</td>
+            <td align="middle">10</td>
+            <td align="middle">10</td>
+            <td align="middle">10</td>
+            <td align="middle">121</td>
+            <td align="middle">111</td>
+            <td align="middle">11</td>
+            <td align="middle">1110</td>
+            <td align="middle">1923</td>
+            <td align="middle">Air Bersih</td>
+            <td align="middle">12121</td>
+            <td align="middle">121121</td>
+            <td align="middle">Air Bersih</td>
+            <td align="middle">1111</td>
+            <td align="middle">Air Bersih</td>
+            <td align="middle">1212121</td>
+            <td align="middle">2018-02-05</td></tr></table>
