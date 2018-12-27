@@ -40,6 +40,7 @@
 							<!-- Start Tahun -->
 							<div class="row" id="pkb_tahun" style="display: none;">
 								<div class="col-md-12">
+									<h4 style="font-weight: bold;text-transform: uppercase;">Telat Lebih 1 Tahun</h4>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
 										<input type="text" name="pkb" id="pkb_t" onkeyup="sum_t();" class="form-control rp" required="">
@@ -89,6 +90,7 @@
 							<!-- Start Normal -->
 							<div class="row" id="pkb_n" style="display: none;">
 								<div class="col-md-12">
+								<h4 style="font-weight: bold;text-transform: uppercase;">Normal</h4>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
 										<input type="text" name="pkb" id="pkb_nor" onkeyup="normal();" class="form-control" required="">
@@ -110,6 +112,7 @@
 							<!-- Start Bulan -->
 							<div class="row" id="pkb_bulan" style="display: none;">
 								<div class="col-md-12">
+									<h4 style="font-weight: bold;text-transform: uppercase;">Telat Bulanan</h4>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
 										<input type="text" name="pkb" id="txt1" onkeyup="sum();" class="form-control rp" required="">
