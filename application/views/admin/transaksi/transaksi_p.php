@@ -1,3 +1,26 @@
+<style type="text/css">
+	.control-label{
+	padding-top: 15px !important;
+    margin-bottom: 0;
+    font-size: 15px !important;
+    text-align: left !important;
+	}
+	.form-group{
+		margin: 15px 0 0 0 !important;
+		padding-bottom: 0 !important;
+	}
+	.input-group .input-group-addon{
+		padding-top: 0;
+		padding-left: 0;
+	}
+	.titik2{
+		text-align: right;
+		float: right;
+	}
+	.checkbox {
+    padding-right: 21px;
+	}
+</style>
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">
@@ -7,165 +30,304 @@
 						<h4 class="title">Transaksi Perpanjang STNK</h4>
 					</div>
 					<div class="card-content">
-						
-						<form action="<?=site_url('')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group is-empty">
-					                <p>Jenis Perpanjang</p>
-					                <select class="form-control" onchange="haks()" name="jenis_p" id="hak" required="">
-					                    <option value="">-- SILAHKAN PILIH --</option>
-					                    <option value="" disabled=""></option>
-										<option value="normal">Normal</option>
-										<option value="telat bulanan">Telat bulanan</option>
-										<option value="Telat lebih dari setahun">Telat lebih dari setahun</option>
-					                </select>
-					               	<span class="material-input"></span></div>
+						<form action="" class="form-horizontal">
+							<h4>Kepada Yth.</h4>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" placeholder="Masukan nama">
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group is-empty">
-					                <p>Jenis Kendaraan</p>
-					                <select class="form-control" name="jenis_k" required="">
-					                    <option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
-					                    <option value="" disabled=""></option>
-										<option value="cashier">Motor</option>
-										<option value="orang lapangan">Mobil</option>
-										<option value="super admin">Mobil Box</option>
-					                </select>
-					               	<span class="material-input"></span></div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Telp./HP <span class="titik2">:</span></label>
+								<div class="col-sm-8">
+									<input type="number" class="form-control" placeholder="Masukan nomor telp/hp">
 								</div>
 							</div>
-							<!-- Start Tahun -->
-							<div class="row" id="pkb_tahun" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty">
-										<label class="control-label">PKB</label>
-										<input type="text" name="pkb" id="pkb_t" onkeyup="sum_t();" class="form-control rp" required="">
-										<span class="material-input"></span>
+							<hr>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Sudah terima dari <span class="titik2">:</span></label>
+								<div class="col-sm-8">
+									<div class="input-group">
+										<span class="input-group-addon">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></span>
+										<input type="text" class="form-control" placeholder="Sudah terima dari ( atas nama )">
 									</div>
 								</div>
 							</div>
-							<div class="row" id="tahun" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty">
-										<label class="control-label">Telat Tahun</label>
-										<input type="text" style="display: none;" id="denda" name="telat_thn" onkeyup="sum_t();" class="form-control" value="25%">
-										<input type="text" name="telat_thn" id="telat_thn" onkeyup="sum_t();" class="form-control" required="">
-										<span class="material-input"></span>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Uang Muka (DP) Sebesar <span class="titik2">:</span></label>
+								<div class="col-sm-8">
+									<div class="input-group">
+										<span class="input-group-addon">Rp.</span>
+										<input type="text" class="form-control" placeholder="Masukan nomor telp/hp">
 									</div>
 								</div>
 							</div>
-							<div class="row" id="sank_pkb_tahun" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label class="control-label">Sanksi PKB</label>
-										<input type="text" name="sanksi_pkb" disabled="" id="hasil" class="form-control" required="" value="">
-										<span class="material-input"></span>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Kelengkapan Berkas <span class="titik2">:</span></label>
+								<div class="col-sm-8">
+									<!-- <input type="text" class="form-control" placeholder="Masukan nama"> -->
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">1. BPKB <span class="titik2">:</span></label>
+								<div class="col-sm-8" style="display: inline-flex;">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> Ada + Faktur
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> As Tanpa Faktur
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> Foto Copy
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> Surat Leasing
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> Tidak Ada/Acc
+										</label>
 									</div>
 								</div>
 							</div>
-							<div class="row" id="swd_t" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty" >
-										<label class="control-label">SWDKLLJ</label>
-										<input type="text" name="swdllj" id="swdkllj_t" onkeyup="sum_t();" class="form-control" required="">
-										<span class="material-input"></span>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">2. KTP / SIM (Asli) <span class="titik2">:</span></label>
+								<div class="col-sm-3" style="display: inline-flex;">
+									<div class="checkbox" style="padding-right: 75px;">
+										<label>
+											<input type="checkbox"> Ada
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> Tidak Ada/Acc
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-5">
+									<div class="input-group">
+										<span class="input-group-addon">Wilayah : DKI/ </span>
+										<input type="text" class="form-control" placeholder="Masukan Wilayah">
 									</div>
 								</div>
 							</div>
-							<div class="row" id="sank_swd_t" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty">
-										<label class="control-label">Sanksi SWDKLLJ</label>
-										<input type="text" name="swdllj" id="rupiah4" class="form-control" required="">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">3. STNK (Asli) Nopol <span class="titik2">:</span></label>
+								<div class="col-sm-3">
+									<div class="input-group">
+										<span class="input-group-addon">B.</span>
+										<input type="text" class="form-control" placeholder="Masukan Nopol">
+									</div>
+								</div>
+								<div class="col-md-1" style="padding-right: 0;">
+									<div class="input-group">
+										<select class="form-control" name="jenis_k" required="">
+											<option value="motor">Motor</option>
+											<option value="mobil">Mobil</option>
+											<option value="mobil box">Mobil Box</option>
+										</select>
 										<span class="material-input"></span>
 									</div>
 								</div>
-							</div>
-							<!-- End Tahun -->
-
-							<!-- Start Normal -->
-							<div class="row" id="pkb_n" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty">
-										<label class="control-label">PKB</label>
-										<input type="text" name="pkb" id="pkb_nor" onkeyup="normal();" class="form-control" required="">
-										<span class="material-input"></span>
+								<div class="col-md-4">
+									<div class="input-group">
+										<span class="input-group-addon">Masa Berlaku Pajak :</span>
+										<input type="text" class="form-control" placeholder="Masukan Masa Berlaku">
 									</div>
 								</div>
 							</div>
-							<div class="row" id="swd_n" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty" >
-										<label class="control-label">SWDKLLJ</label>
-										<input type="text" name="swdllj" id="swdkllj" onkeyup="normal();" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">4. Lain-lain Berupa <span class="titik2">:</span></label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" placeholder="Masukan Lainnya">
 								</div>
 							</div>
-							<!-- End Normal -->
-
-							<!-- Start Bulan -->
-							<div class="row" id="pkb_bulan" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty">
-										<label class="control-label">PKB</label>
-										<input type="text" name="pkb" id="txt1" onkeyup="sum();" class="form-control rp" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
+							<h4 style="font-weight: bold;text-transform: uppercase;margin-top: 20px;">Biasa Perpanjang Pajak Stnk</h4>
+							<div class="table-responsive">
+								<table class="table">
+									<thead border="2" style="border: solid 2px #333;">
+										<tr style="background-color: #b8dbf7;">
+											<th style="text-align: center;width: 50%;border: solid 2px #333;font-weight: bold;">BIAYA PAJAK (HANYA PREDIKSI)*</th>
+											<th style="text-align: center;width: 50%;border: solid 2px #333;font-weight: bold;">BIAYA PROSES</th>
+										</tr>
+									</thead>
+									<tbody style="border: solid 2px;">
+										<tr>
+											<td style="border-right: solid 2px #333;vertical-align: top;">
+												<div class="form-group">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Pajak Tahun ini</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Pajak Tahun lalu (SKP)</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<label class="col-sm-5 control-label" style="padding-left: 44px;font-weight: bold;color: #333;">Total Pajak<span class="titik2">:</span></label>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<p style="padding: 20px 14px 0;">*Biaya pajak hanya prediksi. Setiap tahunnya biasa berubah dan besarnya akan tertera di lembar SKPD/STNK</p>
+											</td>
+											<td style="vertical-align: top;">
+												<div class="form-group">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Biaya Jasa</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Acc BPKB</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Cek Fisik dan Plat</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Adm. SKP/Pajak Lalu</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Blokir Progresif</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-1">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"></label>
+														</div>
+													</div>
+													<div class="col-sm-4" style="padding: 0;">
+														<input type="text" class="form-control" placeholder="Lainnya" style="width: 90%;">
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<label class="col-sm-5 control-label" style="padding-left: 44px;font-weight: bold;color: #333;">Total Biaya Proses<span class="titik2">:</span></label>
+													<div class="col-sm-7">
+														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="background-color: #b8dbf7;border-top: solid 2px #333;">
+												<div class="form-group" style="margin-top: -5 !important;">
+													<label class="col-sm-2 control-label" style="font-weight: bold;color: #333;">4. Prediksi Total Biaya <span class="titik2">:</span></label>
+													<div class="col-sm-6">
+														<div class="input-group">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: -5 !important;">
+													<label class="col-sm-2 control-label" style="font-weight: bold;color: #333;">4. Prediksi Sisa / Kurang <span class="titik2">:</span></label>
+													<div class="col-sm-6">
+														<div class="input-group">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div class="row" id="bulan" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty" >
-										<label class="control-label">Telat Bulan</label>
-										<input type="text" style="display: none;" id="txt2" name="telat_bln" onkeyup="sum();" class="form-control" value="2%">
-										<input type="text" name="telat_bln" id="txt3" onkeyup="sum();" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-success btn-block">Simpan & Cetak</button>
 							</div>
-							<div class="row" id="sank_pkb" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label class="control-label">Sanksi PKB</label>
-										<input type="text" name="sanksi_pkb" disabled="" id="txt4" class="form-control" required="" value="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-							</div>
-							<div class="row" id="swd_b" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty" >
-										<label class="control-label">SWDKLLJ</label>
-										<input type="text" name="swdllj" id="swdkllj_b" onkeyup="sum();" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-							</div>
-							<div class="row" id="sank_swd" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group label-floating is-empty">
-										<label class="control-label">Sanksi SWDKLLJ</label>
-										<input type="text" name="swdllj" id="rupiah4" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-							</div>
-							<!-- End Bulan -->
-							<div class="row" id="total_n" style="display: none;">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label class="control-label">Total</label>
-										<input type="text" name="total" id="total" disabled="" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-							</div>
-							<button type="submit" class="btn btn-info pull-right">Submit</button>
-							<div class="clearfix"></div>
 						</form>
 					</div>
 				</div>
