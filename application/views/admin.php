@@ -199,10 +199,18 @@ if ($uri=="eksporpdf") {
 <div class="wrapper">
 
 	<!-- sidebar -->
-	<?php $this->load->view('include/sidebar-admin'); ?>
+	<?php $uri = $this->uri->segment(2);
+	if ($uri=="c_perpanjang") {
+	}else{ 
+		$this->load->view('include/sidebar-admin');
+	} ?>
 	<!-- Konfigurasi File -->
-	<div class="main-panel">
-		<?php $this->load->view('include/navbar'); ?>
+	<?php $uri = $this->uri->segment(2);
+	if ($uri=="c_perpanjang") {
+	}else{ ?>
+		<div class="main-panel">
+			<?php $this->load->view('include/navbar'); ?>
+		<?php } ?>
 		<div class="col-md-12">
 			<?php if ($this->session->flashdata('gagal')) { ?>
 				<div id="error" class="card-panel" style="background: #3D4242;color:#FFF;margin:20px 0;">
@@ -255,6 +263,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/perhitungan/perpanjang');	
 			}else if ($u2 == "transaksi_p") {
 				$this->load->view('admin/transaksi/transaksi_p');
+			}else if ($u2 == "c_perpanjang") {
+				$this->load->view('admin/cetak/c_perpanjang');	
 			}else if ($u2 == "balik_nama") {
 				$this->load->view('admin/perhitungan/balik-nama');	
 			}else if ($u2 == "harga") {
@@ -262,6 +272,10 @@ if ($uri=="eksporpdf") {
 			}
 		}
 		?>
+		<?php 
+		$uri = $this->uri->segment(2);
+		if ($uri=="c_perpanjang") {
+		}else{ ?>
 		<footer class="footer">
 			<div class="container-fluid">
 				<p class="pull-left" style="margin-left: 17px;">
@@ -272,6 +286,7 @@ if ($uri=="eksporpdf") {
 				</nav>
 			</div>
 		</footer>
+		<?php } ?>
 		<div class="ps-scrollbar-y-rail" style="top: 0px; height: 950px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 404px;"></div></div>
 	</div>	
 </div>	
@@ -293,56 +308,56 @@ if ($uri=="eksporpdf") {
 	} );
 </script>
 <script>
-function sum() {
-      var txtFirstNumberValue = document.getElementById('txt1').value;
-      var txtSecondNumberValue = document.getElementById('txt2').value;
-      var txtThreeNumberValue = document.getElementById('txt3').value;
-      var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('txt4').value = result;
-      }
-}
-function sum_t() {
-      var txtFirstNumberValue = document.getElementById('pkb_t').value;
-      var txtSecondNumberValue = document.getElementById('denda').value;
-      var txtThreeNumberValue = document.getElementById('telat_thn').value;
-      var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('hasil').value = result;
-      }
-}
-function normal() {
-      var txtFirstNumberValue = document.getElementById('pkb_nor').value;
-      var txtSecondNumberValue = document.getElementById('swdkllj').value;
-      var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('total').value = result;
-      }
-}
-function b_normal() {
-      var txtFirstNumberValue = document.getElementById('pkb_b').value;
-      var txtSecondNumberValue = document.getElementById('denda_b').value;
-      var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('total_b').value = result;
-      }
-}
-function b_bulan() {
-      var txtFirstNumberValue = document.getElementById('pkb_bu').value;
-      var txtSecondNumberValue = document.getElementById('denda_bu').value;
-      var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('total_bu').value = result;
-      }
+	function sum() {
+		var txtFirstNumberValue = document.getElementById('txt1').value;
+		var txtSecondNumberValue = document.getElementById('txt2').value;
+		var txtThreeNumberValue = document.getElementById('txt3').value;
+		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('txt4').value = result;
+		}
+	}
+	function sum_t() {
+		var txtFirstNumberValue = document.getElementById('pkb_t').value;
+		var txtSecondNumberValue = document.getElementById('denda').value;
+		var txtThreeNumberValue = document.getElementById('telat_thn').value;
+		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('hasil').value = result;
+		}
+	}
+	function normal() {
+		var txtFirstNumberValue = document.getElementById('pkb_nor').value;
+		var txtSecondNumberValue = document.getElementById('swdkllj').value;
+		var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('total').value = result;
+		}
+	}
+	function b_normal() {
+		var txtFirstNumberValue = document.getElementById('pkb_b').value;
+		var txtSecondNumberValue = document.getElementById('denda_b').value;
+		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('total_b').value = result;
+		}
+	}
+	function b_bulan() {
+		var txtFirstNumberValue = document.getElementById('pkb_bu').value;
+		var txtSecondNumberValue = document.getElementById('denda_bu').value;
+		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('total_bu').value = result;
+		}
 
-      var txtFirstNumberValue = document.getElementById('pkb_bu').value;
-      var txtSecondNumberValue = document.getElementById('denda_ba').value;
-      var txtThreeNumberValue = document.getElementById('telat_bln').value;
-      var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
-      if (!isNaN(result)) {
-         document.getElementById('total_ba').value = result;
-      }
-}
+		var txtFirstNumberValue = document.getElementById('pkb_bu').value;
+		var txtSecondNumberValue = document.getElementById('denda_ba').value;
+		var txtThreeNumberValue = document.getElementById('telat_bln').value;
+		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('total_ba').value = result;
+		}
+	}
 </script>
 <script type="text/javascript">
 	function haks() {
