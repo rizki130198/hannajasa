@@ -16,6 +16,7 @@ class M_back extends CI_Model {
 					$val = $this->db->insert('users', array(
 						'nama' => $this->input->post('nama',TRUE),
 						'email' => $this->input->post('email',TRUE),
+						'username' => $this->input->post('user',TRUE),
 						'password' => md5($this->input->post('password',TRUE)),
 						'ulang_password' => $this->input->post('ulang_password',TRUE),
 						'hak_akses' => $this->input->post('hak_akses'),

@@ -47,4 +47,19 @@ class Main extends CI_Controller {
 		$sess = $this->session->sess_destroy();
 		redirect('welcome/login');
 	}
+	public function cetak_pdf()
+	{
+		$data = array(
+			"dataku" => array(
+				"nama" => "Fahmi",
+				"url" => "timggal foreach aja"
+			)
+		);
+		$this->load->library('pdf');
+
+		$this->pdf->setPaper('A4', 'landscape');
+		$this->pdf->filename = "namafile.pdf";
+		$this->pdf->load_view('admin/cetakpdf',$data);
+
+	}
 }

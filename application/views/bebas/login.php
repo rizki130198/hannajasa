@@ -79,7 +79,7 @@ body#LoginForm{ background-color:#dedede;padding:10px;}
           <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
         <div class="forgot">
-          <a href="reset.html">Lupa kata sandi?</a>
+          <a href="#">Lupa kata sandi?</a>
         </div>
         <button type="submit" class="btn btn-primary">Masuk</button>
         <!-- <h5 style="margin-top: 20px;">&copy 2019 CV. Hanna Jasa</h5> -->

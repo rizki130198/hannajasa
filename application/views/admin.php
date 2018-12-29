@@ -239,8 +239,8 @@ if ($uri=="eksporpdf") {
 		<?php 
 		$u3 = $this->uri->segment(3);
 		$u2 = $this->uri->segment(2);
-		$i = $this->session->userdata('id_user');
-		if ($i==null) {
+		$i = $this->session->userdata('id');
+		if ($i==NULL) {
 			redirect(site_url('welcome/login'));
 		}else{
 			if ($u2 == "dashboard") {
@@ -259,7 +259,7 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/perhitungan/balik-nama');	
 			}else if ($u2 == "harga") {
 				$this->load->view('admin/harga');	
-			}	
+			}
 		}
 		?>
 		<footer class="footer">
@@ -409,37 +409,15 @@ function b_bulan() {
 		if ($('#balik_nama').val() == 'normal') {
 			$('#pkb_n').show();
 			$('#pkb_bulan').hide();
-			// $('#pkb_tahun').hide();
-			$('#bulan').hide();
-			// $('#tahun').hide();
-			$('#sank_pkb').hide();
-			// $('#sank_pkb_tahun').hide();
-			$('#swd_n').show();
-			$('#adm_n').show();
-			$('#sank_swd').hide();
-			$('#total_n').show();
+			$('#pkb_tahun').hide();
 		}else if($('#balik_nama').val() == 'telat bulanan') { 
 			$('#pkb_n').hide();
+			$('#pkb_tahun').hide();
 			$('#pkb_bulan').show();
-			// $('#pkb_tahun').hide();
-			$('#bulan').show();
-			// $('#tahun').hide();
-			$('#sank_pkb').show();
-			// $('#sank_pkb_tahun').hide();
-			$('#swd_n').show();
-			$('#adm_n').show();
-			$('#sank_swd').show();
-			$('#total_n').show();
 		}else if($('#balik_nama').val() == 'Telat lebih dari setahun') { 
 			$('#pkb_n').hide();
 			$('#pkb_tahun').show();
-			$('#bulan').hide();
-			$('#tahun').show();
-			$('#sank_pkb').hide();
-			$('#sank_pkb_tahun').show();
-			$('#swd_n').show();
-			$('#sank_swd').show();
-			$('#total_n').show();
+			$('#pkb_bulan').hide();
 		}else{
 			$('#pkb_n').hide();
 			$('#adm_n').hide();

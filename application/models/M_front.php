@@ -5,12 +5,18 @@ class M_front extends CI_Model {
 
 	public function proses_log($u,$p)
 	{
-		$log = $this->db->get_where('users',array('nama' =>$u,'password' => md5($p)));
+		$this->db->from('users');
+		$this->db->select('*');
+		$this->db->where('username', $u);
+		$this->db->where('password', md5($p));
+		$this->db->or_where('email', $u);
+		$log = $this->db->get();
 		if ($log->num_rows() > 0) {
 			$x = $log->row();
 			$sessi = array(
-				'id_user' => $x->id_user, 
+				'id' => $x->id_users, 
 				'email' => $x->email, 
+				'user' => $x->username, 
 				'nama' => $x->nama, 
 				'hak_akses' => $x->hak_akses
 			);
