@@ -22,6 +22,11 @@ class Main extends CI_Controller {
 		$data['title'] = "Halaman Transaksi Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
+	public function c_perpanjang()
+	{
+		$data['title'] = "Halaman Cetak Perpanjang STNK";
+		$this->load->view('admin',$data);
+	}
 	public function balik_nama()
 	{
 		$data['title'] = "Halaman Balik Nama STNK";
