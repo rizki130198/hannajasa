@@ -192,7 +192,7 @@
 $uri = $this->uri->segment(2);
 if ($uri=="eksporpdf") {
 }else{ ?>
-	<!-- <div id="loader" style="z-index:9999;position: fixed;width: 100%;height:100%;background: rgba(255,255,255,.8);
+	<div id="loader" style="z-index:9999;position: fixed;width: 100%;height:100%;background: rgba(255,255,255,.8);
 	display: flex;
 	align-items: center;
 	justify-content: center">
@@ -200,7 +200,7 @@ if ($uri=="eksporpdf") {
 		<div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
 		<center>Harap Tunggu</center>
 	</div>
-</div> -->
+</div>
 <?php }?>
 <div class="wrapper">
 
