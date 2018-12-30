@@ -20,8 +20,8 @@ class Main extends CI_Controller {
 	//start perpanjang//
 	public function perpanjang()
 	{
-		$data['title'] = "Halaman Perpanjang STNK";
 		$data['catat'] = $this->db->get('catatan');
+		$data['title'] = "Halaman Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_p()
@@ -34,11 +34,10 @@ class Main extends CI_Controller {
 	//start balik nama//
 	public function balik_nama()
 	{
-		$data['title'] = "Halaman Cetak Perpanjang STNK";
 		$this->load->library('pdf');
 		$this->pdf->setPaper('A1', 'landscape');
 		$this->pdf->filename = "laporan-petanikode.pdf";
-		$data['title'] = "Halaman Balik Nama STNK";
+		$data['title'] = "Halaman Cetak Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
 	//end balik nama//

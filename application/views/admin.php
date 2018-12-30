@@ -309,7 +309,7 @@ if ($uri=="eksporpdf") {
 <?php 
 $uri = $this->uri->segment(2);
 if ($uri=="cetak") { ?>
-<script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script>
+<!-- <script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script> -->
 <?php }else{ ?>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
 <?php } ?>
@@ -321,7 +321,7 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('assets/js/demo.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('assets/js/hanajasa.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="<?=base_url('assets/js/hanajasa.js');?>"></script>
 </html>
