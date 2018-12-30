@@ -5,7 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?=$title;?></title>
 	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css');?>">
+	<?php 
+	$uri = $this->uri->segment(2);
+	if ($uri=="cetak") { ?>
+		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap4.min.css');?>">
+	<?php }else{ ?>
+		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css');?>">
+	<?php } ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/material-dashboard.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/demo.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('public/css/jquery.toast.css');?>">
@@ -200,13 +206,13 @@ if ($uri=="eksporpdf") {
 
 	<!-- sidebar -->
 	<?php $uri = $this->uri->segment(2);
-	if ($uri=="c_perpanjang") {
+	if ($uri=="cetak") {
 	}else{ 
 		$this->load->view('include/sidebar-admin');
 	} ?>
 	<!-- Konfigurasi File -->
 	<?php $uri = $this->uri->segment(2);
-	if ($uri=="c_perpanjang") {
+	if ($uri=="cetak") {
 	}else{ ?>
 		<div class="main-panel">
 			<?php $this->load->view('include/navbar'); ?>
@@ -263,10 +269,16 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/perhitungan/perpanjang');	
 			}else if ($u2 == "transaksi_p") {
 				$this->load->view('admin/transaksi/transaksi_p');
-			}else if ($u2 == "c_perpanjang") {
+			}else if ($u3 == "c_perpanjang") {
 				$this->load->view('admin/cetak/c_perpanjang');	
 			}else if ($u2 == "balik_nama") {
-				$this->load->view('admin/perhitungan/balik-nama');	
+				$this->load->view('admin/perhitungan/balik-nama');
+			}else if ($u2 == "berkas_jadi") {
+				$this->load->view('admin/berkas_jadi');	
+			}else if ($u2 == "input_berkas") {
+				$this->load->view('admin/transaksi/transaksi_berkas');	
+			}else if ($u3 == "c_berkas") {
+				$this->load->view('admin/cetak/c_berkas');	
 			}else if ($u2 == "harga") {
 				$this->load->view('admin/harga');	
 			}else{
@@ -276,7 +288,7 @@ if ($uri=="eksporpdf") {
 		?>
 		<?php 
 		$uri = $this->uri->segment(2);
-		if ($uri=="c_perpanjang") {
+		if ($uri=="cetak") {
 		}else{ ?>
 		<footer class="footer">
 			<div class="container-fluid">
@@ -294,15 +306,21 @@ if ($uri=="eksporpdf") {
 </div>	
 </body>
 <script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>
+<?php 
+$uri = $this->uri->segment(2);
+if ($uri=="cetak") { ?>
+<script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script>
+<?php }else{ ?>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
+<?php } ?>
 <script type="text/javascript" src="<?=base_url('assets/js/material.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/arrive.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/perfect-scrollbar.jquery.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap-notify.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/material-dashboard.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/demo.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 </html>
