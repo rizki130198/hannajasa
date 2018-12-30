@@ -42,6 +42,10 @@
                     echo "Halaman Perpanjang STNK";
                 }elseif ($this->uri->segment(2)=="transaksi_p") {
                     echo "Halaman Transaksi Perpanjang STNK";
+                }elseif ($this->uri->segment(2)=="berkas_jadi") {
+                    echo "Halaman Berkas Jadi";    
+                }elseif ($this->uri->segment(2)=="input_berkas") {
+                    echo "Halaman Input Berkas Jadi";    
                 }elseif ($this->uri->segment(2)=="balik_nama") {
                     echo "Halaman Balik Nama STNK";
                 }elseif ($this->uri->segment(2)=="harga") {
@@ -58,19 +62,6 @@
                     </a>
                 </li>
             </ul>
-            <form method="get" action="<?php echo site_url('cp/cari_data');?>" class="navbar-form navbar-right" role="search">
-                <div class="form-group  is-empty">
-                    <input type="text" class="form-control search_box" autocomplete="off" name="cari" id="cari" onkeyup="ajaxSearch();" placeholder="Cari Data">
-                    <span class="material-input"></span>
-                </div>
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                    <i class="material-icons">search</i>
-                    <div class="ripple-container"></div>
-                </button>
-                <div id="suggestions">
-                    <div id="autoSuggestionsList"></div>
-                </div>
-            </form>
         </div>
     </div>
 </nav>

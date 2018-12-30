@@ -5,7 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?=$title;?></title>
 	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css');?>">
+	<?php 
+	$uri = $this->uri->segment(2);
+	if ($uri=="cetak") { ?>
+		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap4.min.css');?>">
+	<?php }else{ ?>
+		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css');?>">
+	<?php } ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/material-dashboard.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/demo.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('public/css/jquery.toast.css');?>">
@@ -200,13 +206,13 @@ if ($uri=="eksporpdf") {
 
 	<!-- sidebar -->
 	<?php $uri = $this->uri->segment(2);
-	if ($uri=="c_perpanjang") {
+	if ($uri=="cetak") {
 	}else{ 
 		$this->load->view('include/sidebar-admin');
 	} ?>
 	<!-- Konfigurasi File -->
 	<?php $uri = $this->uri->segment(2);
-	if ($uri=="c_perpanjang") {
+	if ($uri=="cetak") {
 	}else{ ?>
 		<div class="main-panel">
 			<?php $this->load->view('include/navbar'); ?>
@@ -263,10 +269,16 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/perhitungan/perpanjang');	
 			}else if ($u2 == "transaksi_p") {
 				$this->load->view('admin/transaksi/transaksi_p');
-			}else if ($u2 == "c_perpanjang") {
+			}else if ($u3 == "c_perpanjang") {
 				$this->load->view('admin/cetak/c_perpanjang');	
 			}else if ($u2 == "balik_nama") {
-				$this->load->view('admin/perhitungan/balik-nama');	
+				$this->load->view('admin/perhitungan/balik-nama');
+			}else if ($u2 == "berkas_jadi") {
+				$this->load->view('admin/berkas_jadi');	
+			}else if ($u2 == "input_berkas") {
+				$this->load->view('admin/transaksi/transaksi_berkas');	
+			}else if ($u3 == "c_berkas") {
+				$this->load->view('admin/cetak/c_berkas');	
 			}else if ($u2 == "harga") {
 				$this->load->view('admin/harga');	
 			}	
@@ -274,7 +286,7 @@ if ($uri=="eksporpdf") {
 		?>
 		<?php 
 		$uri = $this->uri->segment(2);
-		if ($uri=="c_perpanjang") {
+		if ($uri=="cetak") {
 		}else{ ?>
 		<footer class="footer">
 			<div class="container-fluid">
@@ -292,16 +304,41 @@ if ($uri=="eksporpdf") {
 </div>	
 </body>
 <script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>
+<?php 
+$uri = $this->uri->segment(2);
+if ($uri=="cetak") { ?>
+<script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script>
+<?php }else{ ?>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
+<?php } ?>
 <script type="text/javascript" src="<?=base_url('assets/js/material.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/arrive.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/perfect-scrollbar.jquery.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap-notify.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/material-dashboard.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/demo.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+      $('#berkasjadi').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+          [10, 25, 50, -1],
+          [10, 25, 50, "All"]
+        ],
+        responsive: true,
+        language: {
+          search: "_INPUT_",
+          searchPlaceholder: "Cari Berkas",
+        }
+      });
+
+      var table = $('#datatable').DataTable();
+    });
+</script>
 <script>
 	$( function() {
 		$( "#datepicker" ).datepicker();
@@ -538,110 +575,50 @@ if ($uri=="eksporpdf") {
 }
 </script>
 <script type="text/javascript">
-	var rupiah = document.getElementById("rupiah");
-	rupiah.addEventListener("keyup", function(e) {
-		rupiah.value = formatRupiah(this.value, "Rp. ");
-	});
+	var rupiah = document.getElementById('rupiah');
+	rupiah.addEventListener('keyup', function(e){
+			// tambahkan 'Rp.' pada saat form di ketik
+			// gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+			rupiah.value = formatRupiah(this.value, 'Rp. ');
+		});
 
-	function formatRupiah(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, "").toString(),
-		split = number_string.split(","),
-		sisa = split[0].length % 3,
-		rupiah = split[0].substr(0, sisa),
-		ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+	/* Fungsi formatRupiah */
+	function formatRupiah(angka, prefix){
+		var number_string = angka.replace(/[^,\d]/g, '').toString(),
+		split   		= number_string.split(','),
+		sisa     		= split[0].length % 3,
+		rupiah     		= split[0].substr(0, sisa),
+		ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
 
-		if (ribuan) {
-			separator = sisa ? "." : "";
-			rupiah += separator + ribuan.join(".");
+			// tambahkan titik jika yang di input sudah menjadi angka ribuan
+			if(ribuan){
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+
+			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 		}
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+    var num = $('div.number').text()
+    num = addPeriod(num);
+    $('div.number').text('Rp. '+num)
+});
 
-		rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
-		return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
-	}
-	//batas//
-	var rupiah2 = document.getElementById("rupiah2");
-	rupiah2.addEventListener("keyup", function(e) {
-		rupiah2.value = formatRupiah2(this.value, "Rp. ");
-	});
-
-	function formatRupiah2(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, "").toString(),
-		split = number_string.split(","),
-		sisa = split[0].length % 3,
-		rupiah2 = split[0].substr(0, sisa),
-		ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-		if (ribuan) {
-			separator = sisa ? "." : "";
-			rupiah2 += separator + ribuan.join(".");
-		}
-
-		rupiah2 = split[1] != undefined ? rupiah2 + "," + split[1] : rupiah2;
-		return prefix == undefined ? rupiah2 : rupiah2 ? "Rp. " + rupiah2 : "";
-	}
-	//batas//
-	var rupiah3 = document.getElementById("rupiah3");
-	rupiah3.addEventListener("keyup", function(e) {
-		rupiah3.value = formatRupiah3(this.value, "Rp. ");
-	});
-
-	function formatRupiah3(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, "").toString(),
-		split = number_string.split(","),
-		sisa = split[0].length % 3,
-		rupiah3 = split[0].substr(0, sisa),
-		ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-		if (ribuan) {
-			separator = sisa ? "." : "";
-			rupiah3 += separator + ribuan.join(".");
-		}
-
-		rupiah3 = split[1] != undefined ? rupiah3 + "," + split[1] : rupiah3;
-		return prefix == undefined ? rupiah3 : rupiah3 ? "Rp. " + rupiah3 : "";
-	}
-
-	var rupiah4 = document.getElementById("rupiah4");
-	rupiah4.addEventListener("keyup", function(e) {
-		rupiah4.value = formatRupiah4(this.value, "Rp. ");
-	});
-
-	function formatRupiah4(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, "").toString(),
-		split = number_string.split(","),
-		sisa = split[0].length % 3,
-		rupiah4 = split[0].substr(0, sisa),
-		ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-		if (ribuan) {
-			separator = sisa ? "." : "";
-			rupiah4 += separator + ribuan.join(".");
-		}
-
-		rupiah4 = split[1] != undefined ? rupiah4 + "," + split[1] : rupiah4;
-		return prefix == undefined ? rupiah4 : rupiah4 ? "Rp. " + rupiah4 : "";
-	}
-
-	var rupiah5 = document.getElementById("rupiah5");
-	rupiah5.addEventListener("keyup", function(e) {
-		rupiah5.value = formatRupiah5(this.value, "Rp. ");
-	});
-
-	function formatRupiah5(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, "").toString(),
-		split = number_string.split(","),
-		sisa = split[0].length % 3,
-		rupiah5 = split[0].substr(0, sisa),
-		ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-		if (ribuan) {
-			separator = sisa ? "." : "";
-			rupiah5 += separator + ribuan.join(".");
-		}
-
-		rupiah5 = split[1] != undefined ? rupiah5 + "," + split[1] : rupiah5;
-		return prefix == undefined ? rupiah5 : rupiah5 ? "Rp. " + rupiah5 : "";
-	}
+function addPeriod(nStr)
+{
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+    }
+    return x1 + x2;
+}
 </script>
 <script type="text/javascript">
 

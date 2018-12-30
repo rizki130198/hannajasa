@@ -58,8 +58,8 @@ li.active a{
                     <p>Perhitungan</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('cp/pengaduan/aparat');?>">
+            <li class="<?php if($this->uri->segment(2)=="berkas_jadi"){echo "active";}?>">
+                <a href="<?=site_url('main/berkas_jadi');?>">
                     <i class="material-icons">content_paste</i>
                     <p>Input Berkas Jadi</p>
                 </a>

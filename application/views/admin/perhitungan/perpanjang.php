@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header" style="background-color: #00c0ef;">
-						<h4 class="title">Perpanjang STNK</h4>
+						<h4 class="title">Perhitungann Perpanjang STNK</h4>
 					</div>
 					<div class="card-content">
 						
