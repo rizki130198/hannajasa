@@ -56,7 +56,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="<?php echo site_url('cp/profile'); ?>">
+                    <a href="<?php echo site_url(''); ?>">
                         <i class="material-icons">person</i>
                         <p class="hidden-lg hidden-md">Profile</p>
                     </a>

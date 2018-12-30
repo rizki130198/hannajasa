@@ -108,9 +108,9 @@ table tr td{
 									</div>
 								</div>
 							</div>
-							<hr style="border-color: #333;border-top:solid 2px;margin-top">
+							<hr style="border-color: #333;border-top:solid 2px;margin-top: -10px !important;">
 							<div class="col-md-12" style="">
-								<h4 style="font-weight: bold;text-align: right;margin-top: -10px;">No : <spna style="text-decoration: underline;">01293018203122018</spna></h4>
+								<h4 style="font-weight: bold;text-align: right;margin-top: -10px;margin-bottom: 0 !important;">No : <span style="text-decoration: underline;padding-bottom: 0 !important;">01293018203122018</span></h4>
 							</div>
 							<div class="form-group row" style="margin-top:-10px !important;margin: 0 !important;">
 								<label class="col-sm-2 col-form-label">Sudah terima dari (atas nama)<span class="titik2">:</span></label>

@@ -58,14 +58,14 @@ li.active a{
                     <p>Perhitungan</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="berkas_jadi"){echo "active";}?>">
+            <li class="<?php if($this->uri->segment(2)=="berkas_jadi"){echo "active";}elseif ($this->uri->segment(2)=="input_berkas"){echo "active";}?>">
                 <a href="<?=site_url('main/berkas_jadi');?>">
                     <i class="material-icons">content_paste</i>
                     <p>Input Berkas Jadi</p>
                 </a>
             </li>
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('cp/pengaduan/aparat');?>">
+                <a href="<?=site_url('');?>">
                     <i class="material-icons">insert_chart_outlined</i>
                     <p>Progress Karyawan</p>
                 </a>
@@ -79,13 +79,13 @@ li.active a{
             </li>
             <?php } ?>
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('cp/pengaduan/aparat');?>">
+                <a href="<?=site_url('');?>">
                     <i class="material-icons">show_chart</i>
                     <p>Report</p>
                 </a>
             </li>
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('cp/pengaduan/aparat');?>">
+                <a href="<?=site_url('');?>">
                     <i class="material-icons">swap_horizontal</i>
                     <p>Penggantian Kasir</p>
                 </a>
