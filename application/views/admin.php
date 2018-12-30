@@ -323,6 +323,13 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+    $('#gantiplat').change(function () {
+      $('.ganti-plat').fadeToggle();
+    });
+});
+</script>
 <script>
 	$(document).ready(function() {
       $('#berkasjadi').DataTable({
@@ -413,6 +420,9 @@ if ($uri=="cetak") { ?>
 			$('#swd_t').hide();
 			$('#sank_swd').hide();
 			$('#sank_swd_t').hide();
+			$('#cek_plat').hide();
+			$('#adm_stnk').hide();
+			$('#adm_tnkb').hide();
 			$('#total_n').show();
 		}else if($('#hak').val() == 'telat bulanan') { 
 			$('#pkb_n').hide();
@@ -427,6 +437,9 @@ if ($uri=="cetak") { ?>
 			$('#swd_t').hide();
 			$('#sank_swd').show();
 			$('#sank_swd_t').hide();
+			$('#cek_plat').hide();
+			$('#adm_stnk').hide();
+			$('#adm_tnkb').hide();
 			$('#total_n').show();
 		}else if($('#hak').val() == 'Telat lebih dari setahun') { 
 			$('#pkb_n').show();
@@ -441,6 +454,9 @@ if ($uri=="cetak") { ?>
 			$('#swd_t').show();
 			$('#sank_swd').show();
 			$('#sank_swd_t').show();
+			$('#cek_plat').show();
+			$('#adm_stnk').hide();
+			$('#adm_tnkb').hide();
 			$('#total_n').show();
 		}else{
 			$('#pkb_n').hide();
@@ -455,6 +471,9 @@ if ($uri=="cetak") { ?>
 			$('#swd_t').hide();
 			$('#sank_swd').hide();
 			$('#sank_swd_t').hide();
+			$('#cek_plat').hide();
+			$('#adm_stnk').hide();
+			$('#adm_tnkb').hide();
 			$('#total_n').hide();
 		}
 	}

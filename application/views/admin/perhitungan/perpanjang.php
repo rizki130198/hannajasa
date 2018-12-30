@@ -1,3 +1,8 @@
+<style type="text/css">
+	.form-group{
+		margin-top: 10px;
+	}
+</style>
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">
@@ -158,6 +163,37 @@
 								</div>
 							</div>
 							<!-- End Bulan -->
+							
+							<!-- Start Ganti Plat -->
+							<div class="row" id="cek_plat" style="display: none;">
+								<div class="col-md-12">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" id="gantiplat" value="ada"> Ganti Plat
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row ganti-plat" id="adm_stnk" style="display: none;">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="control-label">Adm STNK</label>
+										<input type="text" disabled="" name="adm_stnk" value="100.000" class="form-control" required="">
+										<span class="material-input"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row ganti-plat" id="adm_tnkb" style="display: none;">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="control-label">Adm TNKB</label>
+										<input type="text" disabled="" name="adm_tnkb" value="100.000" class="form-control" required="">
+										<span class="material-input"></span>
+									</div>
+								</div>
+							</div>
+							<!-- End Ganti Plat -->
+
 							<div class="row" id="total_n" style="display: none;">
 								<div class="col-md-12">
 									<div class="form-group">
