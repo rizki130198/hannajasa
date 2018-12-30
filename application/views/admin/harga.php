@@ -1,3 +1,11 @@
+<style type="text/css">
+	.form-group{
+		margin: 0;
+	}
+	.input-group .input-group-addon{
+		padding: 0 5px 0 0; 
+	}
+</style>
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">
@@ -12,11 +20,15 @@
 							<?php 
 								foreach ($harga as $rowHarga) { 
 							?>
+							<h3 style="font-weight: bold;margin-bottom: 0;">SWDKLLJ</h3>
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
 										<label class="control-label">SWDKLLJ Motor</label>
-										<input type="text" name="swdk_r2" value="<?=$rowHarga->swdk_r2 ?>" class="form-control" required="">
+										<div class="input-group">
+											<span class="input-group-addon">Rp.</span>
+											<input type="text" name="swdk_r2" value="<?=$rowHarga->swdk_r2 ?>" class="form-control" required="">
+										</div>
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -35,6 +47,7 @@
 									</div>
 								</div>
 							</div>
+							<h3 style="font-weight: bold;margin-bottom: 0;">STNK</h3>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -51,6 +64,7 @@
 									</div>
 								</div>
 							</div>
+							<h3 style="font-weight: bold;margin-bottom: 0;">TNKB</h3>
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group">
@@ -74,6 +88,7 @@
 									</div>
 								</div>
 							</div>
+							<h3 style="font-weight: bold;margin-bottom: 0;">Sanksi SWDKLLJ</h3>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">

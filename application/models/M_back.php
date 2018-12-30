@@ -32,6 +32,24 @@ class M_back extends CI_Model {
 			}
 		}
 	}
+	public function load_data()
+	{
+		$this->db->order_by('id', 'DESC');
+		$query = $this->db->get('blanko');
+		return $query->result_array();
+	}
+	function act_update_blanko($data, $id)
+	{
+		$this->db->where('id', $id);
+		$query = $this->db->update('blanko', $data);
+		if ($query == TRUE) {
+			$tgl_update = date('d-m-Y');
+			$this->db->update('blanko', array(
+				'id'=>$id,
+				'tgl_update'=>$tgl_update
+			));	
+		}	
+	}
 }
 
 /* End of file M_back.php */

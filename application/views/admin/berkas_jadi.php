@@ -162,6 +162,7 @@
                 <thead>
                  <tr>
                   <th>No Transaksi</th>
+                  <th>Jenis Proses</th>
                   <th>Atas Nama</th>
                   <th>Nomor Telp</th>
                   <th>Uang Muka (DP)</th>
@@ -173,6 +174,7 @@
               <tbody>
                <tr>
                 <td>#12345630122018</td>
+                <td>Perpanjang <span style="color: red;">(Normal)</span></td>
                 <td>Rizki</td>
                 <td>085714668923</td>
                 <td>Rp. 200.000</td>
@@ -207,6 +209,7 @@
             <tfoot>
               <tr>
                <th>No Transaksi</th>
+               <th>Jenis Proses</th>
                <th>Atas Nama</th>
                <th>Nomor Telp</th>
                <th>Uang Muka (DP)</th>

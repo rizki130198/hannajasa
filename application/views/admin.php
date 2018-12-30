@@ -281,6 +281,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/cetak/c_berkas');	
 			}else if ($u2 == "harga") {
 				$this->load->view('admin/harga');	
+			}else if ($u2 == "blanko") {
+				$this->load->view('admin/blanko');	
 			}	
 		}
 		?>
