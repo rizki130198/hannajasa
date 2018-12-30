@@ -15,6 +15,7 @@ class Main extends CI_Controller {
 	public function perpanjang()
 	{
 		$data['title'] = "Halaman Perpanjang STNK";
+		$data['catat'] = $this->db->get('catatan');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_p()
@@ -25,6 +26,9 @@ class Main extends CI_Controller {
 	public function c_perpanjang()
 	{
 		$data['title'] = "Halaman Cetak Perpanjang STNK";
+		$this->load->library('pdf');
+		$this->pdf->setPaper('A1', 'landscape');
+		$this->pdf->filename = "laporan-petanikode.pdf";
 		$this->load->view('admin',$data);
 	}
 	public function balik_nama()
@@ -40,7 +44,7 @@ class Main extends CI_Controller {
 	public function harga()
 	{
 		$data['title'] = "Halaman Daftar Harga";
-		$data['harga'] = $this->db->get('harga')->result();
+		$data['harga'] = $this->db->get('catatan')->result();
 		$this->load->view('admin',$data);
 	}
 	public function proses_daftar()
@@ -51,20 +55,5 @@ class Main extends CI_Controller {
 	{
 		$sess = $this->session->sess_destroy();
 		redirect('welcome/login');
-	}
-	public function cetak_pdf()
-	{
-		$data = array(
-			"dataku" => array(
-				"nama" => "Fahmi",
-				"url" => "timggal foreach aja"
-			)
-		);
-		$this->load->library('pdf');
-
-		$this->pdf->setPaper('A4', 'landscape');
-		$this->pdf->filename = "namafile.pdf";
-		$this->pdf->load_view('admin/cetakpdf',$data);
-
 	}
 }
