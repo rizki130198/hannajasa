@@ -46,10 +46,16 @@ class Main extends CI_Controller {
 	public function cetak()
 	{
 		if ($this->uri->segment(3)=="c_berkas") {
+			$this->load->library('pdf');
+			$this->pdf->setPaper('A1', 'portrait');
+			$this->pdf->filename = "laporan-petanikode.pdf";
 			$data['title'] = "Halaman Cetak Berkas Jadi";
-			$this->load->view('admin',$data);
+			$this->pdf->load_view('admin',$data);
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
 			$data['title'] = "Halaman Cetak Perpanjang STNK";
+			$this->load->library('pdf');
+			$this->pdf->setPaper('A1', 'portrait');
+			$this->pdf->filename = "laporan-petanikode.pdf";
 			$this->load->view('admin',$data);
 		}else{
 

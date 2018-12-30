@@ -192,7 +192,7 @@
 $uri = $this->uri->segment(2);
 if ($uri=="eksporpdf") {
 }else{ ?>
-	<div id="loader" style="z-index:9999;position: fixed;width: 100%;height:100%;background: rgba(255,255,255,.8);
+	<!-- <div id="loader" style="z-index:9999;position: fixed;width: 100%;height:100%;background: rgba(255,255,255,.8);
 	display: flex;
 	align-items: center;
 	justify-content: center">
@@ -200,7 +200,7 @@ if ($uri=="eksporpdf") {
 		<div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
 		<center>Harap Tunggu</center>
 	</div>
-</div>
+</div> -->
 <?php }?>
 <div class="wrapper">
 
@@ -309,19 +309,19 @@ if ($uri=="eksporpdf") {
 <?php 
 $uri = $this->uri->segment(2);
 if ($uri=="cetak") { ?>
-<!-- <script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script> -->
+<script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script>
 <?php }else{ ?>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
 <?php } ?>
 <script type="text/javascript" src="<?=base_url('assets/js/material.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/arrive.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/perfect-scrollbar.jquery.min.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/bootstrap-notify.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/material-dashboard.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/demo.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
-<script type="text/javascript" src="<?=base_url('assets/js/hanajasa.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </html>
