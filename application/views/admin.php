@@ -323,4 +323,5 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="<?=base_url('assets/js/hanajasa.js');?>"></script>
 </html>
