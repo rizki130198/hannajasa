@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 	//start dashboard//
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('m_back');
+	}
 	public function dashboard()
 	{
 		$data['title'] = "Halaman Dashboard";
@@ -96,6 +101,30 @@ class Main extends CI_Controller {
 		$this->load->view('admin',$data);
 	}
 	//end daftar harga//
+
+	//start Stok Blanko//
+	public function blanko()
+	{
+		$data['title'] = "Halaman Stok Blanko";
+		$data['blanko'] = $this->db->get('blanko')->result();
+		$this->load->view('admin',$data);
+	}
+
+	public function load_data()
+	{
+		$data = $this->m_back->load_data();
+		echo json_encode($data);
+	}
+	public function update_blanko()
+	{
+		$data = array($this->input->post('table_column') => $this->input->post('value'));
+		$this->M_back->act_update_blanko($data, $this->input->post('id'));
+	}
+	//end Stok Blanko//
+	public function proses_perpanjang()
+	{
+		$this->M_back->p_perpanjang();
+	}
 	public function logout()
 	{
 		$sess = $this->session->sess_destroy();

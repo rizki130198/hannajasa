@@ -280,7 +280,9 @@ if ($uri=="eksporpdf") {
 			}else if ($u3 == "c_berkas") {
 				$this->load->view('admin/cetak/c_berkas');	
 			}else if ($u2 == "harga") {
-				$this->load->view('admin/harga');	
+				$this->load->view('admin/harga');
+			}else if ($u2 == "blanko") {
+				$this->load->view('admin/blanko');	
 			}else{
 				$this->load->view('admin/dashboard');
 			}
@@ -323,5 +325,7 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
+<script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </html>

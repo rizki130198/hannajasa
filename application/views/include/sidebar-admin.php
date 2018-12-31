@@ -70,6 +70,12 @@ li.active a{
                     <p>Progress Karyawan</p>
                 </a>
             </li>
+            <li class="<?php if($this->uri->segment(2)=="blanko"){echo "active";}?>">
+                <a href="<?=site_url('main/blanko');?>">
+                    <i class="material-icons">receipt</i>
+                    <p>Stok Blanko</p>
+                </a>
+            </li>
             <?php if($lvl=='super admin'){?>
             <li class="<?php if($this->uri->segment(2)=="harga"){echo "active";}?>">
                 <a href="<?=site_url('main/harga');?>">

@@ -33,6 +33,68 @@ class M_back extends CI_Model {
 			}
 		}
 	}
+	public function load_data()
+	{
+		$this->db->order_by('id', 'DESC');
+		$query = $this->db->get('blanko');
+		return $query->result_array();
+	}
+	function act_update_blanko($data, $id)
+	{
+		$this->db->where('id', $id);
+		$query = $this->db->update('blanko', $data);
+		if ($query == TRUE) {
+			$tgl_update = date('d-m-Y');
+			$this->db->update('blanko', array(
+				'id'=>$id,
+				'tgl_update'=>$tgl_update
+			));	
+		}	
+	}
+	public function p_perpanjang()
+	{
+		$jenis = $this->input->post('jenis');
+		$jenis_k = $this->input->post('jenis_k');
+		$pkb = $this->input->post('pkb');
+		$telat_bln= $this->input->post('telat');
+		$telat_thn= $this->input->post('telat_thn');
+		$sanksi_pkb = $this->input->post('sanksi_pkb');
+		$swdllj = $this->input->post('swdllj');
+		$gabungan = date("Y-m-d");
+		$day = date('D', strtotime($gabungan));
+		$dayList = array(
+			'Sun' => 'Minggu',
+			'Mon' => 'Senin',
+			'Tue' => 'Selasa',
+			'Wed' => 'Rabu',
+			'Thu' => 'Kamis',
+			'Fri' => 'Jumat',
+			'Sat' => 'Sabtu'
+		);
+		for ($i=0; $i < count($jenis) ; $i++) {
+			$query = $this->db->insert('perpanjang', array(
+				'jenis'=>$jenis,
+				'no'=>count($jenis).''.$gabungan,
+				'jenis'=>$jenis_k, 
+				'pkb'=>$pkb[$i],
+				'telat'=>$telat_bln[$i],
+				'telat_tahun'=>$telat_thn[$i],
+				'sanksi_pkb'=>$sanksi_pkb[$i],
+				'swdllj'=>$swdllj[$i],
+				'sanski_swdllj'=>$sanski_swdllj[$i],
+				'total'=>$total,
+				'hari'=>$dayList[$day],
+				'tanggal'=>$gabungan
+			));
+		}
+		if ($query==TRUE) {
+			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
+			redirect('main/perpanjang');
+		}else{
+			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
+			redirect('main/perpanjang');
+		}
+	}
 }
 
 /* End of file M_back.php */

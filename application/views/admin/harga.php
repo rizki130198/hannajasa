@@ -1,3 +1,11 @@
+<style type="text/css">
+	.form-group{
+		margin: 0;
+	}
+	.input-group .input-group-addon{
+		padding: 0 5px 0 0; 
+	}
+</style>
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">

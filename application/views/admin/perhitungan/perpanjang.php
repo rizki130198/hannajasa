@@ -1,3 +1,8 @@
+<style type="text/css">
+.form-group{
+	margin-top: 10px;
+}
+</style>
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">
@@ -8,12 +13,12 @@
 					</div>
 					<div class="card-content">
 						
-						<form id="form_p" name="form_p" method="post" accept-charset="utf-8">
+						<form action="<?=site_url('main/proses_perpanjang')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group is-empty">
 										<p>Jenis Perpanjang</p>
-										<select class="form-control" onchange="balik()" name="jenis" id="balik_nama" required="">
+										<select class="form-control" onchange="perpanjang()" name="jenis" id="balik_nama" required="">
 											<option value="">-- SILAHKAN PILIH --</option>
 											<option value="" disabled=""></option>
 											<option value="normal">Normal</option>
@@ -27,7 +32,7 @@
 									<div class="col-md-12">
 										<div class="form-group is-empty">
 											<p>Jenis Kendaraan</p>
-											<select class="form-control" name="jenis" required="" onchange="ambilselect()">
+											<select class="form-control" name="jenis_k" required="" onchange="ambilselect()">
 												<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 												<option value="" disabled=""></option>
 												<?php foreach ($catat->result() as $key): ?>
@@ -44,7 +49,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Telat Lebih 1 Tahun</h4>
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">PKB</label>
-													<input type="text" name="pkb[]" id="pkb" onkeyup="sum_t();" class="form-control rp" required="">
+													<input type="text" name="pkb[]" id="pkb_t" onkeyup="sum_t();" class="form-control rp" required="">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -54,7 +59,7 @@
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">Telat Tahun</label>
 													<input type="text" style="display: none;" id="denda" name="telat_thn" onkeyup="sum_t();" class="form-control" value="25%">
-													<input type="text" name="telat_thn[]" id="telat_thn" onkeyup="sum_t();" class="form-control" required="">
+													<input type="text" name="telat_thn" id="telat_thn" onkeyup="sum_t();" class="form-control" required="">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -81,7 +86,7 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">Sanksi SWDKLLJ</label>
-													<input type="text" name="sanski_swdllj[]" id="rupiah4" class="form-control" required="">
+													<input type="text" name="sanski_swdllj[]" id="rupiah" class="form-control" required="">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -97,7 +102,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Normal</h4>
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">PKB</label>
-													<input type="text" name="pkb[]" id="pkb" onkeyup="normal();" class="form-control" required="">
+													<input type="text" name="pkb[]" id="pkb_nor" onkeyup="normal();" class="form-control" required="">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -131,7 +136,7 @@
 												<div class="form-group label-floating is-empty" >
 													<label class="control-label">Telat Bulan</label>
 													<input type="text" style="display: none;" id="txt2" name="telat_bln" onkeyup="sum();" class="form-control" value="2%">
-													<input type="text" name="telat[]" id="txt3" onkeyup="sum();" class="form-control" required="">
+													<input type="text" name="telat" id="txt3" onkeyup="sum();" class="form-control" required="">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -158,14 +163,45 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">Sanksi SWDKLLJ</label>
-													<input type="text" name="sanski_swdllj[]" id="rupiah4" class="form-control" required="">
+													<input type="text" name="sanski_swdllj[]" id="rupiah2" class="form-control" required="">
 													<span class="material-input"></span>
 												</div>
 											</div>
 										</div>
 									</div>
 									<!-- End Bulan -->
-									<div class="row" id="total_n" style="display: none;">
+
+									<!-- Start Ganti Plat -->
+									<div class="row" id="cek_plat" style="display: none;">
+										<div class="col-md-12">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" id="gantiplat" value="ada"> Ganti Plat
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="row ganti-plat" id="adm_stnk" style="display: none;">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="control-label">Adm STNK</label>
+												<input type="text" disabled="" name="adm_stnk" value="100.000" class="form-control" required="">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row ganti-plat" id="adm_tnkb" style="display: none;">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="control-label">Adm TNKB</label>
+												<input type="text" disabled="" name="adm_tnkb" value="100.000" class="form-control" required="">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<!-- End Ganti Plat -->
+
+									<div class="row" id="total_n">
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
@@ -174,13 +210,15 @@
 											</div>
 										</div>
 									</div>
+
 								</div>
-								<button type="submit" class="btn btn-info pull-right">Submit</button>
-								<div class="clearfix"></div>
-							</form>
-						</div>
+							</div>
+							<button type="submit" class="btn btn-info pull-right">Submit</button>
+							<div class="clearfix"></div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>

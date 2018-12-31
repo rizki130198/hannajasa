@@ -50,6 +50,8 @@
                     echo "Halaman Balik Nama STNK";
                 }elseif ($this->uri->segment(2)=="harga") {
                     echo "Halaman Daftar Harga";
+                }elseif ($this->uri->segment(2)=="blanko") {
+                    echo "Halaman Stok Blanko";
                 } ?>
             </a>
         </div>
