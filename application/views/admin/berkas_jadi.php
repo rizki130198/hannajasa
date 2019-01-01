@@ -172,19 +172,21 @@
                 </tr>
               </thead>
               <tbody>
-               <tr>
-                <td>#12345630122018</td>
-                <td>Perpanjang <span style="color: red;">(Normal)</span></td>
-                <td>Rizki</td>
-                <td>085714668923</td>
-                <td>Rp. 200.000</td>
-                <td>Jakarta Timur</td>
-                <td>B 1237 EYR</td>
-                <td class="text-right">
-                  <a href="#approve" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a>
-                  <a href="#" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>
-                </td>
-                <div id="approve" class="modal fade">
+                <?php foreach ($berkas->result() as $key): ?>
+
+                 <tr>
+                  <td><?=$key->no?></td>
+                  <td><?=$key->no?> <span style="color: red;">(<?=$key->no?>)</span></td>
+                  <td><?=$key->no?></td>
+                  <td><?=$key->no?></td>
+                  <td><?=$key->no?></td>
+                  <td><?=$key->no?></td>
+                  <td><?=$key->no?></td>
+                  <td class="text-right">
+                    <a href="#approve<?=$key->no?>" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a>
+                    <a href="#" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>
+                  </td>
+                <div id="approve<?=$key->no?>" class="modal fade">
                   <div class="modal-dialog modal-confirm">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -192,32 +194,21 @@
                           <i class="material-icons">check</i>
                         </div>        
                         <h4 class="modal-title">Yakin ingin melanjutkan?</h4>  
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <a href="<?= site_url('main/cetak/c_berkas/'.$key->no) ?>" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
                       </div>
                       <div class="modal-body">
                         <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-success">Ya, lanjutakn</button>
+                        <a href="<?= site_url('main/cetak/c_berkas/'.$key->no) ?>" type="button" class="btn btn-success">Ya, lanjutakn</a>
                       </div>
                     </div>
                   </div>
                 </div>
+                <?php endforeach ?>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-               <th>No Transaksi</th>
-               <th>Jenis Proses</th>
-               <th>Atas Nama</th>
-               <th>Nomor Telp</th>
-               <th>Uang Muka (DP)</th>
-               <th>Wilayah</th>
-               <th>Nomor Polisi</th>
-               <th class="text-right">Actions</th>
-             </tr>
-           </tfoot>
          </table>
        </div>
      </div>

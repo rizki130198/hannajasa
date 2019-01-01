@@ -39,27 +39,68 @@ class M_back extends CI_Model {
 		$query = $this->db->get('blanko');
 		return $query->result_array();
 	}
-	function act_update_blanko($data, $id)
+	function act_update_blanko()
 	{
-		$this->db->where('id', $id);
-		$query = $this->db->update('blanko', $data);
-		if ($query == TRUE) {
-			$tgl_update = date('d-m-Y');
-			$this->db->update('blanko', array(
-				'id'=>$id,
-				'tgl_update'=>$tgl_update
-			));	
-		}	
+		$id = $this->input->post('id');
+		$query = $this->db->update('blanko', array(
+			'stok_blanko'=> $this->input->post('value'),
+			'tgl_update' => date('Y-m-d')
+		),array('id'=>$id));	
 	}
 	public function p_perpanjang()
 	{
+		$random = '0123456789';
+		$hitungrandom = strlen($random);
+		$hasilrandom = '';
+		for ($i=0; $i < 15 ; $i++) { 
+			$hasilrandom .= $random[rand(0,$hitungrandom - 1)];
+		}
 		$jenis = $this->input->post('jenis');
 		$jenis_k = $this->input->post('jenis_k');
-		$pkb = $this->input->post('pkb');
+		$pkb1 = $this->input->post('pkb1');
+		$pkb2 = $this->input->post('pkb2');
+		$pkb3 = $this->input->post('pkb3');
+		if ($pkb3 ==NULL AND $pkb2 == NULL) {
+			$pkb = $pkb1;
+		}else if($pkb3==NULL AND $pkb1 == NULL){
+			$pkb = $pkb2;
+		}else{
+			$pkb = $pkb3;
+		}
+
+		$sanksi_pkb1 = $this->input->post('sanksi_pkb1');
+		$sanksi_pkb2 = $this->input->post('sanksi_pkb2');
+		if ($sanksi_pkb1 ==NULL) {
+			$sanksi_pkb = $sanksi_pkb2;
+		}else{
+			$sanksi_pkb = $sanksi_pkb1;
+		}
+
+		$swdllj1 = $this->input->post('swdllj1');
+		$swdllj2 = $this->input->post('swdllj2');
+		$swdllj3 = $this->input->post('swdllj3');
+		if ($swdllj3 ==NULL AND $swdllj2 == NULL) {
+			$swdllj = $swdllj1;
+		}else if($swdllj3==NULL AND $swdllj1 == NULL){
+			$swdllj = $swdllj2;
+		}else{
+			$swdllj = $swdllj3;
+		}
+
+		$sanski_swdllj1 = $this->input->post('sanski_swdllj1');
+		$sanski_swdllj2 = $this->input->post('sanski_swdllj2');
+		if ($sanski_swdllj1 ==NULL) {
+			$sanski_swdllj = $sanski_swdllj2;
+		}else{
+			$sanski_swdllj = $sanski_swdllj1;
+		}
 		$telat_bln= $this->input->post('telat');
 		$telat_thn= $this->input->post('telat_thn');
-		$sanksi_pkb = $this->input->post('sanksi_pkb');
-		$swdllj = $this->input->post('swdllj');
+		$swdllj = $this->input->post('swdllj1');
+		$ganti = $this->input->post('ganti');
+		$adm_stnk = $this->input->post('adm_stnk');
+		$adm_tnkb = $this->input->post('adm_tnkb');
+		$total = $this->input->post('total');
 		$gabungan = date("Y-m-d");
 		$day = date('D', strtotime($gabungan));
 		$dayList = array(
@@ -71,22 +112,25 @@ class M_back extends CI_Model {
 			'Fri' => 'Jumat',
 			'Sat' => 'Sabtu'
 		);
-		for ($i=0; $i < count($jenis) ; $i++) {
-			$query = $this->db->insert('perpanjang', array(
-				'jenis'=>$jenis,
-				'no'=>count($jenis).''.$gabungan,
-				'jenis'=>$jenis_k, 
-				'pkb'=>$pkb[$i],
-				'telat'=>$telat_bln[$i],
-				'telat_tahun'=>$telat_thn[$i],
-				'sanksi_pkb'=>$sanksi_pkb[$i],
-				'swdllj'=>$swdllj[$i],
-				'sanski_swdllj'=>$sanski_swdllj[$i],
-				'total'=>$total,
-				'hari'=>$dayList[$day],
-				'tanggal'=>$gabungan
-			));
-		}
+		$query = $this->db->insert('perpanjang', array(
+			'id_user'=>$this->session->userdata('id'),
+			'no'=>$hasilrandom,
+			'perhitungan'=>"Perpanjang",
+			'jenis'=>$jenis,
+			'jenis_k'=>$jenis_k, 
+			'pkb'=>$pkb,
+			'telat'=>$telat_bln,
+			'telat_tahun'=>$telat_thn,
+			'sanksi_pkb'=>$sanksi_pkb,
+			'swdkllj'=>$swdllj,
+			'sanksi_swdkllj'=>$sanski_swdllj,
+			'ganti_plat'=>$ganti,
+			'adm_stnk'=>$adm_stnk,
+			'adm_tnkb'=>$adm_tnkb,
+			'total'=>$total,
+			'hari'=>$dayList[$day],
+			'tanggal'=>$gabungan
+		));
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			redirect('main/perpanjang');

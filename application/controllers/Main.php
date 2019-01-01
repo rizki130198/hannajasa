@@ -25,7 +25,7 @@ class Main extends CI_Controller {
 	//start perpanjang//
 	public function perpanjang()
 	{
-		$data['catat'] = $this->db->get('catatan');
+		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (3,4,5,6) GROUP BY jenis');
 		$data['title'] = "Halaman Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
@@ -51,17 +51,34 @@ class Main extends CI_Controller {
 	public function cetak()
 	{
 		if ($this->uri->segment(3)=="c_berkas") {
-			$this->load->library('pdf');
-			$this->pdf->setPaper('A1', 'portrait');
-			$this->pdf->filename = "laporan-petanikode.pdf";
 			$data['title'] = "Halaman Cetak Berkas Jadi";
-			$this->pdf->load_view('admin',$data);
+			$this->load->helper('pdfcrowd.php');
+			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "4fc1f2cf326428d1770205e98e97b617");
+			$client->setPageSize("A2");
+			$client->setOrientation("landscape");
+			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/'.$this->uri->segment(2).'/berkas/'.$this->uri->segment(4);
+			$pdf = $client->convertUrl($url);
+			// return var_dump($url);
+			header("Content-Type: application/pdf");
+			header("Cache-Control: no-cache");
+			header("Accept-Ranges: none");
+			header("Content-Disposition: inline; filename=\"example.pdf\"");
+			echo $pdf;
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
-			$data['title'] = "Halaman Cetak Perpanjang STNK";
-			$this->load->library('pdf');
-			$this->pdf->setPaper('A1', 'portrait');
-			$this->pdf->filename = "laporan-petanikode.pdf";
-			$this->load->view('admin',$data);
+			$id = $this->uri->segment(4);
+			$this->load->view('admin/cetak/c_perpanjang');
+			// $this->load->helper('pdfcrowd.php');
+			// $client = new \Pdfcrowd\HtmlToPdfClient("admin12", "4fc1f2cf326428d1770205e98e97b617");
+			// $client->setPageSize("A2");
+			// $client->setOrientation("landscape");
+			// $url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$this->uri->segment(3).'/'.$id;
+			// $pdf = $client->convertUrl("http://pantauair.com/testing/cetak.php");
+			// return var_dump($url);
+			// header("Content-Type: application/pdf");
+			// header("Cache-Control: no-cache");
+			// header("Accept-Ranges: none");
+			// header("Content-Disposition: inline; filename=\"example.pdf\"");
+			// echo $pdf;
 		}else{
 
 		}
@@ -72,6 +89,10 @@ class Main extends CI_Controller {
 	public function berkas_jadi()
 	{
 		$data['title'] = "Halaman Berkas Jadi";
+		$this->db->from('perpanjang');
+		$this->db->select('*');
+		$this->db->join('users', 'perpanjang.id_user = users.id_users');
+		$data['berkas'] = $this->db->get();
 		$this->load->view('admin',$data);
 	}
 	public function input_berkas()
@@ -80,6 +101,20 @@ class Main extends CI_Controller {
 		$this->load->view('admin',$data);
 	}
 	//end input berkas//
+	
+	//View Berkas
+	public function berkas($id)
+	{
+		$query = $this->db->get_where('perpanjang',array('no'=>$id));
+		if ($query->num_rows() > 0) {
+			$data['berkas'] = $query->row();
+		}else{
+			redirect('main/berkas_jadi');
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		}
+		$this->load->view('admin/berkas', $data);
+	}
+	//END
 
 	//start kasir//
 	public function daftar()
@@ -117,13 +152,26 @@ class Main extends CI_Controller {
 	}
 	public function update_blanko()
 	{
-		$data = array($this->input->post('table_column') => $this->input->post('value'));
-		$this->M_back->act_update_blanko($data, $this->input->post('id'));
+		$this->M_back->act_update_blanko();
 	}
 	//end Stok Blanko//
 	public function proses_perpanjang()
 	{
 		$this->M_back->p_perpanjang();
+	}
+	public function ambiljenis()
+	{
+		$jenis = $this->input->post('jenis');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (3,4,5,6) AND jenis="'.$jenis.'"');
+		$i = 0;
+		$data = "";
+		foreach ($query->result() as $key) {
+			$data[$i] = array(
+				'harga'=>$key->harga,
+			);
+			$i++;
+		}
+		echo json_encode($data);
 	}
 	public function logout()
 	{
