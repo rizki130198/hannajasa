@@ -17,18 +17,61 @@
 					</div>
 					<div class="card-content">
 						<form action="<?=site_url('main/proses_daftar')?>" method="post" accept-charset="utf-8">
+							<h3 style="font-weight: bold;">SWDKLLJ</h3>
 							<div class="row">
-							<?php 
-								foreach ($harga as $rowHarga) { 
-							?>
+								<?php 
+									foreach ($swdkllj as $rowSwd) { 
+								?>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label class="control-label"><?=$rowHarga->nama ?></label>
-										<input type="text" name="swdk_r2" value="<?=$rowHarga->harga ?>" class="form-control" required="">
+										<label class="control-label"><?php echo $rowSwd['nama']; ?></label>
+										<input type="text" name="swdk_r2" value="<?php echo $rowSwd['harga']; ?>" class="form-control" required="">
 										<span class="material-input"></span>
 									</div>
 								</div>
-							<?php } ?>
+								<?php } ?>
+							</div>
+							<h3 style="font-weight: bold;">STNK</h3>
+							<div class="row">
+								<?php 
+									foreach ($stnk as $rowStnk) { 
+								?>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="control-label"><?php echo $rowStnk['nama']; ?></label>
+										<input type="text" name="swdk_r2" value="<?php echo $rowStnk['harga']; ?>" class="form-control" required="">
+										<span class="material-input"></span>
+									</div>
+								</div>
+								<?php } ?>
+							</div>
+							<h3 style="font-weight: bold;">TNKB</h3>
+							<div class="row">
+								<?php 
+									foreach ($tnkb as $rowTnkb) { 
+								?>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="control-label"><?php echo $rowTnkb['nama']; ?></label>
+										<input type="text" name="swdk_r2" value="<?php echo $rowTnkb['harga']; ?>" class="form-control" required="">
+										<span class="material-input"></span>
+									</div>
+								</div>
+								<?php } ?>
+							</div>
+							<h3 style="font-weight: bold;">Sanksi</h3>
+							<div class="row">
+								<?php 
+									foreach ($sanksi as $rowSanksi) { 
+								?>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="control-label"><?php echo $rowSanksi['nama']; ?></label>
+										<input type="text" name="swdk_r2" value="<?php echo $rowSanksi['harga']; ?>" class="form-control" required="">
+										<span class="material-input"></span>
+									</div>
+								</div>
+								<?php } ?>
 							</div>
 							<button type="submit" class="btn btn-primary pull-right">Ubah</button>
 							<div class="clearfix"></div>

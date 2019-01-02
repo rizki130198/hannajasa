@@ -217,39 +217,7 @@ if ($uri=="eksporpdf") {
 		<div class="main-panel">
 			<?php $this->load->view('include/navbar'); ?>
 		<?php } ?>
-		<div class="col-md-12">
-			<?php if ($this->session->flashdata('gagal')) { ?>
-				<div id="error" class="card-panel" style="background: #3D4242;color:#FFF;margin:20px 0;">
-					<div  class="card-content">
-						<script type="text/javascript" charset="utf-8" >
-							$.toast({
-								heading: 'Warning',
-								text: "<?=$this->session->flashdata('gagal')?>",
-								position: 'top-right',
-								stack: false,
-								hideAfter: 5000, 
-								icon: 'warning'
-							});
-						</script>
-					</div>
-				</div>
-			<?php }elseif($this->session->flashdata('sukses')){ ?>
-				<div id="sukses" class="card-panel" style="background: #4CAF50;color:#FFF;margin:20px 0;">
-					<div  class="card-content">
-						<script type="text/javascript" charset="utf-8" >
-							$.toast({
-								heading: 'Success',
-								text: "<?=$this->session->flashdata('sukses')?>",
-								position: 'top-right',
-								stack: false,
-								hideAfter: 5000, 
-								icon: 'success'
-							});
-						</script>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
+		
 		<?php 
 		$u3 = $this->uri->segment(3);
 		$u2 = $this->uri->segment(2);
@@ -294,16 +262,16 @@ if ($uri=="eksporpdf") {
 		$uri = $this->uri->segment(2);
 		if ($uri=="cetak") {
 		}else{ ?>
-		<footer class="footer">
-			<div class="container-fluid">
-				<p class="pull-left" style="margin-left: 17px;">
-					&copy; <a href="">CV. Hanna Jasa</a>.
-				</p>
-				<nav class="pull-right" style="margin-right: 12px;">
-					
-				</nav>
-			</div>
-		</footer>
+			<footer class="footer">
+				<div class="container-fluid">
+					<p class="pull-left" style="margin-left: 17px;">
+						&copy; <a href="">CV. Hanna Jasa</a>.
+					</p>
+					<nav class="pull-right" style="margin-right: 12px;">
+						
+					</nav>
+				</div>
+			</footer>
 		<?php } ?>
 		<div class="ps-scrollbar-y-rail" style="top: 0px; height: 950px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 404px;"></div></div>
 	</div>	
@@ -313,9 +281,9 @@ if ($uri=="eksporpdf") {
 <?php 
 $uri = $this->uri->segment(2);
 if ($uri=="cetak") { ?>
-<script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script>
+	<script type="text/javascript" src="<?=base_url('assets/js/bootstrap4.min.js');?>"></script>
 <?php }else{ ?>
-<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
+	<script type="text/javascript" src="<?=base_url('assets/js/bootstrap.min.js');?>"></script>
 <?php } ?>
 <script type="text/javascript" src="<?=base_url('assets/js/material.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/arrive.min.js');?>"></script>
@@ -329,5 +297,53 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
+<script type="text/javascript">
+	$('#berkasjadi').DataTable({
+		"pagingType": "full_numbers",
+		"lengthMenu": [
+		[10, 25, 50, -1],
+		[10, 25, 50, "All"]
+		],
+		responsive: true,
+		language: {
+			search: "_INPUT_",
+			searchPlaceholder: "Cari Berkas",
+		}
+	});
 
+	var table = $('#datatable').DataTable();
+</script>
+<div class="col-md-12">
+	<?php if ($this->session->flashdata('gagal')) { ?>
+		<div id="error" class="card-panel" style="background: #3D4242;color:#FFF;margin:20px 0;">
+			<div  class="card-content">
+				<script type="text/javascript" charset="utf-8" >
+					$.toast({
+						heading: 'Warning',
+						text: "<?=$this->session->flashdata('gagal')?>",
+						position: 'top-right',
+						stack: false,
+						hideAfter: 5000, 
+						icon: 'warning'
+					});
+				</script>
+			</div>
+		</div>
+	<?php }elseif($this->session->flashdata('sukses')){ ?>
+		<div id="sukses" class="card-panel" style="background: #4CAF50;color:#FFF;margin:20px 0;">
+			<div  class="card-content">
+				<script type="text/javascript" charset="utf-8" >
+					$.toast({
+						heading: 'Success',
+						text: "<?=$this->session->flashdata('sukses')?>",
+						position: 'top-right',
+						stack: false,
+						hideAfter: 5000, 
+						icon: 'success'
+					});
+				</script>
+			</div>
+		</div>
+	<?php } ?>
+</div>
 </html>

@@ -173,10 +173,9 @@
               </thead>
               <tbody>
                 <?php foreach ($berkas->result() as $key): ?>
-
                  <tr>
                   <td><?=$key->no?></td>
-                  <td><?=$key->no?> <span style="color: red;">(<?=$key->no?>)</span></td>
+                  <td><?=$key->perhitungan?> <span style="color: red;">(<?=$key->jenis?>)</span></td>
                   <td><?=$key->no?></td>
                   <td><?=$key->no?></td>
                   <td><?=$key->no?></td>
@@ -201,7 +200,7 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <a href="<?= site_url('main/cetak/c_berkas/'.$key->no) ?>" type="button" class="btn btn-success">Ya, lanjutakn</a>
+                        <a href="<?= site_url('main/cetak/c_berkas/'.$key->no) ?>"><button class="btn btn-success" type="button">Ya, lanjutakn</button></a>
                       </div>
                     </div>
                   </div>

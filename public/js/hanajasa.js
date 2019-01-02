@@ -67,29 +67,14 @@ $(document).ready(function () {
 	$('#gantiplat_n').click(function () {
 		$('.ganti-plat-n').fadeToggle();
 	});
-
-	$('#berkasjadi').DataTable({
-		"pagingType": "full_numbers",
-		"lengthMenu": [
-		[10, 25, 50, -1],
-		[10, 25, 50, "All"]
-		],
-		responsive: true,
-		language: {
-			search: "_INPUT_",
-			searchPlaceholder: "Cari Berkas",
-		}
-	});
-
-	var table = $('#datatable').DataTable();
 });
 function sum() {
-	var txtFirstNumberValue = document.getElementById('txt1').value;
-	var txtSecondNumberValue = document.getElementById('txt2').value;
-	var txtThreeNumberValue = document.getElementById('txt3').value;
+	var txtFirstNumberValue = document.getElementById('pkb2').value;
+	var txtSecondNumberValue = document.getElementById('denda_b').value;
+	var txtThreeNumberValue = document.getElementById('t_bln').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('txt4').value = result;
+		document.getElementById('txt4').value = "Rp. " + result;
 	}
 }
 function hargatotal() {
@@ -106,7 +91,7 @@ function normal() {
 	var txtSecondNumberValue = document.getElementById('swdkllj').value;
 	var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_harga').value = result;
+		document.getElementById('total_harga').value = "Rp. " + result;
 	}
 }
 
@@ -159,7 +144,7 @@ function b_normal() {
 	var txtSecondNumberValue = document.getElementById('denda_b').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_b').value = result;
+		document.getElementById('total_b').value = "Rp. "+ result;
 	}
 }
 
@@ -168,15 +153,15 @@ function b_bulan() {
 	var txtSecondNumberValue = document.getElementById('denda_bu').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_bu').value = result;
+		document.getElementById('total_bbn_b').value = "Rp. "+ result;
 	}
 
 	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
-	var txtSecondNumberValue = document.getElementById('denda_ba').value;
+	var txtSecondNumberValue = document.getElementById('denda_bu').value;
 	var txtThreeNumberValue = document.getElementById('telat_bln').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_ba').value = result;
+		document.getElementById('total_ba').value = "Rp. "+ result;
 	}
 }
 
@@ -185,7 +170,7 @@ function b_hidup() {
 	var txtSecondNumberValue = document.getElementById('denda_bbn_h').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_bbn_h').value = result;
+		document.getElementById('total_bbn_h').value = "Rp. "+ result;
 	}
 }
 function b_tahun() {
@@ -194,7 +179,7 @@ function b_tahun() {
 	var txtThreeNumberValue = document.getElementById('telat_thn').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtThreeNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_pkb_t').value = result;
+		document.getElementById('total_pkb_t').value = "Rp. "+ result;
 	}
 }
 function balik() {
@@ -259,6 +244,8 @@ function balik() {
 		$('#total_n').hide();
 		$('#swd_n').hide();
 		$('#adm_stnk_n').hide();
+		$('#cek_plat_n').hide();
+		$('#adm_tnkb_n').hide();
 		$('#pkb_bulan').show();
 		$('#bbn_b').show();
 		$('#bulan').show();

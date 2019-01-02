@@ -33,6 +33,33 @@ class M_back extends CI_Model {
 			}
 		}
 	}
+	// Start Harga //
+	public function getSwd()
+	{
+		$dimana = array('jenis_harga' => 'swdkllj');
+		$q = $this->db->get_where('catatan',$dimana);
+		return $q->result_array();
+	}
+	public function getStnk()
+	{
+		$dimana = array('jenis_harga' => 'stnk');
+		$q = $this->db->get_where('catatan',$dimana);
+		return $q->result_array();
+	}
+	public function getTnkb()
+	{
+		$dimana = array('jenis_harga' => 'tnkb');
+		$q = $this->db->get_where('catatan',$dimana);
+		return $q->result_array();
+	}
+	public function getSanksi()
+	{
+		$dimana = array('jenis_harga' => 'sanksi');
+		$q = $this->db->get_where('catatan',$dimana);
+		return $q->result_array();
+	}
+	// End Harga //
+	
 	public function load_data()
 	{
 		$this->db->order_by('id', 'DESC');

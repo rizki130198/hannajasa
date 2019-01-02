@@ -52,7 +52,7 @@ li.active a{
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}?>">
+            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}?>">
                 <a href="<?=site_url('main/perhitungan');?>">
                     <i class="material-icons">create</i> 
                     <p>Perhitungan</p>
@@ -76,7 +76,7 @@ li.active a{
                     <p>Stok Blanko</p>
                 </a>
             </li>
-            <?php if($lvl=='super admin'){?>
+            <?php if($lvl=='super_admin'){?>
             <li class="<?php if($this->uri->segment(2)=="harga"){echo "active";}?>">
                 <a href="<?=site_url('main/harga');?>">
                     <i class="material-icons">attach_money</i>
@@ -96,7 +96,7 @@ li.active a{
                     <p>Penggantian Kasir</p>
                 </a>
             </li>
-            <?php if($lvl=='super admin'){?>
+            <?php if($lvl=='super_admin'){?>
             <li class="<?php if ($this->uri->segment(2)=="daftar"){echo "active-drop";} ?>">
                 <a href="#" data-toggle="collapse" data-target="#pengguna" class="collapsed menu-act">
                     <i class="material-icons">people</i> 

@@ -39,9 +39,6 @@ class Main extends CI_Controller {
 	//start balik nama//
 	public function balik_nama()
 	{
-		$this->load->library('pdf');
-		$this->pdf->setPaper('A1', 'landscape');
-		$this->pdf->filename = "laporan-petanikode.pdf";
 		$data['title'] = "Halaman Cetak Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
@@ -132,7 +129,10 @@ class Main extends CI_Controller {
 	public function harga()
 	{
 		$data['title'] = "Halaman Daftar Harga";
-		$data['harga'] = $this->db->get('catatan')->result();
+		$data['swdkllj'] = $this->M_back->getSwd();
+		$data['stnk'] = $this->M_back->getStnk();
+		$data['tnkb'] = $this->M_back->getTnkb();
+		$data['sanksi'] = $this->M_back->getSanksi();
 		$this->load->view('admin',$data);
 	}
 	//end daftar harga//
@@ -162,7 +162,7 @@ class Main extends CI_Controller {
 	public function ambiljenis()
 	{
 		$jenis = $this->input->post('jenis');
-		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (3,4,5,6) AND jenis="'.$jenis.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (4,5,6,7) AND jenis="'.$jenis.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {

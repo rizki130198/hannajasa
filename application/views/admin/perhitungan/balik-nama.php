@@ -131,7 +131,7 @@
 									<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Normal</h4>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
-										<input type="text" name="pkb" id="denda_bbn" style="display: none;" value="67%" onkeyup="b_normal();">
+										<input type="text" name="pkb" id="denda_b" style="display: none;" value="67%" onkeyup="b_normal();">
 										<input type="text" name="pkb" id="pkb_b" onkeyup="b_normal();" class="form-control" required="">
 										<span class="material-input"></span>
 									</div>
@@ -141,7 +141,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">BBN KB</label>
-										<input type="text" name="total" id="total_bbn" disabled="" class="form-control" required="">
+										<input type="text" name="total" id="total_b" disabled="" class="form-control" required="">
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -190,7 +190,7 @@
 									<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Telat Bulanan</h4>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
-										<input type="text" name="pkb" id="denda_bbn_b" style="display: none;" value="67%" onkeyup="b_bulan();">
+										<input type="text" name="pkb" id="denda_bu" style="display: none;" value="67%" onkeyup="b_bulan();">
 										<input type="text" name="pkb" id="pkb_bu" onkeyup="b_bulan();" class="form-control" required="">
 										<span class="material-input"></span>
 									</div>

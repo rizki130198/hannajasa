@@ -28,83 +28,6 @@
 										<span class="material-input"></span></div>
 									</div>
 								</div>
-
-								<!-- Start Normal -->
-								<div id="pkb_n">
-
-									<div class="row">
-										<div class="col-md-12">
-											<h4 style="font-weight: bold;text-transform: uppercase;">Normal</h4>
-											<div class="form-group label-floating is-empty">
-												<label class="control-label">PKB</label>
-												<input type="text" name="pkb1" id="pkb_nor" onkeyup="normal();" class="form-control" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row" >
-										<div class="col-md-12">
-											<div class="form-group label-floating is-empty" >
-												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="swdkllj" onkeyup="normal();" class="form-control" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- End Normal -->
-
-								<!-- Start Bulan -->
-								<div id="pkb_bulan">
-									<div class="row" >
-										<div class="col-md-12">
-											<h4 style="font-weight: bold;text-transform: uppercase;">Telat Bulanan</h4>
-											<div class="form-group label-floating is-empty">
-												<label class="control-label">PKB</label>
-												<input type="text" name="pkb2" id="txt1" onkeyup="sum();" class="form-control rp" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group label-floating is-empty" >
-												<label class="control-label">Telat Bulan</label>
-												<input type="text" style="display: none;" id="txt2" name="telat_bln" onkeyup="sum();" class="form-control" value="2%">
-												<input type="text" name="telat" id="txt3" onkeyup="sum();" class="form-control" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<label class="control-label">Sanksi PKB</label>
-												<input type="text" name="sanksi_pkb1" readonly="" id="txt4" class="form-control"  value="">
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group label-floating is-empty" >
-												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj2" id="swdkllj_b" onkeyup="hargatotal();" class="form-control" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group label-floating is-empty">
-												<label class="control-label">Sanksi SWDKLLJ</label>
-												<input type="text" name="sanski_swdllj1" id="rupiah2" onkeyup="hargatotal();" class="form-control" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- End Bulan -->
 								<!-- Start Tahun -->
 								<div id="pkb_tahun">
 									<div class="row">
@@ -156,6 +79,84 @@
 									</div>
 								</div>
 								<!-- End Tahun -->
+								
+								<!-- Start Normal -->
+								<div id="pkb_n">
+
+									<div class="row">
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">Normal</h4>
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">PKB</label>
+												<input type="text" name="pkb1" id="pkb_nor" onkeyup="normal();" class="form-control" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" >
+										<div class="col-md-12">
+											<div class="form-group label-floating is-empty" >
+												<label class="control-label">SWDKLLJ</label>
+												<input type="text" name="swdllj1" id="swdkllj" onkeyup="normal();" class="form-control" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- End Normal -->
+
+								<!-- Start Bulan -->
+								<div id="pkb_bulan">
+									<div class="row" >
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">Telat Bulanan</h4>
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">PKB</label>
+												<input type="text" name="pkb2" id="pkb2" onkeyup="sum();" class="form-control rp" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group label-floating is-empty" >
+												<label class="control-label">Telat Bulan</label>
+												<input type="text" style="display: none;" id="denda_b" name="telat_bln" onkeyup="sum();" class="form-control" value="2%">
+												<input type="text" name="telat" id="t_bln" onkeyup="sum();" class="form-control" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="control-label">Sanksi PKB</label>
+												<input type="text" name="sanksi_pkb1" readonly="" id="txt4" class="form-control"  value="">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group label-floating is-empty" >
+												<label class="control-label">SWDKLLJ</label>
+												<input type="text" name="swdllj2" id="swdkllj_b" onkeyup="hargatotal();" class="form-control" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group label-floating is-empty">
+												<label class="control-label">Sanksi SWDKLLJ</label>
+												<input type="text" name="sanski_swdllj1" id="rupiah2" onkeyup="hargatotal();" class="form-control" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- End Bulan -->
+
 								<!-- Start Ganti Plat -->
 								<div id="cek_plat">
 									<div class="row" >
