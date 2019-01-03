@@ -135,7 +135,40 @@ function ambilselect() {
 	})
 	
 }
-
+function ambiltahun() {
+	$.ajax({
+		url: url+'/main/ambilswdkjl/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#ambiltahun").val()},
+		success:function(datanya) {
+			$("#swdkllj_t").val(datanya[0].harga);
+		}
+	})
+	
+}
+function ambilnormal() {
+	$.ajax({
+		url: url+'/main/ambilswdkjl/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#ambilnormal").val()},
+		success:function(datanya) {
+			$("#swdkllj").val(datanya[0].harga);
+		}
+	})
+}
+function ambilbulan() {
+	$.ajax({
+		url: url+'/main/ambilswdkjl/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#ambilbulan").val()},
+		success:function(datanya) {
+			$("#swdkllj_b").val(datanya[0].harga);
+		}
+	})
+}
 // END PERPANJANG 
 
 // START BALIK NAMA
