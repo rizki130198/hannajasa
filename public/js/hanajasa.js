@@ -7,6 +7,7 @@ function perpanjang() {
 	if ($('#balik_nama').val() == 'normal') {
 		$('#pkb_n').show();
 		$('#total').show();
+		$('#swdk').show();
 		$('#cek_plat').hide();
 		$('#pkb_bulan').hide();
 		$('#pkb_tahun').hide();
@@ -21,6 +22,7 @@ function perpanjang() {
 	}else if($('#balik_nama').val() == 'telat bulanan') { 
 		$('#pkb_bulan').show();
 		$('#total').show();
+		$('#swdk').show();
 		$('#pkb_n').hide();
 		$('.ganti-plat').hide();
 		$('#gantiplat').hide();
@@ -35,6 +37,7 @@ function perpanjang() {
 	}else if($('#balik_nama').val() == 'Telat lebih dari setahun') { 
 		$('#cek_plat').show();
 		$('#pkb_tahun').show();
+		$('#swdk').show();
 		$('#pkb_n').hide();
 		$('.ganti-plat').hide();
 		$('#pkb_bulan').hide();
@@ -63,6 +66,7 @@ $(document).ready(function () {
 	$('#total_n').hide();
 	$('#cek_plat').hide();
 	$('#total').hide();
+	$('#swdk').hide();
 
 	$('#gantiplat_n').click(function () {
 		$('.ganti-plat-n').fadeToggle();
@@ -114,6 +118,20 @@ function harga_tahun() {
 	}
 }
 var url = 'http://'+location.hostname+'/hannajasa';
+
+function ambilSwdk() {
+	$.ajax({
+		url: url+'/main/ambilswdkjl/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#ambiltahun").val()},
+		success:function(datanya) {
+			$(".swdklksama").val(datanya[0].harga);
+		}
+	})
+	
+}
+
 function ambilselect() {
 	var txtFirstNumberValue = $('#hasil').val();
 	var txtSecondNumberValue = $('#swdkllj_t').val();
@@ -135,40 +153,7 @@ function ambilselect() {
 	})
 	
 }
-function ambiltahun() {
-	$.ajax({
-		url: url+'/main/ambilswdkjl/',
-		type: 'POST',
-		dataType:'json',
-		data: {jenis: $("#ambiltahun").val()},
-		success:function(datanya) {
-			$("#swdkllj_t").val(datanya[0].harga);
-		}
-	})
-	
-}
-function ambilnormal() {
-	$.ajax({
-		url: url+'/main/ambilswdkjl/',
-		type: 'POST',
-		dataType:'json',
-		data: {jenis: $("#ambilnormal").val()},
-		success:function(datanya) {
-			$("#swdkllj").val(datanya[0].harga);
-		}
-	})
-}
-function ambilbulan() {
-	$.ajax({
-		url: url+'/main/ambilswdkjl/',
-		type: 'POST',
-		dataType:'json',
-		data: {jenis: $("#ambilbulan").val()},
-		success:function(datanya) {
-			$("#swdkllj_b").val(datanya[0].harga);
-		}
-	})
-}
+
 // END PERPANJANG 
 
 // START BALIK NAMA

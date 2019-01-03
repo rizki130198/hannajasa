@@ -114,16 +114,7 @@ class M_back extends CI_Model {
 			$swdllj = $swdllj3;
 		}
 
-		$jenis_swd1 = $this->input->post('jenis_swd1');
-		$jenis_swd2 = $this->input->post('jenis_swd2');
-		$jenis_swd3 = $this->input->post('jenis_swd3');
-		if ($jenis_swd3 ==NULL AND $jenis_swd2 == NULL) {
-			$jenis_swd = $jenis_swd1;
-		}else if($jenis_swd3==NULL AND $jenis_swd1 == NULL){
-			$jenis_swd = $jenis_swd2;
-		}else{
-			$jenis_swd = $jenis_swd3;
-		}
+		$jenis_swd = $this->input->post('jenis_swd');
 
 		$sanski_swdllj1 = $this->input->post('sanski_swdllj1');
 		$sanski_swdllj2 = $this->input->post('sanski_swdllj2');
