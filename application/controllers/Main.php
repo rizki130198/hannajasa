@@ -59,9 +59,9 @@ class Main extends CI_Controller {
 	public function berkas_jadi()
 	{
 		$data['title'] = "Halaman Berkas Jadi";
-		$this->db->from('perpanjang');
+		$this->db->from('cetak_perpanjang');
 		$this->db->select('*');
-		$this->db->join('users', 'perpanjang.id_user = users.id_users');
+		$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
 		$data['berkas'] = $this->db->get();
 		$this->load->view('admin',$data);
 	}
@@ -75,7 +75,7 @@ class Main extends CI_Controller {
 	//View Berkas
 	public function berkas($id)
 	{
-		$query = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
+		$query = $this->db->get_where('cetak_perpanjang',array('id_cetak'=>$id));
 		if ($query->num_rows() > 0) {
 			$data['berkas'] = $query->row();
 		}else{

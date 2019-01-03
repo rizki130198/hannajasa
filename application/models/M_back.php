@@ -248,7 +248,7 @@ class M_back extends CI_Model {
 			'harga_blokir'=>$harga_progresif,
 			'harga_lainnya'=>$harga_lain,
 			'total_proses'=>$total,
-			'harga_adm'=>$$harga_skp,
+			// 'harga_adm'=>$$harga_skp,
 			'biaya_prediksi'=>$prediski,
 			'biaya_kurang'=>$kurang,
 			'tanggal'=>date('Y-m-d')
