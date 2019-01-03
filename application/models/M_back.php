@@ -114,6 +114,17 @@ class M_back extends CI_Model {
 			$swdllj = $swdllj3;
 		}
 
+		$jenis_swd1 = $this->input->post('jenis_swd1');
+		$jenis_swd2 = $this->input->post('jenis_swd2');
+		$jenis_swd3 = $this->input->post('jenis_swd3');
+		if ($jenis_swd3 ==NULL AND $jenis_swd2 == NULL) {
+			$jenis_swd = $jenis_swd1;
+		}else if($jenis_swd3==NULL AND $jenis_swd1 == NULL){
+			$jenis_swd = $jenis_swd2;
+		}else{
+			$jenis_swd = $jenis_swd3;
+		}
+
 		$sanski_swdllj1 = $this->input->post('sanski_swdllj1');
 		$sanski_swdllj2 = $this->input->post('sanski_swdllj2');
 		if ($sanski_swdllj1 ==NULL) {
@@ -142,7 +153,7 @@ class M_back extends CI_Model {
 		$query = $this->db->insert('perpanjang', array(
 			'id_user'=>$this->session->userdata('id'),
 			'no'=>$hasilrandom,
-			'perhitungan'=>"Perpanjang",
+			'perhitungan'=>$jenis_swd,
 			'jenis'=>$jenis,
 			'jenis_k'=>$jenis_k, 
 			'pkb'=>$pkb,
@@ -160,10 +171,93 @@ class M_back extends CI_Model {
 		));
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
-			redirect('main/perpanjang');
+			$id = $this->db->insert_id();
+			redirect('main/transaksi_p/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
 			redirect('main/perpanjang');
+		}
+	}
+	public function proses_cetak()
+	{
+		$id = $this->input->post('id');
+		$penerima = $this->input->post('penerima');
+		$telp = $this->input->post('no_telp');
+		$nama = $this->input->post('atas_nama');
+		$dp = $this->input->post('dp');
+		$bpkb1 = $this->input->post('bpkb1');
+		$bpkb2 = $this->input->post('bpkb2');
+		$bpkb3 = $this->input->post('bpkb3');
+		$bpkb4 = $this->input->post('bpkb4');
+		$bpkb5 = $this->input->post('bpkb5');
+		$sim1 = $this->input->post('sim1');
+		$sim2 = $this->input->post('sim2');
+		$wilayah = $this->input->post('wilayah');
+		$nopol = $this->input->post('nopol');
+		$jenis_k = $this->input->post('jenis_k');
+		$pajak = $this->input->post('pajak');
+		$lainnya = $this->input->post('lainnya');
+		$pajak_ini = $this->input->post('pajak_ini');
+		$harga_ini = $this->input->post('harga_ini');
+		$pajak_lalu = $this->input->post('pajak_lalu');
+		$harga_lalu = $this->input->post('harga_lalu');
+		$total_pajak = $this->input->post('total_pajak');
+		$biaya_jasa = $this->input->post('biaya_jasa');
+		$harga_jasa = $this->input->post('harga_jasa');
+		$acc_bpkb = $this->input->post('acc_bpkb');
+		$harga_acc = $this->input->post('harga_acc');
+		$fisik = $this->input->post('fisik');
+		$harga_fisik = $this->input->post('harga_fisik');
+		$skp_lalu = $this->input->post('skp_lalu');
+		$harga_skp = $this->input->post('harga_skp');
+		$progresif = $this->input->post('progresif');
+		$harga_progresif = $this->input->post('harga_progresif');
+		$pajaklainnya = $this->input->post('pajaklainnya');
+		$harga_lain = $this->input->post('harga_lain');
+		$total = $this->input->post('total');
+		$prediski = $this->input->post('prediski');
+		$kurang = $this->input->post('kurang');
+		$query = $this->db->insert('cetak_perpanjang', array(
+			'id_user'=>$this->session->userdata('id'),
+			'id_join'=>$id,
+			'penerima'=>$penerima,
+			'no_telp'=>$telp,
+			'atas_nama'=>$nama,
+			'uang_dp'=>$dp,
+			'bpkb'=>$bpkb1.','.$bpkb2.','.$bpkb3.','.$bpkb4.','.$bpkb5.',',
+			'sim'=>$sim1.','.$sim2,
+			'wilayah'=>$wilayah,
+			'nopol'=>$nopol,
+			'jenis_kendaraan'=>$jenis_k,
+			'tahun_pajak'=>$pajak,
+			'lainnya'=>$lainnya,
+			'pajak_ini'=>$pajak_ini,
+			'pajak_lalu'=>$pajak_lalu,
+			'harga_pajak_ini'=>$harga_ini,
+			'harga_pajak_lalu'=>$harga_lalu,
+			'total_pajak'=>$total_pajak,
+			'biaya_jasa'=>$biaya_jasa,
+			'acc_bpkb'=>$acc_bpkb,
+			'plat'=>$fisik,
+			'adm_skp'=>$skp_lalu,
+			'progresif'=>$progresif,
+			'proses_lain'=>$pajaklainnya,
+			'harga_jasa'=>$harga_jasa,
+			'harga_bpkb'=>$harga_acc,
+			'harga_plat'=>$harga_fisik,
+			'harga_blokir'=>$harga_progresif,
+			'harga_lainnya'=>$harga_lain,
+			'total_proses'=>$total,
+			'harga_adm'=>$$harga_skp,
+			'biaya_prediksi'=>$prediski,
+			'biaya_kurang'=>$kurang,
+			'tanggal'=>date('Y-m-d')
+		));
+		if ($query==TRUE) {
+			redirect('main/cetak_perpanjang/'.$id);
+		}else{
+			$this->session->set_flashdata('gagal', 'Database Error');
+			redirect('main/dashboard');
 		}
 	}
 }

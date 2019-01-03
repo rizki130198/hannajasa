@@ -30,18 +30,19 @@
 						<h4 class="title">Transaksi Perpanjang STNK</h4>
 					</div>
 					<div class="card-content">
-						<form action="" class="form-horizontal">
+						<form action="<?=site_url('main/proses_cetak')?>" method="POST" class="form-horizontal">
 							<h4>Kepada Yth.</h4>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" placeholder="Masukan nama">
+									<input type="text" class="form-control" name="penerima" placeholder="Masukan nama">
+									<input type="hidden" class="form-control" name="id" value="<?=$this->uri->segment(3);?>" >
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Telp./HP <span class="titik2">:</span></label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" placeholder="Masukan nomor telp/hp">
+									<input type="number" class="form-control" name="no_telp" placeholder="Masukan nomor telp/hp">
 								</div>
 							</div>
 							<hr>
@@ -50,7 +51,7 @@
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></span>
-										<input type="text" class="form-control" placeholder="Sudah terima dari ( atas nama )">
+										<input type="text" class="form-control" name="atas_nama" placeholder="Sudah terima dari ( atas nama )">
 									</div>
 								</div>
 							</div>
@@ -59,7 +60,7 @@
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">Rp.</span>
-										<input type="text" class="form-control" placeholder="Masukan nomor telp/hp">
+										<input type="text" class="form-control" name="dp" placeholder="Masukan Nilai Uang Muka (DP)">
 									</div>
 								</div>
 							</div>
@@ -74,27 +75,27 @@
 								<div class="col-sm-8" style="display: inline-flex;">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> Ada + Faktur
+											<input type="checkbox" name="bpkb1" value="Ada + Faktur"> Ada + Faktur
 										</label>
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> As Tanpa Faktur
+											<input type="checkbox" name="bpkb2" value="As Tanpa Faktur"> As Tanpa Faktur
 										</label>
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> Foto Copy
+											<input type="checkbox" name="bpkb3" value="Foto Copy"> Foto Copy
 										</label>
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> Surat Leasing
+											<input type="checkbox" name="bpkb4" value="Surat Leasing" > Surat Leasing
 										</label>
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> Tidak Ada/Acc
+											<input type="checkbox" name="bpkb5" value="Tidak Ada/Acc"> Tidak Ada/Acc
 										</label>
 									</div>
 								</div>
@@ -104,19 +105,19 @@
 								<div class="col-sm-3" style="display: inline-flex;">
 									<div class="checkbox" style="padding-right: 75px;">
 										<label>
-											<input type="checkbox"> Ada
+											<input type="checkbox" name="sim1" value="Ada"> Ada
 										</label>
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> Tidak Ada/Acc
+											<input type="checkbox"  name="sim2" value="idak Ada/Acc"> Tidak Ada/Acc
 										</label>
 									</div>
 								</div>
 								<div class="col-sm-5">
 									<div class="input-group">
 										<span class="input-group-addon">Wilayah : DKI/ </span>
-										<input type="text" class="form-control" placeholder="Masukan Wilayah">
+										<input type="text" class="form-control" name="wilayah" placeholder="Masukan Wilayah">
 									</div>
 								</div>
 							</div>
@@ -125,7 +126,7 @@
 								<div class="col-sm-3">
 									<div class="input-group">
 										<span class="input-group-addon">B.</span>
-										<input type="text" class="form-control" placeholder="Masukan Nopol">
+										<input type="text" class="form-control" name="nopol" placeholder="Masukan Nopol">
 									</div>
 								</div>
 								<div class="col-md-1" style="padding-right: 0;">
@@ -141,14 +142,14 @@
 								<div class="col-md-4">
 									<div class="input-group">
 										<span class="input-group-addon">Masa Berlaku Pajak :</span>
-										<input type="text" class="form-control" placeholder="Masukan Masa Berlaku">
+										<input type="text" class="form-control" name="pajak" placeholder="Masukan Masa Berlaku">
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">4. Lain-lain Berupa <span class="titik2">:</span></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" placeholder="Masukan Lainnya">
+									<input type="text" class="form-control" name="lainnya" placeholder="Masukan Lainnya">
 								</div>
 							</div>
 							<h4 style="font-weight: bold;text-transform: uppercase;margin-top: 20px;">Biasa Perpanjang Pajak Stnk</h4>
@@ -166,28 +167,28 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Pajak Tahun ini</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_ini" value="ada"> Pajak Tahun ini</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text"  name="harga_ini" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Pajak Tahun lalu (SKP)</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_lalu" value="ada">Pajak Tahun lalu (SKP)</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="harga_lalu" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -196,7 +197,7 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" class="form-control" name="total_pajak" id="total_pajak" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -206,70 +207,70 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Biaya Jasa</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_jasa" value="ada"> Biaya Jasa</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" class="form-control" name="harga_jasa" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Acc BPKB</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="acc_bpkb" value="ada"> Acc BPKB</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" class="form-control" name="harga_acc" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Cek Fisik dan Plat</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="fisik" value="ada"> Cek Fisik dan Plat</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="harga_fisik" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Adm. SKP/Pajak Lalu</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="skp_lalu" value="ada"> Adm. SKP/Pajak Lalu</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="harga_skp" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Blokir Progresif</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="progresif" value="ada"> Blokir Progresif</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="harga_progresif" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -280,12 +281,12 @@
 														</div>
 													</div>
 													<div class="col-sm-4" style="padding: 0;">
-														<input type="text" class="form-control" placeholder="Lainnya" style="width: 90%;">
+														<input type="text" class="form-control" name="pajaklainnya" placeholder="Lainnya" style="width: 90%;">
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" class="form-control" name="harga_lain" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -294,7 +295,7 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="total" id="hasil" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -307,7 +308,7 @@
 													<div class="col-sm-6">
 														<div class="input-group">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="prediski" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -316,7 +317,7 @@
 													<div class="col-sm-6">
 														<div class="input-group">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="kurang" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
