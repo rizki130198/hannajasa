@@ -136,7 +136,21 @@
 									<input type="text" class="form-control" placeholder="Masukan Lainnya">
 								</div>
 							</div>
-							<h4 style="font-weight: bold;text-transform: uppercase;margin-top: 20px;">Biasa Perpanjang Pajak Stnk</h4>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" style="font-weight: bold;font-size: 1.3em !important;color: #333;margin: 0;padding: 0;padding-top: 7px !important;">Biaya Pengurusan <span class="titik2">:</span></label>
+								<div class="col-sm-8" style="display: inline-flex;">
+									<div class="checkbox">
+										<label style="font-weight: bold;color: #333;">
+											<input type="checkbox"> BALIK NAMA
+										</label>
+									</div>
+									<div class="checkbox">
+										<label style="font-weight: bold;color: #333;">
+											<input type="checkbox"> PENYESUAIAN ALAMAT
+										</label>
+									</div>
+								</div>
+							</div>
 							<div class="table-responsive">
 								<table class="table">
 									<thead border="2" style="border: solid 2px #333;">
@@ -191,7 +205,7 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Biaya Jasa</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Biaya Proses BN/PA</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
@@ -205,7 +219,7 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Acc BPKB</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Adm.SKP / Pajak lalu</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
@@ -219,7 +233,7 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Cek Fisik dan Plat</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Surat Laporan Kepolisian</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
@@ -233,7 +247,7 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Adm. SKP/Pajak Lalu</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Ganti Plat</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
@@ -245,11 +259,13 @@
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
-													<div class="col-sm-5">
+													<div class="col-sm-1">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"> Blokir Progresif</label>
-															<span class="titik2">:</span>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"></label>
 														</div>
+													</div>
+													<div class="col-sm-4" style="padding: 0;">
+														<input type="text" class="form-control" placeholder="Lainnya" style="width: 90%;">
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -6px;">
