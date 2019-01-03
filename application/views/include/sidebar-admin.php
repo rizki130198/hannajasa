@@ -65,7 +65,7 @@ li.active a{
                 </a>
             </li>
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('');?>">
+                <a href="#">
                     <i class="material-icons">insert_chart_outlined</i>
                     <p>Progress Karyawan</p>
                 </a>
@@ -85,13 +85,13 @@ li.active a{
             </li>
             <?php } ?>
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('');?>">
+                <a href="#">
                     <i class="material-icons">show_chart</i>
                     <p>Report</p>
                 </a>
             </li>
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="<?=site_url('');?>">
+                <a href="#">
                     <i class="material-icons">swap_horizontal</i>
                     <p>Penggantian Kasir</p>
                 </a>
@@ -111,7 +111,7 @@ li.active a{
                             </a>
                         </li>
                         <li class="<?php if($this->uri->segment(2)=="daftar_pengguna"){echo "active";}?>">
-                            <a href="<?=site_url('main/daftar_pengguna');?>">
+                            <a href="#">
                                 <span class="sidebar-mini"> DP </span>
                                 <span class="sidebar-normal">Daftar Pengguna</span>
                             </a>

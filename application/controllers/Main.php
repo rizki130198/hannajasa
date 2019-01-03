@@ -42,6 +42,11 @@ class Main extends CI_Controller {
 		$data['title'] = "Halaman Cetak Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
+	public function transaksi_bn()
+	{
+		$data['title'] = "Halaman Transaksi Balik Nama STNK";
+		$this->load->view('admin',$data);
+	}
 	//end balik nama//
 
 	//start cetak pdf//

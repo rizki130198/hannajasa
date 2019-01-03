@@ -21,6 +21,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 </head>
 <style type="text/css" media="screen">
+body{
+	overflow-y: hidden;
+}
 @media (max-width: 400px){
 	.form{
 		width: 100% !important;
@@ -29,7 +32,6 @@
 		margin-top:10px;
 	}
 }
-
 }	
 .cssload-container{
 	display: block;
@@ -241,6 +243,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/cetak/c_perpanjang');	
 			}else if ($u2 == "balik_nama") {
 				$this->load->view('admin/perhitungan/balik-nama');
+			}else if ($u2 == "transaksi_bn") {
+				$this->load->view('admin/transaksi/transaksi_bn');
 			}else if ($u2 == "berkas_jadi") {
 				$this->load->view('admin/berkas_jadi');	
 			}else if ($u2 == "input_berkas") {
@@ -273,8 +277,10 @@ if ($uri=="eksporpdf") {
 				</div>
 			</footer>
 		<?php } ?>
-		<div class="ps-scrollbar-y-rail" style="top: 0px; height: 950px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 404px;"></div></div>
 	</div>	
+	<div class="ps-scrollbar-y-rail" style="top: 0px; height: 950px; right: 0px;">
+		<div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 404px;"></div>
+	</div>
 </div>	
 </body>
 <script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>

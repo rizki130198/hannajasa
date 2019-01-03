@@ -42,6 +42,8 @@
                     echo "Halaman Perpanjang STNK";
                 }elseif ($this->uri->segment(2)=="transaksi_p") {
                     echo "Halaman Transaksi Perpanjang STNK";
+                }elseif ($this->uri->segment(2)=="transaksi_bn") {
+                    echo "Halaman Transaksi Balik Nama STNK";    
                 }elseif ($this->uri->segment(2)=="berkas_jadi") {
                     echo "Halaman Berkas Jadi";    
                 }elseif ($this->uri->segment(2)=="input_berkas") {
