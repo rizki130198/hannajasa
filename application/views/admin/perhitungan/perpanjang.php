@@ -75,18 +75,18 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12">
-												<div class="form-group label-floating is-empty" >
+												<div class="form-group">
 													<label class="control-label">SWDKLLJ</label>
-													<input type="text" name="swdllj3" id="swdkllj_t" onkeyup="harga_tahun()" class="form-control swdklksama" >
+													<input type="text" name="swdllj3" id="swdkllj_t" onkeyup="harga_tahun()" class="form-control swdklksama">
 													<span class="material-input"></span>
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12">
-												<div class="form-group label-floating is-empty">
+												<div class="form-group">
 													<label class="control-label">Sanksi SWDKLLJ</label>
-													<input type="text" name="sanski_swdllj2" id="rupiah" onkeyup="harga_tahun()" class="form-control" >
+													<input type="text" name="sanski_swdllj2" onkeyup="harga_tahun()" class="form-control sankswd">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -108,7 +108,7 @@
 										</div>
 										<div class="row" >
 											<div class="col-md-12">
-												<div class="form-group label-floating is-empty" >
+												<div class="form-group" >
 													<label class="control-label">SWDKLLJ</label>
 													<input type="text" name="swdllj1" id="swdkllj" onkeyup="normal();" class="form-control swdklksama">
 													<span class="material-input"></span>
@@ -152,7 +152,7 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12">
-												<div class="form-group label-floating is-empty" >
+												<div class="form-group" >
 													<label class="control-label">SWDKLLJ</label>
 													<input type="text" name="swdllj2" id="swdkllj_b" onkeyup="hargatotal();" class="form-control swdklksama" >
 													<span class="material-input"></span>
@@ -161,9 +161,9 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12">
-												<div class="form-group label-floating is-empty">
+												<div class="form-group">
 													<label class="control-label">Sanksi SWDKLLJ</label>
-													<input type="text" name="sanski_swdllj1" id="rupiah2" onkeyup="hargatotal();" class="form-control" >
+													<input type="text" name="sanski_swdllj1" id="rupiah2" onkeyup="hargatotal();" class="form-control sankswd" >
 													<span class="material-input"></span>
 												</div>
 											</div>

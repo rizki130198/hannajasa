@@ -36,6 +36,8 @@
                     echo "Halaman Pengguna";
                 }elseif ($this->uri->segment(2)=="daftar") {
                     echo "Halaman Tambah Kasir";
+                }elseif ($this->uri->segment(2)=="data_pengguna") {
+                    echo "Halaman Data Pengguna";
                 }elseif ($this->uri->segment(2)=="perhitungan") {
                     echo "Halaman Perhitungan";
                 }elseif ($this->uri->segment(2)=="perpanjang") {

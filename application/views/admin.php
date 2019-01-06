@@ -232,7 +232,9 @@ if ($uri=="eksporpdf") {
 			}else if ($u2 == "users") {
 				$this->load->view('admin/users');		
 			}else if ($u2 == "daftar") {
-				$this->load->view('admin/daftar');		
+				$this->load->view('admin/daftar');
+			}else if ($u2 == "data_pengguna") {
+				$this->load->view('admin/data_pengguna');		
 			}else if ($u2 == "perhitungan") {
 				$this->load->view('admin/perhitungan');		
 			}else if ($u2 == "perpanjang") {
@@ -243,6 +245,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/cetak/c_perpanjang');	
 			}else if ($u2 == "balik_nama") {
 				$this->load->view('admin/perhitungan/balik-nama');
+			}else if ($u3 == "c_baliknama") {
+				$this->load->view('admin/cetak/c_baliknama');
 			}else if ($u2 == "transaksi_bn") {
 				$this->load->view('admin/transaksi/transaksi_bn');
 			}else if ($u2 == "berkas_jadi") {
@@ -284,6 +288,7 @@ if ($uri=="eksporpdf") {
 </div>	
 </body>
 <script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>
+<script src="https://cdn.rawgit.com/igorescobar/jQuery-Mask-Plugin/1ef022ab/dist/jquery.mask.min.js"></script>
 <?php 
 $uri = $this->uri->segment(2);
 if ($uri=="cetak") { ?>
@@ -303,6 +308,71 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+    	// Format mata uang.
+    	// $( '.uang' ).mask('0,000,000,000', {reverse: true});
+	    // Format nomor HP.
+	    $( '.no_hp' ).mask('0000−0000−0000');
+	})
+</script>
+<script type="text/javascript">
+	$('#lainnya_p').change(function(){
+		if ($('#lainnya_p').is(':checked') == true){
+			$('#txt-lainnya-p').val('').prop('disabled', false);
+			$('#txt-lainnya-p1').val('').prop('disabled', false);
+			console.log('checked');
+		} else {
+			$('#txt-lainnya-p').val('.....').prop('disabled', true);
+			$('#txt-lainnya-p1').val('.....').prop('disabled', true);
+			console.log('unchecked');
+		}
+	});
+</script>
+<script type="text/javascript">
+	$('.jum-pajak').on('input','.jumlah',function(){
+		var totalSum = 0;
+		$('.jum-pajak .jumlah').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+	});
+	$('.jum-b').on('input','.jumlah_biaya',function(){
+		var totalSum = 0;
+		$('.jum-b .jumlah_biaya').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#hasil_biaya').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+	});
+	// $(document).ready(function(){
+	// 	$('input.jumlah').keyup(function(event){
+ //      		// skip for arrow keys
+	//       	if(event.which >= 37 && event.which <= 40){
+	//       		event.preventDefault();
+	//       	}
+	//       	var $this = $(this);
+	//       	var num = $this.val().replace(/,/gi, "").split("").reverse().join("");
+	//       	var num2 = RemoveRougeChar(num.replace(/(.{3})/g,"$1,").split("").reverse().join(""));
+	//       	console.log(num2);
+	//       	// the following line has been simplified. Revision history contains original.
+	//      	$this.val(num2);
+ //  		});
+	// });
+	// function RemoveRougeChar(convertString){
+	// 	if(convertString.substring(0,1) == ","){
+	// 		return convertString.substring(1, convertString.length)            
+	// 	}
+	// 	return convertString;
+	// }
+</script>
 <script type="text/javascript">
 	$('#berkasjadi').DataTable({
 		"pagingType": "full_numbers",

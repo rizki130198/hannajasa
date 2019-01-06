@@ -270,7 +270,7 @@
 								</div>
 							</div>
 							<!-- End Bulan -->
-							<button type="submit" class="btn btn-info pull-right">Daftar</button>
+							<button type="submit" class="btn btn-info pull-right">Submit</button>
 							<div class="clearfix"></div>
 						</form>
 					</div>

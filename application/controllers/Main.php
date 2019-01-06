@@ -59,15 +59,15 @@ class Main extends CI_Controller {
 	public function berkas_jadi()
 	{
 		$data['title'] = "Halaman Berkas Jadi";
-		$this->db->from('cetak_perpanjang');
 		$this->db->select('*');
 		$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
-		$data['berkas'] = $this->db->get();
+		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'));
 		$this->load->view('admin',$data);
 	}
-	public function input_berkas()
+	public function input_berkas($id)
 	{
 		$data['title'] = "Halaman Input Berkas Jadi";
+		$data['input_berkas'] = $this->M_back->getBerkas($id);
 		$this->load->view('admin',$data);
 	}
 	//end input berkas//
@@ -100,8 +100,26 @@ class Main extends CI_Controller {
 	//start kasir//
 	public function daftar()
 	{
-		$data['title'] = "Halaman Tambah Cashier";
+		$data['title'] = "Halaman Tambah Pengguna";
 		$this->load->view('admin',$data);
+	}
+	public function data_pengguna()
+	{
+		$data['title'] = "Halaman Data Pengguna";
+		$this->load->view('admin',$data);
+	}
+	public function load_user()
+	{
+		$data = $this->m_back->load_user();
+		echo json_encode($data);
+	}
+	public function update_users()
+	{
+		$this->M_back->act_update_users();
+	}
+	public function deleteUsers()
+	{
+		$this->M_back->actDeleteUser($this->input->post('id_users'));
 	}
 	public function proses_daftar()
 	{
@@ -113,11 +131,16 @@ class Main extends CI_Controller {
 	public function harga()
 	{
 		$data['title'] = "Halaman Daftar Harga";
-		$data['swdkllj'] = $this->M_back->getSwd();
-		$data['stnk'] = $this->M_back->getStnk();
-		$data['tnkb'] = $this->M_back->getTnkb();
-		$data['sanksi'] = $this->M_back->getSanksi();
 		$this->load->view('admin',$data);
+	}
+	public function load_harga()
+	{
+		$data = $this->m_back->load_harga();
+		echo json_encode($data);
+	}
+	public function update_harga()
+	{
+		$this->M_back->act_update_harga();
 	}
 	//end daftar harga//
 
@@ -154,7 +177,7 @@ class Main extends CI_Controller {
 	public function ambilswdkjl()
 	{
 		$jenis = $this->input->post('jenis');
-		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) AND jenis="'.$jenis.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3,9,10) AND jenis="'.$jenis.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {
@@ -185,11 +208,12 @@ class Main extends CI_Controller {
 	{
 		if ($this->uri->segment(3)=="c_berkas") {
 			$data['title'] = "Halaman Cetak Berkas Jadi";
+			$id = $this->uri->segment(4);
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "4fc1f2cf326428d1770205e98e97b617");
-			$client->setPageSize("A2");
-			$client->setOrientation("landscape");
-			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/'.$this->uri->segment(2).'/berkas/'.$this->uri->segment(4);
+			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client->setPageSize("A4");
+			$client->setOrientation("portrait");
+			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/berkas/'.$id;
 			$pdf = $client->convertUrl($url);
 			// return var_dump($url);
 			header("Content-Type: application/pdf");
@@ -199,19 +223,21 @@ class Main extends CI_Controller {
 			echo $pdf;
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
 			$id = $this->uri->segment(4);
-			$this->load->view('admin/cetak/c_perpanjang');
-			// $this->load->helper('pdfcrowd.php');
-			// $client = new \Pdfcrowd\HtmlToPdfClient("admin12", "4fc1f2cf326428d1770205e98e97b617");
-			// $client->setPageSize("A2");
-			// $client->setOrientation("landscape");
-			// $url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$this->uri->segment(3).'/'.$id;
-			// $pdf = $client->convertUrl("http://pantauair.com/testing/cetak.php");
-			// return var_dump($url);
-			// header("Content-Type: application/pdf");
-			// header("Cache-Control: no-cache");
-			// header("Accept-Ranges: none");
-			// header("Content-Disposition: inline; filename=\"example.pdf\"");
-			// echo $pdf;
+			$this->load->helper('pdfcrowd.php');
+			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client->setPageSize("A2");
+			$client->setOrientation("portrait");
+			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_perpanjang/'.$id;
+			$pdf = $client->convertUrl($url);
+			//return var_dump($url);
+			header("Content-Type: application/pdf");
+			header("Cache-Control: no-cache");
+			header("Accept-Ranges: none");
+			header("Content-Disposition: inline; filename=\"'.$id.'.pdf\"");
+			echo $pdf;
+		}else if ($this->uri->segment(3)=="c_baliknama") {
+			$data['title'] = "Cetak Balik Nama";
+			$this->load->view('admin/cetak/c_baliknama',$data);
 		}else{
 
 		}
