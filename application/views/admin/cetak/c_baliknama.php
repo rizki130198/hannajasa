@@ -282,7 +282,7 @@ table tr td{
 								</div>
 								<hr style="border-color: #333;border-top:solid 2px;margin-top: -10px !important;">
 								<div class="col-md-12" style="">
-									<h4 style="font-weight: bold;text-align: right;margin-top: -10px;margin-bottom: 0 !important;">No : <span style="text-decoration: underline;padding-bottom: 0 !important;"></span></h4>
+									<h4 style="font-weight: bold;text-align: right;margin-top: -10px;margin-bottom: 0 !important;">No : <span style="text-decoration: underline;padding-bottom: 0 !important;"><?=$balik->no?></span></h4>
 								</div>
 								<div class="form-group row" style="margin-top:-10px !important;margin: 0 !important;">
 									<label class="col-sm-2 col-form-label">Sudah terima dari (atas nama)<span class="titik2">:</span></label>
@@ -549,7 +549,7 @@ table tr td{
 										<hr style="border-top:solid 1.5px #333;margin-top: 20% !important;">
 										<div class="input-group" style="margin-top: 35px;">
 											<span class="input-group-addon" style="font-weight: bold;color: #333;line-height:4.8;">Jakarta,</span>
-											<input type="text" class="form-control">
+											<input type="text" value="<?= date('Y-m-d',strtotime($balik->tanggal))?>" class="form-control">
 										</div>
 										<p style="font-weight: bold;text-align: center;margin-top: 20%;">..................................................................................</p>
 										<p style="font-weight: bold;margin-top: -10px;text-align: center;">Penerima</p>

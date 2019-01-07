@@ -84,19 +84,20 @@ class Main extends CI_Controller {
 		$data['input_berkas'] = $this->M_back->getBerkas($id);
 		$this->load->view('admin',$data);
 	}
+
 	//end input berkas//
 	
 	//View Berkas
 	public function berkas($id)
 	{
-		$query = $this->db->get_where('cetak_perpanjang',array('id_cetak'=>$id));
+		$query = $this->db->get_where('cetak_berkas',array('id_berkas'=>$id));
 		if ($query->num_rows() > 0) {
 			$data['berkas'] = $query->row();
+			$this->load->view('admin/berkas', $data);
 		}else{
 			redirect('main/berkas_jadi');
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		}
-		$this->load->view('admin/berkas', $data);
 	}
 	public function cetak_perpanjang($id)
 	{
@@ -291,6 +292,10 @@ class Main extends CI_Controller {
 		}else{
 
 		}
+	}
+	public function cetak_berkas($id)
+	{
+		$this->M_back->simpanberkas();
 	}
 	//end cetak pdf//
 	public function logout()
