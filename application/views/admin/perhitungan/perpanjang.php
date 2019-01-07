@@ -49,7 +49,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Telat Lebih 1 Tahun</h4>
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">PKB</label>
-													<input type="text" name="pkb3" id="pkb_t" onkeyup="sum_t();" class="form-control rp" >
+													<input type="text" name="pkb3" id="pkb_t" class="form-control rp" >
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -58,7 +58,7 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">Telat Tahun</label>
-													<input type="text" style="display: none;" id="denda" name="telat_thn" onkeyup="sum_t();" class="form-control" value="25%">
+													<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="25%">
 													<input type="text" name="telat_thn" id="telat_thn" onkeyup="sum_t();" class="form-control" >
 													<span class="material-input"></span>
 												</div>
@@ -101,7 +101,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Normal</h4>
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">PKB</label>
-													<input type="text" name="pkb1" id="pkb_nor" onkeyup="normal();" class="form-control" >
+													<input type="text" name="pkb1"  onkeyup="normal();" id="pkb_nor" class="form-control" >
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -110,7 +110,7 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating is-empty" >
 													<label class="control-label">SWDKLLJ</label>
-													<input type="text" name="swdllj1" id="swdkllj" onkeyup="normal();" class="form-control swdklksama">
+													<input type="text" name="swdllj1" id="swdkllj" class="form-control swdklksama">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -126,7 +126,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Telat Bulanan</h4>
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">PKB</label>
-													<input type="text" name="pkb2" id="pkb2" onkeyup="sum();" class="form-control rp" >
+													<input type="text" name="pkb2" id="pkb2" class="form-control rp" >
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -154,7 +154,7 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating is-empty" >
 													<label class="control-label">SWDKLLJ</label>
-													<input type="text" name="swdllj2" id="swdkllj_b" onkeyup="hargatotal();" class="form-control swdklksama" >
+													<input type="text" name="swdllj2" id="swdkllj_b" class="form-control swdklksama" >
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -163,7 +163,7 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating is-empty">
 													<label class="control-label">Sanksi SWDKLLJ</label>
-													<input type="text" name="sanski_swdllj1" id="rupiah2" onkeyup="hargatotal();" class="form-control" >
+													<input type="text" name="sanski_swdllj1" id="rupiah2" onkeyup="hargaTotal();" class="form-control" >
 													<span class="material-input"></span>
 												</div>
 											</div>

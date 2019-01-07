@@ -110,7 +110,7 @@
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"  name="sim2" value="idak Ada/Acc"> Tidak Ada/Acc
+											<input type="checkbox"  name="sim2" value="Tidak Ada/Acc"> Tidak Ada/Acc
 										</label>
 									</div>
 								</div>

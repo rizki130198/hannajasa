@@ -38,9 +38,9 @@ function perpanjang() {
 		$('#cek_plat').show();
 		$('#pkb_tahun').show();
 		$('#swdk').show();
-		$('#pkb_n').hide();
+		$('#pkb_n').show();
 		$('.ganti-plat').hide();
-		$('#pkb_bulan').hide();
+		$('#pkb_bulan').show();
 		$('#pkb_n :input').val('');
 		$('#pkb_bulan :input').val('');
 		$('#total').show();
@@ -73,21 +73,21 @@ $(document).ready(function () {
 	});
 });
 function sum() {
-	var txtFirstNumberValue = document.getElementById('pkb2').value;
-	var txtSecondNumberValue = document.getElementById('denda_b').value;
-	var txtThreeNumberValue = document.getElementById('t_bln').value;
-	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
-	if (!isNaN(result)) {
-		document.getElementById('txt4').value = "Rp. " + result;
+	var pkb2 = document.getElementById('pkb2').value;
+	var dendab = document.getElementById('denda_b').value;
+	var tbulan = document.getElementById('t_bln').value;
+	var hasil = parseFloat(pkb2) * parseFloat(dendab) * parseFloat(tbulan);
+	if (!isNaN(hasil)) {
+		document.getElementById('txt4').value = "Rp. " + hasil;
 	}
 }
-function hargatotal() {
-	var txtFirstNumberValue = document.getElementById('txt4').value;
-	var txtSecondNumberValue = document.getElementById('swdkllj_b').value;
-	var txtThreeNumberValue = document.getElementById('rupiah2').value;
-	var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue) + parseInt(txtThreeNumberValue);
-	if (!isNaN(result)) {
-		document.getElementById('total_harga').value = "Rp. " + result;
+function hargaTotal() {
+	var txt4 = document.getElementById('txt4').value;
+	var swd2 = document.getElementById('swdkllj_b').value;
+	var txtrp = document.getElementById('rupiah2').value;
+	var jwb = parseFloat(txt4) + parseFloat(swd2) + parseInt(txtrp);
+	if (!isNaN(jwb)) {
+		document.getElementById('total_harga').value = "Rp. " + jwb;
 	}
 }
 function normal() {
@@ -100,10 +100,10 @@ function normal() {
 }
 
 function sum_t() {
-	var txtFirstNumberValue = document.getElementById('pkb_t').value;
-	var txtSecondNumberValue = document.getElementById('denda').value;
-	var txtThreeNumberValue = document.getElementById('telat_thn').value;
-	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	var pkbt = document.getElementById('pkb_t').value;
+	var dendat = document.getElementById('denda').value;
+	var ttelat = document.getElementById('telat_thn').value;
+	var result = parseFloat(pkbt) * parseFloat(dendat) * parseFloat(ttelat);
 	if (!isNaN(result)) {
 		document.getElementById('hasil').value = result;
 	}

@@ -13,14 +13,14 @@
 					</div>
 					<div class="card-content">
 						
-						<form action="<?=site_url('')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
+						<form action="<?=site_url('main/proses_balik')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group is-empty">
 					                <p>Jenis Balik Nama</p>
-					                <select class="form-control" onchange="balik()" name="jenis_b" id="balik_nama" required="">
+					                <select class="form-control" onchange="balik()" name="jenis_b" id="balik_nama" >
 					                    <option value="">-- SILAHKAN PILIH --</option>
-					                    <option value="" disabled=""></option>
+					                    <option value="" disabled></option>
 										<option value="Pajak Hidup">Pajak Hidup</option>
 										<option value="Pajak Normal">Pajak Normal</option>
 										<option value="Telat bulanan">Telat bulanan</option>
@@ -33,9 +33,9 @@
 								<div class="col-md-12">
 									<div class="form-group is-empty">
 					                <p>Jenis Kendaraan</p>
-					                <select class="form-control" name="jenis_k" required="">
+					                <select class="form-control" name="jenis_k" >
 					                    <option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
-					                    <option value="" disabled=""></option>
+					                    <option value="" disabled></option>
 										<option value="cashier">Motor</option>
 										<option value="orang lapangan">Mobil</option>
 										<option value="super admin">Mobil Box</option>
@@ -49,7 +49,7 @@
 									<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
-										<input type="text" name="pkb" id="pkb_b_t" onkeyup="b_tahun();" class="form-control" required="">
+										<input type="text" name="pkb4" id="pkb_b_t" onkeyup="b_tahun();" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -59,7 +59,7 @@
 									<div class="form-group label-floating is-empty" >
 										<label class="control-label">Telat Tahun</label>
 										<input type="text" name="denda_pkb" style="display: none;" value="25%" id="denda_b_t" onkeyup="b_tahun();">
-										<input type="text" name="telat_bln" id="telat_thn" onkeyup="b_tahun();" class="form-control" required="">
+										<input type="text" name="telat_bln2" id="telat_thn" onkeyup="b_tahun();" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -68,7 +68,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">Sanksi PKB</label>
-										<input type="text" name="sanksi_pkb" disabled="" id="total_pkb_t" class="form-control" required="" value="">
+										<input type="text" name="sanksi_pkb2" readonly id="total_pkb_t" class="form-control"  value="">
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -77,7 +77,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">SWDKLLJ</label>
-										<input type="text" name="swdllj" id="" class="form-control" required="">
+										<input type="text" name="swdllj2" id="" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -86,7 +86,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">Sanksi SWDKLLJ</label>
-										<input type="text" name="sanksi_swdllj_b" id="" class="form-control" required="">
+										<input type="text" name="sanksi_swdllj_b2" id="" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -100,7 +100,7 @@
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
 										<input type="text" name="pkb" id="denda_bbn_h" style="display: none;" value="67.0%" onkeyup="b_hidup();">
-										<input type="text" name="pkb" id="pkb_b_h" onkeyup="b_hidup();" class="form-control" required="">
+										<input type="text" name="pkb1" id="pkb_b_h" onkeyup="b_hidup();" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">BBN KB</label>
-										<input type="text" name="total" id="total_bbn_h" disabled="" class="form-control" required="">
+										<input type="text" name="bbnkb1" id="total_bbn_h" readonly class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -118,7 +118,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty" >
 										<label class="control-label">Adm STNK</label>
-										<input type="text" name="adm_stnk" id="adm_stnk" class="form-control" required="">
+										<input type="text" name="adm_stnk1" id="adm_stnk" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -132,7 +132,7 @@
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
 										<input type="text" name="pkb" id="denda_b" style="display: none;" value="67%" onkeyup="b_normal();">
-										<input type="text" name="pkb" id="pkb_b" onkeyup="b_normal();" class="form-control" required="">
+										<input type="text" name="pkb2" id="pkb_b" onkeyup="b_normal();" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -141,7 +141,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">BBN KB</label>
-										<input type="text" name="total" id="total_b" disabled="" class="form-control" required="">
+										<input type="text" name="bbnkb2" id="total_b" readonly class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -150,7 +150,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty" >
 										<label class="control-label">SWDKLLJ</label>
-										<input type="text" name="swdllj" id="swdkllj" class="form-control" required="">
+										<input type="text" name="swdllj1" id="swdkllj" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -159,7 +159,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty" >
 										<label class="control-label">Adm STNK</label>
-										<input type="text" name="adm_stnk" id="adm_stnk" class="form-control" required="">
+										<input type="text" name="adm_stnk2" id="adm_stnk" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -168,7 +168,7 @@
 								<div class="col-md-12">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox" id="gantiplat_n" value="ada"> Ganti Plat
+											<input type="checkbox" name="ganti1" id="gantiplat_n" value="ada"> Ganti Plat
 										</label>
 									</div>
 								</div>
@@ -177,7 +177,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">Adm TNKB</label>
-										<input type="text" disabled="" name="adm_tnkb" value="100.000" class="form-control" required="">
+										<input type="text" readonly name="adm_tnkb1" value="100.000" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -191,7 +191,7 @@
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">PKB</label>
 										<input type="text" name="pkb" id="denda_bu" style="display: none;" value="67%" onkeyup="b_bulan();">
-										<input type="text" name="pkb" id="pkb_bu" onkeyup="b_bulan();" class="form-control" required="">
+										<input type="text" name="pkb3" id="pkb_bu" onkeyup="b_bulan();" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -200,7 +200,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">BBN KB</label>
-										<input type="text" name="total" id="total_bbn_b" disabled="" class="form-control" required="">
+										<input type="text" name="bbnkb3" id="total_bbn_b" readonly class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -210,7 +210,7 @@
 									<div class="form-group label-floating is-empty" >
 										<label class="control-label">Telat Bulan</label>
 										<input type="text" name="denda_pkb" style="display: none;" value="2%" id="denda_ba" onkeyup="b_bulan();">
-										<input type="text" name="telat_bln" id="telat_bln" onkeyup="b_bulan();" class="form-control" required="">
+										<input type="text" name="telat_bln1" id="telat_bln" onkeyup="b_bulan();" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -219,7 +219,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">Sanksi PKB</label>
-										<input type="text" name="sanksi_pkb" disabled="" id="total_ba" class="form-control" required="" value="">
+										<input type="text" name="sanksi_pkb1" readonly id="total_ba" class="form-control"  value="">
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -228,7 +228,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">SWDKLLJ</label>
-										<input type="text" name="swdllj" id="" class="form-control" required="">
+										<input type="text" name="swdllj1" id="" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -237,7 +237,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty">
 										<label class="control-label">Sanksi SWDKLLJ</label>
-										<input type="text" name="sanksi_swdllj_b" id="" class="form-control" required="">
+										<input type="text" name="sanksi_swdllj_b1" id="" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -246,7 +246,7 @@
 								<div class="col-md-12">
 									<div class="form-group label-floating is-empty" >
 										<label class="control-label">Adm STNK</label>
-										<input type="text" name="adm_stnk" id="adm_stnk" class="form-control" required="">
+										<input type="text" name="adm_stnk3" id="adm_stnk" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
@@ -255,7 +255,7 @@
 								<div class="col-md-12">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox" id="gantiplat" value="ada"> Ganti Plat
+											<input type="checkbox" name="ganti2" id="gantiplat" value="ada"> Ganti Plat
 										</label>
 									</div>
 								</div>
@@ -264,13 +264,13 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="control-label">Adm TNKB</label>
-										<input type="text" disabled="" name="adm_tnkb" value="100.000" class="form-control" required="">
+										<input type="text" readonly name="adm_tnkb2" value="100.000" class="form-control" >
 										<span class="material-input"></span>
 									</div>
 								</div>
 							</div>
 							<!-- End Bulan -->
-							<button type="submit" class="btn btn-info pull-right">Daftar</button>
+							<button type="submit" class="btn btn-info pull-right">Submit</button>
 							<div class="clearfix"></div>
 						</form>
 					</div>
