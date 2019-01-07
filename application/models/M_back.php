@@ -8,9 +8,11 @@ class M_back extends CI_Model {
 		$v_email = $this->db->get_where('users', array('email' => $this->input->post('email',TRUE)))->row();
 		if (count($v_user) > 0 ) {
 			$this->session->set_flashdata('gagal', 'nama yang anda masukan sudah terdaftar di website kami.');
+			redirect('main/daftar');
 		}else{
 			if (count($v_email) > 0) {
 				$this->session->set_flashdata('gagal', 'Email yang anda masukan sudah terdaftar di website kami.');
+				redirect('main/daftar');
 			}else{
 				if ($this->input->post('password') == $this->input->post('ulang_password')) {
 					$val = $this->db->insert('users', array(
@@ -24,7 +26,7 @@ class M_back extends CI_Model {
 					));
 					if ($val == TRUE) {
 						$this->session->set_flashdata('sukses', 'Berhasil di daftarkan.');
-						redirect('main/daftar');
+						redirect('main/data_pengguna');
 					}
 				}else{
 					$this->session->set_flashdata('gagal', 'Password tidak sama, harap periksa kembali dengan benar.');
@@ -33,30 +35,73 @@ class M_back extends CI_Model {
 			}
 		}
 	}
+	public function load_user()
+	{
+		$this->db->order_by('id_users', 'DESC');
+		$query = $this->db->get('users');
+		return $query->result_array();
+	}
+	public function getUser($id)
+	{
+		$idnya = array('id_users' => $id);
+		$q = $this->db->get_where('users',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/data_pengguna');
+		}
+		return $query;
+	}
+	public function action_edit_user()
+	{
+		$this->db->update('users', array(
+			'nama' => $this->input->post('nama'),
+			'username' => $this->input->post('username'),
+			'email' => $this->input->post('email'),
+			'password' => md5($this->input->post('password')),
+			'ulang_password' => $this->input->post('password'),
+			'hak_akses' => $this->input->post('hak_akses')
+		), array('id_users' => $this->uri->segment(3)));
+	}
+	function act_update_users()
+	{
+		$id = $this->input->post('id_users');
+		$query = $this->db->update('users', array(
+			'nama'=> $this->input->post('value')
+		),array('id_users'=>$id));
+	}
+	function actDeleteUser($id)
+	{
+		$this->db->where('id_users', $id);
+		$this->db->delete('users');
+	}
+	public function getBerkas($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_perpanjang',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		return $query;
+	}
 	// Start Harga //
-	public function getSwd()
+	public function load_harga()
 	{
-		$dimana = array('jenis_harga' => 'swdkllj');
-		$q = $this->db->get_where('catatan',$dimana);
-		return $q->result_array();
+		$this->db->order_by('id_catat');
+		$query = $this->db->get('catatan');
+		return $query->result_array();
 	}
-	public function getStnk()
+	function act_update_harga()
 	{
-		$dimana = array('jenis_harga' => 'stnk');
-		$q = $this->db->get_where('catatan',$dimana);
-		return $q->result_array();
-	}
-	public function getTnkb()
-	{
-		$dimana = array('jenis_harga' => 'tnkb');
-		$q = $this->db->get_where('catatan',$dimana);
-		return $q->result_array();
-	}
-	public function getSanksi()
-	{
-		$dimana = array('jenis_harga' => 'sanksi');
-		$q = $this->db->get_where('catatan',$dimana);
-		return $q->result_array();
+		$id = $this->input->post('id_catat');
+		$query = $this->db->update('catatan', array(
+			'harga'=> $this->input->post('value'),
+			'created_at' => date('Y-m-d')
+		),array('id_catat'=>$id));
 	}
 	// End Harga //
 	
@@ -217,7 +262,7 @@ class M_back extends CI_Model {
 			'harga_blokir'=>$harga_progresif,
 			'harga_lainnya'=>$harga_lain,
 			'total_proses'=>$total,
-			'harga_adm'=>$$harga_skp,
+			// 'harga_adm'=>$$harga_skp,
 			'biaya_prediksi'=>$prediski,
 			'biaya_kurang'=>$kurang,
 			'tanggal'=>date('Y-m-d')
@@ -434,7 +479,7 @@ class M_back extends CI_Model {
 			'tanggal'=>date('Y-m-d')
 		));
 		if ($query==TRUE) {
-			redirect('main/cetak_balik/'.$id);
+			redirect('main/cetak/c_baliknama/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Database Error');
 			redirect('main/dashboard');

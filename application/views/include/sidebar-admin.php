@@ -52,7 +52,7 @@ li.active a{
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}?>">
+            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="transaksi_p"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}?>">
                 <a href="<?=site_url('main/perhitungan');?>">
                     <i class="material-icons">create</i> 
                     <p>Perhitungan</p>
@@ -97,7 +97,7 @@ li.active a{
                 </a>
             </li>
             <?php if($lvl=='super_admin'){?>
-            <li class="<?php if ($this->uri->segment(2)=="daftar"){echo "active-drop";} ?>">
+            <li class="<?php if ($this->uri->segment(2)=="daftar"){echo "active-drop";}elseif($this->uri->segment(2)=="data_pengguna"){echo "active-drop";} ?>">
                 <a href="#" data-toggle="collapse" data-target="#pengguna" class="collapsed menu-act">
                     <i class="material-icons">people</i> 
                     <p>Kasir <b class="caret pull-right"></b></p> 
@@ -110,10 +110,10 @@ li.active a{
                                 <span class="sidebar-normal">Tambah Pengguna</span>
                             </a>
                         </li>
-                        <li class="<?php if($this->uri->segment(2)=="daftar_pengguna"){echo "active";}?>">
-                            <a href="#">
+                        <li class="<?php if($this->uri->segment(2)=="data_pengguna"){echo "active";}?>">
+                            <a href="<?=site_url('main/data_pengguna');?>">
                                 <span class="sidebar-mini"> DP </span>
-                                <span class="sidebar-normal">Daftar Pengguna</span>
+                                <span class="sidebar-normal">Data Pengguna</span>
                             </a>
                         </li>                        
                     </ul>

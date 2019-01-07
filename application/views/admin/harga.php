@@ -1,10 +1,13 @@
 <style type="text/css">
-	.form-group{
-		margin: 0;
-	}
-	.input-group .input-group-addon{
-		padding: 0 5px 0 0; 
-	}
+.form-group{
+	margin: 0;
+}
+.input-group .input-group-addon{
+	padding: 0 5px 0 0; 
+}
+#harga{
+	color:red;
+}
 </style>
 <div class="content">
 	<div class="container-fluid">
@@ -16,69 +19,61 @@
 						<!-- <p class="category">Here is a subtitle for this table</p> -->
 					</div>
 					<div class="card-content">
-						<form action="<?=site_url('main/proses_daftar')?>" method="post" accept-charset="utf-8">
-							<h3 style="font-weight: bold;">SWDKLLJ</h3>
-							<div class="row">
-								<?php 
-									foreach ($swdkllj as $rowSwd) { 
-								?>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="control-label"><?php echo $rowSwd['nama']; ?></label>
-										<input type="text" name="swdk_r2" value="<?php echo $rowSwd['harga']; ?>" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-								<?php } ?>
-							</div>
-							<h3 style="font-weight: bold;">STNK</h3>
-							<div class="row">
-								<?php 
-									foreach ($stnk as $rowStnk) { 
-								?>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="control-label"><?php echo $rowStnk['nama']; ?></label>
-										<input type="text" name="swdk_r2" value="<?php echo $rowStnk['harga']; ?>" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-								<?php } ?>
-							</div>
-							<h3 style="font-weight: bold;">TNKB</h3>
-							<div class="row">
-								<?php 
-									foreach ($tnkb as $rowTnkb) { 
-								?>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="control-label"><?php echo $rowTnkb['nama']; ?></label>
-										<input type="text" name="swdk_r2" value="<?php echo $rowTnkb['harga']; ?>" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-								<?php } ?>
-							</div>
-							<h3 style="font-weight: bold;">Sanksi</h3>
-							<div class="row">
-								<?php 
-									foreach ($sanksi as $rowSanksi) { 
-								?>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label class="control-label"><?php echo $rowSanksi['nama']; ?></label>
-										<input type="text" name="swdk_r2" value="<?php echo $rowSanksi['harga']; ?>" class="form-control" required="">
-										<span class="material-input"></span>
-									</div>
-								</div>
-								<?php } ?>
-							</div>
-							<button type="submit" class="btn btn-primary pull-right">Ubah</button>
-							<div class="clearfix"></div>
-						</form>
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered" style="width:100%">
+								<thead>
+									<tr>
+										<th>Daftar Harga</th>
+										<th>Jenis</th>
+										<th>Harga</th>
+										<th>Tanggal Update</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		function load_harga(){
+			$.ajax({
+				url:"<?php echo base_url('Main/load_harga'); ?>",
+				dataType:"JSON",
+				success:function(data){
+					var html = '';
+					for (var count = 0; count < data.length; count++) {
+						html += '<tr>';
+						html += '<td class="table_data" data-row_id="'+data[count].id_catat+'" data-column_name="nama">'+data[count].nama+'</td>';
+						html += '<td class="table_data" data-row_id="'+data[count].id_catat+'" data-column_name="jenis">'+data[count].jenis+'</td>';
+						html += '<td class="table_data" id="harga" data-row_id="'+data[count].id_catat+'" data-column_name="harga" contenteditable>'+data[count].harga+'</td>';
+						html += '<td class="table_data" data-row_id="'+data[count].id_catat+'" data-column_name="created_at">'+data[count].created_at+'</td></tr>';
+					}
+					$('tbody').html(html);
+				}
+			}); 
+		}
+		load_harga();
+
+		$(document).on('blur', '.table_data', function(){
+			var id_catat = $(this).data('row_id');
+			var table_column = $(this).data('column_name');
+			var value = $(this).text();
+			$.ajax({
+				url:"<?php echo base_url(); ?>Main/update_harga",
+				method:"POST",
+				data:{id_catat:id_catat, table_column:table_column, value:value},
+				success:function(data)
+				{
+					load_harga();
+				}
+			})
+		});
+	});
+</script>

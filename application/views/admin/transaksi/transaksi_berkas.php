@@ -31,19 +31,23 @@
 					</div>
 					<div class="card-content">
 						<form action="" class="form-horizontal">
+							<?php foreach ($input_berkas as $rowBerkas): ?>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Nama Pemilik BPKB <span class="titik2">:</span></label>
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">a.n. </span>
-										<input type="text" class="form-control" name="pem_bpkb" placeholder="Masukan Nama Pemilik">
+										<input type="text" class="form-control" name="pem_bpkb" value="<?=$rowBerkas->atas_nama?>" placeholder="Masukan Nama Pemilik">
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Nomor Polisi <span class="titik2">:</span></label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="nopol" placeholder="Masukan nomor polisi">
+									<div class="input-group">
+										<span class="input-group-addon">B </span>
+										<input type="text" class="form-control" name="nopol" value="<?=$rowBerkas->nopol?>" placeholder="Masukan Nama Nomor Polisi">
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
@@ -82,6 +86,7 @@
 							<div class="form-group">
 								<button type="submit" class="btn btn-success btn-block">Simpan & Cetak</button>
 							</div>
+                			<?php endforeach ?>
 						</form>
 					</div>
 				</div>

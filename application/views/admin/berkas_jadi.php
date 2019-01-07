@@ -176,11 +176,11 @@
                  <tr>
                   <td><?=$key->no?></td>
                   <td><?=$key->perhitungan?> <span style="color: red;">(<?=$key->jenis?>)</span></td>
-                  <td><?=$key->no?></td>
-                  <td><?=$key->no?></td>
-                  <td><?=$key->no?></td>
-                  <td><?=$key->no?></td>
-                  <td><?=$key->no?></td>
+                  <td><?=$key->atas_nama?></td>
+                  <td><?=$key->no_telp?></td>
+                  <td><?=$key->uang_dp?></td>
+                  <td><?=$key->wilayah?></td>
+                  <td><?=$key->nopol?></td>
                   <td class="text-right">
                     <a href="#approve<?=$key->no?>" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a>
                     <a href="#" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>
@@ -193,14 +193,14 @@
                           <i class="material-icons">check</i>
                         </div>        
                         <h4 class="modal-title">Yakin ingin melanjutkan?</h4>  
-                        <a href="<?= site_url('main/cetak/c_berkas/'.$key->no) ?>" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                        <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
                       </div>
                       <div class="modal-body">
                         <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <a href="<?= site_url('main/cetak/c_berkas/'.$key->no) ?>"><button class="btn btn-success" type="button">Ya, lanjutakn</button></a>
+                        <a href="<?= site_url('main/input_berkas/'.$key->id_cetak) ?>"><button class="btn btn-success" type="button">Ya, lanjutakn</button></a>
                       </div>
                     </div>
                   </div>
