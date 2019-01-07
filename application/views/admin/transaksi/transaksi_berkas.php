@@ -30,7 +30,7 @@
 						<h4 class="title">Form Bukti Pengambilan BPKB</h4>
 					</div>
 					<div class="card-content">
-						<form action="" class="form-horizontal">
+						<form action="<?= site_url('main/cetak_berkas') ?>" method="post"class="form-horizontal">
 							<?php foreach ($input_berkas as $rowBerkas): ?>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Nama Pemilik BPKB <span class="titik2">:</span></label>
@@ -38,6 +38,7 @@
 									<div class="input-group">
 										<span class="input-group-addon">a.n. </span>
 										<input type="text" class="form-control" name="pem_bpkb" value="<?=$rowBerkas->atas_nama?>" placeholder="Masukan Nama Pemilik">
+										<input type="hidden" class="form-control" name="id" value="<?=$this->uri->segment(3)?>">
 									</div>
 								</div>
 							</div>
@@ -55,12 +56,12 @@
 								<div class="col-sm-8" style="display: inline-flex;">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox" value="ada"> Ada
+											<input type="checkbox" value="ada" name="faktur1"> Ada
 										</label>
 									</div>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox" value="tidak ada"> Tidak Ada
+											<input type="checkbox" value="tidak ada" name="faktur2"> Tidak Ada
 										</label>
 									</div>
 								</div>
@@ -70,7 +71,7 @@
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">Lunas/Rp</span>
-										<input type="text" class="form-control" placeholder="Masukan Kekurangan Biaya">
+										<input type="text" class="form-control" name="kurang" placeholder="Masukan Kekurangan Biaya">
 									</div>
 								</div>
 							</div>
@@ -79,7 +80,7 @@
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">Tanggal</span>
-										<input type="text" id="datepicker" class="form-control" placeholder="Masukan Kekurangan Biaya">
+										<input type="text" id="datepicker" name="tanggal" class="form-control" placeholder="Masukan Kekurangan Biaya">
 									</div>
 								</div>
 							</div>

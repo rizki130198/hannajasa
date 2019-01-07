@@ -114,27 +114,28 @@ body{
 										<div class="col-sm-8" style="">
 											<div class="input-group" style="margin-top:-10px !important;">
 												<span class="input-group-addon">a.n. </span>
-												<input type="text" class="form-control" value="<?=$berkas->no?>" name="pem_bpkb" placeholder="Masukan Nama Pemilik">
+												<input type="text" class="form-control" value="<?=$berkas->nama_pemilik?>" name="pem_bpkb" placeholder="Masukan Nama Pemilik">
 											</div>
 										</div>
 									</div>
 									<div class="form-group row" style="margin-top:-10px !important;margin: 0 !important;">
 										<label class="col-sm-4 col-form-label" style="margin-top:-10px !important;">Nomor Polisi <span class="titik2">:</span></label>
 										<div class="col-sm-8" style="">
-											<input type="text" style="margin-top:-12px !important;" class="form-control" value="<?=$berkas->no?>" name="nopol" placeholder="Masukan nomor polisi">
+											<input type="text" style="margin-top:-12px !important;" class="form-control" value="<?=$berkas->nopol?>" name="nopol" placeholder="Masukan nomor polisi">
 										</div>
 									</div>
 									<div class="form-group row" style="margin-top:-10px !important;margin: 0 !important;">
 										<label class="col-sm-4 col-form-label" style="margin-top:-10px !important;">Faktur <span class="titik2">:</span></label>
 										<div class="col-sm-8 berkas" style="display: inline-flex;">
+										<?php $faktur = explode(',', $berkas->faktur)?>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" value="ada"> Ada
+													<input type="checkbox" value="ada" <?=($faktur[0]==NULL)?NULL:'checked value="'.$faktur[0].'"'?>> Ada
 												</label>
 											</div>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" value="tidak ada"> Tidak Ada
+													<input type="checkbox" value="tidak ada" <?=($faktur[1]==NULL)?NULL:'checked value="'.$faktur[1].'"'?>> Tidak Ada
 												</label>
 											</div>
 										</div>
@@ -144,7 +145,7 @@ body{
 										<div class="col-sm-8" style="">
 											<div class="input-group" style="margin-top:-10px !important;">
 												<span class="input-group-addon">Lunas/Rp</span>
-												<input type="text" class="form-control" value="<?=$berkas->no?>" placeholder="Masukan Kekurangan Biaya">
+												<input type="text" class="form-control" value="<?=$berkas->biaya?>" placeholder="Masukan Kekurangan Biaya">
 											</div>
 										</div>
 									</div>
@@ -153,7 +154,7 @@ body{
 										<div class="col-sm-8" style="">
 											<div class="input-group" style="margin-top:-10px !important;">
 												<span class="input-group-addon">Tanggal</span>
-												<input type="text" id="datepicker" class="form-control" value="<?=$berkas->no?>" placeholder="Masukan Kekurangan Biaya">
+												<input type="text" id="datepicker" class="form-control" value="<?=$berkas->tgl_bpkb?>" placeholder="Masukan Kekurangan Biaya">
 											</div>
 										</div>
 									</div>
@@ -161,7 +162,7 @@ body{
 										<div class="col-sm-6" style="float: right;">
 											<div class="input-group" style="margin-top:-10px !important;">
 												<span class="input-group-addon">Jakarta,</span>
-												<input type="text" id="datepicker" class="form-control" value="<?=$berkas->no?>" placeholder="Masukan Kekurangan Biaya">
+												<input type="text" id="datepicker" class="form-control" value="<?=$berkas->created_at?>" placeholder="Masukan Kekurangan Biaya">
 											</div>
 											<p style="text-align: center;margin-top: 15px;">Pengelola hanna jasa</p>
 											<p style="border-bottom: solid 1.5px #333;width: 60%;margin: 30% auto;text-align: center;"></p>

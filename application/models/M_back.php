@@ -485,6 +485,25 @@ class M_back extends CI_Model {
 			redirect('main/dashboard');
 		}
 	}
+	public function simpanberkas()
+	{
+		$query = $this->db->insert('cetak_berkas', array(
+			'id_uri'=>$this->input->post('id'),
+			'id_user'=>$this->session->userdata('id'),
+			'nama_pemilik'=>$this->input->post('pem_bpkb'),
+			'nopol'=>$this->input->post('nopol'),
+			'faktur'=>$this->input->post('faktur1').','.$this->input->post('faktur2'),
+			'biaya'=>$this->input->post('kurang'),
+			'tgl_bpkb'=>date('y-m-d',strtotime($this->input->post('tanggal'))),
+			'created_at'=>date('Y-m-d'),
+		));
+		if ($query==TRUE) {
+			redirect('main/cetak/c_berkas/'.$id);
+		}else{
+			$this->session->set_flashdata('gagal', 'Database Error');
+			redirect('main/dashboard');
+		}
+	}
 }
 
 /* End of file M_back.php */

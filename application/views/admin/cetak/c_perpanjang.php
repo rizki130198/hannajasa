@@ -311,27 +311,27 @@ table tr td{
 										<?php $sim = explode(',', $perpanjang->sim)?>
 										<div class="checkbox" style="">
 											<label>
-												<input type="checkbox" <?=($bpkb[0]==NULL)?NULL 'value="ada"':'checked value="'.$bpkb[0].'"'?>> Ada + Faktur
+												<input type="checkbox" <?=($bpkb[0]==NULL)?NULL:'checked value="'.$bpkb[0].'"'?>> Ada + Faktur
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox" <?=($bpkb[1]==NULL)?NULL 'value="ada"':'checked value="'.$bpkb[1].'"'?> > As Tanpa Faktur
+												<input type="checkbox" <?=($bpkb[1]==NULL)?NULL:'checked value="'.$bpkb[1].'"'?> > As Tanpa Faktur
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox" <?=($bpkb[2]==NULL)?NULL 'value="ada"':'checked value="'.$bpkb[2].'"'?>> Foto Copy
+												<input type="checkbox" <?=($bpkb[2]==NULL)?NULL:'checked value="'.$bpkb[2].'"'?>> Foto Copy
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"  <?=($bpkb[3]==NULL)?NULL 'value="ada"':'checked value="'.$bpkb[3].'"'?>> Surat Leasing
+												<input type="checkbox"  <?=($bpkb[3]==NULL)?NULL:'checked value="'.$bpkb[3].'"'?>> Surat Leasing
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox" <?=($bpkb[4]==NULL)?NULL 'value="ada"':'checked value="'.$bpkb[4].'"'?> > Tidak Ada/Acc
+												<input type="checkbox" <?=($bpkb[4]==NULL)?NULL:'checked value="'.$bpkb[4].'"'?> > Tidak Ada/Acc
 											</label>
 										</div>
 									</div>
@@ -341,12 +341,12 @@ table tr td{
 									<div class="col-sm-3 berkas" style="display: inline-flex;">
 										<div class="checkbox" style="padding-right: 75px;">
 											<label>
-												<input type="checkbox" <?=($sim[0]==NULL)?NULL 'value="ada"':'checked value="'.$sim[0].'"'?>> Ada
+												<input type="checkbox" <?=($sim[0]==NULL)?NULL:'checked value="'.$sim[0].'"'?>> Ada
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox" <?=($sim[1]==NULL)?NULL 'value="ada"':'checked value="'.$sim[1].'"'?>> Tidak Ada/Acc
+												<input type="checkbox" <?=($sim[1]==NULL)?NULL:'checked value="'.$sim[1].'"'?>> Tidak Ada/Acc
 											</label>
 										</div>
 									</div>
@@ -403,7 +403,7 @@ table tr td{
 															<div class="form-group row" style="margin-top:0px !important;">
 																<div class="col-sm-5">
 																	<div class="checkbox" style="display: contents;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->pajak_ini==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->pajak_ini.'"'?>> Pajak Tahun ini</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->pajak_ini==NULL)?NULL:'checked value="'.$perpanjang->pajak_ini.'"'?>> Pajak Tahun ini</label>
 																		<span class="titik2">:</span>
 																	</div>
 																</div>
@@ -417,7 +417,7 @@ table tr td{
 															<div class="form-group row" style="margin-top: 0px !important;">
 																<div class="col-sm-5">
 																	<div class="checkbox" style="display: contents;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->pajak_lalu==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->pajak_lalu.'"'?>> Pajak Tahun lalu (SKP)</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->pajak_lalu==NULL)?NULL:'checked value="'.$perpanjang->pajak_lalu.'"'?>> Pajak Tahun lalu (SKP)</label>
 																		<span class="titik2">:</span>
 																	</div>
 																</div>
@@ -443,7 +443,7 @@ table tr td{
 															<div class="form-group row" style="margin-top:0px !important;">
 																<div class="col-sm-5">
 																	<div class="checkbox" style="display: contents;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->biaya_jasa==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->biaya_jasa.'"'?>> Biaya Jasa</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->biaya_jasa==NULL)?NULL:'checked value="'.$perpanjang->biaya_jasa.'"'?>> Biaya Jasa</label>
 																		<span class="titik2">:</span>
 																	</div>
 																</div>
@@ -458,7 +458,7 @@ table tr td{
 																<div class="col-sm-5" style="margin-top:-10px;">
 																	<div class="checkbox" style="display: contents;margin-top: -15px !important;">
 																		<label style="font-weight: bold;color: #333;">
-																			<input type="checkbox" <?=($perpanjang->acc_bpkb==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->acc_bpkb.'"'?>> Acc BPKB</label>
+																			<input type="checkbox" <?=($perpanjang->acc_bpkb==NULL)?NULL:'checked value="'.$perpanjang->acc_bpkb.'"'?>> Acc BPKB</label>
 																			<span class="titik2">:</span>
 																		</div>
 																	</div>
@@ -472,7 +472,7 @@ table tr td{
 																<div class="form-group row" style="margin-top: 0 !important;">
 																	<div class="col-sm-5" style="margin-top:-10px;">
 																		<div class="checkbox" style="display: contents;">
-																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->plat==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->plat.'"'?>> Cek Fisik dan Plat</label>
+																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->plat==NULL)?NULL:'checked value="'.$perpanjang->plat.'"'?>> Cek Fisik dan Plat</label>
 																			<span class="titik2">:</span>
 																		</div>
 																	</div>
@@ -486,7 +486,7 @@ table tr td{
 																<div class="form-group row" style="margin-top: 0 !important;">
 																	<div class="col-sm-5" style="margin-top:-10px;">
 																		<div class="checkbox" style="display: contents;">
-																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->adm_skp==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->adm_skp.'"'?>> Adm. SKP/Pajak Lalu</label>
+																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->adm_skp==NULL)?NULL:'checked value="'.$perpanjang->adm_skp.'"'?>> Adm. SKP/Pajak Lalu</label>
 																			<span class="titik2">:</span>
 																		</div>
 																	</div>
@@ -500,7 +500,7 @@ table tr td{
 																<div class="form-group row" style="margin-top: 0 !important;">
 																	<div class="col-sm-5" style="margin-top:-10px;">
 																		<div class="checkbox" style="display: contents;">
-																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->progresif==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->progresif.'"'?>> Blokir Progresif</label>
+																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->progresif==NULL)?NULL:'checked value="'.$perpanjang->progresif.'"'?>> Blokir Progresif</label>
 																			<span class="titik2">:</span>
 																		</div>
 																	</div>
@@ -514,7 +514,7 @@ table tr td{
 																<div class="form-group row" style="margin-top: 0 !important;">
 																	<div class="col-sm-1" style="margin-top:-10px;">
 																		<div class="checkbox" style="display: contents;">
-																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->proses_lain==NULL)?NULL 'value="ada"':'checked value="'.$perpanjang->proses_lain.'"'?>></label>
+																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->proses_lain==NULL)?NULL:'checked value="'.$perpanjang->proses_lain.'"'?>></label>
 																		</div>
 																	</div>
 																	<div class="col-sm-4" style="padding: 0;margin-top:-10px;">
