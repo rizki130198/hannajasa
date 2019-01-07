@@ -75,7 +75,7 @@ class Main extends CI_Controller {
 		$data['title'] = "Halaman Berkas Jadi";
 		$this->db->select('*');
 		$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
-		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'));
+		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '0'));
 		$this->load->view('admin',$data);
 	}
 	public function input_berkas($id)
