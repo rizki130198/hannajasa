@@ -113,13 +113,25 @@ class Main extends CI_Controller {
 		$data = $this->m_back->load_user();
 		echo json_encode($data);
 	}
-	public function update_users()
-	{
-		$this->M_back->act_update_users();
-	}
 	public function deleteUsers()
 	{
 		$this->M_back->actDeleteUser($this->input->post('id_users'));
+	}
+	public function editUser($id)
+	{
+		$data['title'] = "Halaman Input Berkas Jadi";
+		$data['user'] = $this->M_back->getUser($id);
+		$this->load->view('admin',$data);
+	}
+	public function proses_edit_user()
+	{
+		$val = $this->M_back->action_edit_user();
+		if ($val =="") {
+			$this->session->set_flashdata('sukses', 'Data berhasil di ubah');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data gagal di ubah');
+		}
+		redirect('main/data_pengguna');
 	}
 	public function proses_daftar()
 	{

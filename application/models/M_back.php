@@ -26,7 +26,7 @@ class M_back extends CI_Model {
 					));
 					if ($val == TRUE) {
 						$this->session->set_flashdata('sukses', 'Berhasil di daftarkan.');
-						redirect('main/daftar');
+						redirect('main/data_pengguna');
 					}
 				}else{
 					$this->session->set_flashdata('gagal', 'Password tidak sama, harap periksa kembali dengan benar.');
@@ -41,6 +41,29 @@ class M_back extends CI_Model {
 		$query = $this->db->get('users');
 		return $query->result_array();
 	}
+	public function getUser($id)
+	{
+		$idnya = array('id_users' => $id);
+		$q = $this->db->get_where('users',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/data_pengguna');
+		}
+		return $query;
+	}
+	public function action_edit_user()
+	{
+		$this->db->update('users', array(
+			'nama' => $this->input->post('nama'),
+			'username' => $this->input->post('username'),
+			'email' => $this->input->post('email'),
+			'password' => md5($this->input->post('password')),
+			'ulang_password' => $this->input->post('password'),
+			'hak_akses' => $this->input->post('hak_akses')
+		), array('id_users' => $this->uri->segment(3)));
+	}
 	function act_update_users()
 	{
 		$id = $this->input->post('id_users');
@@ -49,26 +72,26 @@ class M_back extends CI_Model {
 		),array('id_users'=>$id));
 	}
 	function actDeleteUser($id)
-	 {
-	  $this->db->where('id_users', $id);
-	  $this->db->delete('users');
-	 }
+	{
+		$this->db->where('id_users', $id);
+		$this->db->delete('users');
+	}
 	public function getBerkas($id)
 	{
-	  $idnya = array('id_cetak' => $id);
-	  $q = $this->db->get_where('cetak_perpanjang',$idnya);
-	  if ($q->num_rows() > 0) {
-	    $query = $q->result();
-	  }else{
-		$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
-	    redirect('main/berkas_jadi');
-	  }
-	  return $query;
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_perpanjang',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		return $query;
 	}
 	// Start Harga //
 	public function load_harga()
 	{
-		$this->db->order_by('id_catat', 'DESC');
+		$this->db->order_by('id_catat');
 		$query = $this->db->get('catatan');
 		return $query->result_array();
 	}

@@ -201,8 +201,8 @@ if ($uri=="eksporpdf") {
 	<div class="cssload-container">
 		<div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
 		<center>Harap Tunggu</center>
-	</div>
-</div> -->
+	</div> -->
+</div>
 <?php }?>
 <div class="wrapper">
 
@@ -234,7 +234,9 @@ if ($uri=="eksporpdf") {
 			}else if ($u2 == "daftar") {
 				$this->load->view('admin/daftar');
 			}else if ($u2 == "data_pengguna") {
-				$this->load->view('admin/data_pengguna');		
+				$this->load->view('admin/data_pengguna');
+			}else if ($u2 == "editUser") {
+				$this->load->view('admin/edit_user');		
 			}else if ($u2 == "perhitungan") {
 				$this->load->view('admin/perhitungan');		
 			}else if ($u2 == "perpanjang") {

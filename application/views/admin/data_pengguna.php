@@ -200,28 +200,13 @@
 						html += '<td class="table_data" data-row_id="'+data[count].id_users+'" data-column_name="password">'+data[count].ulang_password+'</td>';
 						html += '<td class="table_data" data-row_id="'+data[count].id_users+'" data-column_name="hak_akses">'+data[count].hak_akses+'</td>';
 						html += '<td class="table_data" data-row_id="'+data[count].id_users+'" data-column_name="created_date">'+data[count].created_date+'</td>';
-						html += '<td><a href="editUser/'+data[count].id_users+'"><button type="button" id="'+data[count].id_users+'" class="btn btn-info btn-just-icon"><i class="material-icons">visibility</i></button></a><button type="button" name="delete_btn" id="'+data[count].id_users+'" class="btn btn-danger btn-just-icon btn_delete"><i class="material-icons">delete</i></button></td></td></tr>';
+						html += '<td><a href="editUser/'+data[count].id_users+'"><button type="button" id="'+data[count].id_users+'" class="btn btn-info btn-just-icon"><i class="material-icons">edit</i></button></a><button type="button" name="delete_btn" id="'+data[count].id_users+'" class="btn btn-danger btn-just-icon btn_delete"><i class="material-icons">delete</i></button></td></td></tr>';
 					}
 					$('tbody').html(html);
 				}
 			}); 
 		}
 		load_user();
-
-		$(document).on('blur', '.table_data', function(){
-			var id_users = $(this).data('row_id');
-			var table_column = $(this).data('column_name');
-			var value = $(this).text();
-			$.ajax({
-				url:"<?php echo base_url(); ?>Main/update_users",
-				method:"POST",
-				data:{id_users:id_users, table_column:table_column, value:value},
-				success:function(data)
-				{
-					load_user();
-				}
-			})
-		});
 
 		$(document).on('click', '.btn_delete', function(){
 		    var id_users = $(this).attr('id');
