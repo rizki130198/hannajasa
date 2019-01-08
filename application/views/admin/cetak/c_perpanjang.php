@@ -272,7 +272,7 @@ table tr td{
 													</div>
 													<label class="col-sm-4 col-form-label" style="padding-left: 0;width: 27%;margin-top: -10px;">Telp./HP <span class="titik2">:</span></label>
 													<div class="col-sm-8">
-														<input type="number" value="<?=$perpanjang->no_telp?>" style="margin-top: -10px;" class="form-control" placeholder="Masukan nomor telp/hp">
+														<input type="text" value="<?=$perpanjang->no_telp?>" style="margin-top: -10px;" class="form-control" placeholder="Masukan nomor telp/hp">
 													</div>
 												</div>
 											</div>

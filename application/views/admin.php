@@ -313,76 +313,22 @@ if ($uri=="cetak") { ?>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script type="text/javascript">
-	function mutasi() {
-	if ($('#mutasi_stnk').val() == 'Pajak Hidup') {
-		$('#pkb_n').show();
-		$('#swd_n').show();
-		$('#adm_stnk_n').show();
-		$('#adm_tnkb_n').show();
-		$('#total_n').show();
-	}else if($('#mutasi_stnk').val() == 'Telat bulanan') { 
-		$('#pkb_t').hide();
-		$('#tahun').hide();
-		$('#sank_pkb_t').hide();
-		$('#swd_t').hide();
-		$('#sank_swd_t').hide();
-		$('#pkb_h').hide();
-		$('#total_h').hide();
-		$('#adm_stnk_h').hide();
-		$('#pkb_n').hide();
-		$('#total_n').hide();
-		$('#swd_n').hide();
-		$('#adm_stnk_n').hide();
-		$('#cek_plat_n').hide();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').show();
-		$('#bbn_b').show();
-		$('#bulan').show();
-		$('#sank_pkb').show();
-		$('#swd').show();
-		$('#sank_swd').show();
-		$('#adm_stnk_b').show();
-		$('#cek_plat_b').show();
-		$('#adm_tnkb_b').hide();
-	}else if($('#mutasi_stnk').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
-		$('#pkb_t').show();
-		$('#tahun').show();
-		$('#sank_pkb_t').show();
-		$('#swd_t').show();
-		$('#sank_swd_t').show();
-		$('#pkb_h').hide();
-		$('#total_h').hide();
-		$('#adm_stnk_h').hide();
-		$('#pkb_n').show();
-		$('#total_n').show();
-		$('#swd_n').show();
-		$('#adm_stnk_n').show();
-		$('#cek_plat_n').show();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').show();
-		$('#bbn_b').hide();
-		$('#bulan').show();
-		$('#sank_pkb').show();
-		$('#swd').show();
-		$('#sank_swd').show();
-		$('#adm_stnk_b').show();
-		$('#cek_plat_b').show();
-		$('#adm_tnkb_b').hide();
-	}else{
-		$('#pkb_n').hide();
-		$('#swd_n').hide();
-		$('#adm_tnkb_n').hide();
-		$('#adm_stnk_n').hide();
-		$('#total_n').hide();
+	function sum_p() {
+		var txtFirstNumberValue = document.getElementById('pkb2').value;
+		var txtSecondNumberValue = document.getElementById('denda_bu').value;
+		var txtThreeNumberValue = document.getElementById('t_bln').value;
+		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+		if (!isNaN(result)) {
+			document.getElementById('sum_bulan').value = result;
+		}
 	}
-}
 </script>
 <script type="text/javascript">
 	$(document).ready(function(){
     	// Format mata uang.
     	// $( '.uang' ).mask('0,000,000,000', {reverse: true});
 	    // Format nomor HP.
-	    $( '.no_hp' ).mask('0000−0000−0000');
+	    // $( '.no_hp' ).mask('0000−0000−0000');
 	})
 </script>
 <script type="text/javascript">
@@ -410,6 +356,39 @@ if ($uri=="cetak") { ?>
 	});
 </script>
 <script type="text/javascript">
+	$('.jum-n').on('input','.jumlah_n',function(){
+		var totalSum = 0;
+		$('.jum-n .jumlah_n').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_n').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+	});
+	$('.jum-b').on('input','.jumlah_b',function(){
+		var totalSum = 0;
+		$('.jum-b .jumlah_b').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_b').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+	});
+	$('.jum-t').on('input','.jumlah_t',function(){
+		var totalSum = 0;
+		$('.jum-t .jumlah_t').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_t').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+	});
 	$('.jum-pajak').on('input','.jumlah',function(){
 		var totalSum = 0;
 		$('.jum-pajak .jumlah').each(function(){

@@ -4,89 +4,66 @@ $( function() {
 } );
 // START PERPANJANG
 function perpanjang() {
-	if ($('#balik_nama').val() == 'normal') {
+	if ($('#perpanjang_p').val() == 'normal') {
+		$('#pkb_tahun').hide();
 		$('#pkb_n').show();
-		$('#total').show();
-		$('#total_b').hide();
-		$('#total_t').hide();
-		$('#swdk').show();
-		$('#cek_plat').hide();
 		$('#pkb_bulan').hide();
-		$('#pkb_tahun').hide();
-		$('.ganti-plat').hide();
-		$('#gantiplat').hide();
-		$('#pkb_bulan :input').val('');
-		$('#cek_plat :input').val('');
-		$('#pkb_tahun :input').val('');
-		$('.ganti-plat :input').val('');
-		$('#total_harga').val('');
-		$('.ganti-plat :select').val('');
-	}else if($('#balik_nama').val() == 'telat bulanan') { 
-		$('#pkb_bulan').show();
-		$('#total').hide();
-		$('#total_b').show();
-		$('#total_t').hide();
-		$('#swdk').show();
-		$('#pkb_n').hide();
-		$('.ganti-plat').hide();
-		$('#gantiplat').hide();
 		$('#cek_plat').hide();
-		$('#pkb_n :input').val('');
-		$('#cek_plat :input').val('');
+		$('#gantiplat').hide();
+		$('#total').show();
+		// $('.ganti-plat :select').val('');
+	}else if($('#perpanjang_p').val() == 'telat bulanan') { 
 		$('#pkb_tahun').hide();
-		$('#pkb_tahun :input').val('');
-		$('.ganti-plat :input').val('');
-		$('#total_harga').val('');
-		$('.ganti-plat :select').val('');
-	}else if($('#balik_nama').val() == 'Telat lebih dari setahun') { 
-		$('#cek_plat').show();
-		$('#pkb_tahun').show();
-		$('#total_t').show();
-		$('#swdk').show();
-		$('#pkb_n').show();
-		$('.ganti-plat').hide();
+		$('#pkb_n').hide();
 		$('#pkb_bulan').show();
-		$('#pkb_n :input').val('');
-		$('#pkb_bulan :input').val('');
+		$('#cek_plat').hide();
+		$('#gantiplat').hide();	
+		$('#total_b').show();	
+		// $('.ganti-plat :select').val('');
+	}else if($('#perpanjang_p').val() == 'Telat lebih dari setahun') { 
+		$('#pkb_tahun').show();
+		$('#pkb_n').show();
+		$('#pkb_bulan').show();
+		$('#cek_plat').show();
 		$('#total').hide();
 		$('#total_b').hide();
-		$('#total_harga').val('');
-		$('#gantiplat').click(function () {
+		$('#gantiplat_nor').click(function () {
 			$('.ganti-plat').fadeToggle();
 		});
+	}else{
+		$('#pkb_tahun').hide();
+		$('#pkb_n').hide();
+		$('#pkb_bulan').hide();
+		$('#cek_plat').hide();
+		$('#total').hide();
+		$('#total_b').hide();
+		$('#pkb_tahun :input').val('');
+		$('#pkb_n :input').val('');
+		$('#pkb_bulan :input').val('');
+		$('#cek_plat :input').val('');
+		// $('#gantiplat_n').click(function () {
+		// 	$('.ganti-plat-n').fadeToggle();
+		// });
 	}
 }
 
-$(document).ready(function () {
-	$('.ganti-plat').hide();
-	$('#pkb_n').hide();
-	$('#total_b').hide();
-	$('#total_t').hide();
-	$('#pkb_bulan').hide();
-	$('#pkb_tahun').hide();
-	$('#adm_n').hide();
-	$('#bulan').hide();
-	$('#tahun').hide();
-	$('#sank_pkb').hide();
-	$('#sank_pkb_tahun').hide();
-	$('#swd_n').hide();
-	$('#sank_swd').hide();
-	$('#total_n').hide();
-	$('#cek_plat').hide();
-	$('#total').hide();
-	$('#swdk').hide();
-
-	$('#gantiplat_n').click(function () {
-		$('.ganti-plat-n').fadeToggle();
-	});
-});
-function sum() {
-	var pkb2 = document.getElementById('pkb2').value;
-	var dendab = document.getElementById('denda_b').value;
-	var tbulan = document.getElementById('t_bln').value;
-	var hasil = parseFloat(pkb2) * parseFloat(dendab) * parseFloat(tbulan);
-	if (!isNaN(hasil)) {
-		document.getElementById('txt4').value = hasil;
+function mutasi() {
+	if ($('#mutasi_stnk').val() == 'Pajak Hidup') {
+		$('#m_h').show();
+		$('#m_b').hide();
+		$('#m_t').hide();
+	}else if($('#mutasi_stnk').val() == 'Telat bulanan') { 
+		$('#m_h').hide();
+		$('#m_b').show();
+		$('#m_t').hide();
+	}else if($('#mutasi_stnk').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
+		$('#m_h').hide();
+		$('#m_b').hide();
+		$('#m_t').show();
+	}else{
+		$('#m_h').hide();
+		$('#m_b').hide();
+		$('#m_t').hide();
 	}
 }
 function hargaTotal() {
@@ -103,7 +80,7 @@ function normal() {
 	var txtSecondNumberValue = document.getElementById('swdkllj').value;
 	var result = parseFloat(txtFirstNumberValue) + parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_harga').value = "Rp. " + result;
+		document.getElementById('total_harga').value =  result;
 	}
 }
 
@@ -114,6 +91,15 @@ function sum_t() {
 	var result = parseFloat(pkbt) * parseFloat(dendat) * parseFloat(ttelat);
 	if (!isNaN(result)) {
 		document.getElementById('hasil').value = result;
+	}
+}
+function m_sum_t() {
+	var pkb = document.getElementById('pkb_t').value;
+	var denda = document.getElementById('denda').value;
+	var telat = document.getElementById('telat_thn').value;
+	var result = parseFloat(pkb) * parseFloat(denda) * parseFloat(telat);
+	if (!isNaN(result)) {
+		document.getElementById('hasil_tahun').value = result;
 	}
 }
 function harga_tahun() {
@@ -173,7 +159,7 @@ function b_normal() {
 	var txtSecondNumberValue = document.getElementById('denda_b').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_b').value = "Rp. "+ result;
+		document.getElementById('total_bn').value = result;
 	}
 }
 
@@ -182,7 +168,7 @@ function b_bulan() {
 	var txtSecondNumberValue = document.getElementById('denda_bu').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_bbn_b').value = "Rp. "+ result;
+		document.getElementById('total_bbn_b').value = result;
 	}
 
 	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
@@ -190,7 +176,7 @@ function b_bulan() {
 	var txtThreeNumberValue = document.getElementById('telat_bln').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_ba').value = "Rp. "+ result;
+		document.getElementById('total_ba').value = result;
 	}
 }
 
@@ -199,7 +185,7 @@ function b_hidup() {
 	var txtSecondNumberValue = document.getElementById('denda_bbn_h').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_bbn_h').value = "Rp. "+ result;
+		document.getElementById('total_bbn_h').value = result;
 	}
 }
 function b_tahun() {
@@ -208,132 +194,65 @@ function b_tahun() {
 	var txtThreeNumberValue = document.getElementById('telat_thn').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtThreeNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
-		document.getElementById('total_pkb_t').value = "Rp. "+ result;
+		document.getElementById('total_pkb_t').value = result;
 	}
 }
 function balik() {
 	if ($('#balik_nama').val() == 'Pajak Hidup') {
-		$('#pkb_t').hide();
-		$('#tahun').hide();
-		$('#sank_pkb_t').hide();
-		$('#swd_t').hide();
-		$('#sank_swd_t').hide();
-		$('#pkb_h').show();
-		$('#total_h').show();
-		$('#adm_stnk_h').show();
-		$('#pkb_n').hide();
-		$('#total_n').hide();
-		$('#swd_n').hide();
-		$('#adm_stnk_n').hide();
-		$('#cek_plat_n').hide();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').hide();
-		$('#bbn_b').hide();
-		$('#bulan').hide();
-		$('#sank_pkb').hide();
-		$('#swd').hide();
-		$('#sank_swd').hide();
-		$('#adm_stnk_b').hide();
-		$('#cek_plat_b').hide();
-		$('#adm_tnkb_b').hide();
+		$('#b_hid').show();
+		$('#b_nor').hide();
+		$('#b_bul').hide();
+		$('#b_ta').hide();
 	}else if ($('#balik_nama').val() == 'Pajak Normal') {
-		$('#pkb_t').hide();
-		$('#tahun').hide();
-		$('#sank_pkb_t').hide();
-		$('#swd_t').hide();
-		$('#sank_swd_t').hide();
-		$('#pkb_h').hide();
-		$('#total_h').hide();
-		$('#adm_stnk_h').hide();
-		$('#pkb_n').show();
+		$('#b_hid').hide();
+		$('#b_nor').show();
+		$('#b_bul').hide();
+		$('#b_ta').hide();
 		$('#total_n').show();
-		$('#swd_n').show();
-		$('#adm_stnk_n').show();
-		$('#cek_plat_n').show();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').hide();
-		$('#bbn_b').hide();
-		$('#bulan').hide();
-		$('#sank_pkb').hide();
-		$('#swd').hide();
-		$('#sank_swd').hide();
-		$('#adm_stnk_b').hide();
-		$('#cek_plat_b').hide();
-		$('#adm_tnkb_b').hide();
 	}else if($('#balik_nama').val() == 'Telat bulanan') { 
-		$('#pkb_t').hide();
-		$('#tahun').hide();
-		$('#sank_pkb_t').hide();
-		$('#swd_t').hide();
-		$('#sank_swd_t').hide();
-		$('#pkb_h').hide();
-		$('#total_h').hide();
-		$('#adm_stnk_h').hide();
-		$('#pkb_n').hide();
-		$('#total_n').hide();
-		$('#swd_n').hide();
-		$('#adm_stnk_n').hide();
-		$('#cek_plat_n').hide();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').show();
-		$('#bbn_b').show();
-		$('#bulan').show();
-		$('#sank_pkb').show();
-		$('#swd').show();
-		$('#sank_swd').show();
-		$('#adm_stnk_b').show();
-		$('#cek_plat_b').show();
-		$('#adm_tnkb_b').hide();
+		$('#b_hid').hide();
+		$('#b_nor').hide();
+		$('#b_bul').show();
+		$('#b_ta').hide();
+		$('#total_b').show();
 	}else if($('#balik_nama').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
-		$('#pkb_t').show();
-		$('#tahun').show();
-		$('#sank_pkb_t').show();
-		$('#swd_t').show();
-		$('#sank_swd_t').show();
-		$('#pkb_h').hide();
+		$('#b_hid').hide();
+		$('#b_nor').show();
+		$('#b_bul').show();
+		$('#b_ta').show();
 		$('#total_h').hide();
-		$('#adm_stnk_h').hide();
-		$('#pkb_n').show();
-		$('#total_n').show();
-		$('#swd_n').show();
-		$('#adm_stnk_n').show();
-		$('#cek_plat_n').show();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').show();
-		$('#bbn_b').hide();
-		$('#bulan').show();
-		$('#sank_pkb').show();
-		$('#swd').show();
-		$('#sank_swd').show();
-		$('#adm_stnk_b').show();
-		$('#cek_plat_b').show();
-		$('#adm_tnkb_b').hide();
-	}else{
-		$('#pkb_t').hide();
-		$('#tahun').hide();
-		$('#sank_pkb_t').hide();
-		$('#swd_t').hide();
-		$('#sank_swd_t').hide();
-		$('#pkb_h').hide();
-		$('#total_h').hide();
-		$('#adm_stnk_h').hide();
-		$('#pkb_n').hide();
 		$('#total_n').hide();
-		$('#swd_n').hide();
-		$('#adm_stnk_n').hide();
-		$('#cek_plat_n').hide();
-		$('#adm_tnkb_n').hide();
-		$('#pkb_bulan').hide();
-		$('#bbn_b').hide();
-		$('#bulan').hide();
-		$('#sank_pkb').hide();
-		$('#swd').hide();
-		$('#sank_swd').hide();
-		$('#adm_stnk_b').hide();
-		$('#cek_plat_b').hide();
-		$('#adm_tnkb_b').hide();
+		$('#total_b').hide();
+		$('#total_t').show();
+	}else{
+		$('#total_h').hide();
+		$('#total_n').hide();
+		$('#total_b').hide();
+		$('#total_t').hide();
+		$('#b_hid').hide();
+		$('#b_nor').hide();
+		$('#b_bul').hide();
+		$('#b_ta').hide();
 	}
 }
+$(document).ready(function () {
+	$('#gantiplat_nor').change(function () {
+		if (!this.checked) {
+    		$('#admtnkb_n').fadeOut('fast');
+    	}else{ 
+    		$('#admtnkb_n').fadeIn('fast');
+    	}	
+	});
+});
+$(document).ready(function () {
+	$('#gantiplat_bul').change(function () {
+		if (!this.checked) {
+    		$('#admtnkb_b').fadeOut('fast');
+    	}else{ 
+    		$('#admtnkb_b').fadeIn('fast');
+    	}	
+	});
+});
 $(function() { 
 	$(window).scroll(function() { 
 		if($(this).scrollTop()>100) { 
@@ -399,89 +318,6 @@ function openMenuMulti(opened,othermenu,lastmenu) {
         th.removeClass('open').addClass('closed');
     }
 }
-
-// var rupiah2 = document.getElementById("rupiah2");
-// rupiah2.addEventListener("keyup", function(e) {
-	
-// });
-
-// function formatRupiah(angka, prefix) {
-// 	var number_string = angka.replace(/[^,\d]/g, "").toString(),
-// 	split = number_string.split(","),
-// 	sisa = split[0].length % 3,
-// 	rupiah = split[0].substr(0, sisa),
-// 	ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-// 	if (ribuan) {
-// 		separator = sisa ? "." : "";
-// 		rupiah += separator + ribuan.join(".");
-// 	}
-
-// 	rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
-// 	return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
-// }
-	// var rupiah3 = document.getElementById("rupiah3");
-	// rupiah3.addEventListener("keyup", function(e) {
-	// 	rupiah3.value = formatRupiah3(this.value, "Rp. ");
-	// });
-
-	// function formatRupiah3(angka, prefix) {
-	// 	var number_string = angka.replace(/[^,\d]/g, "").toString(),
-	// 	split = number_string.split(","),
-	// 	sisa = split[0].length % 3,
-	// 	rupiah3 = split[0].substr(0, sisa),
-	// 	ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-	// 	if (ribuan) {
-	// 		separator = sisa ? "." : "";
-	// 		rupiah3 += separator + ribuan.join(".");
-	// 	}
-
-	// 	rupiah3 = split[1] != undefined ? rupiah3 + "," + split[1] : rupiah3;
-	// 	return prefix == undefined ? rupiah3 : rupiah3 ? "Rp. " + rupiah3 : "";
-	// }
-
-	// var rupiah4 = document.getElementById("rupiah4");
-	// rupiah4.addEventListener("keyup", function(e) {
-	// 	rupiah4.value = formatRupiah4(this.value, "Rp. ");
-	// });
-
-	// function formatRupiah4(angka, prefix) {
-	// 	var number_string = angka.replace(/[^,\d]/g, "").toString(),
-	// 	split = number_string.split(","),
-	// 	sisa = split[0].length % 3,
-	// 	rupiah4 = split[0].substr(0, sisa),
-	// 	ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-	// 	if (ribuan) {
-	// 		separator = sisa ? "." : "";
-	// 		rupiah4 += separator + ribuan.join(".");
-	// 	}
-
-	// 	rupiah4 = split[1] != undefined ? rupiah4 + "," + split[1] : rupiah4;
-	// 	return prefix == undefined ? rupiah4 : rupiah4 ? "Rp. " + rupiah4 : "";
-	// }
-
-	// var rupiah5 = document.getElementById("rupiah5");
-	// rupiah5.addEventListener("keyup", function(e) {
-	// 	rupiah5.value = formatRupiah5(this.value, "Rp. ");
-	// });
-
-	// function formatRupiah5(angka, prefix) {
-	// 	var number_string = angka.replace(/[^,\d]/g, "").toString(),
-	// 	split = number_string.split(","),
-	// 	sisa = split[0].length % 3,
-	// 	rupiah5 = split[0].substr(0, sisa),
-	// 	ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-	// 	if (ribuan) {
-	// 		separator = sisa ? "." : "";
-	// 		rupiah5 += separator + ribuan.join(".");
-	// 	}
-
-	// 	rupiah5 = split[1] != undefined ? rupiah5 + "," + split[1] : rupiah5;
-	// 	return prefix == undefined ? rupiah5 : rupiah5 ? "Rp. " + rupiah5 : "";
-	// }
 	$(document).ready(function() {
 		var num = $('div.number').text()
 		num = addPeriod(num);

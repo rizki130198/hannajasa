@@ -52,7 +52,7 @@ li.active a{
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="transaksi_p"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}?>">
+            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="transaksi_p"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="mutasi"){echo "active";}?>">
                 <a href="<?=site_url('main/perhitungan');?>">
                     <i class="material-icons">create</i> 
                     <p>Perhitungan</p>

@@ -308,7 +308,7 @@
 													<div class="col-sm-6">
 														<div class="input-group">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="prediski" class="form-control" placeholder="Masukan nominal">
+															<input type="text" required="" name="prediski" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -317,7 +317,7 @@
 													<div class="col-sm-6">
 														<div class="input-group">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="kurang" class="form-control" placeholder="Masukan nominal">
+															<input type="text" required="" name="kurang" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
