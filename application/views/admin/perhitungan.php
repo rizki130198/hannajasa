@@ -65,12 +65,14 @@
 				</a>
 			</div>
 			<div class="col-md-3">
-				<div class="card">
-					<span class="icon bg-m"><p>M</p></span>
-					<div class="padd">
-						Mutasi
+				<a href="<?php echo site_url('main/mutasi'); ?>">
+					<div class="card">
+						<span class="icon bg-m"><p>M</p></span>
+						<div class="padd">
+							Mutasi
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="col-md-3">
 				<div class="card">

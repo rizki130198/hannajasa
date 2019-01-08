@@ -43,7 +43,7 @@
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Telp./HP <span class="titik2">:</span></label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="no_telp" placeholder="Masukan nomor telp/hp">
+									<input type="text" class="form-control no_hp" name="no_telp" placeholder="Masukan nomor telp/hp">
 								</div>
 							</div>
 							<hr>
@@ -61,7 +61,7 @@
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">Rp.</span>
-										<input type="text" class="form-control" name="dp" placeholder="Masukan nomor telp/hp">
+										<input type="text" class="form-control" name="dp" placeholder="Masukan Nilai Uang Muka (DP)">
 									</div>
 								</div>
 							</div>
@@ -172,9 +172,9 @@
 														</div>
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-pajak" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="harga_ini" placeholder="Masukan nominal">
+															<input type="text" id="p_tahun" class="form-control jumlah uang" name="harga_ini" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -186,9 +186,9 @@
 														</div>
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-pajak" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="harga_lalu" placeholder="Masukan nominal">
+															<input type="text" id="p_lalu" class="form-control jumlah uang" name="harga_lalu" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -197,7 +197,7 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="total_pajak" placeholder="Masukan nominal">
+															<input type="text" required id="sum" class="form-control" name="total_pajak" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -212,9 +212,9 @@
 														</div>
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control"name="harga_bn" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_bn" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -226,9 +226,9 @@
 														</div>
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="harga_adm" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_adm" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -240,9 +240,9 @@
 														</div>
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="harga_slp" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_slp" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -254,41 +254,41 @@
 														</div>
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="harga_fisik" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_fisik" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-1">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"></label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" id="lainnya_p"></label>
 														</div>
 													</div>
 													<div class="col-sm-4" style="padding: 0;">
-														<input type="text" name="lainnya1" class="form-control" placeholder="Lainnya" style="width: 90%;">
+														<input type="text" name="lainnya1" disabled id="txt-lainnya-p" class="form-control" placeholder="....." style="width: 90%;">
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control" name="harga_lainnya" placeholder="Masukan nominal">
+															<input type="text" disabled id="txt-lainnya-p1" class="form-control jumlah_biaya" name="harga_lainnya" placeholder=".....">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-1">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"></label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" id="lainnya_p2"></label>
 														</div>
 													</div>
 													<div class="col-sm-4" style="padding: 0;">
-														<input type="text" class="form-control" name="lainnya2" placeholder="Lainnya" style="width: 90%;">
+														<input type="text" class="form-control" disabled id="txt-lainnya-p2" name="lainnya2" placeholder="....." style="width: 90%;">
 													</div>
 													<div class="col-sm-7">
-														<div class="input-group" style="margin-top: -6px;">
+														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="harga_lainnya2" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="harga_lainnya2" disabled id="txt-lainnya-p3" class="form-control jumlah_biaya" placeholder=".....">
 														</div>
 													</div>
 												</div>
@@ -297,7 +297,7 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="total" class="form-control" placeholder="Masukan nominal">
+															<input type="text" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>

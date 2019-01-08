@@ -45,7 +45,8 @@ class Main extends CI_Controller {
 	//start balik nama//
 	public function balik_nama()
 	{
-		$data['title'] = "Halaman Cetak Perpanjang STNK";
+		$data['title'] = "Halaman Balik Nama STNK";
+		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_bn($id)
@@ -69,13 +70,22 @@ class Main extends CI_Controller {
 	}
 	//end balik nama//
 	
+	//start mutasi//
+	public function mutasi()
+	{
+		$data['title'] = "Halaman Mutasi STNK";
+		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$this->load->view('admin',$data);
+	}
+	//end mutasi//
+
 	//start Input Berkas//
 	public function berkas_jadi()
 	{
 		$data['title'] = "Halaman Berkas Jadi";
 		$this->db->select('*');
 		$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
-		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '0'));
+		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'));
 		$this->load->view('admin',$data);
 	}
 	public function input_berkas($id)
@@ -217,7 +227,7 @@ class Main extends CI_Controller {
 	public function ambilswdkjl()
 	{
 		$jenis = $this->input->post('jenis');
-		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3,9,10) AND jenis="'.$jenis.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3,4,5,6,7,8,9,10) AND jenis="'.$jenis.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {

@@ -54,6 +54,8 @@
                     echo "Halaman Input Berkas Jadi";    
                 }elseif ($this->uri->segment(2)=="balik_nama") {
                     echo "Halaman Balik Nama STNK";
+                }elseif ($this->uri->segment(2)=="mutasi") {
+                    echo "Halaman Mutasi STNK";    
                 }elseif ($this->uri->segment(2)=="harga") {
                     echo "Halaman Daftar Harga";
                 }elseif ($this->uri->segment(2)=="blanko") {

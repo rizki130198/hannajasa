@@ -251,6 +251,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/cetak/c_baliknama');
 			}else if ($u2 == "transaksi_bn") {
 				$this->load->view('admin/transaksi/transaksi_bn');
+			}else if ($u2 == "mutasi") {
+				$this->load->view('admin/perhitungan/mutasi');	
 			}else if ($u2 == "berkas_jadi") {
 				$this->load->view('admin/berkas_jadi');	
 			}else if ($u2 == "input_berkas") {
@@ -311,6 +313,71 @@ if ($uri=="cetak") { ?>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script type="text/javascript">
+	function mutasi() {
+	if ($('#mutasi_stnk').val() == 'Pajak Hidup') {
+		$('#pkb_n').show();
+		$('#swd_n').show();
+		$('#adm_stnk_n').show();
+		$('#adm_tnkb_n').show();
+		$('#total_n').show();
+	}else if($('#mutasi_stnk').val() == 'Telat bulanan') { 
+		$('#pkb_t').hide();
+		$('#tahun').hide();
+		$('#sank_pkb_t').hide();
+		$('#swd_t').hide();
+		$('#sank_swd_t').hide();
+		$('#pkb_h').hide();
+		$('#total_h').hide();
+		$('#adm_stnk_h').hide();
+		$('#pkb_n').hide();
+		$('#total_n').hide();
+		$('#swd_n').hide();
+		$('#adm_stnk_n').hide();
+		$('#cek_plat_n').hide();
+		$('#adm_tnkb_n').hide();
+		$('#pkb_bulan').show();
+		$('#bbn_b').show();
+		$('#bulan').show();
+		$('#sank_pkb').show();
+		$('#swd').show();
+		$('#sank_swd').show();
+		$('#adm_stnk_b').show();
+		$('#cek_plat_b').show();
+		$('#adm_tnkb_b').hide();
+	}else if($('#mutasi_stnk').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
+		$('#pkb_t').show();
+		$('#tahun').show();
+		$('#sank_pkb_t').show();
+		$('#swd_t').show();
+		$('#sank_swd_t').show();
+		$('#pkb_h').hide();
+		$('#total_h').hide();
+		$('#adm_stnk_h').hide();
+		$('#pkb_n').show();
+		$('#total_n').show();
+		$('#swd_n').show();
+		$('#adm_stnk_n').show();
+		$('#cek_plat_n').show();
+		$('#adm_tnkb_n').hide();
+		$('#pkb_bulan').show();
+		$('#bbn_b').hide();
+		$('#bulan').show();
+		$('#sank_pkb').show();
+		$('#swd').show();
+		$('#sank_swd').show();
+		$('#adm_stnk_b').show();
+		$('#cek_plat_b').show();
+		$('#adm_tnkb_b').hide();
+	}else{
+		$('#pkb_n').hide();
+		$('#swd_n').hide();
+		$('#adm_tnkb_n').hide();
+		$('#adm_stnk_n').hide();
+		$('#total_n').hide();
+	}
+}
+</script>
+<script type="text/javascript">
 	$(document).ready(function(){
     	// Format mata uang.
     	// $( '.uang' ).mask('0,000,000,000', {reverse: true});
@@ -327,6 +394,17 @@ if ($uri=="cetak") { ?>
 		} else {
 			$('#txt-lainnya-p').val('.....').prop('disabled', true);
 			$('#txt-lainnya-p1').val('.....').prop('disabled', true);
+			console.log('unchecked');
+		}
+	});
+	$('#lainnya_p2').change(function(){
+		if ($('#lainnya_p2').is(':checked') == true){
+			$('#txt-lainnya-p2').val('').prop('disabled', false);
+			$('#txt-lainnya-p3').val('').prop('disabled', false);
+			console.log('checked');
+		} else {
+			$('#txt-lainnya-p2').val('.....').prop('disabled', true);
+			$('#txt-lainnya-p3').val('.....').prop('disabled', true);
 			console.log('unchecked');
 		}
 	});

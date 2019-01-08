@@ -7,6 +7,8 @@ function perpanjang() {
 	if ($('#balik_nama').val() == 'normal') {
 		$('#pkb_n').show();
 		$('#total').show();
+		$('#total_b').hide();
+		$('#total_t').hide();
 		$('#swdk').show();
 		$('#cek_plat').hide();
 		$('#pkb_bulan').hide();
@@ -21,7 +23,9 @@ function perpanjang() {
 		$('.ganti-plat :select').val('');
 	}else if($('#balik_nama').val() == 'telat bulanan') { 
 		$('#pkb_bulan').show();
-		$('#total').show();
+		$('#total').hide();
+		$('#total_b').show();
+		$('#total_t').hide();
 		$('#swdk').show();
 		$('#pkb_n').hide();
 		$('.ganti-plat').hide();
@@ -37,13 +41,15 @@ function perpanjang() {
 	}else if($('#balik_nama').val() == 'Telat lebih dari setahun') { 
 		$('#cek_plat').show();
 		$('#pkb_tahun').show();
+		$('#total_t').show();
 		$('#swdk').show();
 		$('#pkb_n').show();
 		$('.ganti-plat').hide();
 		$('#pkb_bulan').show();
 		$('#pkb_n :input').val('');
 		$('#pkb_bulan :input').val('');
-		$('#total').show();
+		$('#total').hide();
+		$('#total_b').hide();
 		$('#total_harga').val('');
 		$('#gantiplat').click(function () {
 			$('.ganti-plat').fadeToggle();
@@ -54,6 +60,8 @@ function perpanjang() {
 $(document).ready(function () {
 	$('.ganti-plat').hide();
 	$('#pkb_n').hide();
+	$('#total_b').hide();
+	$('#total_t').hide();
 	$('#pkb_bulan').hide();
 	$('#pkb_tahun').hide();
 	$('#adm_n').hide();
@@ -78,7 +86,7 @@ function sum() {
 	var tbulan = document.getElementById('t_bln').value;
 	var hasil = parseFloat(pkb2) * parseFloat(dendab) * parseFloat(tbulan);
 	if (!isNaN(hasil)) {
-		document.getElementById('txt4').value = "Rp. " + hasil;
+		document.getElementById('txt4').value = hasil;
 	}
 }
 function hargaTotal() {
@@ -128,6 +136,8 @@ function ambilSwdk() {
 		success:function(datanya) {
 			$(".swdklksama").val(datanya[0].harga);
 			$(".sankswd").val(datanya[1].harga);
+			$(".admstnk").val(datanya[2].harga);
+			$(".admtnkb").val(datanya[3].harga);
 		}
 	})
 	
