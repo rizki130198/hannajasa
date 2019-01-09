@@ -75,12 +75,14 @@
 				</a>
 			</div>
 			<div class="col-md-3">
-				<div class="card">
-					<span class="icon bg-mb"><p>MB</p></span>
-					<div class="padd">
-						Mutasi + Balik Nama
+				<a href="<?php echo site_url('main/mutasibn'); ?>">
+					<div class="card">
+						<span class="icon bg-mb"><p>MB</p></span>
+						<div class="padd">
+							Mutasi + Balik Nama
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="col-md-3">
 				<div class="card">

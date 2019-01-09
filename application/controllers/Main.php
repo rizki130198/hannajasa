@@ -90,6 +90,15 @@ class Main extends CI_Controller {
 	}
 	//end mutasi//
 
+	//start mutasi+balik nama//
+	public function mutasibn()
+	{
+		$data['title'] = "Halaman Mutasi+Balik Nama STNK";
+		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$this->load->view('admin',$data);
+	}
+	//start mutasi+balik nama//
+
 	//start Input Berkas//
 	public function berkas_jadi()
 	{
