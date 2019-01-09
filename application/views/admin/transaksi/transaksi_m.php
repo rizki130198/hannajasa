@@ -154,14 +154,29 @@
 								<label class="col-sm-2 control-label" style="padding-left: 30px;">Untuk Keperluan <span class="titik2">:</span></label>
 								<div class="col-md-4">
 									<div class="input-group">
-										<span class="input-group-addon">Mutasi STNK/BPKB dari :</span>
+										<span class="input-group-addon">Mutasi STNK/BPKB dari</span>
 										<input type="text" class="form-control" name="keperluan_m" placeholder="">
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="input-group">
 										<span class="input-group-addon">ke</span>
-										<input type="text" class="form-control" name="keperluan_m" placeholder="">
+										<input type="text" class="form-control" name="keperluan_ke" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" style="padding-left: 30px;"></label>
+								<div class="col-md-4">
+									<div class="input-group">
+										<span class="input-group-addon">Cabut Berkas dari</span>
+										<input type="text" class="form-control" name="cabut_b" placeholder="">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="input-group">
+										<span class="input-group-addon">ke</span>
+										<input type="text" class="form-control" name="cabut_ke" placeholder="">
 									</div>
 								</div>
 							</div>
