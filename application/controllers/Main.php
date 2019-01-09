@@ -77,6 +77,17 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
+	public function transaksi_m()
+	{
+		// $querynya = $this->db->get_where('mutasi',array('id_mutasi'=>$id));
+		// if ($querynya->num_rows() > 0) {
+			$data['title'] = "Halaman Transaksi Mutasi";
+			$this->load->view('admin',$data);
+		// }else{
+			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			// redirect('main/dashboard');
+		// }
+	}
 	//end mutasi//
 
 	//start Input Berkas//
