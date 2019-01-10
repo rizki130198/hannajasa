@@ -6,12 +6,20 @@
 	<title>Halaman Cetak Balik Nama STNK</title>
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap4.min.css');?>">
+	<link rel="stylesheet" type="text/css" media="print" href="<?=base_url('assets/css/bootstrap4.min.css');?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/material-dashboard.css'); ?>">
+	<link rel="stylesheet" type="text/css" media="print" href="<?php echo base_url('assets/css/material-dashboard.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/demo.css'); ?>">
+	<link rel="stylesheet" type="text/css" media="print" href="<?php echo base_url('assets/css/demo.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('public/css/jquery.toast.css');?>">
+	<link rel="stylesheet" type="text/css" media="print" href="<?=base_url('public/css/jquery.toast.css');?>">
+	<link rel="stylesheet" type="text/css" media="print" href="<?=base_url('public/css/style.css');?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('public/css/style.css');?>">
+	<link rel="stylesheet" type="text/css" media="print" href="<?=base_url('public/css/style.css');?>">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" media="print" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('public/fonts/font-awesome/css/font-awesome.min.css'); ?>">
+	<link rel="stylesheet" media="print" type="text/css" href="<?php echo base_url('public/fonts/font-awesome/css/font-awesome.min.css'); ?>">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 </head>
 <style type="text/css" media="screen">

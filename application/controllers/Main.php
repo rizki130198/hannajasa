@@ -68,6 +68,14 @@ class Main extends CI_Controller {
 	{
 		$this->M_back->cetak_balik();
 	}
+	public function proses_mutasi()
+	{
+		$this->M_back->proses_mutasi();
+	}
+	public function p_mutasi()
+	{
+		$this->M_back->cetak_mutasi();
+	}
 	//end balik nama//
 	
 	//start mutasi//
@@ -77,16 +85,16 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
-	public function transaksi_m()
+	public function transaksi_m($id)
 	{
-		// $querynya = $this->db->get_where('mutasi',array('id_mutasi'=>$id));
-		// if ($querynya->num_rows() > 0) {
-			$data['title'] = "Halaman Transaksi Mutasi";
-			$this->load->view('admin',$data);
-		// }else{
-			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
-			// redirect('main/dashboard');
-		// }
+		$querynya = $this->db->get_where('mutasi',array('id_mutasi'=>$id));
+		if ($querynya->num_rows() > 0) {
+		$data['title'] = "Halaman Transaksi Mutasi";
+		$this->load->view('admin',$data);
+		}else{
+			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			redirect('main/dashboard');
+		}
 	}
 	//end mutasi//
 
@@ -96,13 +104,22 @@ class Main extends CI_Controller {
 		$data['title'] = "Halaman Berkas Jadi";
 		$this->db->select('*');
 		$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
-		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'));
+		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
 		$this->load->view('admin',$data);
 	}
-	public function input_berkas($id)
+	public function input_berkas($string)
 	{
+		$id = $this->uri->segment(4);
 		$data['title'] = "Halaman Input Berkas Jadi";
-		$data['input_berkas'] = $this->M_back->getBerkas($id);
+		if ($string=='perpanjang') {
+			$data['input_berkas'] = $this->M_back->getBerkas_p($id);
+		}else if ($string=='balik_nama') {
+			$data['input_berkas'] = $this->M_back->getBerkas_bn($id);
+		}elseif ($string=='mutasi') {
+			$data['input_berkas'] = $this->M_back->getBerkas_m($id);
+		}else{
+			$data['input_berkas'] = $this->M_back->getBerkas_m($id);
+		}
 		$this->load->view('admin',$data);
 	}
 
@@ -343,6 +360,28 @@ class Main extends CI_Controller {
 	public function cetak_berkas($id)
 	{
 		$this->M_back->simpanberkas();
+	}
+	public function ambilselect()
+	{
+		if ($this->input->post('jenis') == 'perpanjang') {
+			$this->db->select('*');
+			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
+			$data['data'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
+		}elseif ($this->input->post('jenis') == 'bn') {
+			$this->db->select('*');
+			$this->db->join('balik_nama', 'cetak_balik.id_join = balik_nama.id_balik');
+			$data['data'] = $this->db->get_where('cetak_balik',array('status' => '1'))->result();
+		}else if ($this->input->post('jenis') == 'mutasi') {
+			$this->db->select('*');
+			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
+			$data['data'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
+		}else{
+			$this->db->select('*');
+			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
+			$data['data'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
+		}
+		echo json_encode($data);
+		
 	}
 	//end cetak pdf//
 	public function logout()

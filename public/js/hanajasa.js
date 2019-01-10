@@ -238,19 +238,19 @@ function balik() {
 $(document).ready(function () {
 	$('#gantiplat_nor').change(function () {
 		if (!this.checked) {
-    		$('#admtnkb_n').fadeOut('fast');
-    	}else{ 
-    		$('#admtnkb_n').fadeIn('fast');
-    	}	
+			$('#admtnkb_n').fadeOut('fast');
+		}else{ 
+			$('#admtnkb_n').fadeIn('fast');
+		}	
 	});
 });
 $(document).ready(function () {
 	$('#gantiplat_bul').change(function () {
 		if (!this.checked) {
-    		$('#admtnkb_b').fadeOut('fast');
-    	}else{ 
-    		$('#admtnkb_b').fadeIn('fast');
-    	}	
+			$('#admtnkb_b').fadeOut('fast');
+		}else{ 
+			$('#admtnkb_b').fadeIn('fast');
+		}	
 	});
 });
 $(function() { 
@@ -318,25 +318,114 @@ function openMenuMulti(opened,othermenu,lastmenu) {
         th.removeClass('open').addClass('closed');
     }
 }
-	$(document).ready(function() {
-		var num = $('div.number').text()
-		num = addPeriod(num);
-		$('div.number').text('Rp. '+num)
-	});
+$(document).ready(function() {
+	var num = $('div.number').text()
+	num = addPeriod(num);
+	$('div.number').text('Rp. '+num)
+});
 
-	function addPeriod(nStr)
-	{
-		nStr += '';
-		x = nStr.split('.');
-		x1 = x[0];
-		x2 = x.length > 1 ? '.' + x[1] : '';
-		var rgx = /(\d+)(\d{3})/;
-		while (rgx.test(x1)) {
-			x1 = x1.replace(rgx, '$1' + '.' + '$2');
-		}
-		return x1 + x2;
+function addPeriod(nStr)
+{
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + '.' + '$2');
 	}
+	return x1 + x2;
+}
 
-	jQuery(window).load(function () {
-		jQuery('#loader').fadeOut('slow');
+jQuery(window).load(function () {
+	jQuery('#loader').fadeOut('slow');
+});
+function ganti() {
+	$.ajax({
+		url: url+'/main/ambilselect/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#get_select").val()},
+		success:function(datanya) {
+			if(datanya.data.length>0){
+				var bisa = loopData(datanya.data, $("#get_select").val());
+				$("#berkasjadi").dataTable().fnClearTable();
+				$("#berkasjadi").dataTable().fnAddData(bisa);
+				$("#berkasjadi").dataTable().fnDraw();
+			}else{
+				$("#berkasjadi").dataTable().fnClearTable();
+				$("#berkasjadi").dataTable().fnDraw();
+			}
+
+			$.each(datanya.data, function(index, element) {
+				if ($("#get_select").val() == 'bn') {
+					$("#modalnya").html('<div id="balik'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="deletebalik'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete//'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+				}else if ($("#get_select").val() == 'mutasi') {
+					$("#modalnya").html('<div id="apmutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="deletemutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete//'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+					
+				}else{
+					$("#modalnya").html('<div id="aplainnya'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/lainnya/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="deletelain'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete//'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+					
+				}
+			});
+}
+})
+
+}
+function loopData(table,type) {
+	var array_data = [],
+	temp_array = [];
+	$(table).each(function(key,val) {
+		temp_array = [];
+		var link;
+		if (type == 'perpanjang') {
+			temp_array = [
+			val.no,
+			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.atas_nama,
+			val.no_telp,
+			val.uang_dp,
+			val.wilayah,
+			val.nopol,
+			'<a href="#approve'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#delete'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			];
+		}else if (type == 'bn') {
+			temp_array = [
+			val.no,
+			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.atas_nama,
+			val.no_telp,
+			val.uang_dp,
+			val.wilayah,
+			val.nopol,
+			'<a href="#balik'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletebalik'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			];
+		}else if (type == 'mutasi') {
+			temp_array = [
+			val.no,
+			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.atas_nama,
+			val.no_telp,
+			val.uang_dp,
+			val.wilayah,
+			val.nopol,
+			'<a href="#apmutasi'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletemutasi'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			];
+		}else{
+			temp_array = [
+			val.no,
+			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.atas_nama,
+			val.no_telp,
+			val.uang_dp,
+			val.wilayah,
+			val.nopol,
+			'<a href="#aplainnya'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletelain'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			];
+		}
+
+
+		array_data[array_data.length] = temp_array;
 	});
+	return array_data;
+}

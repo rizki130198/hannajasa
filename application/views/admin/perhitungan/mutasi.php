@@ -9,7 +9,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header" style="background-color: #00c0ef;">
-						<h4 class="title">Balik Nama STNK</h4>
+						<h4 class="title">Mutasi</h4>
 					</div>
 					<div class="card-content">
 						
@@ -60,7 +60,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" readonly="" name="swdllj" class="form-control swdklksama jumlah_n">
+												<input type="text" readonly="" name="swdllj1" class="form-control swdklksama jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -69,7 +69,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk" readonly="" id="adm_stnk" class="form-control admstnk jumlah_n">
+												<input type="text" name="adm_stnk1" readonly="" id="adm_stnk" class="form-control admstnk jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -78,7 +78,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" readonly name="adm_tnkb" class="form-control admtnkb jumlah_n">
+												<input type="text" readonly name="adm_tnkb1" class="form-control admtnkb jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -130,7 +130,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="" class="form-control swdklksama jumlah_b" >
+												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -150,7 +150,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Baru</h4>
 											<div class="form-group label-floating is-empty jum-b">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb1" class="form-control jumlah_b">
+												<input type="text" name="pkb3" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -159,7 +159,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj" class="form-control swdklksama jumlah_b">
+												<input type="text" name="swdllj3" class="form-control swdklksama jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -168,7 +168,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk"  id="adm_stnk" class="form-control admstnk jumlah_b">
+												<input type="text" name="adm_stnk2"  id="adm_stnk" class="form-control admstnk jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -177,7 +177,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" name="adm_tnkb" class="form-control admtnkb jumlah_b">
+												<input type="text" name="adm_tnkb2" class="form-control admtnkb jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -201,7 +201,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
 											<div class="form-group label-floating is-empty jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb3" id="pkb_t" class="form-control jumlah_t" >
+												<input type="text" name="pkb4" id="pkb_t" class="form-control jumlah_t" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -229,7 +229,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj3" id="swdkllj_t" onkeyup="harga_tahun()" class="form-control swdklksama jumlah_t">
+												<input type="text" name="swdllj4" id="swdkllj_t" onkeyup="harga_tahun()" class="form-control swdklksama jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -249,7 +249,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Baru</h4>
 											<div class="form-group label-floating is-empty jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb1" class="form-control jumlah_t">
+												<input type="text" name="pkb5" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -258,7 +258,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj" class="form-control swdklksama jumlah_t">
+												<input type="text" name="swdllj5" class="form-control swdklksama jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -267,7 +267,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk"  id="adm_stnk" class="form-control admstnk jumlah_t">
+												<input type="text" name="adm_stnk3"  id="adm_stnk" class="form-control admstnk jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -276,7 +276,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" name="adm_tnkb" class="form-control admtnkb jumlah_t">
+												<input type="text" name="adm_tnkb3" class="form-control admtnkb jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -285,7 +285,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
-												<input type="text" name="total_bulan" id="sum_t" class="form-control" >
+												<input type="text" name="total_su" id="sum_t" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>
