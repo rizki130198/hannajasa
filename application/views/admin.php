@@ -255,6 +255,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/perhitungan/mutasi');	
 			}else if ($u2 == "transaksi_m") {
 				$this->load->view('admin/transaksi/transaksi_m');
+			}else if ($u2 == "mutasibn") {
+				$this->load->view('admin/perhitungan/mutasi_bn');	
 			}else if ($u2 == "berkas_jadi") {
 				$this->load->view('admin/berkas_jadi');	
 			}else if ($u2 == "input_berkas") {
@@ -322,6 +324,14 @@ if ($uri=="cetak") { ?>
 		var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
 		if (!isNaN(result)) {
 			document.getElementById('sum_bulan').value = result;
+		}
+	}
+	function m_tahun() {
+		var pkb = document.getElementById('pkb_mt').value;
+		var denda = document.getElementById('denda_mt').value;
+		var result = parseFloat(pkb) * parseFloat(denda);
+		if (!isNaN(result)) {
+			document.getElementById('total_mt').value = result;
 		}
 	}
 </script>

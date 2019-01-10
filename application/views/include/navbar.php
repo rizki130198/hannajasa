@@ -58,6 +58,8 @@
                     echo "Halaman Mutasi STNK";    
                 }elseif ($this->uri->segment(2)=="transaksi_m") {
                     echo "Halaman Transaksi Mutasi";
+                }elseif ($this->uri->segment(2)=="mutasibn") {
+                    echo "Halaman Mutasi + Balik Nama";    
                 }elseif ($this->uri->segment(2)=="harga") {
                     echo "Halaman Daftar Harga";
                 }elseif ($this->uri->segment(2)=="blanko") {
