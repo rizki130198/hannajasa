@@ -60,7 +60,7 @@
 										<div class="col-md-12">
 											<div class="form-group label-floating is-empty" >
 												<label class="control-label">Telat Tahun</label>
-												<input type="text" name="denda_pkb" style="display: none;" value="25%" id="denda_b_t" onkeyup="b_tahun();">
+												<input type="text" name="denda_pkb" style="display: none;" value="0.25%" id="denda_b_t" onkeyup="b_tahun();">
 												<input type="text" name="telat_bln2" id="telat_thn" onkeyup="b_tahun();" class="form-control jumlah_t" >
 												<span class="material-input"></span>
 											</div>
@@ -103,7 +103,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Hidup</h4>
 											<div class="form-group label-floating is-empty jum-pajak jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb" id="denda_bbn_h" style="display: none;" value="67.0%" onkeyup="b_hidup();">
+												<input type="text" name="pkb" id="denda_bbn_h" style="display: none;" value="0.67%" onkeyup="b_hidup();">
 												<input type="text" name="pkb1" id="pkb_b_h" onkeyup="b_hidup();" class="form-control jumlah" >
 												<span class="material-input"></span>
 											</div>
@@ -146,7 +146,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Normal</h4>
 											<div class="form-group label-floating is-empty jum-n jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb" id="denda_b" style="display: none;" value="67%" onkeyup="b_normal();">
+												<input type="text" name="pkb" id="denda_b" style="display: none;" value="0.67%" onkeyup="b_normal();">
 												<input type="text" name="pkb2" id="pkb_b" onkeyup="b_normal();" class="form-control jumlah_n jumlah_t" >
 												<span class="material-input"></span>
 											</div>
@@ -227,7 +227,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Telat Bulanan</h4>
 											<div class="form-group label-floating is-empty jum-b jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb" id="denda_bu" style="display: none;" value="67%" onkeyup="b_bulan();">
+												<input type="text" name="pkb" id="denda_bu" style="display: none;" value="0.67%" onkeyup="b_bulan();">
 												<input type="text" name="pkb3" id="pkb_bu" onkeyup="b_bulan();" class="form-control jumlah_b jumlah_t" >
 												<span class="material-input"></span>
 											</div>

@@ -102,6 +102,15 @@ function m_sum_t() {
 		document.getElementById('hasil_tahun').value = result;
 	}
 }
+function pkb_ta() {
+	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
+	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
+	var txtThreeNumberValue = document.getElementById('t_tahun').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('sum_pkb').value = result;
+	}
+}
 function harga_tahun() {
 	var txtFirstNumberValue = document.getElementById('hasil').value;
 	var txtSecondNumberValue = document.getElementById('swdkllj_t').value;
@@ -124,6 +133,21 @@ function ambilSwdk() {
 			$(".sankswd").val(datanya[1].harga);
 			$(".admstnk").val(datanya[2].harga);
 			$(".admtnkb").val(datanya[3].harga);
+		}
+	})	
+}
+
+function ambilselecttelat() {
+	$.ajax({
+		url: url+'/main/ambilswdkjl/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_telat").val()},
+		success:function(datanya) {
+			// $(".swdklksama").val(datanya[0].harga);
+			$(".sankswd_t").val(datanya[1].harga);
+			// $(".admstnk").val(datanya[2].harga);
+			// $(".admtnkb").val(datanya[3].harga);
 		}
 	})
 	
@@ -148,7 +172,30 @@ function ambilselect() {
 			}
 		}
 	})
-	
+}
+function ambilselectbul() {
+	$.ajax({
+		url: url+'/main/ambiljenis/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_ken").val()},
+		success:function(datanya) {
+			$("#adm_stnk_b").val(datanya[0].harga);
+			$("#adm_tnkb_b").val(datanya[1].harga);
+		}
+	})
+}
+function ambilselectta() {
+	$.ajax({
+		url: url+'/main/ambiljenis/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kendaraan").val()},
+		success:function(datanya) {
+			$("#adm_stnk_t").val(datanya[0].harga);
+			$("#adm_tnkb_t").val(datanya[1].harga);
+		}
+	})
 }
 
 // END PERPANJANG 
@@ -224,6 +271,11 @@ function balik() {
 		$('#total_n').hide();
 		$('#total_b').hide();
 		$('#total_t').show();
+	}else if($('#balik_nama').val() == 'Pajak Lebih Dari Setahun') {
+		$('#b_hid').hide();
+		$('#b_nor').hide();
+		$('#b_bul').hide();
+		$('#b_ta').show();
 	}else{
 		$('#total_h').hide();
 		$('#total_n').hide();
@@ -238,19 +290,37 @@ function balik() {
 $(document).ready(function () {
 	$('#gantiplat_nor').change(function () {
 		if (!this.checked) {
-    		$('#admtnkb_n').fadeOut('fast');
-    	}else{ 
-    		$('#admtnkb_n').fadeIn('fast');
-    	}	
+			$('#admtnkb_n').fadeOut('fast');
+		}else{ 
+			$('#admtnkb_n').fadeIn('fast');
+		}	
 	});
 });
 $(document).ready(function () {
 	$('#gantiplat_bul').change(function () {
 		if (!this.checked) {
-    		$('#admtnkb_b').fadeOut('fast');
-    	}else{ 
-    		$('#admtnkb_b').fadeIn('fast');
-    	}	
+			$('#admtnkb_b').fadeOut('fast');
+		}else{ 
+			$('#admtnkb_b').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#gantiplat_ta').change(function () {
+		if (!this.checked) {
+			$('#admtnkb_t').fadeOut('fast');
+		}else{ 
+			$('#admtnkb_t').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#telat').change(function () {
+		if (!this.checked) {
+			$('#row_telat').fadeOut('fast');
+		}else{ 
+			$('#row_telat').fadeIn('fast');
+		}	
 	});
 });
 $(function() { 
@@ -318,25 +388,25 @@ function openMenuMulti(opened,othermenu,lastmenu) {
         th.removeClass('open').addClass('closed');
     }
 }
-	$(document).ready(function() {
-		var num = $('div.number').text()
-		num = addPeriod(num);
-		$('div.number').text('Rp. '+num)
-	});
+$(document).ready(function() {
+	var num = $('div.number').text()
+	num = addPeriod(num);
+	$('div.number').text('Rp. '+num)
+});
 
-	function addPeriod(nStr)
-	{
-		nStr += '';
-		x = nStr.split('.');
-		x1 = x[0];
-		x2 = x.length > 1 ? '.' + x[1] : '';
-		var rgx = /(\d+)(\d{3})/;
-		while (rgx.test(x1)) {
-			x1 = x1.replace(rgx, '$1' + '.' + '$2');
-		}
-		return x1 + x2;
+function addPeriod(nStr)
+{
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + '.' + '$2');
 	}
+	return x1 + x2;
+}
 
-	jQuery(window).load(function () {
-		jQuery('#loader').fadeOut('slow');
-	});
+jQuery(window).load(function () {
+	jQuery('#loader').fadeOut('slow');
+});

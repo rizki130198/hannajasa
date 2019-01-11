@@ -99,6 +99,15 @@ class Main extends CI_Controller {
 	}
 	//start mutasi+balik nama//
 
+	//start stnk hilang//
+	public function stnk_hilang()
+	{
+		$data['title'] = "Halaman STNK Hilang";
+		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$this->load->view('admin',$data);
+	}
+	//end stnk hilang//
+
 	//start Input Berkas//
 	public function berkas_jadi()
 	{
@@ -273,7 +282,7 @@ class Main extends CI_Controller {
 	public function ambiljenis()
 	{
 		$jenis = $this->input->post('jenis');
-		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (4,5,6,7) AND jenis="'.$jenis.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (4,5,6,7,8) AND jenis="'.$jenis.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {
