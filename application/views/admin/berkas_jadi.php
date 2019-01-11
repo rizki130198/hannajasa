@@ -156,6 +156,12 @@
           <div class="card-content">
             <div class="toolbar">
               <!--        Here you can write extra buttons/actions for the toolbar              -->
+              <select class="form-control" name="get_p" id="get_select" onchange="ganti()">
+                <option value="perpanjang">Perpanjang</option>
+                <option value="bn">Balik Nama</option>
+                <option value="mutasi">Mutasi</option>
+                <option value="m_bn">Mutasi + Balik Nama</option>
+              </select>
             </div>
             <div class="material-datatables">
               <table id="berkasjadi" class="table table-striped table-no-bordered table-hover" style="width:100%">
@@ -168,11 +174,11 @@
                   <th>Uang Muka (DP)</th>
                   <th>Wilayah</th>
                   <th>Nomor Polisi</th>
-                  <th class="disabled-sorting text-right">Actions</th>
+                  <th class="disabled-sorting">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($berkas->result() as $key): ?>
+                <?php foreach ($berkas as $key): ?>
                  <tr>
                   <td><?=$key->no?></td>
                   <td><?=$key->perhitungan?> <span style="color: red;">(<?=$key->jenis?>)</span></td>
@@ -181,38 +187,59 @@
                   <td><?=$key->uang_dp?></td>
                   <td><?=$key->wilayah?></td>
                   <td><?=$key->nopol?></td>
-                  <td class="text-right">
+                  <td>
                     <a href="#approve<?=$key->no?>" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a>
-                    <a href="#" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>
+                    <a href="#delete<?=$key->no?>" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>
                   </td>
-                <div id="approve<?=$key->no?>" class="modal fade">
-                  <div class="modal-dialog modal-confirm">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <div class="icon-box">
-                          <i class="material-icons">check</i>
-                        </div>        
-                        <h4 class="modal-title">Yakin ingin melanjutkan?</h4>  
-                        <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-                      </div>
-                      <div class="modal-body">
-                        <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <a href="<?= site_url('main/input_berkas/'.$key->id_cetak) ?>"><button class="btn btn-success" type="button">Ya, lanjutakn</button></a>
+                  <div id="approve<?=$key->no?>" class="modal fade">
+                    <div class="modal-dialog modal-confirm">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <div class="icon-box">
+                            <i class="material-icons">check</i>
+                          </div>        
+                          <h4 class="modal-title">Yakin ingin melanjutkan?</h4>  
+                          <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                        </div>
+                        <div class="modal-body">
+                          <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                          <a href="<?= site_url('main/input_berkas/perpanjang/'.$key->id_cetak) ?>"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                  <div id="delete<?=$key->no?>" class="modal fade">
+                    <div class="modal-dialog modal-confirm">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <div class="icon-box">
+                            <i class="material-icons">check</i>
+                          </div>        
+                          <h4 class="modal-title">Yakin ingin Delete?</h4>  
+                          <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                        </div>
+                        <div class="modal-body">
+                          <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                          <a href="<?= site_url('main/delete/'.$key->id_cetak) ?>"><button class="btn btn-danger" type="button">Ya, Hapus</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <?php endforeach ?>
               </tr>
             </tbody>
-         </table>
-       </div>
-     </div>
-   </div>
- </div>
+          </table>
+          <div id="modalnya"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </div>
