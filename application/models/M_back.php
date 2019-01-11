@@ -222,10 +222,9 @@ class M_back extends CI_Model {
 	}
 	public function proses_cetak()
 	{
-		$cek = $this->db->get_where('cetak_perpanjang', array('id_join'=>$id))->num_rows();
+		$cek = $this->db->get_where('cetak_perpanjang', array('id_join'=>$this->input->post('id')))->num_rows();
 		if ($cek > 0) {
-			$this->session->set_flashdata('gagal', 'Data sudah di isi');
-			redirect('main/dashboard');
+			redirect('main/cetak/c_perpanjang/'.$this->input->post('id'));
 		}else{
 			$id = $this->input->post('id');
 			$penerima = $this->input->post('penerima');
@@ -317,7 +316,7 @@ class M_back extends CI_Model {
 				if ($getdata->jenis != 'normal' OR $getdata->ganti != NULL) {
 					$this->db->query('UPDATE blanko SET stok_blanko = stok_blanko - 1');
 				}
-				redirect('main/cetak_perpanjang/'.$id);
+				redirect('main/cetak/c_perpanjang/'.$id);
 			}else{
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');
@@ -458,10 +457,10 @@ class M_back extends CI_Model {
 	}
 	public function cetak_balik()
 	{
-		$cek = $this->db->get_where('cetak_balik', array('id_join'=>$id))->num_rows();
+		$cek = $this->db->get_where('cetak_balik', array('id_join'=>$this->input->post('id')))->num_rows();
 		if ($cek > 0) {
-			$this->session->set_flashdata('gagal', 'Data sudah di isi');
-			redirect('main/dashboard');
+			//$this->session->set_flashdata('gagal', 'Data sudah di isi');
+			redirect('main/cetak/c_baliknama/'.$this->input->post('id'));
 		}else{
 			$id = $this->input->post('id');
 			$penerima = $this->input->post('penerima');
@@ -708,8 +707,8 @@ class M_back extends CI_Model {
 	{
 		$cek = $this->db->get_where('cetak_berkas', array('id_uri'=>$this->input->post('id')))->num_rows();
 		if ($cek > 0) {
-			$this->session->set_flashdata('gagal', 'Data sudah di isi');
-			redirect('main/dashboard');
+			//$this->session->set_flashdata('gagal', 'Data sudah di isi');
+			redirect('main/cetak/c_berkas/'.$this->input->post('id'));
 		}else{
 			$gabungan = date('Y-m-d');
 			$day = date('D', strtotime($gabungan));
@@ -722,8 +721,11 @@ class M_back extends CI_Model {
 				'Fri' => 'Jumat',
 				'Sat' => 'Sabtu'
 			);
+			$id = $this->input->post('id');
+			$jenis = $this->input->post('type');
 			$query = $this->db->insert('cetak_berkas', array(
 				'id_uri'=>$this->input->post('id'),
+				'jenis'=>$this->input->post('type'),
 				'id_user'=>$this->session->userdata('id'),
 				'nama_pemilik'=>$this->input->post('pem_bpkb'),
 				'nopol'=>$this->input->post('nopol'),
@@ -734,7 +736,7 @@ class M_back extends CI_Model {
 				'created_at'=>$gabungan,
 			));
 			if ($query==TRUE) {
-				redirect('main/cetak/c_berkas/'.$id);
+				redirect('main/cetak/c_berkas/'.$id.'/'.$jenis);
 			}else{
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');
@@ -743,10 +745,10 @@ class M_back extends CI_Model {
 	}
 	public function cetak_mutasi()
 	{
-		$cek = $this->db->get_where('cetak_mutasi', array('id_join'=>$id))->num_rows();
+		$cek = $this->db->get_where('cetak_mutasi', array('id_join'=>$this->input->post('id')))->num_rows();
 		if ($cek > 0) {
-			$this->session->set_flashdata('gagal', 'Data sudah di isi');
-			redirect('main/dashboard');
+			//$this->session->set_flashdata('gagal', 'Data sudah di isi');
+			redirect('main/cetak/c_mutasi/'.$this->input->post('id'));
 		}else{
 			$id = $this->input->post('id');
 			$penerima = $this->input->post('penerima');
@@ -838,7 +840,7 @@ class M_back extends CI_Model {
 				'tanggal'=>$gabungan
 			));
 			if ($query==TRUE) {
-				redirect('main/cetak/c_baliknama/'.$id);
+				redirect('main/cetak/c_mutasi/'.$id);
 			}else{
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');

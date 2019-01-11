@@ -121,9 +121,10 @@ function ambilSwdk() {
 		data: {jenis: $("#ambiltahun").val()},
 		success:function(datanya) {
 			$(".swdklksama").val(datanya[0].harga);
-			$(".sankswd").val(datanya[1].harga);
-			$(".admstnk").val(datanya[2].harga);
-			$(".admtnkb").val(datanya[3].harga);
+			$(".sankswd").val(datanya[3].harga);
+			$(".admstnk").val(datanya[1].harga);
+			$(".admtnkb").val(datanya[2].harga);
+			console.log(datanya);
 		}
 	})
 	
