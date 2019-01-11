@@ -111,7 +111,7 @@ function harga_tahun() {
 		document.getElementById('total_harga').value = "Rp. " + result;
 	}
 }
-var url = 'http://'+location.hostname+'/hannajasa';
+var url = 'http://'+location.hostname+'/';
 
 function ambilSwdk() {
 	$.ajax({

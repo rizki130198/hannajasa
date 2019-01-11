@@ -1,13 +1,16 @@
 <?php
+date_default_timezone_set('Asia/Jakarta');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 	//start dashboard//
+	
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('m_back');
 	}
+	
 	public function dashboard()
 	{
 		$data['title'] = "Halaman Dashboard";
@@ -172,15 +175,15 @@ class Main extends CI_Controller {
 	}
 	public function cetak_mutasi()
 	{
-		// $query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
-		//return var_dump($query);
-		// if ($query->num_rows() > 0) {
-			// $data['perpanjang'] = $query->row();
-		// }else{
-			// redirect('main/transaksi_p');
-			// $this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
-		// }
-		$this->load->view('admin/cetak/c_mutasi');
+		$query = $this->db->query('SELECT * FROM cetak_mutasi c INNER JOIN mutasi p ON c.id_join = p.id_mutasi where c.id_join='.$id.'');
+		return var_dump($query);
+		if ($query->num_rows() > 0) {
+			$data['mutasi'] = $query->row();
+			$this->load->view('admin/cetak/c_mutasi',$data);
+		}else{
+			redirect('main/transaksi_p');
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		}
 	}
 	//END
 
@@ -234,7 +237,7 @@ class Main extends CI_Controller {
 	}
 	public function load_harga()
 	{
-		$data = $this->m_back->load_harga();
+		$data = $this->M_back->load_harga();
 		echo json_encode($data);
 	}
 	public function update_harga()
@@ -261,7 +264,7 @@ class Main extends CI_Controller {
 	}
 	public function load_data()
 	{
-		$data = $this->m_back->load_data();
+		$data = $this->M_back->load_data();
 		echo json_encode($data);
 	}
 	public function update_blanko()
@@ -308,8 +311,9 @@ class Main extends CI_Controller {
 		if ($this->uri->segment(3)=="c_berkas") {
 			$data['title'] = "Halaman Cetak Berkas Jadi";
 			$id = $this->uri->segment(4);
+			$row = $this->db->get_where('cetak_berkas',array('id_uri'=>$id))->row();
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A4");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/berkas/'.$id;
@@ -318,12 +322,18 @@ class Main extends CI_Controller {
 			header("Content-Type: application/pdf");
 			header("Cache-Control: no-cache");
 			header("Accept-Ranges: none");
-			header("Content-Disposition: inline; filename=\"example.pdf\"");
+			header("Content-Disposition: inline; filename='c_berkas_".$row->nama_pemilik."'.pdf");
 			echo $pdf;
+			$query = $this->db->update('cetak_berkas',array(
+			    'status'=>'0'
+			  ),
+			  array(
+			      'id_uri'=>$id));
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
 			$id = $this->uri->segment(4);
+			$row = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'')->row();
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_perpanjang/'.$id;
@@ -332,12 +342,18 @@ class Main extends CI_Controller {
 			header("Content-Type: application/pdf");
 			header("Cache-Control: no-cache");
 			header("Accept-Ranges: none");
-			header("Content-Disposition: inline; filename=\"'.$id.'.pdf\"");
+			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
+			$query = $this->db->update('cetak_perpanjang',array(
+			    'status'=>'0'
+			  ),
+			  array(
+			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_baliknama") {
 			$id = $this->uri->segment(4);
+			$row = $this->db->query('SELECT * FROM cetak_balik c INNER JOIN balik_nama p ON c.id_join = p.id_balik where c.id_join='.$id.'')->row();
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_balik/'.$id;
@@ -346,12 +362,18 @@ class Main extends CI_Controller {
 			header("Content-Type: application/pdf");
 			header("Cache-Control: no-cache");
 			header("Accept-Ranges: none");
-			header("Content-Disposition: inline; filename=\"'.$id.'.pdf\"");
+			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
+			$query = $this->db->update('cetak_balik',array(
+			    'status'=>'0'
+			  ),
+			  array(
+			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_mutasi") {
 			$id = $this->uri->segment(4);
+			$row = $this->db->query('SELECT * FROM cetak_mutasi c INNER JOIN mutasi p ON c.id_join = p.id_mutasi where c.id_join='.$id.'')->row();
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_mutasi/'.$id;
@@ -360,8 +382,13 @@ class Main extends CI_Controller {
 			header("Content-Type: application/pdf");
 			header("Cache-Control: no-cache");
 			header("Accept-Ranges: none");
-			header("Content-Disposition: inline; filename=\"'.$id.'.pdf\"");
+			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
+			$query = $this->db->update('cetak_mutasi',array(
+			    'status'=>'0'
+			  ),
+			  array(
+			      'id_join'=>$id));
 		}else{
 
 		}

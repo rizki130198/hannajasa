@@ -571,7 +571,7 @@ table tr td{
 											<hr style="border-top:solid 1.5px #333;margin-top: 20% !important;">
 											<div class="input-group" style="margin-top: 35px;">
 												<span class="input-group-addon" style="font-weight: bold;color: #333;line-height:4.8;">Jakarta,</span>
-												<input type="text" value="<?= date('Y-m-d',strtotime($perpanjang->tanggal))?>"  class="form-control">
+												<input type="text" value=""  class="form-control">
 											</div>
 											<p style="font-weight: bold;text-align: center;margin-top: 20%;">..................................................................................</p>
 											<p style="font-weight: bold;margin-top: -10px;text-align: center;">Penerima</p>
