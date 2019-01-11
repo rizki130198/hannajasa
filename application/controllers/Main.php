@@ -114,6 +114,17 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
+	public function transaksi_sh()
+	{
+		// $querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
+		// if ($querynya->num_rows() > 0) {
+			$data['title'] = "Halaman Transaksi STNK Hilang";
+			$this->load->view('admin',$data);
+		// }else{
+			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			// redirect('main/dashboard');
+		// }
+	}
 	//end stnk hilang//
 
 	//start Input Berkas//
