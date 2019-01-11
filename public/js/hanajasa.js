@@ -102,6 +102,15 @@ function m_sum_t() {
 		document.getElementById('hasil_tahun').value = result;
 	}
 }
+function pkb_ta() {
+	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
+	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
+	var txtThreeNumberValue = document.getElementById('t_tahun').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('sum_pkb').value = result;
+	}
+}
 function harga_tahun() {
 	var txtFirstNumberValue = document.getElementById('hasil').value;
 	var txtSecondNumberValue = document.getElementById('swdkllj_t').value;
@@ -126,6 +135,21 @@ function ambilSwdk() {
 			$(".admtnkb").val(datanya[2].harga);
 			console.log(datanya);
 		}
+	})	
+}
+
+function ambilselecttelat() {
+	$.ajax({
+		url: url+'/main/ambilswdkjl/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_telat").val()},
+		success:function(datanya) {
+			// $(".swdklksama").val(datanya[0].harga);
+			$(".sankswd_t").val(datanya[1].harga);
+			// $(".admstnk").val(datanya[2].harga);
+			// $(".admtnkb").val(datanya[3].harga);
+		}
 	})
 	
 }
@@ -149,7 +173,30 @@ function ambilselect() {
 			}
 		}
 	})
-	
+}
+function ambilselectbul() {
+	$.ajax({
+		url: url+'/main/ambiljenis/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_ken").val()},
+		success:function(datanya) {
+			$("#adm_stnk_b").val(datanya[0].harga);
+			$("#adm_tnkb_b").val(datanya[1].harga);
+		}
+	})
+}
+function ambilselectta() {
+	$.ajax({
+		url: url+'/main/ambiljenis/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kendaraan").val()},
+		success:function(datanya) {
+			$("#adm_stnk_t").val(datanya[0].harga);
+			$("#adm_tnkb_t").val(datanya[1].harga);
+		}
+	})
 }
 
 // END PERPANJANG 
@@ -225,6 +272,11 @@ function balik() {
 		$('#total_n').hide();
 		$('#total_b').hide();
 		$('#total_t').show();
+	}else if($('#balik_nama').val() == 'Pajak Lebih Dari Setahun') {
+		$('#b_hid').hide();
+		$('#b_nor').hide();
+		$('#b_bul').hide();
+		$('#b_ta').show();
 	}else{
 		$('#total_h').hide();
 		$('#total_n').hide();
@@ -251,6 +303,24 @@ $(document).ready(function () {
 			$('#admtnkb_b').fadeOut('fast');
 		}else{ 
 			$('#admtnkb_b').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#gantiplat_ta').change(function () {
+		if (!this.checked) {
+			$('#admtnkb_t').fadeOut('fast');
+		}else{ 
+			$('#admtnkb_t').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#telat').change(function () {
+		if (!this.checked) {
+			$('#row_telat').fadeOut('fast');
+		}else{ 
+			$('#row_telat').fadeIn('fast');
 		}	
 	});
 });
@@ -337,7 +407,6 @@ function addPeriod(nStr)
 	}
 	return x1 + x2;
 }
-
 jQuery(window).load(function () {
 	jQuery('#loader').fadeOut('slow');
 });

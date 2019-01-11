@@ -59,7 +59,7 @@
 									<div class="col-md-12">
 										<div class="form-group label-floating is-empty">
 											<label class="control-label">Telat Tahun</label>
-											<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="25%">
+											<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="0.25%">
 											<input type="text" name="telat_thn" id="telat_thn" onkeyup="m_sum_t();" class="form-control" >
 											<span class="material-input"></span>
 										</div>
