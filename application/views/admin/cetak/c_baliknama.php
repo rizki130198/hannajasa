@@ -363,7 +363,7 @@ table tr td{
 									<div class="col-md-1" style="padding-right: 0;">
 										<div class="input-group" style="margin-top:-35px !important;">
 											<select class="form-control" name="jenis_k" required="">
-												<option value="" selected></option>
+												<option value=""></option>
 												<option value="<?=$balik->jenis_kendaraan?>" selected><?=$balik->jenis_kendaraan?></option>
 											</select>
 											<span class="material-input"></span>

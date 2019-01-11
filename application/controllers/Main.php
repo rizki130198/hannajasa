@@ -192,10 +192,10 @@ class Main extends CI_Controller {
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		}
 	}
-	public function cetak_mutasi()
+	public function cetak_mutasi($id)
 	{
 		$query = $this->db->query('SELECT * FROM cetak_mutasi c INNER JOIN mutasi p ON c.id_join = p.id_mutasi where c.id_join='.$id.'');
-		return var_dump($query);
+		// return var_dump($query);
 		if ($query->num_rows() > 0) {
 			$data['mutasi'] = $query->row();
 			$this->load->view('admin/cetak/c_mutasi',$data);
