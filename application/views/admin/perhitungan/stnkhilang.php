@@ -50,7 +50,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk" readonly="" class="form-control admstnk">
+												<input type="text" name="adm_stnk1" readonly="" class="form-control admstnk">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -74,7 +74,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" readonly="" name="swdllj" class="form-control swdklksama jumlah_n">
+												<input type="text" readonly="" name="swdllj1" class="form-control swdklksama jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -83,7 +83,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk" readonly="" class="form-control admstnk jumlah_n">
+												<input type="text" name="adm_stnk2" readonly="" class="form-control admstnk jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -101,7 +101,7 @@
 										<div class="col-md-12">
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_k" name="jenis_k"  onchange="ambilselect()">
+												<select class="form-control" id="jenis_k" name="jenis_k1"  onchange="ambilselect()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -112,7 +112,7 @@
 											</div>
 											<div class="form-group jum-n jum-t">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" readonly name="adm_tnkb" id="adm_tnkb" class="form-control jumlah_n">
+												<input type="text" readonly name="adm_tnkb1" id="adm_tnkb" class="form-control jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -164,7 +164,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="" class="form-control swdklksama jumlah_b" >
+												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -182,7 +182,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk" class="form-control admstnk jumlah_b">
+												<input type="text" name="adm_stnk3" class="form-control admstnk jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -200,7 +200,7 @@
 										<div class="col-md-12">
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_ken" name="jenis_ken"  onchange="ambilselectbul()">
+												<select class="form-control" id="jenis_ken" name="jenis_k2"  onchange="ambilselectbul()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -211,7 +211,7 @@
 											</div>
 											<div class="form-group jum-b">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" readonly name="adm_tnkb" id="adm_tnkb_b" class="form-control jumlah_b">
+												<input type="text" readonly name="adm_tnkb2" id="adm_tnkb_b" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -272,7 +272,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Sanksi SWDKLLJ</label>
-												<input type="text" name="sanski_swdllj" onkeyup="harga_tahun()" class="form-control sankswd jumlah_t">
+												<input type="text" name="sanski_swdllj1" onkeyup="harga_tahun()" class="form-control sankswd jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -283,7 +283,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Tahun Sekarang</h4>
 											<div class="form-group label-floating is-empty jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" onkeyup="pkb_ta();" id="pkb_tahun" name="pkb1" class="form-control jumlah_t">
+												<input type="text" onkeyup="pkb_ta();" id="pkb_tahun" name="pkb4" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -292,7 +292,7 @@
 										<div class="col-md-12">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" name="telat" id="telat" value="ada"> Kalau Telat
+													<input type="checkbox" name="cek_telat" id="telat" value="ada"> Kalau Telat
 												</label>
 											</div>
 										</div>
@@ -315,7 +315,7 @@
 													<div class="form-group label-floating is-empty">
 														<label class="control-label">Telat Tahun</label>
 														<input type="text" style="display: none;" onkeyup="pkb_ta();" id="denda_tahun" name="telat_thn" class="form-control" value="0.25%">
-														<input type="text" name="telat_thn" id="t_tahun" onkeyup="pkb_ta();" class="form-control" >
+														<input type="text" name="telat_thn1" id="t_tahun" onkeyup="pkb_ta();" class="form-control" >
 														<span class="material-input"></span>
 													</div>
 												</div>
@@ -324,7 +324,7 @@
 												<div class="col-md-12">
 													<div class="form-group jum-t">
 														<label class="control-label">Sanksi PKB</label>
-														<input type="text" name="sanksi_pkb2" id="sum_pkb" class="form-control jumlah_t"  value="">
+														<input type="text" name="sanksi_pkb3" id="sum_pkb" class="form-control jumlah_t"  value="">
 														<span class="material-input"></span>
 													</div>
 												</div>
@@ -333,7 +333,7 @@
 												<div class="col-md-12">
 													<div class="form-group jum-t">
 														<label class="control-label">Sanksi SWDKLLJ</label>
-														<input type="text" name="sanski_swdllj2" class="form-control sankswd_t jumlah_t">
+														<input type="text" name="sanski_swdllj3" class="form-control sankswd_t jumlah_t">
 														<span class="material-input"></span>
 													</div>
 												</div>
@@ -344,7 +344,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj" class="form-control swdklksama jumlah_t">
+												<input type="text" name="swdllj4" class="form-control swdklksama jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -353,7 +353,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk" class="form-control jumlah_t admstnk">
+												<input type="text" name="adm_stnk4" class="form-control jumlah_t admstnk">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -371,7 +371,7 @@
 										<div class="col-md-12">
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_kendaraan" name="jenis_kendaraan"  onchange="ambilselectta()">
+												<select class="form-control" id="jenis_kendaraan" name="jenis_k3"  onchange="ambilselectta()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -382,7 +382,7 @@
 											</div>
 											<div class="form-group jum-t">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" name="adm_tnkb" id="adm_tnkb_t" class="form-control jumlah_t">
+												<input type="text" name="adm_tnkb3" id="adm_tnkb_t" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -391,7 +391,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
-												<input type="text" name="total_bulan" id="sum_t" class="form-control" >
+												<input type="text" name="total_bulan2" id="sum_t" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>

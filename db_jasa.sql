@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2019 at 09:44 AM
+-- Generation Time: Jan 11, 2019 at 02:56 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -60,6 +60,13 @@ CREATE TABLE `blanko` (
   `tgl_update` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `blanko`
+--
+
+INSERT INTO `blanko` (`id`, `stok_blanko`, `tgl_update`) VALUES
+(1, '999', '2019-01-01');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +81,22 @@ CREATE TABLE `catatan` (
   `harga` varchar(100) NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `catatan`
+--
+
+INSERT INTO `catatan` (`id_catat`, `nama`, `jenis`, `jenis_harga`, `harga`, `created_at`) VALUES
+(1, 'SWDKLLJ Motor', 'Motor', 'swdkllj', '35000', '2018-12-29'),
+(2, 'SWDKLLJ Mobil', 'Mobil', 'swdkllj', '143000', '2018-12-29'),
+(3, 'SWDKLLJ Mobil Box', 'Mobil Box', 'swdkllj', '73000', '2018-12-29'),
+(4, 'Adm STNK Motor', 'Motor', 'stnk', '100000', '2018-12-29'),
+(5, 'Adm STNK Mobil', 'Mobil', 'stnk', '200000', '2018-12-29'),
+(6, 'Adm TNKB Motor', 'Motor', 'tnkb', '60000', '2018-12-29'),
+(7, 'Adm TNKB Mobil', 'Mobil', 'tnkb', '100000', '2018-12-29'),
+(8, 'Adm TNKB Mobil Box', 'Mobil Box', 'tnkb', '72000', '2018-12-29'),
+(9, 'Sanksi SWDKLLJ Motor', 'Motor', 'sanksi', '32000', '2018-12-29'),
+(10, 'Sanksi SWDKLLJ Mobil', 'Mobil', 'sanksi', '100000', '2019-01-02');
 
 -- --------------------------------------------------------
 
@@ -132,6 +155,7 @@ CREATE TABLE `cetak_berkas` (
   `id_berkas` int(11) NOT NULL,
   `id_uri` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `jenis` varchar(200) DEFAULT NULL,
   `nama_pemilik` varchar(100) DEFAULT NULL,
   `nopol` varchar(100) DEFAULT NULL,
   `faktur` varchar(100) DEFAULT NULL,
@@ -231,6 +255,57 @@ CREATE TABLE `cetak_perpanjang` (
   `biaya_kurang` varchar(20) DEFAULT NULL,
   `status` enum('1','0') NOT NULL,
   `hari` varchar(100) DEFAULT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cetak_stnk`
+--
+
+CREATE TABLE `cetak_stnk` (
+  `id_cetak` int(11) NOT NULL,
+  `id_join` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `penerima` varchar(100) NOT NULL,
+  `no_telp` varchar(16) NOT NULL,
+  `atas_nama` varchar(100) NOT NULL,
+  `uang_dp` varchar(20) NOT NULL,
+  `bpkb` varchar(200) NOT NULL,
+  `sim` varchar(100) NOT NULL,
+  `wilayah` varchar(100) NOT NULL,
+  `nopol` varchar(50) NOT NULL,
+  `jenis_kendaraan` varchar(20) NOT NULL,
+  `tahun_pajak` varchar(9) NOT NULL,
+  `lainnya` text NOT NULL,
+  `pajak_ini` varchar(11) NOT NULL,
+  `pajak_lalu` varchar(11) DEFAULT NULL,
+  `harga_pajak_ini` varchar(9) NOT NULL,
+  `harga_pajak_lalu` varchar(10) NOT NULL,
+  `total_pajak` varchar(11) NOT NULL,
+  `biaya_ps` varchar(100) NOT NULL,
+  `adm_skp` varchar(50) NOT NULL,
+  `slp` varchar(50) NOT NULL,
+  `plat` varchar(50) NOT NULL,
+  `balik_nama` varchar(50) NOT NULL,
+  `g_bpkb` varchar(50) NOT NULL,
+  `p_alamat` varchar(100) DEFAULT NULL,
+  `psl` varchar(100) DEFAULT NULL,
+  `p_lain` varchar(100) DEFAULT NULL,
+  `p_lainnya` varchar(100) DEFAULT NULL,
+  `harga_ps` varchar(10) DEFAULT NULL,
+  `harga_adm` varchar(10) DEFAULT NULL,
+  `harga_slp` varchar(11) DEFAULT NULL,
+  `harga_plat` varchar(20) DEFAULT NULL,
+  `harga_gb` varchar(20) DEFAULT NULL,
+  `harga_pa` varchar(20) DEFAULT NULL,
+  `harga_lainnya` varchar(20) DEFAULT NULL,
+  `harga_lain` varchar(20) DEFAULT NULL,
+  `harga_psl` varchar(20) DEFAULT NULL,
+  `total_proses` varchar(20) NOT NULL,
+  `biaya_prediksi` varchar(20) NOT NULL,
+  `biaya_kurang` varchar(20) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -378,6 +453,12 @@ ALTER TABLE `cetak_perpanjang`
   ADD PRIMARY KEY (`id_cetak`);
 
 --
+-- Indexes for table `cetak_stnk`
+--
+ALTER TABLE `cetak_stnk`
+  ADD PRIMARY KEY (`id_cetak`);
+
+--
 -- Indexes for table `history`
 --
 ALTER TABLE `history`
@@ -440,6 +521,11 @@ ALTER TABLE `cetak_mutasi`
 --
 ALTER TABLE `cetak_perpanjang`
   MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `cetak_stnk`
+--
+ALTER TABLE `cetak_stnk`
+  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `history`
 --

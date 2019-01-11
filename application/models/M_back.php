@@ -679,7 +679,6 @@ class M_back extends CI_Model {
 		$query = $this->db->insert('mutasi', array(
 			'id_user'=>$this->session->userdata('id'),
 			'no'=>$hasilrandom,
-			'perhitungan'=>$jenis_swd,
 			'jenis'=>$jenis,
 			'jenis_k'=>$jenis_swd, 
 			'pkb'=>$pkb,
@@ -845,6 +844,164 @@ class M_back extends CI_Model {
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');
 			}
+		}
+	}
+	public function proses_stnk()
+	{
+		$random = '0123456789';
+		$hitungrandom = strlen($random);
+		$hasilrandom = '';
+		for ($i=0; $i < 15 ; $i++) { 
+			$hasilrandom .= $random[rand(0,$hitungrandom - 1)];
+		}
+		$jenis = $this->input->post('jenis_b');
+		$jenis_swd = $this->input->post('jenis_swd');
+		$adm_stnk1 = $this->input->post('adm_stnk1');
+		
+		$pkb1 = $this->input->post('pkb1');
+		$swdllj1 = $this->input->post('swdllj1');
+		$adm_stnk2 = $this->input->post('adm_stnk2');
+		$adm_tnkb1 = $this->input->post('ganti1');
+		$jenis_k1 = $this->input->post('jenis_k1');
+		$adm_tnkb1 = $this->input->post('adm_tnkb1');
+		$total_hidup = $this->input->post('total_hidup');
+
+		$pkb2 = $this->input->post('pkb2');
+		$telat_b = $this->input->post('telat');
+		$sanksi_pkb1 = $this->input->post('sanksi_pkb1');
+		$swdllj2 = $this->input->post('swdllj2');
+		$sanksi_swdllj_b1 = $this->input->post('sanksi_swdllj_b1');
+		$adm_stnk3 = $this->input->post('adm_stnk3');
+		$ganti2 = $this->input->post('ganti2');
+		$jenis_k2 = $this->input->post('jenis_k2');
+		$adm_tnkb2 = $this->input->post('adm_tnkb2');
+		$total_bulan = $this->input->post('total_bulan');
+		
+		$pkb3 = $this->input->post('pkb3');
+		$telat_thn = $this->input->post('telat_thn');
+		$sanksi_pkb2 = $this->input->post('sanksi_pkb2');
+		$swdllj3 = $this->input->post('swdllj3');
+		$sanski_swdllj1 = $this->input->post('sanski_swdllj1');
+		$pkb4 = $this->input->post('pkb4');
+		$cek_telat = $this->input->post('cek_telat');
+		$jenis_telat = $this->input->post('jenis_telat');
+		$telat_thn1 = $this->input->post('telat_thn1');
+		$sanksi_pkb3 = $this->input->post('sanksi_pkb3');
+		$sanski_swdllj3 = $this->input->post('sanski_swdllj3');
+		$swdllj4 = $this->input->post('swdllj4');
+		$adm_stnk4 = $this->input->post('adm_stnk4');
+		$ganti3 = $this->input->post('ganti3');
+		$jenis_k3 = $this->input->post('jenis_k3');
+		$adm_tnkb5 = $this->input->post('adm_tnkb3');
+		$total_bulan2 = $this->input->post('total_bulan2');
+
+		if ($pkb1 == NULL AND $pkb2==NULL) {
+			$pkb = $pkb4;
+		}else if($pkb2 == NULL AND $pkb4==NULL){
+			$pkb = $pkb1;
+		}else{
+			$pkb = $pkb2;
+		}
+
+
+		if ($pkb3 == NULL) {
+			$pkb_1 = $pkb5;
+		}else{
+			$pkb_1 = $pkb3;
+		}
+
+		if ($adm_stnk1 == NULL AND $adm_stnk2==NULL) {
+			$adm_stnk = $adm_stnk3;
+		}else if($adm_stnk2 == NULL AND $adm_stnk3==NULL){
+			$adm_stnk = $adm_stnk1;
+		}else{
+			$adm_stnk = $adm_stnk2;
+		}
+		
+		if ($adm_tnkb1 == NULL AND $adm_tnkb2==NULL) {
+			$adm_tnkb = $adm_tnkb3;
+		}else if($adm_tnkb2 == NULL AND $adm_tnkb3==NULL){
+			$adm_tnkb = $adm_tnkb1;
+		}else{
+			$adm_tnkb = $adm_tnkb2;
+		}
+
+		if ($telat_b == NULL) {
+			$telat = $telat_thn;
+		}else{
+			$telat = $telat_b;
+		}
+
+		if ($sanksi_pkb1 == NULL) {
+			$sanksi_pkb = $sanksi_pkb2;
+		}else{
+			$sanksi_pkb = $sanksi_pkb1;
+		}
+
+		if ($swdllj1 == NULL AND $swdllj2 == NULL ) {
+			$swdllj = $swdllj4;
+		}else if($swdllj2 == NULL AND $swdllj4 == NULL ){
+			$swdllj = $swdllj1;
+		}else{
+			$swdllj = $swdllj2;
+		}
+
+		if ($swdllj3 == NULL) {
+			$swdllj_1 = $swdllj5;
+		}else{
+			$swdllj_1 = $swdllj3;
+		}
+
+		if ($sanksi_swdllj_b1 == NULL) {
+			$sanksi_swdkllj = $sanski_swdllj2;
+		}else{
+			$sanksi_swdkllj = $sanksi_swdllj_b1;
+		}
+
+		if ($total_hidup == NULL AND $total_bulan==NULL) {
+			$total = $total_su;
+		}else if($total_su == NULL AND $total_bulan==NULL){
+			$total = $total_hidup;
+		}else{
+			$total = $total_bulan;
+		}
+
+		$gabungan = date("Y-m-d");
+		$day = date('D', strtotime($gabungan));
+		$dayList = array(
+			'Sun' => 'Minggu',
+			'Mon' => 'Senin',
+			'Tue' => 'Selasa',
+			'Wed' => 'Rabu',
+			'Thu' => 'Kamis',
+			'Fri' => 'Jumat',
+			'Sat' => 'Sabtu'
+		);
+		$query = $this->db->insert('mutasi', array(
+			'id_user'=>$this->session->userdata('id'),
+			'no'=>$hasilrandom,
+			'perhitungan'=>$jenis_swd,
+			'jenis'=>$jenis,
+			'jenis_k'=>$jenis_swd, 
+			'pkb'=>$pkb,
+			'pkb1'=>$pkb_1,
+			'swdkllj'=>$swdllj,
+			'swdkllj1'=>$swdllj_1,
+			'sanksi_swdkllj'=>$sanksi_swdkllj,
+			'adm_stnk'=>$adm_stnk,
+			'adm_tnkb'=>$adm_tnkb,
+			'telat'=>$telat,
+			'total'=>filter_var($total,FILTER_SANITIZE_NUMBER_INT),
+			'hari'=>$dayList[$day],
+			'tanggal'=>$gabungan
+		));
+		if ($query==TRUE) {
+			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
+			$id = $this->db->insert_id();
+			redirect('main/transaksi_m/'.$id);
+		}else{
+			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
+			redirect('main/perpanjang');
 		}
 	}
 }
