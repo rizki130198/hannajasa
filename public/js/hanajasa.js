@@ -457,7 +457,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#approve'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#delete'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#approve'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#delete'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}else if (type == 'bn') {
 			temp_array = [
@@ -468,7 +468,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#balik'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletebalik'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#balik'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#deletebalik'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}else if (type == 'mutasi') {
 			temp_array = [
@@ -479,7 +479,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#apmutasi'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletemutasi'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#apmutasi'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#deletemutasi'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}else{
 			temp_array = [
@@ -490,7 +490,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#aplainnya'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletelain'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#aplainnya'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#deletelain'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}
 

@@ -67,7 +67,7 @@ li.active a{
             <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
                 <a href="#">
                     <i class="material-icons">insert_chart_outlined</i>
-                    <p>Progress Karyawan</p>
+                    <p>Progress Kerjaan</p>
                 </a>
             </li>
             <li class="<?php if($this->uri->segment(2)=="blanko"){echo "active";}?>">

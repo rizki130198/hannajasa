@@ -399,6 +399,7 @@
 								</div>
 								<!-- End Tahun -->
 								<button type="submit" class="btn btn-info pull-right">Submit</button>
+								<button class="btn btn-default pull-right">Print</button>
 								<div class="clearfix"></div>
 							</form>
 						</div>

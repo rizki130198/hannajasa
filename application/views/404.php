@@ -2705,5 +2705,5 @@ body {
     </div>
     <a href="javascript:history.go(-1)" style="color: #fff;"><div class="button">Kembali</div></a>
   </div>
-  <div class="sorry">Oops! Maaf, halaman yang tidak tersedia.</div>
+  <div class="sorry">Oops! Maaf, halaman ini tidak tersedia.</div>
 </div>
