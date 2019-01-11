@@ -125,6 +125,18 @@ class Main extends CI_Controller {
 			// redirect('main/dashboard');
 		// }
 	}
+	public function cetak_stnkhilang()
+	{
+		// $query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
+		//return var_dump($query);
+		// if ($query->num_rows() > 0) {
+			// $data['perpanjang'] = $query->row();
+		// }else{
+			// redirect('main/transaksi_p');
+			// $this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		// }
+		$this->load->view('admin/cetak/c_stnkhilang');
+	}
 	//end stnk hilang//
 
 	//start Input Berkas//
@@ -329,7 +341,7 @@ class Main extends CI_Controller {
 			$data['title'] = "Halaman Cetak Berkas Jadi";
 			$id = $this->uri->segment(4);
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A4");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/berkas/'.$id;
@@ -343,7 +355,7 @@ class Main extends CI_Controller {
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
 			$id = $this->uri->segment(4);
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_perpanjang/'.$id;
@@ -357,7 +369,7 @@ class Main extends CI_Controller {
 		}else if ($this->uri->segment(3)=="c_baliknama") {
 			$id = $this->uri->segment(4);
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_balik/'.$id;
@@ -371,10 +383,24 @@ class Main extends CI_Controller {
 		}else if ($this->uri->segment(3)=="c_mutasi") {
 			$id = $this->uri->segment(4);
 			$this->load->helper('pdfcrowd.php');
-			$client = new \Pdfcrowd\HtmlToPdfClient("admin12", "d6bda03277c431fc9bed7045b9c6e497");
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
 			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_mutasi/'.$id;
+			$pdf = $client->convertUrl($url);
+			//return var_dump($url);
+			header("Content-Type: application/pdf");
+			header("Cache-Control: no-cache");
+			header("Accept-Ranges: none");
+			header("Content-Disposition: inline; filename=\"'.$id.'.pdf\"");
+			echo $pdf;
+		}else if ($this->uri->segment(3)=="c_stnkhilang") {
+			$id = $this->uri->segment(4);
+			$this->load->helper('pdfcrowd.php');
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
+			$client->setPageSize("A2");
+			$client->setOrientation("portrait");
+			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_stnk/'.$id;
 			$pdf = $client->convertUrl($url);
 			//return var_dump($url);
 			header("Content-Type: application/pdf");
