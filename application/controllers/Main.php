@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Jakarta');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
@@ -91,8 +92,8 @@ class Main extends CI_Controller {
 	{
 		$querynya = $this->db->get_where('mutasi',array('id_mutasi'=>$id));
 		if ($querynya->num_rows() > 0) {
-		$data['title'] = "Halaman Transaksi Mutasi";
-		$this->load->view('admin',$data);
+			$data['title'] = "Halaman Transaksi Mutasi";
+			$this->load->view('admin',$data);
 		}else{
 			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
 			redirect('main/dashboard');
@@ -120,8 +121,8 @@ class Main extends CI_Controller {
 	{
 		// $querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
 		// if ($querynya->num_rows() > 0) {
-			$data['title'] = "Halaman Transaksi STNK Hilang";
-			$this->load->view('admin',$data);
+		$data['title'] = "Halaman Transaksi STNK Hilang";
+		$this->load->view('admin',$data);
 		// }else{
 			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
 			// redirect('main/dashboard');
@@ -355,11 +356,25 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='c_berkas_".$row->nama_pemilik."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_berkas',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_uri'=>$id));
+			if($row == 'balik_nama'){
+				$query = $this->db->update('cetak_balik',array(
+					'status'=>'0'
+				),
+				array(
+					'id_join'=>$id));
+			}else if($row == 'perpajang'){
+				$query = $this->db->update('cetak_perpanjang',array(
+					'status'=>'0'
+				),
+				array(
+					'id_join'=>$id));
+			}else if($row == 'mutasi'){
+				$query = $this->db->update('cetak_mutasi',array(
+					'status'=>'0'
+				),
+				array(
+					'id_join'=>$id));
+			}
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
 			$id = $this->uri->segment(4);
 			$row = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'')->row();
@@ -375,11 +390,6 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_perpanjang',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_baliknama") {
 			$id = $this->uri->segment(4);
 			$row = $this->db->query('SELECT * FROM cetak_balik c INNER JOIN balik_nama p ON c.id_join = p.id_balik where c.id_join='.$id.'')->row();
@@ -395,11 +405,6 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_balik',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_mutasi") {
 			$id = $this->uri->segment(4);
 			$row = $this->db->query('SELECT * FROM cetak_mutasi c INNER JOIN mutasi p ON c.id_join = p.id_mutasi where c.id_join='.$id.'')->row();
@@ -415,11 +420,6 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_mutasi',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_stnkhilang") {
 			$id = $this->uri->segment(4);
 			$this->load->helper('pdfcrowd.php');
