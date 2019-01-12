@@ -52,7 +52,7 @@ li.active a{
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="transaksi_p"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="mutasi"){echo "active";}?>">
+            <li class="<?php if($this->uri->segment(2)=="perhitungan"){echo "active";}elseif ($this->uri->segment(2)=="perpanjang"){echo "active";}elseif ($this->uri->segment(2)=="transaksi_p"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="balik_nama"){echo "active";}elseif ($this->uri->segment(2)=="mutasi"){echo "active";}elseif ($this->uri->segment(2)=="mutasibn"){echo "active";}elseif ($this->uri->segment(2)=="stnk_hilang"){echo "active";}elseif ($this->uri->segment(2)=="stnkh_bn"){echo "active";}?>">
                 <a href="<?=site_url('main/perhitungan');?>">
                     <i class="material-icons">create</i> 
                     <p>Perhitungan</p>
@@ -64,8 +64,8 @@ li.active a{
                     <p>Input Berkas Jadi</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="#">
+            <li class="<?php if($this->uri->segment(2)=="prog_kerja"){echo "active";}?>">
+                <a href="<?=site_url('main/prog_kerja');?>">
                     <i class="material-icons">insert_chart_outlined</i>
                     <p>Progress Kerjaan</p>
                 </a>

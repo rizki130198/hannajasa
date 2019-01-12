@@ -261,6 +261,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/perhitungan/stnkhilang');	
 			}else if ($u2 == "transaksi_sh") {
 				$this->load->view('admin/transaksi/transaksi_sh');	
+			}else if ($u2 == "stnkh_bn") {
+				$this->load->view('admin/perhitungan/stnkh_baliknama');	
 			}else if ($u2 == "berkas_jadi") {
 				$this->load->view('admin/berkas_jadi');	
 			}else if ($u2 == "input_berkas") {
@@ -273,6 +275,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/blanko');	
 			}else if ($u2 == "berkas") {
 				$this->load->view('admin/berkas');	
+			}else if ($u2 == "prog_kerja") {
+				$this->load->view('admin/progress_kerjaan');	
 			}else{
 				$this->load->view('admin/dashboard');
 			}

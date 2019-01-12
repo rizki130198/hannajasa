@@ -104,6 +104,13 @@ function m_sum_t() {
 }
 function pkb_ta() {
 	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
+	var txtSecondNumberValue = document.getElementById('denda_tahun_h').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_bbn_t').value = result;
+	}
+
+	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
 	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
 	var txtThreeNumberValue = document.getElementById('t_tahun').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);

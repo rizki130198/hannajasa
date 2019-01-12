@@ -112,7 +112,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
 											<div class="form-group label-floating is-empty jum-b">
 												<label class="control-label">PKB</label>
-												<input type="text" style="display: none;" id="denda_bu" name="telat_bln" onkeyup="sum_p();" class="form-control" value="2%">
+												<input type="text" style="display: none;" id="denda_bu" name="telat_bln" onkeyup="sum_p();" class="form-control" value="0.02%">
 												<input type="text" name="pkb2" id="pkb2" onkeyup="sum_p();" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
@@ -230,7 +230,7 @@
 										<div class="col-md-12">
 											<div class="form-group label-floating is-empty">
 												<label class="control-label">Telat Tahun</label>
-												<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="25%">
+												<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="0.25%">
 												<input type="text" name="telat_thn" id="telat_thn" onkeyup="m_sum_t();" class="form-control" >
 												<span class="material-input"></span>
 											</div>

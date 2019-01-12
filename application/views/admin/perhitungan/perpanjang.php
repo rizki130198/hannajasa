@@ -135,7 +135,7 @@
 										<h4 style="font-weight: bold;text-transform: uppercase;">Telat Bulanan</h4>
 										<div class="form-group label-floating is-empty jum-b jum-t">
 											<label class="control-label">PKB</label>
-											<input type="text" style="display: none;" id="denda_bu" name="telat_bln" onkeyup="sum_p();" class="form-control" value="2%">
+											<input type="text" style="display: none;" id="denda_bu" name="telat_bln" onkeyup="sum_p();" class="form-control" value="0.02%">
 											<input type="text" name="pkb2" id="pkb2" onkeyup="sum_p();" class="form-control jumlah_biaya jumlah_t">
 											<span class="material-input"></span>
 										</div>

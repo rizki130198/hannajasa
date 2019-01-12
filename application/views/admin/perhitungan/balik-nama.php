@@ -246,7 +246,7 @@
 										<div class="col-md-12">
 											<div class="form-group label-floating is-empty" >
 												<label class="control-label">Telat Bulan</label>
-												<input type="text" name="denda_pkb" style="display: none;" value="2%" id="denda_ba" onkeyup="b_bulan();">
+												<input type="text" name="denda_pkb" style="display: none;" value="0.02%" id="denda_ba" onkeyup="b_bulan();">
 												<input type="text" name="telat_bln1" id="telat_bln" onkeyup="b_bulan();" class="form-control" >
 												<span class="material-input"></span>
 											</div>

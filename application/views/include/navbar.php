@@ -64,8 +64,12 @@
                     echo "Halaman STNK Hilang";
                 }elseif ($this->uri->segment(2)=="transaksi_sh") {
                     echo "Halaman Transaksi STNK Hilang";
+                }elseif ($this->uri->segment(2)=="stnkh_bn") {
+                    echo "Halaman STNK Hilang + Balik Nama";
                 }elseif ($this->uri->segment(2)=="harga") {
                     echo "Halaman Daftar Harga";
+                }elseif ($this->uri->segment(2)=="prog_kerja") {
+                    echo "Halaman Progress Kerja";
                 }elseif ($this->uri->segment(2)=="blanko") {
                     echo "Halaman Stok Blanko";
                 } ?>

@@ -76,6 +76,11 @@ class M_back extends CI_Model {
 		$this->db->where('id_users', $id);
 		$this->db->delete('users');
 	}
+	public function load_karyawan()
+	{
+		$query = $this->db->query("SELECT * FROM users WHERE hak_akses='cashier' or hak_akses='orang_lapangan' ORDER BY id_users DESC");
+		return $query->result_array();
+	}
 	public function getBerkas_p($id)
 	{
 		$idnya = array('id_cetak' => $id);
