@@ -94,10 +94,17 @@ function sum_t() {
 	}
 }
 function m_sum_t() {
+	var telat = document.getElementById('telat_thn').value;
+	var telatbln = document.getElementById('telat_bln').value;
+	var result = parseFloat(telat) + parseFloat(telatbln);
+	if (!isNaN(result)) {
+		document.getElementById('hasil_tahun').value = result;
+	}
+
+	var totalbulan = document.getElementById('hasil_tahun').value;
 	var pkb = document.getElementById('pkb_t').value;
 	var denda = document.getElementById('denda').value;
-	var telat = document.getElementById('telat_thn').value;
-	var result = parseFloat(pkb) * parseFloat(denda) * parseFloat(telat);
+	var result = parseFloat(totalbulan) * parseFloat(pkb) * parseFloat(denda);
 	if (!isNaN(result)) {
 		document.getElementById('hasil_tahun').value = result;
 	}
@@ -244,13 +251,20 @@ function b_hidup() {
 	}
 }
 function b_tahun() {
-	var txtFirstNumberValue = document.getElementById('pkb_b_t').value;
-	var txtSecondNumberValue = document.getElementById('denda_b_t').value;
-	var txtThreeNumberValue = document.getElementById('telat_thn').value;
-	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtThreeNumberValue) * parseFloat(txtSecondNumberValue);
+	var tltthn = document.getElementById('telat_thn').value;
+	var tltbln = document.getElementById('telat_bln').value;
+	var result = parseFloat(tltthn) + parseFloat(tltbln);
 	if (!isNaN(result)) {
 		document.getElementById('total_pkb_t').value = result;
 	}
+
+	var txtThreeNumberValue = document.getElementById('total_pkb_t').value;
+	var txtFirstNumberValue = document.getElementById('pkb_b_t').value;
+	var txtSecondNumberValue = document.getElementById('denda_b_t').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtThreeNumberValue) * parseFloat(txtSecondNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_pkb_t').value = result;
+	}	
 }
 function balik() {
 	if ($('#balik_nama').val() == 'Pajak Hidup') {
