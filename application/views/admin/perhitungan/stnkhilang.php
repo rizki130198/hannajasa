@@ -13,7 +13,7 @@
 					</div>
 					<div class="card-content">
 						
-						<form action="<?=site_url('main/proses_mutasi')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
+						<form action="<?=site_url('main/proses_stnk')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group is-empty">

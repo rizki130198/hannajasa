@@ -79,6 +79,14 @@ class Main extends CI_Controller {
 	{
 		$this->M_back->cetak_mutasi();
 	}
+	public function proses_stnk()
+	{
+		$this->M_back->proses_stnk();
+	}
+	public function p_stnk()
+	{
+		$this->M_back->cetak_stnk();
+	}
 	//end balik nama//
 	
 	//start mutasi//
@@ -117,28 +125,28 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
-	public function transaksi_sh()
+	public function transaksi_sh($id)
 	{
-		// $querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
-		// if ($querynya->num_rows() > 0) {
-		$data['title'] = "Halaman Transaksi STNK Hilang";
-		$this->load->view('admin',$data);
-		// }else{
-			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
-			// redirect('main/dashboard');
-		// }
+		$querynya = $this->db->get_where('stnk_hilang',array('id_stnk'=>$id));
+		if ($querynya->num_rows() > 0) {
+			$data['title'] = "Halaman Transaksi STNK Hilang";
+			$this->load->view('admin',$data);
+		}else{
+			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			redirect('main/dashboard');
+		}
 	}
-	public function cetak_stnkhilang()
+	public function cetak_stnkhilang($id)
 	{
-		// $query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
-		//return var_dump($query);
-		// if ($query->num_rows() > 0) {
-			// $data['perpanjang'] = $query->row();
-		// }else{
-			// redirect('main/transaksi_p');
-			// $this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
-		// }
-		$this->load->view('admin/cetak/c_stnkhilang');
+		$query = $this->db->query('SELECT * FROM cetak_stnk c INNER JOIN stnk_hilang p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
+		return var_dump($query);
+		if ($query->num_rows() > 0) {
+			$data['stnk'] = $query->row();
+			$this->load->view('admin/cetak/c_stnkhilang');
+		}else{
+			redirect('main/transaksi_sh'.$id);
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		}
 	}
 	//end stnk hilang//
 
