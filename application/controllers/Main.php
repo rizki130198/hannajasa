@@ -92,8 +92,8 @@ class Main extends CI_Controller {
 	{
 		$querynya = $this->db->get_where('mutasi',array('id_mutasi'=>$id));
 		if ($querynya->num_rows() > 0) {
-		$data['title'] = "Halaman Transaksi Mutasi";
-		$this->load->view('admin',$data);
+			$data['title'] = "Halaman Transaksi Mutasi";
+			$this->load->view('admin',$data);
 		}else{
 			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
 			redirect('main/dashboard');
@@ -109,6 +109,38 @@ class Main extends CI_Controller {
 		$this->load->view('admin',$data);
 	}
 	//start mutasi+balik nama//
+
+	//start stnk hilang//
+	public function stnk_hilang()
+	{
+		$data['title'] = "Halaman STNK Hilang";
+		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$this->load->view('admin',$data);
+	}
+	public function transaksi_sh()
+	{
+		// $querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
+		// if ($querynya->num_rows() > 0) {
+		$data['title'] = "Halaman Transaksi STNK Hilang";
+		$this->load->view('admin',$data);
+		// }else{
+			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			// redirect('main/dashboard');
+		// }
+	}
+	public function cetak_stnkhilang()
+	{
+		// $query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
+		//return var_dump($query);
+		// if ($query->num_rows() > 0) {
+			// $data['perpanjang'] = $query->row();
+		// }else{
+			// redirect('main/transaksi_p');
+			// $this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		// }
+		$this->load->view('admin/cetak/c_stnkhilang');
+	}
+	//end stnk hilang//
 
 	//start Input Berkas//
 	public function berkas_jadi()
@@ -173,10 +205,10 @@ class Main extends CI_Controller {
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		}
 	}
-	public function cetak_mutasi()
+	public function cetak_mutasi($id)
 	{
 		$query = $this->db->query('SELECT * FROM cetak_mutasi c INNER JOIN mutasi p ON c.id_join = p.id_mutasi where c.id_join='.$id.'');
-		return var_dump($query);
+		// return var_dump($query);
 		if ($query->num_rows() > 0) {
 			$data['mutasi'] = $query->row();
 			$this->load->view('admin/cetak/c_mutasi',$data);
@@ -279,7 +311,7 @@ class Main extends CI_Controller {
 	public function ambilswdkjl()
 	{
 		$jenis = $this->input->post('jenis');
-		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3,4,5,6,7,8,9,10) AND jenis="'.$jenis.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` AND jenis="'.$jenis.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {
@@ -293,7 +325,7 @@ class Main extends CI_Controller {
 	public function ambiljenis()
 	{
 		$jenis = $this->input->post('jenis');
-		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (4,5,6,7) AND jenis="'.$jenis.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (4,5,6,7,8) AND jenis="'.$jenis.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {
@@ -324,11 +356,25 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='c_berkas_".$row->nama_pemilik."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_berkas',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_uri'=>$id));
+			if($row == 'balik_nama'){
+				$query = $this->db->update('cetak_balik',array(
+					'status'=>'0'
+				),
+				array(
+					'id_join'=>$id));
+			}else if($row == 'perpajang'){
+				$query = $this->db->update('cetak_perpanjang',array(
+					'status'=>'0'
+				),
+				array(
+					'id_join'=>$id));
+			}else if($row == 'mutasi'){
+				$query = $this->db->update('cetak_mutasi',array(
+					'status'=>'0'
+				),
+				array(
+					'id_join'=>$id));
+			}
 		}else if ($this->uri->segment(3)=="c_perpanjang") {
 			$id = $this->uri->segment(4);
 			$row = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'')->row();
@@ -344,11 +390,6 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_perpanjang',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_baliknama") {
 			$id = $this->uri->segment(4);
 			$row = $this->db->query('SELECT * FROM cetak_balik c INNER JOIN balik_nama p ON c.id_join = p.id_balik where c.id_join='.$id.'')->row();
@@ -364,11 +405,6 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_balik',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_join'=>$id));
 		}else if ($this->uri->segment(3)=="c_mutasi") {
 			$id = $this->uri->segment(4);
 			$row = $this->db->query('SELECT * FROM cetak_mutasi c INNER JOIN mutasi p ON c.id_join = p.id_mutasi where c.id_join='.$id.'')->row();
@@ -384,11 +420,20 @@ class Main extends CI_Controller {
 			header("Accept-Ranges: none");
 			header("Content-Disposition: inline; filename='".$row->no."'.pdf");
 			echo $pdf;
-			$query = $this->db->update('cetak_mutasi',array(
-			    'status'=>'0'
-			  ),
-			  array(
-			      'id_join'=>$id));
+		}else if ($this->uri->segment(3)=="c_stnkhilang") {
+			$id = $this->uri->segment(4);
+			$this->load->helper('pdfcrowd.php');
+			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
+			$client->setPageSize("A2");
+			$client->setOrientation("portrait");
+			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_stnk/'.$id;
+			$pdf = $client->convertUrl($url);
+			//return var_dump($url);
+			header("Content-Type: application/pdf");
+			header("Cache-Control: no-cache");
+			header("Accept-Ranges: none");
+			header("Content-Disposition: inline; filename=\"'.$id.'.pdf\"");
+			echo $pdf;
 		}else{
 
 		}

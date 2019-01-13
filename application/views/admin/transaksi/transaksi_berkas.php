@@ -38,7 +38,8 @@
 									<div class="input-group">
 										<span class="input-group-addon">a.n. </span>
 										<input type="text" class="form-control" name="pem_bpkb" value="<?=$rowBerkas->atas_nama?>" placeholder="Masukan Nama Pemilik">
-										<input type="hidden" class="form-control" name="id" value="<?=$this->uri->segment(3)?>">
+										<input type="hidden" class="form-control" name="type" value="<?=$this->uri->segment(3)?>">
+										<input type="hidden" class="form-control" name="id" value="<?=$this->uri->segment(4)?>">
 									</div>
 								</div>
 							</div>

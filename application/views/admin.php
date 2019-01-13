@@ -257,6 +257,10 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/transaksi/transaksi_m');
 			}else if ($u2 == "mutasibn") {
 				$this->load->view('admin/perhitungan/mutasi_bn');	
+			}else if ($u2 == "stnk_hilang") {
+				$this->load->view('admin/perhitungan/stnkhilang');	
+			}else if ($u2 == "transaksi_sh") {
+				$this->load->view('admin/transaksi/transaksi_sh');	
 			}else if ($u2 == "berkas_jadi") {
 				$this->load->view('admin/berkas_jadi');	
 			}else if ($u2 == "input_berkas") {

@@ -401,38 +401,32 @@ table tr td{
 													<tr>
 														<td style="border-right: solid 2px #333;vertical-align: top;">
 															<div class="form-group row" style="margin-top:0px !important;">
-																<div class="col-sm-5">
-																	<div class="checkbox" style="display: contents;">
+																<div class="col-sm-12" style="display: inline-flex;">
+																	<div class="checkbox" style="width: 50%;margin-left: 0;">
 																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->pajak_ini==NULL)?NULL:'checked value="'.$perpanjang->pajak_ini.'"'?>> Pajak Tahun ini</label>
-																		<span class="titik2">:</span>
 																	</div>
-																</div>
-																<div class="col-sm-7">
-																	<div class="input-group" style="margin-top: -6px;">
-																		<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
+																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																		<input type="text" value="<?=$perpanjang->harga_pajak_ini?>" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0px !important;">
-																<div class="col-sm-5">
-																	<div class="checkbox" style="display: contents;">
+																<div class="col-sm-12" style="display: inline-flex;">
+																	<div class="checkbox" style="width: 50%;margin-left: 0;">
 																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->pajak_lalu==NULL)?NULL:'checked value="'.$perpanjang->pajak_lalu.'"'?>> Pajak Tahun lalu (SKP)</label>
-																		<span class="titik2">:</span>
 																	</div>
-																</div>
-																<div class="col-sm-7">
-																	<div class="input-group" style="margin-top: -6px;">
-																		<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
+																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																		<input type="text" value="<?=$perpanjang->harga_pajak_lalu?>" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
-																<label class="col-sm-5 col-form-label" style="padding-left: 44px;font-weight: bold;color: #333;">Total Pajak<span class="titik2">:</span></label>
-																<div class="col-sm-7">
-																	<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
-																		<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																<div class="col-sm-12" style="display: inline-flex;">
+																	<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top: 0 !important;">Total Pajak</label>
+																	<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
+																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																		<input type="text" value="<?=$perpanjang->total_pajak?>" class="form-control">
 																	</div>
 																</div>
@@ -441,97 +435,78 @@ table tr td{
 														</td>
 														<td style="vertical-align: top;">
 															<div class="form-group row" style="margin-top:0px !important;">
-																<div class="col-sm-5">
-																	<div class="checkbox" style="display: contents;">
+																<div class="col-sm-12" style="display: inline-flex;">
+																	<div class="checkbox" style="width: 50%;margin-left: 0;">
 																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->biaya_jasa==NULL)?NULL:'checked value="'.$perpanjang->biaya_jasa.'"'?>> Biaya Jasa</label>
-																		<span class="titik2">:</span>
 																	</div>
-																</div>
-																<div class="col-sm-7">
-																	<div class="input-group" style="margin-top: -6px;">
-																		<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
+																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																		<input type="text" value="<?=$perpanjang->harga_jasa?>" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
-																<div class="col-sm-5" style="margin-top:-10px;">
-																	<div class="checkbox" style="display: contents;margin-top: -15px !important;">
+																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																	<div class="checkbox" style="width: 50%;margin-left: 0;">
 																		<label style="font-weight: bold;color: #333;">
 																			<input type="checkbox" <?=($perpanjang->acc_bpkb==NULL)?NULL:'checked value="'.$perpanjang->acc_bpkb.'"'?>> Acc BPKB</label>
-																			<span class="titik2">:</span>
 																		</div>
-																	</div>
-																	<div class="col-sm-7" style="margin-top:-10px;">
-																		<div class="input-group" style="margin-top: -6px;">
-																			<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																		<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
+																			<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																			<input type="text" value="<?=$perpanjang->harga_bpkb?>" class="form-control">
 																		</div>
 																	</div>
 																</div>
 																<div class="form-group row" style="margin-top: 0 !important;">
-																	<div class="col-sm-5" style="margin-top:-10px;">
-																		<div class="checkbox" style="display: contents;">
+																	<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																		<div class="checkbox" style="width: 50%;margin-left: 0;">
 																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->plat==NULL)?NULL:'checked value="'.$perpanjang->plat.'"'?>> Cek Fisik dan Plat</label>
-																			<span class="titik2">:</span>
 																		</div>
-																	</div>
-																	<div class="col-sm-7" style="margin-top:-10px;">
-																		<div class="input-group" style="margin-top: -6px;">
-																			<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																		<div class="input-group" style="margin-top:-6px;width: 50%;float: right;">
+																			<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																			<input type="text" value="<?=$perpanjang->harga_plat?>" class="form-control">
 																		</div>
 																	</div>
 																</div>
 																<div class="form-group row" style="margin-top: 0 !important;">
-																	<div class="col-sm-5" style="margin-top:-10px;">
-																		<div class="checkbox" style="display: contents;">
+																	<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																		<div class="checkbox" style="width: 50%;margin-left: 0;">
 																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->adm_skp==NULL)?NULL:'checked value="'.$perpanjang->adm_skp.'"'?>> Adm. SKP/Pajak Lalu</label>
-																			<span class="titik2">:</span>
 																		</div>
-																	</div>
-																	<div class="col-sm-7" style="margin-top:-10px;">
-																		<div class="input-group" style="margin-top: -6px;">
-																			<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																		<div class="input-group" style="margin-top:-6px;width: 50%;float: right;">
+																			<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																			<input type="text" value="<?=$perpanjang->harga_adm?>" class="form-control">
 																		</div>
 																	</div>
 																</div>
 																<div class="form-group row" style="margin-top: 0 !important;">
-																	<div class="col-sm-5" style="margin-top:-10px;">
-																		<div class="checkbox" style="display: contents;">
+																	<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																		<div class="checkbox" style="width: 50%;margin-left: 0;">
 																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->progresif==NULL)?NULL:'checked value="'.$perpanjang->progresif.'"'?>> Blokir Progresif</label>
-																			<span class="titik2">:</span>
 																		</div>
-																	</div>
-																	<div class="col-sm-7" style="margin-top:-10px;">
-																		<div class="input-group" style="margin-top: -6px;">
-																			<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																		<div class="input-group" style="margin-top:-6px;width: 50%;float: right;">
+																			<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																			<input type="text" value="<?=$perpanjang->harga_blokir?>" class="form-control">
 																		</div>
 																	</div>
 																</div>
 																<div class="form-group row" style="margin-top: 0 !important;">
-																	<div class="col-sm-1" style="margin-top:-10px;">
-																		<div class="checkbox" style="display: contents;">
+																	<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																		<div class="checkbox" style="margin-left: 0;padding-right: 28px;">
 																			<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($perpanjang->proses_lain==NULL)?NULL:'checked value="'.$perpanjang->proses_lain.'"'?>></label>
 																		</div>
-																	</div>
-																	<div class="col-sm-4" style="padding: 0;margin-top:-10px;">
-																		<input type="text" value="<?=$perpanjang->proses_lain?>" class="form-control" placeholder="" style="width: 90%;">
-																	</div>
-																	<div class="col-sm-7" style="margin-top:-10px;">
-																		<div class="input-group" style="margin-top: -6px;">
-																			<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																		<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$perpanjang->proses_lain?>" class="form-control" placeholder="" style="width: 90%;">
+																		<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
+																			<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																			<input type="text" value="<?=$perpanjang->harga_lainnya?>" class="form-control">
 																		</div>
 																	</div>
 																</div>
 																<div class="form-group row" style="margin-top: 0 !important;">
-																	<label class="col-sm-5 col-form-label" style="margin-top:-10px;padding-left: 44px;font-weight: bold;color: #333;">Total Biaya Proses<span class="titik2">:</span></label>
-																	<div class="col-sm-7" style="margin-top:-10px;">
-																		<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
-																			<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+																	<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																		<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top:5px !important;">Total Biaya Proses<span class="titik2">:</span></label>
+																		<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
+																			<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																			<input type="text" value="<?=$perpanjang->total_proses?>" class="form-control">
 																		</div>
 																	</div>

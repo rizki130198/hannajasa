@@ -1,24 +1,24 @@
 <style type="text/css">
 .icon {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 2px;
-    display: block;
-    float: left;
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    font-size: 30px;
-    color: #fff;
-    background: rgba(0,0,0,0.2);
+	border-top-left-radius: 2px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 2px;
+	display: block;
+	float: left;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	background: rgba(0,0,0,0.2);
 }
 .icon p{
 	margin-top:14px;
 	font-weight: bold;
 }
 .bg-p {
-    background-color: #00c0ef;
+	background-color: #00c0ef;
 }
 .bg-bn{
 	background-color: #fb8c00;
@@ -36,9 +36,9 @@
 	background-color: #00acc1;
 }
 .padd{
-    padding: 24px 0 0;
-    margin-left: 58px;
-    line-height: 0;
+	padding: 24px 0 0;
+	margin-left: 58px;
+	line-height: 0;
 }
 </style>
 <div class="content">
@@ -85,20 +85,24 @@
 				</a>
 			</div>
 			<div class="col-md-3">
-				<div class="card">
-					<span class="icon bg-sh"><p>SH</p></span>
-					<div class="padd">
-						STNK Hilang
+				<a href="<?php echo site_url('main/stnk_hilang'); ?>">
+					<div class="card">
+						<span class="icon bg-sh"><p>SH</p></span>
+						<div class="padd">
+							STNK Hilang
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="col-md-3">
-				<div class="card">
-					<span class="icon bg-sb"><p>SB</p></span>
-					<div class="padd">
-						STNK Hilang + Balik Nama
+				<a href="<?php echo site_url('main/stnkh_bn'); ?>">
+					<div class="card">
+						<span class="icon bg-sb"><p>SB</p></span>
+						<div class="padd">
+							STNK Hilang + Balik Nama
+						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 		</div>
 	</div>
