@@ -1147,7 +1147,6 @@ class M_back extends CI_Model {
 
 		$jenis = $this->input->post('jenis_b');
 		$jenis_swd = $this->input->post('jenis_swd');
-		$jenis_k = $this->input->post('jenis_k');
 		$pkb1 = $this->input->post('pkb1');
 		$bbnk1 = $this->input->post('bbnkb1');
 		$adm_stnk1 = $this->input->post('adm_stnk1');
@@ -1221,7 +1220,7 @@ class M_back extends CI_Model {
 		}else if($adm_tnkb2 == NULL AND $adm_tnkb3){
 			$adm_tnkb = $adm_tnkb1;
 		}else if($adm_tnkb2 == NULL AND $adm_tnkb3){
-			$adm_tnkb = $adm_tnkb3
+			$adm_tnkb = $adm_tnkb3;
 		}
 
 		if ($ganti1 == NULL AND $ganti3) {
@@ -1229,7 +1228,7 @@ class M_back extends CI_Model {
 		}else if($ganti2 == NULL AND $ganti3){
 			$ganti = $ganti1;
 		}else if($ganti2 == NULL AND $ganti3){
-			$ganti = $ganti3
+			$ganti = $ganti3;
 		}
 
 		if ($swdllj1 == NULL AND $swdllj2 == NULL ) {
@@ -1261,7 +1260,7 @@ class M_back extends CI_Model {
 			$bbnk = $bbnkb3;
 		}else if($bbnkb2 == NULL AND $bbnkb3==NULL AND $bbnkb_thn==NULL){
 			$bbnk = $bbnk1;
-		}else if($bbnkb1 == NULL AND $bbnkb3==NULL AND $bbnkb_thn==NULL){
+		}else if($bbnk1 == NULL AND $bbnkb3==NULL AND $bbnkb_thn==NULL){
 			$bbnk = $bbnkb2;
 		}else{
 			$bbnk = $bbnkb_thn;
@@ -1277,12 +1276,12 @@ class M_back extends CI_Model {
 			$adm_stnk = $adm_stnk4;
 		}
 
-		if ($total_hidup == NULL AND $total_bulan==NULL AND $total_normal==NULL AND $total_tahun==NULL) {
-			$total = $total_su;
-		}else if($total_su == NULL AND $total_bulan==NULL AND $total_normal==NULL AND $total_tahun==NULL){
+		if ($total_bulan==NULL AND $total_normal==NULL AND $total_tahun==NULL) {
 			$total = $total_hidup;
-		}else if($total_su == NULL AND $total_hidup==NULL AND $total_normal==NULL AND $total_tahun==NULL){
+		}else if($total_hidup == NULL AND $total_normal==NULL AND $total_tahun==NULL){
 			$total = $total_bulan;
+		}else if($total_bulan == NULL AND $total_hidup==NULL AND $total_tahun==NULL){
+			$total = $total_normal;
 		}else{
 			$total = $total_tahun;
 		}
@@ -1304,17 +1303,23 @@ class M_back extends CI_Model {
 			'no'=>$hasilrandom,
 			'perhitungan'=>$jenis_swd,
 			'jenis'=>$jenis,
-			'jenis_k'=>$jenis_k, 
+			'jenis_kendaraan' => $jenis_kendaraan, 
 			'pkb'=>$pkb,
+			'pkb1' => $pkb_tahun,
 			'bbnk'=>filter_var($bbnk,FILTER_SANITIZE_NUMBER_INT),
 			'adm_stnk'=>filter_var($adm_stnk,FILTER_SANITIZE_NUMBER_INT),
+			'adm_tnkb'=>filter_var($adm_tnkb,FILTER_SANITIZE_NUMBER_INT),
 			'ganti'=>$ganti,
-			'ganti1'=>$ganti3,
-			'adm_tnkb'=>$adm_tnkb,
-			'telat'=>$telat,
+			'cek_telat'=>$cek_telat,
+			'jenis_telat'=>$jenis_telat,
+			'telat_thn'=>$telat_thn1,
 			'sanksi_pkb'=>filter_var($sanksi_pkb,FILTER_SANITIZE_NUMBER_INT),
+			'sanksi_pkb1'=>filter_var($sanksi_pkb3,FILTER_SANITIZE_NUMBER_INT),
 			'swdkllj'=>filter_var($swdllj,FILTER_SANITIZE_NUMBER_INT),
+			'swdkllj1'=>filter_var($swdllj4,FILTER_SANITIZE_NUMBER_INT),
 			'sanksi_swdkllj'=>filter_var($sanksi_swdkllj,FILTER_SANITIZE_NUMBER_INT),
+			'sanksi_swdkllj1'=>filter_var($sanski_swdllj2,FILTER_SANITIZE_NUMBER_INT),
+			'telat'=>$telat,
 			'hari'=>$dayList[$day],
 			'tanggal'=>$gabungan
 		));
@@ -1325,6 +1330,106 @@ class M_back extends CI_Model {
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
 			redirect('main/balik_nama');
+		}
+	}
+	public function cetak_sb()
+	{
+		$cek = $this->db->get_where('cetak_sb', array('id_join'=>$this->input->post('id')))->num_rows();
+		if ($cek > 0) {
+			//$this->session->set_flashdata('gagal', 'Data sudah di isi');
+			redirect('main/cetak/c_baliknama/'.$this->input->post('id'));
+		}else{
+			$id = $this->input->post('id');
+			$penerima = $this->input->post('penerima');
+			$telp = $this->input->post('no_telp');
+			$nama = $this->input->post('atas_nama');
+			$dp = $this->input->post('dp');
+			$bpkb1 = $this->input->post('bpkb1');
+			$bpkb2 = $this->input->post('bpkb2');
+			$sim1 = $this->input->post('sim1');
+			$sim2 = $this->input->post('sim2');
+			$wilayah = $this->input->post('wilayah');
+			$nopol = $this->input->post('nopol');
+			$jenis_k = $this->input->post('jenis_k');
+			$pajak = $this->input->post('pajak');
+			$lainnya = $this->input->post('lainnya');
+			$balik = $this->input->post('balik');
+			$penyesuaian = $this->input->post('penyesuaian');
+			$pajak_ini = $this->input->post('pajak_ini');
+			$harga_ini = $this->input->post('harga_ini');
+			$pajak_lalu = $this->input->post('pajak_lalu');
+			$harga_lalu = $this->input->post('harga_lalu');
+			$total_pajak = $this->input->post('total_pajak');
+			$biaya_bn = $this->input->post('biaya_bn');
+			$harga_bn = $this->input->post('harga_bn');
+			$adm_skp = $this->input->post('adm_skp');
+			$harga_adm = $this->input->post('harga_adm');
+			$slp = $this->input->post('slp');
+			$harga_slp = $this->input->post('harga_slp');
+			$fisik = $this->input->post('fisik');
+			$harga_fisik = $this->input->post('harga_fisik');
+			$lainnya1 = $this->input->post('lainnya1');
+			$harga_lainnya = $this->input->post('harga_lainnya');
+			$lainnya2 = $this->input->post('lainnya2');
+			$harga_lainnya2 = $this->input->post('harga_lainnya2');
+			$total = $this->input->post('total');
+			$prediski = $this->input->post('prediski');
+			$kurang = $this->input->post('kurang');
+			$gabungan = date('Y-m-d');
+			$day = date('D', strtotime($gabungan));
+			$dayList = array(
+				'Sun' => 'Minggu',
+				'Mon' => 'Senin',
+				'Tue' => 'Selasa',
+				'Wed' => 'Rabu',
+				'Thu' => 'Kamis',
+				'Fri' => 'Jumat',
+				'Sat' => 'Sabtu'
+			);
+			$query = $this->db->insert('cetak_sb', array(
+				'id_user'=>$this->session->userdata('id'),
+				'id_join'=>$id,
+				'penerima'=>$penerima,
+				'no_telp'=>$telp,
+				'atas_nama'=>$nama,
+				'uang_dp'=>$dp,
+				'bpkb'=>$bpkb1.','.$bpkb2.',',
+				'sim'=>$sim1.','.$sim2,
+				'wilayah'=>$wilayah,
+				'nopol'=>$nopol,
+				'jenis_kendaraan'=>$jenis_k,
+				'tahun_pajak'=>$pajak,
+				'lainnya'=>$lainnya,
+				'pengurusan'=>$balik.','.$penyesuaian,
+				'pajak_ini'=>$pajak_ini,
+				'pajak_lalu'=>$pajak_lalu,
+				'harga_pajak_ini'=>$harga_ini,
+				'harga_pajak_lalu'=>$harga_lalu,
+				'total_pajak'=>$total_pajak,
+				'proses_bn'=>$biaya_bn,
+				'harga_bn'=>$harga_bn,
+				'adm_skp'=>$adm_skp,
+				'harga_adm'=>$harga_adm,
+				'surat_lp'=>$slp,
+				'harga_lp'=>$harga_slp,
+				'plat'=>$fisik,
+				'harga_plat'=>$harga_fisik,
+				'p_lainnya'=>$lainnya1,
+				'h_lainnya'=>$harga_lainnya,
+				'proses_lain'=>$lainnya2,
+				'harga_lainnya'=>$harga_lainnya2,
+				'total_proses'=>$total,
+				'biaya_prediksi'=>$prediski,
+				'biaya_kurang'=>$kurang,
+				'hari'=>$dayList[$day],
+				'tanggal'=>$gabungan
+			));
+			if ($query==TRUE) {
+				redirect('main/cetak/c_baliknama/'.$id);
+			}else{
+				$this->session->set_flashdata('gagal', 'Database Error');
+				redirect('main/dashboard');
+			}
 		}
 	}
 }

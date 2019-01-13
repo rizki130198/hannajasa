@@ -11,7 +11,7 @@
 					<div class="card-header" style="background-color: #00c0ef;">
 						<h4 class="title">Perhitungann Perpanjang STNK</h4>
 					</div>
-					<div class="card-content">
+					<div class="card-content" id="pirnt_p">
 						<form action="<?=site_url('main/proses_perpanjang')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
@@ -293,7 +293,7 @@
 								</div>
 							</div>	
 							<button type="submit" class="btn btn-info pull-right">Submit</button>
-							<button class="btn btn-default pull-right">Print</button>
+							<button type="button" class="btn btn-default pull-right" onclick="print()">Print</button>
 						</div>
 						<div class="clearfix"></div>
 					</form>

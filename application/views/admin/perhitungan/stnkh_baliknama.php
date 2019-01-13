@@ -13,7 +13,7 @@
 					</div>
 					<div class="card-content">
 						
-						<form action="<?=site_url('main/proses_mutasi')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
+						<form action="<?=site_url('main/proses_stnkbalik')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group is-empty">
@@ -79,7 +79,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
-												<input type="text" name="total_bulan" id="sum" class="form-control" >
+												<input type="text" name="total_hidup" id="sum" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -91,11 +91,11 @@
 								<div id="b_nor" style="display: none;">
 									<div class="row">
 										<div class="col-md-12">
-											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Hidup</h4>
+											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Normal</h4>
 											<div class="form-group label-floating is-empty jum-n">
 												<label class="control-label">PKB</label>
 												<input type="text" style="display: none;" id="denda_b" onkeyup="b_normal();" class="form-control" value="0.67%">
-												<input type="text" name="pkb1" onkeyup="b_normal();" id="pkb_b" class="form-control jumlah_n">
+												<input type="text" name="pkb2" onkeyup="b_normal();" id="pkb_b" class="form-control jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -104,7 +104,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="bbnkb1" id="total_bn" class="form-control jumlah_n">
+												<input type="text" name="bbnkb2" id="total_bn" class="form-control jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -160,7 +160,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
-												<input type="text" name="total_hidup" readonly id="sum_n" class="form-control">
+												<input type="text" name="total_normal" readonly id="sum_n" class="form-control">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -176,7 +176,7 @@
 											<div class="form-group label-floating is-empty jum-b">
 												<label class="control-label">PKB</label>
 												<input type="text" style="display: none;" id="denda_bu" class="form-control" value="0.67%">
-												<input type="text" name="pkb2" id="pkb_bu" onkeyup="b_bulan();" class="form-control jumlah_b">
+												<input type="text" name="pkb3" id="pkb_bu" onkeyup="b_bulan();" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -185,7 +185,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="bbnkb1" id="total_bbn_b" class="form-control jumlah_b">
+												<input type="text" name="bbnkb3" id="total_bbn_b" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -284,7 +284,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Tahun Lalu</h4>
 											<div class="form-group label-floating is-empty jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb3" id="pkb_t" class="form-control jumlah_t" >
+												<input type="text" name="pkb4" id="pkb_t" class="form-control jumlah_t" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -342,7 +342,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="bbnkb1" id="total_bbn_t" class="form-control jumlah_t">
+												<input type="text" name="bbnkb_thn" id="total_bbn_t" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -392,7 +392,7 @@
 												<div class="col-md-12">
 													<div class="form-group jum-t">
 														<label class="control-label">Sanksi SWDKLLJ</label>
-														<input type="text" name="sanski_swdllj3" class="form-control sankswd_t jumlah_t">
+														<input type="text" name="sanski_swdllj2" class="form-control sankswd_t jumlah_t">
 														<span class="material-input"></span>
 													</div>
 												</div>
@@ -450,7 +450,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
-												<input type="text" name="total_bulan2" id="sum_t" class="form-control" >
+												<input type="text" name="total_tahun" id="sum_t" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>

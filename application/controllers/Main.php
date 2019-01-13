@@ -87,6 +87,14 @@ class Main extends CI_Controller {
 	{
 		$this->M_back->cetak_stnk();
 	}
+	public function proses_stnkbalik()
+	{
+		$this->M_back->proses_sb();
+	}
+	public function p_stnkbalik()
+	{
+		$this->M_back->cetak_sb();
+	}
 	//end balik nama//
 	
 	//start mutasi//

@@ -6,19 +6,15 @@ $( function() {
 function perpanjang() {
 	if ($('#perpanjang_p').val() == 'normal') {
 		$('#pkb_tahun').hide();
-		$('#pkb_tahun :input').val('');
 		$('#pkb_n').show();
 		$('#pkb_bulan').hide();
-		$('#pkb_bulan :input').val('');
 		$('#cek_plat').hide();
 		$('#gantiplat').hide();
 		$('#total').show();
 		// $('.ganti-plat :select').val('');
 	}else if($('#perpanjang_p').val() == 'telat bulanan') { 
 		$('#pkb_tahun').hide();
-		$('#pkb_tahun :input').val('');
 		$('#pkb_n').hide();
-		$('#pkb_n :input').val('');
 		$('#pkb_bulan').show();
 		$('#cek_plat').hide();
 		$('#gantiplat').hide();	
@@ -55,20 +51,14 @@ function mutasi() {
 	if ($('#mutasi_stnk').val() == 'Pajak Hidup') {
 		$('#m_h').show();
 		$('#m_b').hide();
-		$('#m_b :input').val('');
 		$('#m_t').hide();
-		$('#m_t :input').val('');
 	}else if($('#mutasi_stnk').val() == 'Telat bulanan') { 
 		$('#m_h').hide();
-		$('#m_h :input').val('');
 		$('#m_b').show();
 		$('#m_t').hide();
-		$('#m_t :input').val('');
 	}else if($('#mutasi_stnk').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#m_h').hide();
-		$('#m_h :input').val('');
 		$('#m_b').hide();
-		$('#m_b :input').val('');
 		$('#m_t').show();
 	}else{
 		$('#m_h').hide();
@@ -283,48 +273,32 @@ function balik() {
 	if ($('#balik_nama').val() == 'Pajak Hidup') {
 		$('#b_hid').show();
 		$('#b_nor').hide();
-		$('#b_nor :input').val('');
 		$('#b_bul').hide();
-		$('#b_bul :input').val('');
 		$('#b_ta').hide();
-		$('#b_ta :input').val('');
 	}else if ($('#balik_nama').val() == 'Pajak Normal') {
 		$('#b_hid').hide();
-		$('#b_hid :input').val('');
 		$('#b_nor').show();
 		$('#b_bul').hide();
-		$('#b_bul :input').val('');
 		$('#b_ta').hide();
-		$('#b_ta :input').val('');
 		$('#total_n').show();
 	}else if($('#balik_nama').val() == 'Telat bulanan') { 
 		$('#b_hid').hide();
-		$('#b_hid :input').val('');
 		$('#b_nor').hide();
-		$('#b_nor :input').val('');
 		$('#b_bul').show();
-		$('#b_ta :input').val('');
 		$('#total_b').show();
 	}else if($('#balik_nama').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#b_hid').hide();
-		$('#b_hid :input').val('');
 		$('#b_nor').show();
 		$('#b_bul').show();
 		$('#b_ta').show();
 		$('#total_h').hide();
-		$('#total_h :input').val('');
 		$('#total_n').hide();
-		$('#total_n :input').val('');
 		$('#total_b').hide();
-		$('#total_b :input').val('');
 		$('#total_t').show();
 	}else if($('#balik_nama').val() == 'Pajak Lebih Dari Setahun') {
 		$('#b_hid').hide();
-		$('#b_hid :input').val('');
 		$('#b_nor').hide();
-		$('#b_nor :input').val('');
 		$('#b_bul').hide();
-		$('#b_bul :input').val('');
 		$('#b_ta').show();
 	}else{
 		$('#total_h').hide();
@@ -555,4 +529,80 @@ function loopData(table,type) {
 		array_data[array_data.length] = temp_array;
 	});
 	return array_data;
+}
+function print() {
+	var objFra = document.getElementById('pirnt_p');
+	objFra.focus();
+	objFra.print();
+}
+function print_p() {
+	$("#typenya").removeAttr('disabled');
+	$("#inputData").submit(function (event) {
+
+		event.preventDefault();
+        // var formData = $(this).serialize();
+        var formData = new FormData($(this)[0]);
+
+        $.ajax({
+        	url: url+'/cp/proses_pengaduan/new',
+        	type: 'POST',
+        	data: formData,
+        	mimeType: "multipart/form-data",
+        	contentType: false,
+        	cache: false,
+        	processData: false,
+        	success: function (dt) {
+        		var dt = $.parseJSON(dt);
+        		setTimeout(function(){
+                // alert('Form Submitted!');
+                console.log(dt.success);
+                if (dt.success==true) {
+                	toastSuccess();
+                }else{
+                	toastError();
+                }
+                $('.modal').modal('hide');
+            }, 2000);
+        		toTop();
+        		$("#inputData")[0].reset();
+        	},
+        	error: function(){
+        		alert("Server sedang bermasalah silakan coba lagi");
+        	}
+        });
+        return false;
+    });
+}
+function print_p() {
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+		success:function(argument) {
+			
+		}
+	});
+}
+function print_p() {
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+		success:function(argument) {
+			
+		}
+	});
+}
+function print_p() {
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+		success:function(argument) {
+			
+		}
+	});
 }
