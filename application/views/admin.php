@@ -325,6 +325,22 @@ if ($uri=="cetak") { ?>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script type="text/javascript">
+	function m_sum_t() {
+		var telat = document.getElementById('telat_thn').value;
+		var telatbln = document.getElementById('telat_bln').value;
+		var result = parseFloat(telat) + parseFloat(telatbln);
+		if (!isNaN(result)) {
+			document.getElementById('hasil_tahun').value = result;
+		}
+
+		var totalbulan = document.getElementById('hasil_tahun').value;
+		var pkb = document.getElementById('pkb_t').value;
+		var denda = document.getElementById('denda').value;
+		var result = parseFloat(totalbulan) * parseFloat(pkb) * parseFloat(denda);
+		if (!isNaN(result)) {
+			document.getElementById('hasil_tahun').value = result;
+		}
+	}
 	function sum_p() {
 		var txtFirstNumberValue = document.getElementById('pkb2').value;
 		var txtSecondNumberValue = document.getElementById('denda_bu').value;

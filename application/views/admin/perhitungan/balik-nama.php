@@ -2,6 +2,14 @@
 .form-group{
 	margin-top: 10px;
 }
+@media print {
+  #printPageButton {
+    display: none;
+  }
+  #printButton {
+    display: none;
+  }
+}
 </style>
 <div class="content">
 	<div class="container-fluid">
@@ -294,7 +302,7 @@
 											<div class="form-group is-empty">
 												<p>Telat Bulan</p>
 												<input type="text" name="denda_pkb" style="display: none;" value="0.02%" id="denda_ba" onkeyup="b_bulan();">
-												<select id="telat_bln" onchange="b_bulan();" class="form-control" name="telat_bln1">
+												<select id="telat_bln" onchange="b_bulan();" class="form-control" name="telat_bln_t">
 													<option value="0">-- SILAHKAN PILIH --</option>
 													<option value="1">1</option>
 													<option value="2">2</option>
@@ -398,8 +406,8 @@
 										</div>
 									</div>
 								</div>
-								<button type="submit" class="btn btn-info pull-right">Submit</button>
-								<button class="btn btn-default pull-right">Print</button>
+								<button id="printPageButton" type="submit" class="btn btn-info pull-right">Submit</button>
+								<button id="printButton" type="button" class="btn btn-default pull-right" onclick="print_pp()">Print</button>
 								<div class="clearfix"></div>
 							</form>
 						</div>

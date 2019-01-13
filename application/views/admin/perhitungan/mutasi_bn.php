@@ -2,6 +2,14 @@
 .form-group{
 	margin-top: 10px;
 }
+@media print {
+  #printPageButton {
+    display: none;
+  }
+  #printButton {
+    display: none;
+  }
+}
 </style>
 <div class="content">
 	<div class="container-fluid">
@@ -13,7 +21,7 @@
 					</div>
 					<div class="card-content">
 						
-						<form action="<?=site_url('main/proses_mutasi')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
+						<form action="<?=site_url('main/proses_mbn')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group is-empty">
@@ -61,7 +69,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="pkb1" id="total_bbn_h" class="form-control jumlah_n">
+												<input type="text" name="bbnkb1" id="total_bbn_h" class="form-control jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -70,7 +78,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj" class="form-control swdklksama jumlah_n">
+												<input type="text" name="swdllj1" class="form-control swdklksama jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -79,7 +87,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk" id="adm_stnk" class="form-control admstnk jumlah_n">
+												<input type="text" name="adm_stnk1" id="adm_stnk" class="form-control admstnk jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -88,7 +96,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text"  name="adm_tnkb" class="form-control admtnkb jumlah_n">
+												<input type="text"  name="adm_tnkb1" class="form-control admtnkb jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -120,9 +128,28 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group label-floating is-empty">
+											<!-- <div class="form-group label-floating is-empty">
 												<label class="control-label">Telat Bulan</label>
 												<input type="text" name="telat" id="t_bln" onkeyup="sum_p();" class="form-control" >
+												<span class="material-input"></span>
+											</div> -->
+											<div class="form-group is-empty">
+												<p>Telat Bulan</p>
+												<select id="t_bln" onchange="sum_p();" class="form-control" name="telat">
+													<option disabled selected>-- SILAHKAN PILIH --</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</select>
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -140,7 +167,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="" class="form-control swdklksama jumlah_b" >
+												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -161,7 +188,7 @@
 											<div class="form-group label-floating is-empty jum-b">
 												<label class="control-label">PKB</label>
 												<input type="text" style="display: none;" id="denda_b" name="telat_bln" onkeyup="b_normal();" class="form-control" value="0.67%">
-												<input type="text" name="pkb1" id="pkb_b" onkeyup="b_normal();" class="form-control jumlah_b">
+												<input type="text" name="pkb3" id="pkb_b" onkeyup="b_normal();" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -170,7 +197,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="pkb1" id="total_bn" class="form-control jumlah_b">
+												<input type="text" name="bbnkb2" id="total_bn" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -179,7 +206,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj" class="form-control swdklksama jumlah_b">
+												<input type="text" name="swdllj3" class="form-control swdklksama jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -188,7 +215,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk"  id="adm_stnk" class="form-control admstnk jumlah_b">
+												<input type="text" name="adm_stnk2"  id="adm_stnk" class="form-control admstnk jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -197,7 +224,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" name="adm_tnkb" class="form-control admtnkb jumlah_b">
+												<input type="text" name="adm_tnkb2" class="form-control admtnkb jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -221,17 +248,60 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
 											<div class="form-group label-floating is-empty jum-t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb3" id="pkb_t" class="form-control jumlah_t" >
+												<input type="text" name="pkb4" id="pkb_t" class="form-control jumlah_t" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-12">
+										<!-- <div class="col-md-12">
 											<div class="form-group label-floating is-empty">
 												<label class="control-label">Telat Tahun</label>
 												<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="0.25%">
 												<input type="text" name="telat_thn" id="telat_thn" onkeyup="m_sum_t();" class="form-control" >
+												<span class="material-input"></span>
+											</div>
+										</div> -->
+										<div class="col-md-6">
+											<div class="form-group is-empty">
+												<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="0.25%">
+												<p>Telat Tahun</p>
+												<select id="telat_thn" onchange="m_sum_t();" class="form-control" name="telat_thn">
+													<option disabled selected>-- SILAHKAN PILIH --</option>
+													<option value="12">1</option>
+													<option value="24">2</option>
+													<option value="36">3</option>
+													<option value="48">4</option>
+													<option value="60">5</option>
+													<option value="72">6</option>
+													<option value="84">7</option>
+													<option value="96">8</option>
+													<option value="108">9</option>
+													<option value="120">10</option>
+													<option value="132">11</option>
+													<option value="144">12</option>
+												</select>
+												<span class="material-input"></span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group is-empty">
+												<p>Telat Bulan</p>
+												<select id="telat_bln" onchange="m_sum_t();" class="form-control" name="telat_t_bln">
+													<option disabled selected>-- SILAHKAN PILIH --</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</select>
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -249,7 +319,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj3" id="swdkllj_t" onkeyup="harga_tahun()" class="form-control swdklksama jumlah_t">
+												<input type="text" name="swdllj4" id="swdkllj_t" onkeyup="harga_tahun()" class="form-control swdklksama jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -270,7 +340,7 @@
 											<div class="form-group label-floating is-empty jum-t">
 												<label class="control-label">PKB</label>
 												<input type="text" style="display: none;" id="denda_mt" name="telat_bln" onkeyup="m_tahun();" class="form-control" value="0.67%">
-												<input type="text" name="pkb1" id="pkb_mt" onkeyup="m_tahun()" class="form-control jumlah_t">
+												<input type="text" name="pkb5" id="pkb_mt" onkeyup="m_tahun()" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -279,7 +349,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="pkb1" id="total_mt" class="form-control jumlah_t">
+												<input type="text" name="bbnkb3" id="total_mt" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -288,7 +358,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t" >
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj" class="form-control swdklksama jumlah_t">
+												<input type="text" name="swdllj5" class="form-control swdklksama jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -297,7 +367,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk"  id="adm_stnk" class="form-control admstnk jumlah_t">
+												<input type="text" name="adm_stnk3"  id="adm_stnk" class="form-control admstnk jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -306,7 +376,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" name="adm_tnkb" class="form-control admtnkb jumlah_t">
+												<input type="text" name="adm_tnkb3" class="form-control admtnkb jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -315,15 +385,15 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label class="control-label">Total</label>
-												<input type="text" name="total_bulan" id="sum_t" class="form-control" >
+												<input type="text" name="total_su" id="sum_t" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!-- End Tahun -->
-								<button type="submit" class="btn btn-info pull-right">Submit</button>
-								<button class="btn btn-default pull-right">Print</button>
+								<button id="printPageButton" type="submit" class="btn btn-info pull-right">Submit</button>
+								<button id="printButton" class="btn btn-default pull-right" onclick="print_pp()">Print</button>
 								<div class="clearfix"></div>
 							</form>
 						</div>

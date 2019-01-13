@@ -2,6 +2,14 @@
 .form-group{
 	margin-top: 10px;
 }
+@media print {
+  #printPageButton {
+    display: none;
+  }
+  #printButton {
+    display: none;
+  }
+}
 </style>
 <div class="content">
 	<div class="container-fluid">
@@ -11,7 +19,7 @@
 					<div class="card-header" style="background-color: #00c0ef;">
 						<h4 class="title">Perhitungann Perpanjang STNK</h4>
 					</div>
-					<div class="card-content" id="pirnt_p">
+					<div class="card-content">
 						<form action="<?=site_url('main/proses_perpanjang')?>" id="form_p" name="form_p" method="post" accept-charset="utf-8">
 							<div class="row">
 								<div class="col-md-12">
@@ -61,7 +69,7 @@
 											<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="0.25%">
 											<p>Telat Tahun</p>
 											<select id="telat_thn" onchange="m_sum_t();" class="form-control" name="telat_thn">
-												<option value="">-- SILAHKAN PILIH --</option>
+												<option disabled selected>-- SILAHKAN PILIH --</option>
 												<option value="12">1</option>
 												<option value="24">2</option>
 												<option value="36">3</option>
@@ -81,8 +89,8 @@
 									<div class="col-md-6">
 										<div class="form-group is-empty">
 											<p>Telat Bulan</p>
-											<select id="telat_bln" onchange="m_sum_t();" class="form-control" name="telat_thn">
-												<option value="0">-- SILAHKAN PILIH --</option>
+											<select id="telat_bln" onchange="m_sum_t();" class="form-control" name="telat_bulan">
+												<option disabled selected>-- SILAHKAN PILIH --</option>
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -292,8 +300,8 @@
 									</div>
 								</div>
 							</div>	
-							<button type="submit" class="btn btn-info pull-right">Submit</button>
-							<button type="button" class="btn btn-default pull-right" onclick="print()">Print</button>
+							<button id="printPageButton" type="submit" class="btn btn-info pull-right">Submit</button>
+							<button id="printButton" type="button" class="btn btn-default pull-right" onclick="print_pp()">Print</button>
 						</div>
 						<div class="clearfix"></div>
 					</form>

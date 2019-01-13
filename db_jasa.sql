@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2019 at 02:56 PM
+-- Generation Time: Jan 13, 2019 at 08:29 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -39,8 +39,11 @@ CREATE TABLE `balik_nama` (
   `bbnk` varchar(225) DEFAULT NULL,
   `adm_stnk` varchar(225) DEFAULT NULL,
   `ganti` varchar(225) DEFAULT NULL,
+  `ganti1` varchar(100) DEFAULT NULL,
   `adm_tnkb` varchar(225) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
+  `telat_t_t` varchar(100) DEFAULT NULL,
+  `telat_b_t` varchar(100) DEFAULT NULL,
   `sanksi_pkb` varchar(225) DEFAULT NULL,
   `swdkllj` varchar(225) DEFAULT NULL,
   `sanksi_swdkllj` varchar(225) DEFAULT NULL,
@@ -65,7 +68,7 @@ CREATE TABLE `blanko` (
 --
 
 INSERT INTO `blanko` (`id`, `stok_blanko`, `tgl_update`) VALUES
-(1, '999', '2019-01-01');
+(1, '999', '2019-01-12');
 
 -- --------------------------------------------------------
 
@@ -261,6 +264,53 @@ CREATE TABLE `cetak_perpanjang` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cetak_sb`
+--
+
+CREATE TABLE `cetak_sb` (
+  `id_cetak` int(11) NOT NULL,
+  `id_join` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `penerima` varchar(100) DEFAULT NULL,
+  `no_telp` varchar(16) DEFAULT NULL,
+  `atas_nama` varchar(100) DEFAULT NULL,
+  `uang_dp` varchar(20) DEFAULT NULL,
+  `bpkb` varchar(200) DEFAULT NULL,
+  `sim` varchar(100) DEFAULT NULL,
+  `wilayah` varchar(100) DEFAULT NULL,
+  `nopol` varchar(50) DEFAULT NULL,
+  `jenis_kendaraan` varchar(20) DEFAULT NULL,
+  `tahun_pajak` varchar(9) DEFAULT NULL,
+  `lainnya` text,
+  `pengurusan` varchar(20) DEFAULT NULL,
+  `pajak_ini` varchar(11) DEFAULT NULL,
+  `pajak_lalu` varchar(11) DEFAULT NULL,
+  `harga_pajak_ini` varchar(9) DEFAULT NULL,
+  `harga_pajak_lalu` varchar(10) DEFAULT NULL,
+  `total_pajak` varchar(11) DEFAULT NULL,
+  `proses_bn` varchar(11) DEFAULT NULL,
+  `adm_skp` varchar(50) DEFAULT NULL,
+  `plat` varchar(50) DEFAULT NULL,
+  `surat_lp` varchar(50) DEFAULT NULL,
+  `p_lainnya` text,
+  `proses_lain` varchar(50) DEFAULT NULL,
+  `harga_bn` varchar(10) DEFAULT NULL,
+  `harga_adm` varchar(10) DEFAULT NULL,
+  `harga_plat` varchar(11) DEFAULT NULL,
+  `harga_lp` varchar(20) DEFAULT NULL,
+  `h_lainnya` varchar(20) DEFAULT NULL,
+  `harga_lainnya` varchar(20) DEFAULT NULL,
+  `total_proses` varchar(20) DEFAULT NULL,
+  `biaya_prediksi` varchar(20) DEFAULT NULL,
+  `biaya_kurang` varchar(20) DEFAULT NULL,
+  `status` enum('1','0') NOT NULL,
+  `hari` varchar(100) DEFAULT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cetak_stnk`
 --
 
@@ -274,10 +324,10 @@ CREATE TABLE `cetak_stnk` (
   `uang_dp` varchar(20) NOT NULL,
   `bpkb` varchar(200) NOT NULL,
   `sim` varchar(100) NOT NULL,
+  `stnk` varchar(100) DEFAULT NULL,
   `wilayah` varchar(100) NOT NULL,
   `nopol` varchar(50) NOT NULL,
   `jenis_kendaraan` varchar(20) NOT NULL,
-  `tahun_pajak` varchar(9) NOT NULL,
   `lainnya` text NOT NULL,
   `pajak_ini` varchar(11) NOT NULL,
   `pajak_lalu` varchar(11) DEFAULT NULL,
@@ -289,7 +339,6 @@ CREATE TABLE `cetak_stnk` (
   `slp` varchar(50) NOT NULL,
   `plat` varchar(50) NOT NULL,
   `balik_nama` varchar(50) NOT NULL,
-  `g_bpkb` varchar(50) NOT NULL,
   `p_alamat` varchar(100) DEFAULT NULL,
   `psl` varchar(100) DEFAULT NULL,
   `p_lain` varchar(100) DEFAULT NULL,
@@ -300,8 +349,8 @@ CREATE TABLE `cetak_stnk` (
   `harga_plat` varchar(20) DEFAULT NULL,
   `harga_gb` varchar(20) DEFAULT NULL,
   `harga_pa` varchar(20) DEFAULT NULL,
-  `harga_lainnya` varchar(20) DEFAULT NULL,
   `harga_lain` varchar(20) DEFAULT NULL,
+  `harga_lainnya` varchar(20) DEFAULT NULL,
   `harga_psl` varchar(20) DEFAULT NULL,
   `total_proses` varchar(20) NOT NULL,
   `biaya_prediksi` varchar(20) NOT NULL,
@@ -344,6 +393,37 @@ CREATE TABLE `mutasi` (
   `adm_tnkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb` varchar(225) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
+  `telat_tahun` varchar(100) DEFAULT NULL,
+  `total` varchar(225) DEFAULT NULL,
+  `hari` varchar(30) DEFAULT NULL,
+  `tanggal` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mutasi_bn`
+--
+
+CREATE TABLE `mutasi_bn` (
+  `id_mutasi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `perhitungan` varchar(200) DEFAULT NULL,
+  `no` varchar(20) DEFAULT NULL,
+  `jenis` varchar(100) DEFAULT NULL,
+  `jenis_k` varchar(225) DEFAULT NULL,
+  `bbnkb` varchar(100) DEFAULT NULL,
+  `pkb` varchar(225) DEFAULT NULL,
+  `pkb1` varchar(100) DEFAULT NULL,
+  `swdkllj` varchar(225) DEFAULT NULL,
+  `swdkllj1` varchar(225) DEFAULT NULL,
+  `sanksi_swdkllj` varchar(225) DEFAULT NULL,
+  `adm_stnk` varchar(225) DEFAULT NULL,
+  `adm_tnkb` varchar(225) DEFAULT NULL,
+  `sanksi_pkb` varchar(225) DEFAULT NULL,
+  `telat` varchar(225) DEFAULT NULL,
+  `telat_thn` varchar(100) DEFAULT NULL,
+  `telat_thn1` varchar(100) DEFAULT NULL,
   `total` varchar(225) DEFAULT NULL,
   `hari` varchar(30) DEFAULT NULL,
   `tanggal` datetime NOT NULL
@@ -366,6 +446,7 @@ CREATE TABLE `perpanjang` (
   `pkb_tahun` varchar(100) NOT NULL,
   `telat` varchar(10) NOT NULL,
   `telat_tahun` varchar(9) NOT NULL,
+  `telat_bulan` varchar(100) DEFAULT NULL,
   `sanksi_pkb` varchar(9) DEFAULT NULL,
   `sanksi_pkb_t` varchar(9) DEFAULT NULL,
   `swdkllj` varchar(9) DEFAULT NULL,
@@ -380,6 +461,78 @@ CREATE TABLE `perpanjang` (
   `total` varchar(9) NOT NULL,
   `hari` varchar(20) NOT NULL,
   `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stnk_balik`
+--
+
+CREATE TABLE `stnk_balik` (
+  `id_mutasi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `perhitungan` varchar(200) DEFAULT NULL,
+  `no` varchar(20) DEFAULT NULL,
+  `jenis` varchar(100) DEFAULT NULL,
+  `jenis_k` varchar(225) DEFAULT NULL,
+  `jenis_kendaraan` varchar(100) DEFAULT NULL,
+  `pkb` varchar(225) DEFAULT NULL,
+  `pkb1` varchar(100) DEFAULT NULL,
+  `bbnk` varchar(100) DEFAULT NULL,
+  `swdkllj` varchar(225) DEFAULT NULL,
+  `swdkllj1` varchar(225) DEFAULT NULL,
+  `sanksi_swdkllj` varchar(225) DEFAULT NULL,
+  `sanksi_swdkllj1` varchar(100) DEFAULT NULL,
+  `telat_thn` varchar(100) DEFAULT NULL,
+  `cek_telat` varchar(100) DEFAULT NULL,
+  `jenis_telat` varchar(100) DEFAULT NULL,
+  `adm_stnk` varchar(225) DEFAULT NULL,
+  `adm_tnkb` varchar(225) DEFAULT NULL,
+  `ganti` varchar(100) DEFAULT NULL,
+  `sanksi_pkb` varchar(225) DEFAULT NULL,
+  `sanksi_pkb1` varchar(100) DEFAULT NULL,
+  `telat` varchar(225) DEFAULT NULL,
+  `telat_b_t` varchar(100) DEFAULT NULL,
+  `total` varchar(225) DEFAULT NULL,
+  `hari` varchar(30) DEFAULT NULL,
+  `tanggal` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stnk_hilang`
+--
+
+CREATE TABLE `stnk_hilang` (
+  `id_stnk` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `perhitungan` varchar(200) DEFAULT NULL,
+  `no` varchar(20) DEFAULT NULL,
+  `jenis` varchar(100) DEFAULT NULL,
+  `jenis_k` varchar(225) DEFAULT NULL,
+  `jenis_k1` varchar(100) DEFAULT NULL,
+  `ganti` varchar(100) DEFAULT NULL,
+  `pkb` varchar(225) DEFAULT NULL,
+  `pkb1` varchar(100) DEFAULT NULL,
+  `swdkllj` varchar(225) DEFAULT NULL,
+  `swdkllj1` varchar(225) DEFAULT NULL,
+  `sanksi_swdkllj` varchar(225) DEFAULT NULL,
+  `sanksi_swdkllj1` varchar(100) DEFAULT NULL,
+  `adm_stnk` varchar(225) DEFAULT NULL,
+  `adm_tnkb` varchar(225) DEFAULT NULL,
+  `sanksi_pkb` varchar(225) DEFAULT NULL,
+  `sanksi_pkb1` varchar(100) DEFAULT NULL,
+  `telat` varchar(225) DEFAULT NULL,
+  `telat1` varchar(100) NOT NULL,
+  `telat_t` varchar(100) DEFAULT NULL,
+  `telat_b_t` varchar(100) DEFAULT NULL,
+  `telat_t2` varchar(100) DEFAULT NULL,
+  `k_telat` varchar(100) DEFAULT NULL,
+  `total` varchar(225) DEFAULT NULL,
+  `hari` varchar(30) DEFAULT NULL,
+  `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -453,6 +606,12 @@ ALTER TABLE `cetak_perpanjang`
   ADD PRIMARY KEY (`id_cetak`);
 
 --
+-- Indexes for table `cetak_sb`
+--
+ALTER TABLE `cetak_sb`
+  ADD PRIMARY KEY (`id_cetak`);
+
+--
 -- Indexes for table `cetak_stnk`
 --
 ALTER TABLE `cetak_stnk`
@@ -471,10 +630,28 @@ ALTER TABLE `mutasi`
   ADD PRIMARY KEY (`id_mutasi`);
 
 --
+-- Indexes for table `mutasi_bn`
+--
+ALTER TABLE `mutasi_bn`
+  ADD PRIMARY KEY (`id_mutasi`);
+
+--
 -- Indexes for table `perpanjang`
 --
 ALTER TABLE `perpanjang`
   ADD PRIMARY KEY (`id_perpanjang`);
+
+--
+-- Indexes for table `stnk_balik`
+--
+ALTER TABLE `stnk_balik`
+  ADD PRIMARY KEY (`id_mutasi`);
+
+--
+-- Indexes for table `stnk_hilang`
+--
+ALTER TABLE `stnk_hilang`
+  ADD PRIMARY KEY (`id_stnk`);
 
 --
 -- Indexes for table `users`
@@ -522,6 +699,11 @@ ALTER TABLE `cetak_mutasi`
 ALTER TABLE `cetak_perpanjang`
   MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `cetak_sb`
+--
+ALTER TABLE `cetak_sb`
+  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `cetak_stnk`
 --
 ALTER TABLE `cetak_stnk`
@@ -535,12 +717,27 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `mutasi`
 --
 ALTER TABLE `mutasi`
-  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `mutasi_bn`
+--
+ALTER TABLE `mutasi_bn`
+  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `perpanjang`
 --
 ALTER TABLE `perpanjang`
   MODIFY `id_perpanjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `stnk_balik`
+--
+ALTER TABLE `stnk_balik`
+  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `stnk_hilang`
+--
+ALTER TABLE `stnk_hilang`
+  MODIFY `id_stnk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --

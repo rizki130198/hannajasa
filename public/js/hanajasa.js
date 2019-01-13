@@ -96,36 +96,21 @@ function sum_t() {
 		document.getElementById('hasil').value = result;
 	}
 }
-function m_sum_t() {
-	var telat = document.getElementById('telat_thn').value;
-	var telatbln = document.getElementById('telat_bln').value;
+
+function pkb_ta() {
+	var telat = document.getElementById('telat_thn_s').value;
+	var telatbln = document.getElementById('telat_bln_s').value;
 	var result = parseFloat(telat) + parseFloat(telatbln);
 	if (!isNaN(result)) {
-		document.getElementById('hasil_tahun').value = result;
+		document.getElementById('hasil_stnk_tahun').value = result;
 	}
 
-	var totalbulan = document.getElementById('hasil_tahun').value;
-	var pkb = document.getElementById('pkb_t').value;
+	var totalbulan = document.getElementById('hasil_stnk_tahun').value;
+	var pkb = document.getElementById('pkb_tahun').value;
 	var denda = document.getElementById('denda').value;
 	var result = parseFloat(totalbulan) * parseFloat(pkb) * parseFloat(denda);
 	if (!isNaN(result)) {
-		document.getElementById('hasil_tahun').value = result;
-	}
-}
-function pkb_ta() {
-	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
-	var txtSecondNumberValue = document.getElementById('denda_tahun_h').value;
-	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
-	if (!isNaN(result)) {
-		document.getElementById('total_bbn_t').value = result;
-	}
-
-	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
-	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
-	var txtThreeNumberValue = document.getElementById('t_tahun').value;
-	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
-	if (!isNaN(result)) {
-		document.getElementById('sum_pkb').value = result;
+		document.getElementById('hasil_stnk_tahun').value = result;
 	}
 }
 function harga_tahun() {
@@ -245,6 +230,23 @@ function b_bulan() {
 	}
 }
 
+function s_t_bulan() {
+	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
+	var txtSecondNumberValue = document.getElementById('denda_bu').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_bbn_b').value = result;
+	}
+
+	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
+	var txtSecondNumberValue = document.getElementById('denda_ba').value;
+	var txtThreeNumberValue = document.getElementById('telat_bln_s').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_ba').value = result;
+	}
+}
+
 function b_hidup() {
 	var txtFirstNumberValue = document.getElementById('pkb_b_h').value;
 	var txtSecondNumberValue = document.getElementById('denda_bbn_h').value;
@@ -268,6 +270,22 @@ function b_tahun() {
 	if (!isNaN(result)) {
 		document.getElementById('total_pkb_t').value = result;
 	}	
+}
+function s_t_telat() {
+	var txtFirstNumberValue = document.getElementById('pkb_t_t').value;
+	var txtSecondNumberValue = document.getElementById('denda_bu').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_bbn_t').value = result;
+	}
+
+	var txtFirstNumberValue = document.getElementById('pkb_t_t').value;
+	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
+	var txtThreeNumberValue = document.getElementById('telat_bln_t').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('sum_pkb_t').value = result;
+	}
 }
 function balik() {
 	if ($('#balik_nama').val() == 'Pajak Hidup') {
@@ -530,10 +548,10 @@ function loopData(table,type) {
 	});
 	return array_data;
 }
-function print() {
-	var objFra = document.getElementById('pirnt_p');
-	objFra.focus();
-	objFra.print();
+function print_pp() {
+    window.print();
+
+    return true;
 }
 function print_p() {
 	$("#typenya").removeAttr('disabled');
