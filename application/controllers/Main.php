@@ -226,6 +226,7 @@ class Main extends CI_Controller {
 		}else{
 			$data['input_berkas'] = $this->M_back->getBerkas_m($id);
 		}
+		$this->load->view('admin',$data);
 	}
 	public function batal_berkas($string)
 	{
@@ -266,7 +267,6 @@ class Main extends CI_Controller {
 		}else{
 			$data['input_berkas'] = $this->M_back->delBerkas_m($id);
 		}
-		$this->load->view('admin',$data);
 	}
 
 
@@ -589,6 +589,42 @@ class Main extends CI_Controller {
 		
 	}
 	//end cetak pdf//
+
+	public function datahistory()
+	{
+		$data['title'] = 'Halaman History';
+		$data['perpanjang'] = $this->db->query("SELECT * FROM cetak_perpanjang c 
+			INNER JOIN users u  ON c.id_user = u.id_users 
+			INNER JOIN perpanjang p ON p.id_perpanjang = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+
+		$data['balik'] = $this->db->query("SELECT * FROM cetak_balik c 
+			INNER JOIN users u ON c.id_user = u.id_users
+			INNER JOIN balik_nama p ON p.id_balik = c.id_join
+		 where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['mutasi'] = $this->db->query("SELECT * FROM cetak_mutasi c 
+			INNER JOIN users u ON c.id_user = u.id_users 
+			INNER JOIN mutasi p ON p.id_mutasi = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['mutasi_bn'] = $this->db->query("SELECT * FROM cetak_mutasibn c 
+			INNER JOIN users u ON c.id_user = u.id_users 
+			INNER JOIN mutasi_bn p ON p.id_mutasibn = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['stnk'] = $this->db->query("SELECT * FROM cetak_stnk c 
+			INNER JOIN users u ON c.id_user = u.id_users
+			INNER JOIN stnk_hilang p ON p.id_stnk = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['stnk_bn'] = $this->db->query("SELECT * FROM cetak_sb c 
+			INNER JOIN users u ON c.id_user = u.id_users
+			INNER JOIN stnk_balik p ON p.id_stnkb = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+
+		$this->load->view('admin', $data);
+	}
 	public function logout()
 	{
 		$sess = $this->session->sess_destroy();

@@ -277,6 +277,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/berkas');	
 			}else if ($u2 == "prog_kerja") {
 				$this->load->view('admin/progress_kerjaan');	
+			}else if ($u2 == "datahistory") {
+				$this->load->view('admin/data_history');	
 			}else{
 				$this->load->view('admin/dashboard');
 			}
