@@ -343,10 +343,13 @@ class M_back extends CI_Model {
 	function act_update_harga()
 	{
 		$id = $this->input->post('id_catat');
-		$query = $this->db->update('catatan', array(
-			'harga'=> $this->input->post('value'),
-			'created_at' => date('Y-m-d')
-		),array('id_catat'=>$id));
+		$row = $this->db->get_where('catatan',array('id_catat'=>$id))->row();
+		if ($this->input->post('value') != $row->harga) {
+			$query = $this->db->update('catatan', array(
+				'harga'=> $this->input->post('value'),
+				'created_at' => date('Y-m-d')
+			),array('id_catat'=>$id));
+		}
 	}
 	// End Harga //
 	
