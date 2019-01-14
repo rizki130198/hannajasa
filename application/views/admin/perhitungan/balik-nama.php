@@ -302,7 +302,7 @@
 											<div class="form-group is-empty">
 												<p>Telat Bulan</p>
 												<input type="text" name="denda_pkb" style="display: none;" value="0.02%" id="denda_ba" onkeyup="b_bulan();">
-												<select id="telat_bln" onchange="b_bulan();" class="form-control" name="telat_bln_t">
+												<select id="t_bln" onchange="b_bulan();" class="form-control" name="telat_bln_t">
 													<option value="0">-- SILAHKAN PILIH --</option>
 													<option value="1">1</option>
 													<option value="2">2</option>

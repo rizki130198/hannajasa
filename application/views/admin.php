@@ -271,8 +271,12 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/cetak/c_berkas');	
 			}else if ($u2 == "harga") {
 				$this->load->view('admin/harga');
+			}else if ($u2 == "report") {
+				$this->load->view('admin/report');
 			}else if ($u2 == "blanko") {
 				$this->load->view('admin/blanko');	
+			}else if ($u2 == "profile") {
+				$this->load->view('admin/profile');
 			}else if ($u2 == "berkas") {
 				$this->load->view('admin/berkas');	
 			}else if ($u2 == "prog_kerja") {
@@ -291,7 +295,7 @@ if ($uri=="eksporpdf") {
 			<footer class="footer">
 				<div class="container-fluid">
 					<p class="pull-left" style="margin-left: 17px;">
-						&copy; <a href="">CV. Hanna Jasa</a>.
+						&copy; 2019 <a href="">CV. Hanna Jasa</a>.
 					</p>
 					<nav class="pull-right" style="margin-right: 12px;">
 						

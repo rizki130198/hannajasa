@@ -35,6 +35,12 @@ class M_back extends CI_Model {
 			}
 		}
 	}
+	public function getAccountProfile()
+	{
+	  	$data = array ('id_users' => $this->session->userdata('id'));
+	  	$query = $this->db->get_where('users',$data);
+	  	return $query->result_array();
+	}
 	public function load_user()
 	{
 		$this->db->order_by('id_users', 'DESC');
@@ -1826,6 +1832,90 @@ class M_back extends CI_Model {
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
 			redirect('main/mutasi');
 		}
+	}
+	// HARI
+	function getHariP()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_p FROM cetak_perpanjang WHERE status='1' AND tanggal = date(NOW())");
+		return $q;	
+	}
+	function getHariBN()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_bn FROM cetak_balik WHERE status='1' AND tanggal = date(NOW())");
+		return $q;	
+	}
+	function getHariM()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_m FROM cetak_mutasi WHERE status='1' AND tanggal = date(NOW())");
+		return $q;	
+	}
+	function getHariSH()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_sh FROM cetak_stnk WHERE status='1' AND tanggal = date(NOW())");
+		return $q;	
+	}
+	// MINGGU
+	function getMingguP()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_p FROM cetak_perpanjang WHERE status='1' AND YEARWEEK(tanggal)=YEARWEEK(NOW())");
+		return $q;
+	}
+	function getMingguBN()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_bn FROM cetak_balik WHERE status='1' AND YEARWEEK(tanggal)=YEARWEEK(NOW())");
+		return $q;
+	}
+	function getMingguM()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_m FROM cetak_mutasi WHERE status='1' AND YEARWEEK(tanggal)=YEARWEEK(NOW())");
+		return $q;
+	}
+	function getMingguSH()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_sh FROM cetak_stnk WHERE status='1' AND YEARWEEK(tanggal)=YEARWEEK(NOW())");
+		return $q;
+	}
+	// MINGGU
+	function getBulanP()
+	{
+		$q = $this->db->query("SELECT CONCAT(YEAR(tanggal),'/',MONTH(tanggal)) AS jml_p, COUNT(*) AS jml_p FROM cetak_perpanjang WHERE status='1' AND CONCAT(YEAR(tanggal),'/',MONTH(tanggal))=CONCAT(YEAR(NOW()),'/',MONTH(NOW()))");
+		return $q;
+	}
+	function getBulanBN()
+	{
+		$q = $this->db->query("SELECT CONCAT(YEAR(tanggal),'/',MONTH(tanggal)) AS jml_bn, COUNT(*) AS jml_bn FROM cetak_balik WHERE status='1' AND CONCAT(YEAR(tanggal),'/',MONTH(tanggal))=CONCAT(YEAR(NOW()),'/',MONTH(NOW()))");
+		return $q;
+	}
+	function getBulanM()
+	{
+		$q = $this->db->query("SELECT CONCAT(YEAR(tanggal),'/',MONTH(tanggal)) AS jml_m, COUNT(*) AS jml_m FROM cetak_mutasi WHERE status='1' AND CONCAT(YEAR(tanggal),'/',MONTH(tanggal))=CONCAT(YEAR(NOW()),'/',MONTH(NOW()))");
+		return $q;
+	}
+	function getBulanSH()
+	{
+		$q = $this->db->query("SELECT CONCAT(YEAR(tanggal),'/',MONTH(tanggal)) AS jml_sh, COUNT(*) AS jml_sh FROM cetak_stnk WHERE status='1' AND CONCAT(YEAR(tanggal),'/',MONTH(tanggal))=CONCAT(YEAR(NOW()),'/',MONTH(NOW()))");
+		return $q;
+	}
+	//Total
+	function getTotalP()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_p FROM cetak_perpanjang WHERE status='1'");
+		return $q;
+	}
+	function getTotalBN()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_bn FROM cetak_balik WHERE status='1'");
+		return $q;
+	}
+	function getTotalM()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_m FROM cetak_mutasi WHERE status='1'");
+		return $q;
+	}
+	function getTotalSH()
+	{
+		$q = $this->db->query("SELECT count(*) as jml_sh FROM cetak_stnk WHERE status='1'");
+		return $q;
 	}
 }
 
