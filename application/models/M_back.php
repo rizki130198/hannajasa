@@ -117,6 +117,215 @@ class M_back extends CI_Model {
 		}
 		return $query;
 	}
+	public function getBerkas_mbn($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_mutasibn',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		return $query;
+	}
+	public function getBerkas_sh($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_stnk',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		return $query;
+	}
+	public function getBerkas_shb($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_sb',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $q->result();
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		return $query;
+	}
+	public function backBerkas_p($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_perpanjang',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->update('cetak_perpanjang', array(
+				'status'=>'2',
+			),array(
+				'id_cetak'=>$id));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+	}
+	public function backBerkas_bn($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_balik',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->update('cetak_balik', array(
+				'status'=>'2',
+			),array(
+				'id_cetak'=>$id));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function backBerkas_m($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_mutasi',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->update('cetak_mutasi', array(
+				'status'=>'2',
+			),array(
+				'id_cetak'=>$id));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function backBerkas_mbn($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_mutasibn',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->update('cetak_mutasibn', array(
+				'status'=>'2',
+			),array(
+				'id_cetak'=>$id));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function backBerkas_sh($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_stnk',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->update('cetak_stnk', array(
+				'status'=>'2',
+			),array(
+				'id_cetak'=>$id));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function backBerkas_shb($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_sb',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->update('cetak_sb', array(
+				'status'=>'2',
+			),array(
+				'id_cetak'=>$id));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function delBerkas_p($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_perpanjang',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->delete('cetak_perpanjang',array('id_cetak'));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function delBerkas_bn($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_balik',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->delete('cetak_balik',array('id_cetak'));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function delBerkas_m($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_mutasi',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->delete('cetak_mutasi',array('id_cetak'));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function delBerkas_mbn($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_mutasibn',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->delete('cetak_mutasibn',array('id_cetak'));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function delBerkas_sh($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_stnk',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->delete('cetak_stnk',array('id_cetak'));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
+	public function delBerkas_shb($id)
+	{
+		$idnya = array('id_cetak' => $id);
+		$q = $this->db->get_where('cetak_sb',$idnya);
+		if ($q->num_rows() > 0) {
+			$query = $this->db->delete('cetak_sb',array('id_cetak'));
+			redirect('main/berkas_jadi');
+		}else{
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+			redirect('main/berkas_jadi');
+		}
+		// return $query;
+	}
 	// Start Harga //
 	public function load_harga()
 	{

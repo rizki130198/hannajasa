@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2019 at 08:29 PM
+-- Generation Time: Jan 14, 2019 at 11:28 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -143,7 +143,7 @@ CREATE TABLE `cetak_balik` (
   `total_proses` varchar(20) DEFAULT NULL,
   `biaya_prediksi` varchar(20) DEFAULT NULL,
   `biaya_kurang` varchar(20) DEFAULT NULL,
-  `status` enum('1','0') NOT NULL,
+  `status` enum('1','0','2') NOT NULL,
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -210,7 +210,7 @@ CREATE TABLE `cetak_mutasi` (
   `total_proses` varchar(20) DEFAULT NULL,
   `biaya_prediksi` varchar(20) DEFAULT NULL,
   `biaya_kurang` varchar(20) DEFAULT NULL,
-  `status` enum('1','0') NOT NULL,
+  `status` enum('1','0','2') NOT NULL,
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -256,7 +256,7 @@ CREATE TABLE `cetak_perpanjang` (
   `total_proses` varchar(20) DEFAULT NULL,
   `biaya_prediksi` varchar(20) DEFAULT NULL,
   `biaya_kurang` varchar(20) DEFAULT NULL,
-  `status` enum('1','0') NOT NULL,
+  `status` enum('1','0','2') NOT NULL,
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -303,7 +303,7 @@ CREATE TABLE `cetak_sb` (
   `total_proses` varchar(20) DEFAULT NULL,
   `biaya_prediksi` varchar(20) DEFAULT NULL,
   `biaya_kurang` varchar(20) DEFAULT NULL,
-  `status` enum('1','0') NOT NULL,
+  `status` enum('1','0','2') NOT NULL,
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -355,6 +355,8 @@ CREATE TABLE `cetak_stnk` (
   `total_proses` varchar(20) NOT NULL,
   `biaya_prediksi` varchar(20) NOT NULL,
   `biaya_kurang` varchar(20) NOT NULL,
+  `hari` varchar(100) DEFAULT NULL,
+  `status` enum('1','0','2') NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -406,7 +408,7 @@ CREATE TABLE `mutasi` (
 --
 
 CREATE TABLE `mutasi_bn` (
-  `id_mutasi` int(11) NOT NULL,
+  `id_mutasibn` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `perhitungan` varchar(200) DEFAULT NULL,
   `no` varchar(20) DEFAULT NULL,
@@ -470,7 +472,7 @@ CREATE TABLE `perpanjang` (
 --
 
 CREATE TABLE `stnk_balik` (
-  `id_mutasi` int(11) NOT NULL,
+  `id_stnkb` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `perhitungan` varchar(200) DEFAULT NULL,
   `no` varchar(20) DEFAULT NULL,
@@ -633,7 +635,7 @@ ALTER TABLE `mutasi`
 -- Indexes for table `mutasi_bn`
 --
 ALTER TABLE `mutasi_bn`
-  ADD PRIMARY KEY (`id_mutasi`);
+  ADD PRIMARY KEY (`id_mutasibn`);
 
 --
 -- Indexes for table `perpanjang`
@@ -645,7 +647,7 @@ ALTER TABLE `perpanjang`
 -- Indexes for table `stnk_balik`
 --
 ALTER TABLE `stnk_balik`
-  ADD PRIMARY KEY (`id_mutasi`);
+  ADD PRIMARY KEY (`id_stnkb`);
 
 --
 -- Indexes for table `stnk_hilang`
@@ -722,7 +724,7 @@ ALTER TABLE `mutasi`
 -- AUTO_INCREMENT for table `mutasi_bn`
 --
 ALTER TABLE `mutasi_bn`
-  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_mutasibn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `perpanjang`
 --
@@ -732,7 +734,7 @@ ALTER TABLE `perpanjang`
 -- AUTO_INCREMENT for table `stnk_balik`
 --
 ALTER TABLE `stnk_balik`
-  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_stnkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `stnk_hilang`
 --
