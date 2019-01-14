@@ -8,6 +8,7 @@ function perpanjang() {
 		$('#pkb_tahun').hide();
 		$('#pkb_n').show();
 		$('#pkb_bulan').hide();
+		$('#form_p')[0].reset();
 		$('#cek_plat').hide();
 		$('#gantiplat').hide();
 		$('#total').show();
@@ -62,8 +63,11 @@ function mutasi() {
 		$('#m_t').show();
 	}else{
 		$('#m_h').hide();
+		$('#m_h :input').val('');
 		$('#m_b').hide();
+		$('#m_b :input').val('');
 		$('#m_t').hide();
+		$('#m_t :input').val('');
 	}
 }
 function hargaTotal() {
@@ -93,22 +97,21 @@ function sum_t() {
 		document.getElementById('hasil').value = result;
 	}
 }
-function m_sum_t() {
-	var pkb = document.getElementById('pkb_t').value;
-	var denda = document.getElementById('denda').value;
-	var telat = document.getElementById('telat_thn').value;
-	var result = parseFloat(pkb) * parseFloat(denda) * parseFloat(telat);
-	if (!isNaN(result)) {
-		document.getElementById('hasil_tahun').value = result;
-	}
-}
+
 function pkb_ta() {
-	var txtFirstNumberValue = document.getElementById('pkb_tahun').value;
-	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
-	var txtThreeNumberValue = document.getElementById('t_tahun').value;
-	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	var telat = document.getElementById('telat_thn_s').value;
+	var telatbln = document.getElementById('telat_bln_s').value;
+	var result = parseFloat(telat) + parseFloat(telatbln);
 	if (!isNaN(result)) {
-		document.getElementById('sum_pkb').value = result;
+		document.getElementById('hasil_stnk_tahun').value = result;
+	}
+
+	var totalbulan = document.getElementById('hasil_stnk_tahun').value;
+	var pkb = document.getElementById('pkb_tahun').value;
+	var denda = document.getElementById('denda').value;
+	var result = parseFloat(totalbulan) * parseFloat(pkb) * parseFloat(denda);
+	if (!isNaN(result)) {
+		document.getElementById('hasil_stnk_tahun').value = result;
 	}
 }
 function harga_tahun() {
@@ -228,6 +231,23 @@ function b_bulan() {
 	}
 }
 
+function s_t_bulan() {
+	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
+	var txtSecondNumberValue = document.getElementById('denda_bu').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_bbn_b').value = result;
+	}
+
+	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
+	var txtSecondNumberValue = document.getElementById('denda_ba').value;
+	var txtThreeNumberValue = document.getElementById('telat_bln_s').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_ba').value = result;
+	}
+}
+
 function b_hidup() {
 	var txtFirstNumberValue = document.getElementById('pkb_b_h').value;
 	var txtSecondNumberValue = document.getElementById('denda_bbn_h').value;
@@ -237,12 +257,35 @@ function b_hidup() {
 	}
 }
 function b_tahun() {
+	var tltthn = document.getElementById('telat_thn').value;
+	var tltbln = document.getElementById('telat_bln').value;
+	var result = parseFloat(tltthn) + parseFloat(tltbln);
+	if (!isNaN(result)) {
+		document.getElementById('total_pkb_t').value = result;
+	}
+
+	var txtThreeNumberValue = document.getElementById('total_pkb_t').value;
 	var txtFirstNumberValue = document.getElementById('pkb_b_t').value;
 	var txtSecondNumberValue = document.getElementById('denda_b_t').value;
-	var txtThreeNumberValue = document.getElementById('telat_thn').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtThreeNumberValue) * parseFloat(txtSecondNumberValue);
 	if (!isNaN(result)) {
 		document.getElementById('total_pkb_t').value = result;
+	}	
+}
+function s_t_telat() {
+	var txtFirstNumberValue = document.getElementById('pkb_t_t').value;
+	var txtSecondNumberValue = document.getElementById('denda_bu').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('total_bbn_t').value = result;
+	}
+
+	var txtFirstNumberValue = document.getElementById('pkb_t_t').value;
+	var txtSecondNumberValue = document.getElementById('denda_tahun').value;
+	var txtThreeNumberValue = document.getElementById('telat_bln_t').value;
+	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
+	if (!isNaN(result)) {
+		document.getElementById('sum_pkb_t').value = result;
 	}
 }
 function balik() {
@@ -261,7 +304,6 @@ function balik() {
 		$('#b_hid').hide();
 		$('#b_nor').hide();
 		$('#b_bul').show();
-		$('#b_ta').hide();
 		$('#total_b').show();
 	}else if($('#balik_nama').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#b_hid').hide();
@@ -279,13 +321,21 @@ function balik() {
 		$('#b_ta').show();
 	}else{
 		$('#total_h').hide();
+		$('#total_h :input').val('');
 		$('#total_n').hide();
+		$('#total_n :input').val('');
 		$('#total_b').hide();
+		$('#total_b :input').val('');
 		$('#total_t').hide();
+		$('#total_t :input').val('');
 		$('#b_hid').hide();
+		$('#b_hid :input').val('');
 		$('#b_nor').hide();
+		$('#b_nor :input').val('');
 		$('#b_bul').hide();
+		$('#b_bul :input').val('');
 		$('#b_ta').hide();
+		$('#b_ta :input').val('');
 	}
 }
 $(document).ready(function () {
@@ -457,7 +507,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#approve'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#delete'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#approve'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#delete'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}else if (type == 'bn') {
 			temp_array = [
@@ -468,7 +518,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#balik'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletebalik'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#balik'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#deletebalik'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}else if (type == 'mutasi') {
 			temp_array = [
@@ -479,7 +529,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#apmutasi'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletemutasi'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#apmutasi'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#deletemutasi'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}else{
 			temp_array = [
@@ -490,7 +540,7 @@ function loopData(table,type) {
 			val.uang_dp,
 			val.wilayah,
 			val.nopol,
-			'<a href="#aplainnya'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#deletelain'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
+			'<a href="#aplainnya'+val.no+'" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a><a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a><a href="#deletelain'+val.no+'" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>'
 			];
 		}
 
@@ -498,4 +548,80 @@ function loopData(table,type) {
 		array_data[array_data.length] = temp_array;
 	});
 	return array_data;
+}
+function print_pp() {
+    window.print();
+
+    return true;
+}
+function print_p() {
+	$("#typenya").removeAttr('disabled');
+	$("#inputData").submit(function (event) {
+
+		event.preventDefault();
+        // var formData = $(this).serialize();
+        var formData = new FormData($(this)[0]);
+
+        $.ajax({
+        	url: url+'/cp/proses_pengaduan/new',
+        	type: 'POST',
+        	data: formData,
+        	mimeType: "multipart/form-data",
+        	contentType: false,
+        	cache: false,
+        	processData: false,
+        	success: function (dt) {
+        		var dt = $.parseJSON(dt);
+        		setTimeout(function(){
+                // alert('Form Submitted!');
+                console.log(dt.success);
+                if (dt.success==true) {
+                	toastSuccess();
+                }else{
+                	toastError();
+                }
+                $('.modal').modal('hide');
+            }, 2000);
+        		toTop();
+        		$("#inputData")[0].reset();
+        	},
+        	error: function(){
+        		alert("Server sedang bermasalah silakan coba lagi");
+        	}
+        });
+        return false;
+    });
+}
+function print_p() {
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+		success:function(argument) {
+			
+		}
+	});
+}
+function print_p() {
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+		success:function(argument) {
+			
+		}
+	});
+}
+function print_p() {
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+		success:function(argument) {
+			
+		}
+	});
 }

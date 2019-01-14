@@ -79,6 +79,30 @@ class Main extends CI_Controller {
 	{
 		$this->M_back->cetak_mutasi();
 	}
+	public function proses_stnk()
+	{
+		$this->M_back->proses_stnk();
+	}
+	public function p_stnk()
+	{
+		$this->M_back->cetak_stnk();
+	}
+	public function proses_stnkbalik()
+	{
+		$this->M_back->proses_sb();
+	}
+	public function p_stnkbalik()
+	{
+		$this->M_back->cetak_sb();
+	}
+	public function proses_mbn()
+	{
+		$this->M_back->proses_mbn();
+	}
+	public function p_mutasibalik()
+	{
+		$this->M_back->cetak_mb();
+	}
 	//end balik nama//
 	
 	//start mutasi//
@@ -117,18 +141,50 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
-	public function transaksi_sh()
+	public function transaksi_sh($id)
+	{
+		$querynya = $this->db->get_where('stnk_hilang',array('id_stnk'=>$id));
+		if ($querynya->num_rows() > 0) {
+			$data['title'] = "Halaman Transaksi STNK Hilang";
+			$this->load->view('admin',$data);
+		}else{
+			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			redirect('main/dashboard');
+		}
+	}
+	public function cetak_stnkhilang($id)
+	{
+		$query = $this->db->query('SELECT * FROM cetak_stnk c INNER JOIN stnk_hilang p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
+		return var_dump($query);
+		if ($query->num_rows() > 0) {
+			$data['stnk'] = $query->row();
+			$this->load->view('admin/cetak/c_stnkhilang');
+		}else{
+			redirect('main/transaksi_sh'.$id);
+			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		}
+	}
+	//end stnk hilang//
+
+	//start stnk hilang//
+	public function stnkh_bn()
+	{
+		$data['title'] = "Halaman STNK Hilang + Balik Nama";
+		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$this->load->view('admin',$data);
+	}
+	public function transaksi_sb()
 	{
 		// $querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
 		// if ($querynya->num_rows() > 0) {
-		$data['title'] = "Halaman Transaksi STNK Hilang";
+		$data['title'] = "Halaman Transaksi STNK Hilang + Balik Nama";
 		$this->load->view('admin',$data);
 		// }else{
 			// $this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
 			// redirect('main/dashboard');
 		// }
 	}
-	public function cetak_stnkhilang()
+	public function cetak_stnkhh_bn()
 	{
 		// $query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
 		//return var_dump($query);
@@ -218,6 +274,15 @@ class Main extends CI_Controller {
 		}
 	}
 	//END
+
+	//start progress kerja//
+	public function prog_kerja()
+	{
+		$data['title'] = "Halaman Progress Kerja";
+		$data['karyawan']=$this->M_back->load_karyawan();
+		$this->load->view('admin',$data);	
+	}
+	//end progress kerja//
 
 	//start kasir//
 	public function daftar()
@@ -426,7 +491,7 @@ class Main extends CI_Controller {
 			$client = new \Pdfcrowd\HtmlToPdfClient("rizki", "e2ecd02e063d25d0a169400a7de725d6");
 			$client->setPageSize("A2");
 			$client->setOrientation("portrait");
-			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_stnk/'.$id;
+			$url = "http://" . $_SERVER["SERVER_NAME"].'/'.$this->uri->segment(1).'/cetak_stnkhilang/'.$id;
 			$pdf = $client->convertUrl($url);
 			//return var_dump($url);
 			header("Content-Type: application/pdf");

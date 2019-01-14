@@ -125,6 +125,18 @@
   text-align: center;
   border: 3px solid #4caf50;
 }
+.delete{
+  border: 3px solid #f44336 !important;
+}
+.delete i{
+  color: #f44336 !important;
+}
+.batal{
+  border: 3px solid #ff9800 !important;
+}
+.batal i{
+  color: #ff9800 !important;
+}
 .modal-confirm .icon-box i {
   color: #4caf50;
   font-size: 46px;
@@ -189,6 +201,7 @@
                   <td><?=$key->nopol?></td>
                   <td>
                     <a href="#approve<?=$key->no?>" data-toggle="modal" data-tooltip="Terima Berkas" class="btn btn-link btn-success btn-just-icon"><i class="material-icons">check</i></a>
+                    <a href="#batal<?=$key->no?>" data-toggle="modal" data-tooltip="Pembatalan Berkas" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">close</i></a>
                     <a href="#delete<?=$key->no?>" data-toggle="modal" data-tooltip="Hapus Berkas" class="btn btn-link btn-danger btn-just-icon"><i class="material-icons">delete</i></a>
                   </td>
                   <div id="approve<?=$key->no?>" class="modal fade">
@@ -215,18 +228,38 @@
                     <div class="modal-dialog modal-confirm">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <div class="icon-box">
-                            <i class="material-icons">check</i>
+                          <div class="icon-box delete">
+                            <i class="material-icons">delete</i>
                           </div>        
                           <h4 class="modal-title">Yakin ingin Delete?</h4>  
                           <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
                         </div>
                         <div class="modal-body">
-                          <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p>
+                          <p>Setelah di hapus, data akan terhapus dan tidak bisa di kembalikan.</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                           <a href="<?= site_url('main/delete/'.$key->id_cetak) ?>"><button class="btn btn-danger" type="button">Ya, Hapus</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="batal<?=$key->no?>" class="modal fade">
+                    <div class="modal-dialog modal-confirm">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <div class="icon-box batal">
+                            <i class="material-icons">close</i>
+                          </div>        
+                          <h4 class="modal-title">Yakin ingin batalkan berkas?</h4>  
+                          <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+                        </div>
+                        <div class="modal-body">
+                          <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                          <a href="#"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a>
                         </div>
                       </div>
                     </div>
