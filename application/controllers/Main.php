@@ -224,7 +224,44 @@ class Main extends CI_Controller {
 	}
 
 	//end input berkas//
-	
+
+	//start report//
+	public function report()
+	{
+		$data['title'] = "Halaman Report";
+		// HARI
+		$data['datahari_p'] = $this->M_back->getHariP();
+		$data['datahari_bn'] = $this->M_back->getHariBN();
+		$data['datahari_m'] = $this->M_back->getHariM();
+		$data['datahari_sh'] = $this->M_back->getHariSH();
+		//MINGGU
+		$data['dataminggu_p'] = $this->M_back->getMingguP();
+		$data['dataminggu_bn'] = $this->M_back->getMingguBN();
+		$data['dataminggu_m'] = $this->M_back->getMingguM();
+		$data['dataminggu_sh'] = $this->M_back->getMingguSH();
+		//BULAN
+		$data['databulan_p'] = $this->M_back->getBulanP();
+		$data['databulan_bn'] = $this->M_back->getBulanBN();
+		$data['databulan_m'] = $this->M_back->getBulanM();
+		$data['databulan_sh'] = $this->M_back->getBulanSH();
+		//TOTAL
+		$data['datatotal_p'] = $this->M_back->getTotalP();
+		$data['datatotal_bn'] = $this->M_back->getTotalBN();
+		$data['datatotal_m'] = $this->M_back->getTotalM();
+		$data['datatotal_sh'] = $this->M_back->getTotalSH();
+		$this->load->view('admin',$data);
+	}
+	//end report//
+
+	//start profle//
+	public function profile()
+	{
+		$data['title'] = "Halaman Profile";
+		$data['account'] = $this->M_back->getAccountProfile();
+		$this->load->view('admin',$data);
+	}
+	//end profile//
+
 	//View Berkas
 	public function berkas($id)
 	{

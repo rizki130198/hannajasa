@@ -223,7 +223,7 @@ function b_bulan() {
 
 	var txtFirstNumberValue = document.getElementById('pkb_bu').value;
 	var txtSecondNumberValue = document.getElementById('denda_ba').value;
-	var txtThreeNumberValue = document.getElementById('telat_bln').value;
+	var txtThreeNumberValue = document.getElementById('t_bln').value;
 	var result = parseFloat(txtFirstNumberValue) * parseFloat(txtSecondNumberValue) * parseFloat(txtThreeNumberValue);
 	if (!isNaN(result)) {
 		document.getElementById('total_ba').value = result;

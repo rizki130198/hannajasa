@@ -84,8 +84,8 @@ li.active a{
                 </a>
             </li>
             <?php } ?>
-            <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
-                <a href="#">
+            <li class="<?php if($this->uri->segment(2)=="report"){echo "active";}?>">
+                <a href="<?=site_url('main/report');?>">
                     <i class="material-icons">show_chart</i>
                     <p>Report</p>
                 </a>

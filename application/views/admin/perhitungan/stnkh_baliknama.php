@@ -343,7 +343,7 @@
 											<div class="form-group is-empty">
 												<p>Telat Bulan</p>
 												<select id="telat_bln" onchange="m_sum_t();" class="form-control" name="telat_t_bln">
-													<option disabled selected>-- SILAHKAN PILIH --</option>
+													<option value="0">-- SILAHKAN PILIH --</option>
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>

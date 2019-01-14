@@ -72,15 +72,20 @@
                     echo "Halaman Progress Kerja";
                 }elseif ($this->uri->segment(2)=="blanko") {
                     echo "Halaman Stok Blanko";
+                }elseif ($this->uri->segment(2)=="profile") {
+                    echo "Halaman Profile";
+                }elseif ($this->uri->segment(2)=="report") {
+                    echo "Halaman Report Data";
                 } ?>
             </a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="<?php echo site_url(''); ?>">
+                    <a href="<?php echo site_url('main/profile'); ?>">
                         <i class="material-icons">person</i>
                         <p class="hidden-lg hidden-md">Profile</p>
+                        <?php echo $this->session->userdata('user'); ?>
                     </a>
                 </li>
             </ul>
