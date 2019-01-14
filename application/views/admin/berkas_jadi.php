@@ -173,6 +173,8 @@
                 <option value="bn">Balik Nama</option>
                 <option value="mutasi">Mutasi</option>
                 <option value="m_bn">Mutasi + Balik Nama</option>
+                <option value="stnk">STNK Hilang</option>
+                <option value="stnk_h">STNK Hilang + Balik Nama</option>
               </select>
             </div>
             <div class="material-datatables">
@@ -239,7 +241,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                          <a href="<?= site_url('main/delete/'.$key->id_cetak) ?>"><button class="btn btn-danger" type="button">Ya, Hapus</button></a>
+                          <a href="<?= site_url('main/delete_berkas/perpanjang/'.$key->id_cetak) ?>"><button class="btn btn-danger" type="button">Ya, Hapus</button></a>
                         </div>
                       </div>
                     </div>
@@ -259,7 +261,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                          <a href="#"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a>
+                          <a href="<?= site_url('main/batal_berkas/perpanjang/'.$key->id_cetak) ?>"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a>
                         </div>
                       </div>
                     </div>

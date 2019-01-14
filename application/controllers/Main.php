@@ -217,11 +217,58 @@ class Main extends CI_Controller {
 			$data['input_berkas'] = $this->M_back->getBerkas_bn($id);
 		}elseif ($string=='mutasi') {
 			$data['input_berkas'] = $this->M_back->getBerkas_m($id);
+		}elseif ($string=='mutasi_bn') {
+			$data['input_berkas'] = $this->M_back->getBerkas_mbn($id);
+		}elseif ($string=='stnk') {
+			$data['input_berkas'] = $this->M_back->getBerkas_sh($id);
+		}elseif ($string=='stnk_hb') {
+			$data['input_berkas'] = $this->M_back->getBerkas_shb($id);
 		}else{
 			$data['input_berkas'] = $this->M_back->getBerkas_m($id);
 		}
+	}
+	public function batal_berkas($string)
+	{
+		$id = $this->uri->segment(4);
+		$data['title'] = "Halaman Input Berkas Jadi";
+		if ($string=='perpanjang') {
+			$data['input_berkas'] = $this->M_back->backBerkas_p($id);
+		}else if ($string=='balik_nama') {
+			$data['input_berkas'] = $this->M_back->backBerkas_bn($id);
+		}elseif ($string=='mutasi') {
+			$data['input_berkas'] = $this->M_back->backBerkas_m($id);
+		}elseif ($string=='mutasi_bn') {
+			$data['input_berkas'] = $this->M_back->backBerkas_mbn($id);
+		}elseif ($string=='stnk') {
+			$data['input_berkas'] = $this->M_back->backBerkas_sh($id);
+		}elseif ($string=='stnk_hb') {
+			$data['input_berkas'] = $this->M_back->backBerkas_shb($id);
+		}else{
+			$data['input_berkas'] = $this->M_back->backBerkas_m($id);
+		}
+	}
+	public function delete_berkas($string)
+	{
+		$id = $this->uri->segment(4);
+		$data['title'] = "Halaman Input Berkas Jadi";
+		if ($string=='perpanjang') {
+			$data['input_berkas'] = $this->M_back->delBerkas_p($id);
+		}else if ($string=='balik_nama') {
+			$data['input_berkas'] = $this->M_back->delBerkas_bn($id);
+		}elseif ($string=='mutasi') {
+			$data['input_berkas'] = $this->M_back->delBerkas_m($id);
+		}elseif ($string=='mutasi_bn') {
+			$data['input_berkas'] = $this->M_back->delBerkas_mbn($id);
+		}elseif ($string=='stnk') {
+			$data['input_berkas'] = $this->M_back->delBerkas_sh($id);
+		}elseif ($string=='stnk_hb') {
+			$data['input_berkas'] = $this->M_back->delBerkas_shb($id);
+		}else{
+			$data['input_berkas'] = $this->M_back->delBerkas_m($id);
+		}
 		$this->load->view('admin',$data);
 	}
+
 
 	//end input berkas//
 
@@ -556,8 +603,20 @@ class Main extends CI_Controller {
 			$data['data'] = $this->db->get_where('cetak_balik',array('status' => '1'))->result();
 		}else if ($this->input->post('jenis') == 'mutasi') {
 			$this->db->select('*');
-			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
-			$data['data'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
+			$this->db->join('mutasi', 'cetak_mutasi.id_join = mutasi.id_mutasi');
+			$data['data'] = $this->db->get_where('cetak_mutasi',array('status' => '1'))->result();
+		}else if ($this->input->post('jenis') == 'm_bn') {
+			$this->db->select('*');
+			$this->db->join('mutasi_bn', 'cetak_mutasi.id_join = mutasi_bn.id_mutasibn');
+			$data['data'] = $this->db->get_where('cetak_mutasi',array('status' => '1'))->result();
+		}else if ($this->input->post('jenis') == 'stnk') {
+			$this->db->select('*');
+			$this->db->join('stnk_hilang', 'cetak_stnk.id_join = stnk_hilang.id_stnk');
+			$data['data'] = $this->db->get_where('cetak_stnk',array('status' => '1'))->result();
+		}else if ($this->input->post('jenis') == 'stnk_h') {
+			$this->db->select('*');
+			$this->db->join('stnk_balik', 'cetak_sb.id_join = stnk_balik.id_stnkb');
+			$data['data'] = $this->db->get_where('cetak_sb',array('status' => '1'))->result();
 		}else{
 			$this->db->select('*');
 			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
