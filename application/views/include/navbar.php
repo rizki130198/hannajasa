@@ -67,7 +67,9 @@
                 }elseif ($this->uri->segment(2)=="stnkh_bn") {
                     echo "Halaman STNK Hilang + Balik Nama";
                 }elseif ($this->uri->segment(2)=="harga") {
-                    echo "Halaman Daftar Harga";
+                    echo "Halaman Daftar Harga Kendaraan";
+                }elseif ($this->uri->segment(2)=="harga_jasa") {
+                    echo "Halaman Daftar Harga Jasa";
                 }elseif ($this->uri->segment(2)=="prog_kerja") {
                     echo "Halaman Progress Kerja";
                 }elseif ($this->uri->segment(2)=="blanko") {

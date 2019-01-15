@@ -513,6 +513,7 @@ function loopData(table,type) {
 		if (type == 'perpanjang') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -524,6 +525,7 @@ function loopData(table,type) {
 		}else if (type == 'bn') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -535,6 +537,7 @@ function loopData(table,type) {
 		}else if (type == 'mutasi') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -546,6 +549,7 @@ function loopData(table,type) {
 		}else if (type == 'm_bn') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -557,6 +561,7 @@ function loopData(table,type) {
 		}else if(type == 'stnk'){
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -568,6 +573,7 @@ function loopData(table,type) {
 		}else if(type == 'stnk_h'){
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,

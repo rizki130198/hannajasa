@@ -38,7 +38,7 @@ li.active a{
     border-radius: 3px;
 }
 </style>
-<div class="sidebar" data-color="blue" data-image="<?php echo base_url('assets/img/sidebar-3.jpg'); ?>">
+<div class="sidebar" data-background-color="black" data-color="blue" data-image="<?php echo base_url('assets/img/sidebar-3.jpg'); ?>">
     <div class="logo">
         <a href="<?php echo site_url('cp/dashboard'); ?>" class="simple-text">
             <center><img src="<?php echo base_url('assets/img/tim_80x80.png'); ?>" alt="logo" class="img-responsive" style="height:40px;"></center>
@@ -77,11 +77,27 @@ li.active a{
                 </a>
             </li>
             <?php if($lvl=='super_admin'){?>
-            <li class="<?php if($this->uri->segment(2)=="harga"){echo "active";}?>">
-                <a href="<?=site_url('main/harga');?>">
-                    <i class="material-icons">attach_money</i>
-                    <p>Daftar Harga</p>
+            <li class="<?php if ($this->uri->segment(2)=="harga"){echo "active-drop";}elseif($this->uri->segment(2)=="harga_jasa"){echo "active-drop";} ?>">
+                <a href="#" data-toggle="collapse" data-target="#harga" class="collapsed menu-act">
+                    <i class="material-icons">attach_money</i> 
+                    <p>Daftar Harga <b class="caret pull-right"></b></p> 
                 </a>
+                <div class="<?php if ($this->uri->segment(2)=="harga"){echo "";}elseif($this->uri->segment(2)=="harga_jasa"){echo "";}else{echo "collapse";} ?>" id="harga">
+                    <ul class="nav nav-drop">
+                        <li class="<?php if($this->uri->segment(2)=="harga"){echo "active";}?>">
+                            <a href="<?=site_url('main/harga');?>">
+                                <span class="sidebar-mini"> HK </span>
+                                <span class="sidebar-normal">Harga Kendaraan</span>
+                            </a>
+                        </li>
+                        <li class="<?php if($this->uri->segment(2)=="harga_jasa"){echo "active";}?>">
+                            <a href="<?=site_url('main/harga_jasa');?>">
+                                <span class="sidebar-mini"> HJ </span>
+                                <span class="sidebar-normal">Harga Jasa</span>
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
             </li>
             <?php } ?>
             <li class="<?php if($this->uri->segment(2)=="report"){echo "active";}?>">
@@ -90,19 +106,19 @@ li.active a{
                     <p>Report</p>
                 </a>
             </li>
-            <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
+            <!-- <li class="<?php if($this->uri->segment(2)=="pengaduan"){echo "active";}?>">
                 <a href="#">
                     <i class="material-icons">swap_horizontal</i>
                     <p>Penggantian Kasir</p>
                 </a>
-            </li>
+            </li> -->
             <?php if($lvl=='super_admin'){?>
             <li class="<?php if ($this->uri->segment(2)=="daftar"){echo "active-drop";}elseif($this->uri->segment(2)=="data_pengguna"){echo "active-drop";} ?>">
                 <a href="#" data-toggle="collapse" data-target="#pengguna" class="collapsed menu-act">
                     <i class="material-icons">people</i> 
                     <p>Kasir <b class="caret pull-right"></b></p> 
                 </a>
-                <div class="collapse" id="pengguna">
+                <div class="<?php if ($this->uri->segment(2)=="daftar"){echo "active-drop";}elseif($this->uri->segment(2)=="data_pengguna"){echo "active-drop";}else{echo "collapse";} ?>" id="pengguna">
                     <ul class="nav nav-drop">
                         <li class="<?php if($this->uri->segment(2)=="daftar"){echo "active";}?>">
                             <a href="<?=site_url('main/daftar');?>">

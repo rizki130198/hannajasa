@@ -204,6 +204,7 @@ class Main extends CI_Controller {
 		$data['title'] = "Halaman Berkas Jadi";
 		$this->db->select('*');
 		$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
+		$this->db->join('users', 'cetak_perpanjang.id_user = users.id_users');
 		$data['berkas'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
 		$this->load->view('admin',$data);
 	}
@@ -427,6 +428,19 @@ class Main extends CI_Controller {
 	}
 	//end daftar harga//
 
+	//start Harga jasa//
+	public function harga_jasa()
+	{
+		$data['title'] = "Halaman Harga Jasa";
+		$this->load->view('admin',$data);
+	}
+	public function load_harga_jasa()
+	{
+		$data = $this->M_back->load_harga_jasa();
+		echo json_encode($data);
+	}
+	//end harga jasa//
+
 	//start Stok Blanko//
 	public function blanko()
 	{
@@ -596,30 +610,37 @@ class Main extends CI_Controller {
 		if ($this->input->post('jenis') == 'perpanjang') {
 			$this->db->select('*');
 			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
+			$this->db->join('users', 'cetak_perpanjang.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
 		}elseif ($this->input->post('jenis') == 'bn') {
 			$this->db->select('*');
 			$this->db->join('balik_nama', 'cetak_balik.id_join = balik_nama.id_balik');
+			$this->db->join('users', 'cetak_balik.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_balik',array('status' => '1'))->result();
 		}else if ($this->input->post('jenis') == 'mutasi') {
 			$this->db->select('*');
 			$this->db->join('mutasi', 'cetak_mutasi.id_join = mutasi.id_mutasi');
+			$this->db->join('users', 'cetak_mutasi.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_mutasi',array('status' => '1'))->result();
 		}else if ($this->input->post('jenis') == 'm_bn') {
 			$this->db->select('*');
 			$this->db->join('mutasi_bn', 'cetak_mutasi.id_join = mutasi_bn.id_mutasibn');
+			$this->db->join('users', 'cetak_mutasi.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_mutasi',array('status' => '1'))->result();
 		}else if ($this->input->post('jenis') == 'stnk') {
 			$this->db->select('*');
 			$this->db->join('stnk_hilang', 'cetak_stnk.id_join = stnk_hilang.id_stnk');
+			$this->db->join('users', 'cetak_stnk.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_stnk',array('status' => '1'))->result();
 		}else if ($this->input->post('jenis') == 'stnk_h') {
 			$this->db->select('*');
 			$this->db->join('stnk_balik', 'cetak_sb.id_join = stnk_balik.id_stnkb');
+			$this->db->join('users', 'cetak_sb.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_sb',array('status' => '1'))->result();
 		}else{
 			$this->db->select('*');
 			$this->db->join('perpanjang', 'cetak_perpanjang.id_join = perpanjang.id_perpanjang');
+			$this->db->join('users', 'cetak_perpanjang.id_user = users.id_users');
 			$data['data'] = $this->db->get_where('cetak_perpanjang',array('status' => '1'))->result();
 		}
 		echo json_encode($data);
