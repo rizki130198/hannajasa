@@ -179,12 +179,12 @@ class Main extends CI_Controller {
 	public function cetak_stnkhilang($id)
 	{
 		$query = $this->db->query('SELECT * FROM cetak_stnk c INNER JOIN stnk_hilang p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
-		return var_dump($query);
+		// return var_dump($query);
 		if ($query->num_rows() > 0) {
 			$data['stnk'] = $query->row();
 			$this->load->view('admin/cetak/c_stnkhilang');
 		}else{
-			redirect('main/transaksi_sh'.$id);
+			redirect('main/transaksi_sh/'.$id);
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		}
 	}

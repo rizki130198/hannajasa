@@ -40,7 +40,7 @@
 								<div class="col-md-12">
 									<div class="form-group is-empty">
 										<p>Jenis Jasa</p>
-										<select name="jenis" class="form-control" onchange="ambiljasa()" id="jenisjasa">
+										<select name="jenis_jasa" class="form-control" onchange="ambiljasa()" id="jenisjasa">
 											<option value="" disabled="" selected>-- SILAHKAN PILIH --</option>
 											<option value="" disabled=""></option>
 											<?php foreach ($jasa->result() as $key): ?>
@@ -276,7 +276,7 @@
 									<div class="col-md-12">
 										<div class="form-group jum-b">
 											<label class="control-label">Total Pajak</label>
-											<input type="text" name="total_pajak" id="sum_pajak_b" class="form-control jumlah_biaya">
+											<input type="text" name="total_pajak1" id="sum_pajak_b" class="form-control jumlah_biaya">
 											<span class="material-input"></span>
 										</div>
 									</div>
@@ -285,7 +285,7 @@
 									<div class="col-md-12">
 										<div class="form-group jum-b">
 											<label class="control-label">Biaya Jasa</label>
-											<input type="text" name="biaya_jasa" class="form-control jasa jumlah_biaya">
+											<input type="text" name="biaya_jasa1" class="form-control jasa jumlah_biaya">
 											<span class="material-input"></span>
 										</div>
 									</div>
@@ -345,7 +345,7 @@
 									<div class="col-md-12">
 										<div class="form-group jum-t">
 											<label class="control-label">Total Pajak</label>
-											<input type="text" name="total_pajak" id="sum_pajak_t" class="form-control jumlah_t">
+											<input type="text" name="total_pajak2" id="sum_pajak_t" class="form-control jumlah_t">
 											<span class="material-input"></span>
 										</div>
 									</div>
@@ -354,7 +354,7 @@
 									<div class="col-md-12">
 										<div class="form-group jum-b jum-t">
 											<label class="control-label">Biaya Jasa</label>
-											<input type="text" name="biaya_jasa" class="form-control jasa jumlah_t">
+											<input type="text" name="biaya_jasa2" class="form-control jasa jumlah_t">
 											<span class="material-input"></span>
 										</div>
 									</div>
