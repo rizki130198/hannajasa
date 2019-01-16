@@ -335,8 +335,13 @@ class M_back extends CI_Model {
 	// Start Harga //
 	public function load_harga()
 	{
-		$this->db->order_by('id_catat');
-		$query = $this->db->get('catatan');
+		$query = $this->db->query("SELECT * FROM catatan WHERE jenis_harga='swdkllj' or jenis_harga='stnk' or jenis_harga='tnkb' or jenis_harga='sanksi'");
+		return $query->result_array();
+	}
+	public function load_harga_jasa()
+	{
+		$jenis = array('jenis_harga' => 'jasa');
+		$query = $this->db->get_where('catatan',$jenis);
 		return $query->result_array();
 	}
 	function act_update_harga()
@@ -1558,10 +1563,10 @@ class M_back extends CI_Model {
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			$id = $this->db->insert_id();
-			redirect('main/transaksi_bn/'.$id);
+			redirect('main/transaksi_sb/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
-			redirect('main/balik_nama');
+			redirect('main/stnkh_bn');
 		}
 	}
 	public function cetak_sb()
@@ -1827,7 +1832,7 @@ class M_back extends CI_Model {
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			$id = $this->db->insert_id();
-			redirect('main/dashboard/');
+			redirect('main/transaksi_mb/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
 			redirect('main/mutasi');

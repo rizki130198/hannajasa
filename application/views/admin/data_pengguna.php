@@ -158,22 +158,24 @@
 							<!--        Here you can write extra buttons/actions for the toolbar              -->
 						</div>
 						<div class="material-datatables">
-							<table class="table table-striped table-no-bordered table-hover" style="width:100%">
-								<thead>
-									<tr>
-										<th>No</th>
-										<th>Nama</th>
-										<th>Username</th>
-										<th>Email</th>
-										<th>Password</th>
-										<th>Hak Akses</th>
-										<th>Created Data</th>
-										<th class="disabled-sorting">Actions</th>
-									</tr>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-striped table-no-bordered table-hover" style="width:100%">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Nama</th>
+											<th>Username</th>
+											<th>Email</th>
+											<th>Password</th>
+											<th>Hak Akses</th>
+											<th>Created Data</th>
+											<th class="disabled-sorting">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
