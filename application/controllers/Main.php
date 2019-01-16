@@ -29,6 +29,7 @@ class Main extends CI_Controller {
 	public function perpanjang()
 	{
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
 		$data['title'] = "Halaman Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
@@ -132,6 +133,29 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
+	public function transaksi_mb($id)
+	{
+		$querynya = $this->db->get_where('mutasi_bn',array('id_mutasibn'=>$id));
+		if ($querynya->num_rows() > 0) {
+			$data['title'] = "Halaman Transaksi Balik Nama STNK";
+			$this->load->view('admin',$data);
+		}else{
+			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
+			redirect('main/dashboard');
+		}
+	}
+	public function cetak_mutasibn()
+	{
+		// $query = $this->db->query('SELECT * FROM cetak_mutasibn c INNER JOIN mutasi_bn p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
+		// return var_dump($query);
+		// if ($query->num_rows() > 0) {
+			// $data['stnk'] = $query->row();
+			$this->load->view('admin/cetak/c_mutasibn');
+		// }else{
+			// redirect('main/transaksi_mb'.$id);
+			// $this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
+		// }
+	}
 	//start mutasi+balik nama//
 
 	//start stnk hilang//
@@ -173,9 +197,9 @@ class Main extends CI_Controller {
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
 		$this->load->view('admin',$data);
 	}
-	public function transaksi_sb()
+	public function transaksi_sb($id)
 	{
-		// $querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
+		// $querynya = $this->db->get_where('stnk_balik',array('id_stnkb'=>$id));
 		// if ($querynya->num_rows() > 0) {
 		$data['title'] = "Halaman Transaksi STNK Hilang + Balik Nama";
 		$this->load->view('admin',$data);
@@ -184,17 +208,17 @@ class Main extends CI_Controller {
 			// redirect('main/dashboard');
 		// }
 	}
-	public function cetak_stnkhh_bn()
+	public function cetak_stnkh_bn()
 	{
-		// $query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
+		// $query = $this->db->query('SELECT * FROM cetak_sb c INNER JOIN perpanjang p ON c.id_join = p.id_stnkb where c.id_join='.$id.'');
 		//return var_dump($query);
 		// if ($query->num_rows() > 0) {
 			// $data['perpanjang'] = $query->row();
 		// }else{
-			// redirect('main/transaksi_p');
+			// redirect('main/transaksi_sb'.$id);
 			// $this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		// }
-		$this->load->view('admin/cetak/c_stnkhilang');
+		$this->load->view('admin/cetak/c_stnkh_bn');
 	}
 	//end stnk hilang//
 
@@ -227,6 +251,7 @@ class Main extends CI_Controller {
 		}else{
 			$data['input_berkas'] = $this->M_back->getBerkas_m($id);
 		}
+		$this->load->view('admin',$data);
 	}
 	public function batal_berkas($string)
 	{
@@ -267,7 +292,6 @@ class Main extends CI_Controller {
 		}else{
 			$data['input_berkas'] = $this->M_back->delBerkas_m($id);
 		}
-		$this->load->view('admin',$data);
 	}
 
 
@@ -485,6 +509,20 @@ class Main extends CI_Controller {
 		}
 		echo json_encode($data);
 	}
+	public function ambiljasa()
+	{
+		$nama = $this->input->post('nama');
+		$query = $this->db->query('SELECT * FROM catatan WHERE jenis_harga="jasa" AND nama="'.$nama.'"');
+		$i = 0;
+		$data = "";
+		foreach ($query->result() as $key) {
+			$data[$i] = array(
+				'harga'=>$key->harga,
+			);
+			$i++;
+		}
+		echo json_encode($data);
+	}
 	public function ambiljenis()
 	{
 		$jenis = $this->input->post('jenis');
@@ -647,6 +685,42 @@ class Main extends CI_Controller {
 		
 	}
 	//end cetak pdf//
+
+	public function datahistory()
+	{
+		$data['title'] = 'Halaman History';
+		$data['perpanjang'] = $this->db->query("SELECT * FROM cetak_perpanjang c 
+			INNER JOIN users u  ON c.id_user = u.id_users 
+			INNER JOIN perpanjang p ON p.id_perpanjang = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+
+		$data['balik'] = $this->db->query("SELECT * FROM cetak_balik c 
+			INNER JOIN users u ON c.id_user = u.id_users
+			INNER JOIN balik_nama p ON p.id_balik = c.id_join
+		 where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['mutasi'] = $this->db->query("SELECT * FROM cetak_mutasi c 
+			INNER JOIN users u ON c.id_user = u.id_users 
+			INNER JOIN mutasi p ON p.id_mutasi = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['mutasi_bn'] = $this->db->query("SELECT * FROM cetak_mutasibn c 
+			INNER JOIN users u ON c.id_user = u.id_users 
+			INNER JOIN mutasi_bn p ON p.id_mutasibn = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['stnk'] = $this->db->query("SELECT * FROM cetak_stnk c 
+			INNER JOIN users u ON c.id_user = u.id_users
+			INNER JOIN stnk_hilang p ON p.id_stnk = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+		
+		$data['stnk_bn'] = $this->db->query("SELECT * FROM cetak_sb c 
+			INNER JOIN users u ON c.id_user = u.id_users
+			INNER JOIN stnk_balik p ON p.id_stnkb = c.id_join
+			where c.id_user='".$this->session->userdata('id')."' AND c.tanggal='".date("Y-m-d")."'")->result();
+
+		$this->load->view('admin', $data);
+	}
 	public function logout()
 	{
 		$sess = $this->session->sess_destroy();

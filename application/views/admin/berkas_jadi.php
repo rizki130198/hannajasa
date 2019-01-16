@@ -182,7 +182,7 @@
                 <thead>
                  <tr>
                   <th>No Transaksi</th>
-                  <th>Kasir</th>
+                  <th>Pengguna</th>
                   <th>Jenis Proses</th>
                   <th>Atas Nama</th>
                   <th>Nomor Telp</th>

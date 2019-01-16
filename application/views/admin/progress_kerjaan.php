@@ -171,17 +171,17 @@
 									</thead>
 									<tbody>
 										<?php 
-											$no=1; foreach ($karyawan as $dataKaryawan) { 
-										?>
-										<tr>
-											<td><?php echo $no++; ?></td>
-											<td><?= $dataKaryawan['nama'];?></td>
-											<td><?= $dataKaryawan['email'];?></td>
-											<td><?= $dataKaryawan['hak_akses'];?></td>
-											<td>
-												<a href="#"><button type="button" class="btn btn-success">Cek Progress</button></a>
-											</td>
-										</tr>
+										$no=1; foreach ($karyawan as $dataKaryawan) { 
+											?>
+											<tr>
+												<td><?php echo $no++; ?></td>
+												<td><?= $dataKaryawan['nama'];?></td>
+												<td><?= $dataKaryawan['email'];?></td>
+												<td><?= $dataKaryawan['hak_akses'];?></td>
+												<td>
+													<a href="<?= site_url('main/datahistory') ?>"><button type="button" class="btn btn-success">Cek Progress</button></a>
+												</td>
+											</tr>
 										<?php } ?>
 									</tbody>
 								</table>

@@ -347,10 +347,13 @@ class M_back extends CI_Model {
 	function act_update_harga()
 	{
 		$id = $this->input->post('id_catat');
-		$query = $this->db->update('catatan', array(
-			'harga'=> $this->input->post('value'),
-			'created_at' => date('Y-m-d')
-		),array('id_catat'=>$id));
+		$row = $this->db->get_where('catatan',array('id_catat'=>$id))->row();
+		if ($this->input->post('value') != $row->harga) {
+			$query = $this->db->update('catatan', array(
+				'harga'=> $this->input->post('value'),
+				'created_at' => date('Y-m-d')
+			),array('id_catat'=>$id));
+		}
 	}
 	// End Harga //
 	
@@ -1560,10 +1563,10 @@ class M_back extends CI_Model {
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			$id = $this->db->insert_id();
-			redirect('main/transaksi_bn/'.$id);
+			redirect('main/transaksi_sb/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
-			redirect('main/balik_nama');
+			redirect('main/stnkh_bn');
 		}
 	}
 	public function cetak_sb()
@@ -1829,7 +1832,7 @@ class M_back extends CI_Model {
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			$id = $this->db->insert_id();
-			redirect('main/dashboard/');
+			redirect('main/transaksi_mb/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
 			redirect('main/mutasi');

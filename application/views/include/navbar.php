@@ -60,12 +60,16 @@
                     echo "Halaman Transaksi Mutasi";
                 }elseif ($this->uri->segment(2)=="mutasibn") {
                     echo "Halaman Mutasi + Balik Nama";    
+                }elseif ($this->uri->segment(2)=="transaksi_mb") {
+                    echo "Halaman Transaksi Mutasi + Balik Nama";    
                 }elseif ($this->uri->segment(2)=="stnk_hilang") {
                     echo "Halaman STNK Hilang";
                 }elseif ($this->uri->segment(2)=="transaksi_sh") {
                     echo "Halaman Transaksi STNK Hilang";
                 }elseif ($this->uri->segment(2)=="stnkh_bn") {
                     echo "Halaman STNK Hilang + Balik Nama";
+                }elseif ($this->uri->segment(2)=="transaksi_sb") {
+                    echo "Halaman Transaksi STNK Hilang + Balik Nama";
                 }elseif ($this->uri->segment(2)=="harga") {
                     echo "Halaman Daftar Harga Kendaraan";
                 }elseif ($this->uri->segment(2)=="harga_jasa") {

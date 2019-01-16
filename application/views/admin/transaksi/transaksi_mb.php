@@ -27,7 +27,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header" style="background-color: #00c0ef;">
-						<h4 class="title">Transaksi Mutasi STNK</h4>
+						<h4 class="title">Transaksi Mutasi + Balik Nama STNK</h4>
 					</div>
 					<div class="card-content">
 						<form action="<?= site_url('main/p_mutasi') ?>" method="POST" class="form-horizontal">
@@ -181,7 +181,19 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label" style="font-weight: bold;font-size: 1.3em !important;color: #333;margin: 0;padding: 0;padding-top: 7px !important;margin-bottom: 10px;">Biaya Pengurusan</label>
+								<label class="col-sm-2 control-label" style="font-weight: bold;font-size: 1.3em !important;color: #333;margin: 0;padding: 0;padding-top: 7px !important;">Biaya Pengurusan <span class="titik2">:</span></label>
+								<div class="col-sm-8" style="display: inline-flex;">
+									<div class="checkbox">
+										<label style="font-weight: bold;color: #333;">
+											<input type="checkbox" name="balik" value="balik nama"> BALIK NAMA
+										</label>
+									</div>
+									<div class="checkbox">
+										<label style="font-weight: bold;color: #333;">
+											<input type="checkbox" name="penyesuaian" value="penyesuaian alamat"> PENYESUAIAN ALAMAT
+										</label>
+									</div>
+								</div>
 							</div>
 							<div class="table-responsive">
 								<table class="table">
@@ -251,6 +263,20 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_bn" value="ada"> Biaya Proses BN/PA</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group jum-b" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control jumlah_biaya" name="harga_bn" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
 															<label style="font-weight: bold;color: #333;"><input type="checkbox"name="adm_skp" value="ada"> Adm.SKP / Pajak lalu</label>
 															<span class="titik2">:</span>
 														</div>
@@ -273,6 +299,34 @@
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
 															<input type="text" class="form-control jumlah_biaya" name="harga_hilang" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"name="slp" value="ada"> Surat Laporan Kepolisian</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group jum-b" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control jumlah_biaya" name="harga_slp" placeholder="Masukan nominal">
+														</div>
+													</div>
+												</div>
+												<div class="form-group" style="margin-top: 0 !important;">
+													<div class="col-sm-5">
+														<div class="checkbox" style="display: contents;">
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="fisik" value="ada"> Ganti Plat</label>
+															<span class="titik2">:</span>
+														</div>
+													</div>
+													<div class="col-sm-7">
+														<div class="input-group jum-b" style="margin-top: -6px;">
+															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
+															<input type="text" class="form-control jumlah_biaya" name="harga_fisik" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>

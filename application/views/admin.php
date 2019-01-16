@@ -257,12 +257,16 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/transaksi/transaksi_m');
 			}else if ($u2 == "mutasibn") {
 				$this->load->view('admin/perhitungan/mutasi_bn');	
+			}else if ($u2 == "transaksi_mb") {
+				$this->load->view('admin/transaksi/transaksi_mb');	
 			}else if ($u2 == "stnk_hilang") {
 				$this->load->view('admin/perhitungan/stnkhilang');	
 			}else if ($u2 == "transaksi_sh") {
 				$this->load->view('admin/transaksi/transaksi_sh');	
 			}else if ($u2 == "stnkh_bn") {
 				$this->load->view('admin/perhitungan/stnkh_baliknama');	
+			}else if ($u2 == "transaksi_sb") {
+				$this->load->view('admin/transaksi/transaksi_sb');	
 			}else if ($u2 == "berkas_jadi") {
 				$this->load->view('admin/berkas_jadi');	
 			}else if ($u2 == "input_berkas") {
@@ -283,6 +287,8 @@ if ($uri=="eksporpdf") {
 				$this->load->view('admin/berkas');	
 			}else if ($u2 == "prog_kerja") {
 				$this->load->view('admin/progress_kerjaan');	
+			}else if ($u2 == "datahistory") {
+				$this->load->view('admin/data_history');	
 			}else{
 				$this->load->view('admin/dashboard');
 			}
@@ -398,6 +404,39 @@ if ($uri=="cetak") { ?>
 	});
 </script>
 <script type="text/javascript">
+	$('.jum-pajak').on('input','.jumlah_pajak',function(){
+		var totalSum = 0;
+		$('.jum-pajak .jumlah_pajak').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_pajak').val(totalSum);
+	});
+	$('.jumlah_pajak_t').on('input','.jumlah_p_t',function(){
+		var totalSum = 0;
+		$('.jumlah_pajak_t .jumlah_p_t').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_pajak_t').val(totalSum);
+	});
+	$('.jum-pajak-b').on('input','.jumlah_pajak_b',function(){
+		var totalSum = 0;
+		$('.jum-pajak-b .jumlah_pajak_b').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_pajak_b').val(totalSum);
+	});
 	$('.jum-n').on('input','.jumlah_n',function(){
 		var totalSum = 0;
 		$('.jum-n .jumlah_n').each(function(){
@@ -429,7 +468,7 @@ if ($uri=="cetak") { ?>
 			}
 		});
 		// $('#sum').val(totalSum);
-		$('#sum_t').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+		$('#sum_t').val(totalSum);
 	});
 	$('.jum-pajak').on('input','.jumlah',function(){
 		var totalSum = 0;
