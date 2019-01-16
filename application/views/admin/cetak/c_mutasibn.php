@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Halaman Cetak STNK Hilang</title>
+	<title>Halaman Cetak Mutasi + Balik Nama</title>
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap4.min.css');?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/material-dashboard.css'); ?>">
@@ -234,7 +234,7 @@ table tr td{
 </style>
 <body>
 	<div class="content">
-		<div class="container-fluid"> 
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
@@ -269,11 +269,11 @@ table tr td{
 												<div class="form-group row" style="margin-top: -12px !important;">
 													<label class="col-sm-4 col-form-label" style="padding-left: 0;width: 27%;">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></label>
 													<div class="col-sm-8">
-														<input type="text" value="<?=$stnk->penerima?>" style="margin-top: -3px;" class="form-control" placeholder="Masukan nama">
+														<input type="text" value="" style="margin-top: -3px;" class="form-control" placeholder="Masukan nama">
 													</div>
 													<label class="col-sm-4 col-form-label" style="padding-left: 0;width: 27%;margin-top: -10px;">Telp./HP <span class="titik2">:</span></label>
 													<div class="col-sm-8">
-														<input type="number" value="<?=$stnk->no_telp?>" style="margin-top: -10px;" class="form-control" placeholder="Masukan nomor telp/hp">
+														<input type="number" value="" style="margin-top: -10px;" class="form-control" placeholder="Masukan nomor telp/hp">
 													</div>
 												</div>
 											</div>
@@ -282,21 +282,21 @@ table tr td{
 								</div>
 								<hr style="border-color: #333;border-top:solid 2px;margin-top: -10px !important;">
 								<div class="col-md-12" style="">
-									<h4 style="font-weight: bold;text-align: right;margin-top: -10px;margin-bottom: 0 !important;">No : <span style="text-decoration: underline;padding-bottom: 0 !important;"><?=$stnk->no?></span></h4>
+									<h4 style="font-weight: bold;text-align: right;margin-top: -10px;margin-bottom: 0 !important;">No : <span style="text-decoration: underline;padding-bottom: 0 !important;"></span></h4>
 								</div>
 								<div class="form-group row" style="margin-top:-10px !important;margin: 0 !important;">
 									<label class="col-sm-2 col-form-label">Sudah terima dari (atas nama)<span class="titik2">:</span></label>
 									<div class="col-sm-8">
 										<div class="input-group">
 											<span class="input-group-addon">Bpk/Ibu/Sdr-i/PT :</span>
-											<input type="text" value="<?=$stnk->atas_nama?>" style="margin-top: -3px;" class="form-control" placeholder="Sudah terima dari ( atas nama )">
+											<input type="text" value="" style="margin-top: -3px;" class="form-control" placeholder="Sudah terima dari ( atas nama )">
 										</div>
 									</div>
 								</div>
 								<div class="form-group row" style="margin: 0 !important;">
 									<label class="col-sm-2 col-form-label" style="margin-top:-18px !important;">Uang Muka (DP) Sebesar <span class="titik2">:</span></label>
 									<div class="col-sm-8">
-										<div class="uangmuka"><h5 style="transform: skew(25deg);margin: 0 10px;">Rp. <?=$stnk->uang_dp?></h5></div>
+										<div class="uangmuka"><h5 style="transform: skew(25deg);margin: 0 10px;">Rp. </h5></div>
 									</div>
 								</div>
 								<div class="form-group row">
@@ -308,48 +308,29 @@ table tr td{
 								<div class="form-group row">
 									<label class="col-sm-2 col-form-label" style="margin-top:-35px !important;">1. BPKB <span class="titik2">:</span></label>
 									<div class="col-sm-4 berkas" style="display: inline-flex;">
-										<?php $bpkb = explode(',', $stnk->bpkb);?>
-										<?php $sim = explode(',', $stnk->sim);?>
-										<?php $rowstnk = explode(',', $stnk->stnk);?>
 										<div class="checkbox" style="padding-right: 75px;">
 											<label>
-												<input type="checkbox"<?=($bpkb[0]==NULL)?NULL:'checked value="'.$bpkb[0].'"'?>> Ada <span style="font-style: italic;">(Melampirkan Faktur)</span>
+												<input type="checkbox"> Ada <span style="font-style: italic;">(Melampirkan Faktur)</span>
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"<?=($bpkb[1]==NULL)?NULL:'checked value="'.$bpkb[1].'"'?>> Ada <span style="font-style: italic;">(Tanpa Faktur)</span>
+												<input type="checkbox"> Ada <span style="font-style: italic;">(Tanpa Faktur)</span>
 											</label>
 										</div>
 									</div>
 									<div class="col-sm-3">
 										<div class="input-group" style="margin-top:-35px !important;">
 											<span class="input-group-addon">B.</span>
-											<input type="text" value="<?=$stnk->nopol?>" class="form-control" placeholder="Masukan Nopol">
+											<input type="text" value="" class="form-control" placeholder="Masukan Nopol">
 										</div>
 									</div>
 									<div class="col-md-1">
 										<div class="input-group" style="margin-top:-35px !important;">
 											<select class="form-control" name="jenis_k" required="">
 												<option value="" selected></option>
-												<option value="" selected><?=$stnk->jenis_kendaraan?></option>
 											</select>
 											<span class="material-input"></span>
-										</div>
-									</div>
-								</div>
-								<div class="form-group row">
-									<label class="col-sm-2 col-form-label" style="margin-top:-35px !important;"></label>
-									<div class="col-sm-8 berkas" style="display: inline-flex;">
-										<div class="checkbox" style="padding-right: 105px;">
-											<label>
-												<input type="checkbox" <?=($bpkb[2]==NULL)?NULL:'checked value="'.$bpkb[2].'"'?>> Diganti Surat Leasing
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" <?=($bpkb[3]==NULL)?NULL:'checked value="'.$bpkb[3].'"'?>> TIdak Ada <span style="font-style: italic;">(Surat Leasing diurus Biro Jasa)</span>
-											</label>
 										</div>
 									</div>
 								</div>
@@ -358,19 +339,19 @@ table tr td{
 									<div class="col-sm-3 berkas" style="display: inline-flex;">
 										<div class="checkbox" style="padding-right: 75px;">
 											<label>
-												<input type="checkbox"<?=($sim[0]==NULL)?NULL:'checked value="'.$sim[0].'"';?>> Asli
+												<input type="checkbox"> Asli
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"<?=($sim[1]==NULL)?NULL:'checked value="'.$sim[1].'"';?>> FotoCopy
+												<input type="checkbox"> FotoCopy
 											</label>
 										</div>
 									</div>
 									<div class="col-sm-5">
 										<div class="input-group" style="margin-top:-35px !important;">
 											<span class="input-group-addon">Wilayah : DKI/ </span>
-											<input type="text" value="<?=$stnk->wilayah?>" class="form-control" placeholder="Masukan Wilayah">
+											<input type="text" value="" class="form-control" placeholder="Masukan Wilayah">
 										</div>
 									</div>
 								</div>
@@ -379,25 +360,69 @@ table tr td{
 									<div class="col-sm-3 berkas" style="display: inline-flex;">
 										<div class="checkbox" style="padding-right: 75px;">
 											<label>
-												<input type="checkbox" <?=($rowstnk[0]==NULL)?NULL:'checked value="'.$rowstnk[0].'"';?>> Ada
+												<input type="checkbox" > Ada
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"<?=($rowstnk[1]==NULL)?NULL:'checked value="'.$rowstnk[1].'"';?>> Tidak ada
+												<input type="checkbox"> Tidak ada
 											</label>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class="input-group" style="margin-top:-35px !important;">
+											<span class="input-group-addon">Masa Berlaku Pajak :</span>
+											<input type="text" value="" class="form-control" placeholder="Masukan Masa Berlaku">
 										</div>
 									</div>
 								</div>
 								<div class="form-group row">
 									<label class="col-sm-2 col-form-label" style="margin-top:-35px !important;">4. Lain-lain Berupa <span class="titik2">:</span></label>
 									<div class="col-sm-8">
-										<input type="text" value="<?=$stnk->lainnya?>" style="margin-top:-35px !important;" class="form-control">
+										<input type="text" value="" style="margin-top:-35px !important;" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" style="margin-top:-35px !important;padding-left: 32px;">Untuk Keperluan Proses <span class="titik2">:</span></label>
+									<div class="col-md-4">
+										<div class="input-group" style="margin-top:-30px !important;">
+											<span class="input-group-addon">Mutasi STNK/BPKB dari</span>
+											<input type="text" value="" class="form-control">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group" style="margin-top:-30px !important;">
+											<span class="input-group-addon">ke</span>
+											<input type="text" value="" class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label" style="margin-top:-35px !important;padding-left: 32px;"></label>
+									<div class="col-md-4">
+										<div class="input-group" style="margin-top:-30px !important;">
+											<span class="input-group-addon">Cabut Berkas dari</span>
+											<input type="text" value="" class="form-control">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group" style="margin-top:-30px !important;">
+											<span class="input-group-addon">ke</span>
+											<input type="text" value="" class="form-control">
+										</div>
 									</div>
 								</div>
 								<div class="form-group row" style="margin: 0 !important;">
-									<div class="col-sm-12" style="display: inline-flex;padding-left: 0;">
-										<label class="control-label" style="font-weight: bold;font-size: 20px !important;color: #333;margin: 0;padding: 0;text-transform:uppercase;padding-top: 3px !important;">Biaya Pengurusan stnk hilang :</label>
+									<label class="control-label" style="font-weight: bold;font-size: 17px !important;color: #333;margin: 0;padding: 0;padding-top: 3px !important;padding-right: 10px;">Biaya Pengurusan <span class="titik2"> :</span></label>
+									<div class="checkbox">
+										<label style="font-weight: bold;color: #333;">
+											<input type="checkbox" > BALIK NAMA
+										</label>
+									</div>
+									<div class="checkbox">
+										<label style="font-weight: bold;color: #333;">
+											<input type="checkbox" > PENYESUAIAN ALAMAT
+										</label>
 									</div>
 								</div>
 								<div class="row">
@@ -416,22 +441,22 @@ table tr td{
 															<div class="form-group row" style="margin-top:0px !important;">
 																<div class="col-sm-12" style="display: inline-flex;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox"<?=($stnk->pajak_ini==NULL)?NULL :'checked value="'.$stnk->pajak_ini.'"'?>> Pajak Tahun ini</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" > Pajak Tahun ini</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_pajak_ini?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0px !important;">
 																<div class="col-sm-12" style="display: inline-flex;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox"<?=($stnk->pajak_lalu==NULL)?NULL :'checked value="'.$stnk->pajak_lalu.'"'?>> Pajak Tahun lalu (SKP)</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" > Pajak Tahun lalu (SKP)</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_pajak_lalu?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -440,7 +465,7 @@ table tr td{
 																	<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top: 0 !important;">Total Pajak</label>
 																	<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->total_pajak?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -450,101 +475,90 @@ table tr td{
 															<div class="form-group row" style="margin-top:0px !important;">
 																<div class="col-sm-12" style="display: inline-flex;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->biaya_ps==NULL)?NULL :'checked value="'.$stnk->biaya_ps.'"'?>> Biaya Proses STNK Hilang</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" > Biaya Proses Mutasi</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_ps?>" class="form-control">
+																		<input type="text" value="" class="form-control">
+																	</div>
+																</div>
+															</div>
+															<div class="form-group row" style="margin-top:0px !important;">
+																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
+																	<div class="checkbox" style="width: 50%;margin-left: 0;">
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox"> Biaya Proses BN/PA</label>
+																	</div>
+																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
+																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->adm_skp==NULL)?NULL :'checked value="'.$stnk->adm_skp.'"'?>> Adm. SKP/Pajak Lalu</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" > Adm. SKP/Pajak Lalu</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_adm?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->slp==NULL)?NULL :'checked value="'.$stnk->slp.'"'?>> Surat Laporan Kepolisian</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" > * STNK Hilang</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_slp?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->plat==NULL)?NULL :'checked value="'.$stnk->plat.'"'?>> + Ganti Plat</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox"> Surat Laporan Kepolisian</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_plat?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->balik_nama==NULL)?NULL :'checked value="'.$stnk->balik_nama.'"'?>> + Balik Nama/Ganti BPKB</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox"> Ganti Plat</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_gb?>" class="form-control">
-																	</div>
-																</div>
-															</div>
-															<div class="form-group row" style="margin-top: 0 !important;">
-																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
-																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox"<?=($stnk->p_alamat==NULL)?NULL :'checked value="'.$stnk->p_alamat.'"'?>> + Penyesuaian Alamat</label>
-																	</div>
-																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
-																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_pa?>" class="form-control">
-																	</div>
-																</div>
-															</div>
-															<div class="form-group row" style="margin-top: 0 !important;">
-																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
-																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox"<?=($stnk->psl==NULL)?NULL :'checked value="'.$stnk->psl.'"'?>> Pembuatan Surat Leasing</label>
-																	</div>
-																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
-																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_psl?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="margin-left: 0;padding-right: 28px;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->p_lain==NULL)?NULL :'checked value="'.$stnk->p_lain.'"'?>></label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox"></label>
 																	</div>
-																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$stnk->p_lain?>" class="form-control" placeholder="">
+																	<input type="text" style="width: 44%;margin-top: -4px;" value="" class="form-control" placeholder="">
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_lain?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="margin-left: 0;padding-right: 28px;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->p_lainnya==NULL)?NULL :'checked value="'.$stnk->	.'"'?>></label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" ></label>
 																	</div>
-																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$stnk->p_lainnya?>" class="form-control" placeholder="">
+																	<input type="text" style="width: 44%;margin-top: -4px;" value="" class="form-control" placeholder="">
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->harga_lainnya?>" class="form-control">
+																		<input type="text" value="" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -553,7 +567,7 @@ table tr td{
 																	<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top:5px !important;">Total Biaya Proses</label>
 																	<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$stnk->total_proses?>" class="form-control">
+																		<input type="text" value=">" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -566,7 +580,7 @@ table tr td{
 																<div class="col-sm-6">
 																	<div class="input-group" style="margin-top: -10px !important;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-																		<input value="<?=$stnk->biaya_prediksi?>" type="text" style="background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#333, #333);" class="form-control">
+																		<input value="" type="text" style="background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#333, #333);" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -575,7 +589,7 @@ table tr td{
 																<div class="col-sm-6">
 																	<div class="input-group" style="margin-top: -15px !important;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-																		<input type="text" value="<?=$stnk->biaya_kurang?>" style="background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#333, #333);" class="form-control">
+																		<input type="text" value="" style="background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#333, #333);" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -587,9 +601,9 @@ table tr td{
 										<h4 style="font-weight: bold;">KEMBALIKAN SURAT INI SEBAGAI BUKTI PENGEMBALIAN !</h4>
 									</div>
 									<div class="col-md-4">
-										<p style="font-weight: 100;margin-bottom: 0;"><strong>Lama Proses STNK Hilang</strong></p>
-										<p>STNK Jadi/Selesai = 3-7 pekan</p>
-										<p style="margin-top: -15px;">BPKB Jadi/Selesai = ...... pekan</p>
+										<p style="font-weight: 100;margin-bottom: 0;">Lama Proses <strong>(STNK Jadi/Selesai)</strong></p>
+										<p>Mutasi = 2-4 pekan</p>
+										<p style="margin-top: -15px;">Cabut Berkas = 4-6 pekan</p>
 										<p style="margin-top: 30px;">STNK yang sudah selesai dapat diambil jika total kekurangan biaya sudah dilunasi semua tanpa menunggu BPKB selesai</p>
 										<div class="input-group">
 											<span class="input-group-addon" style="font-weight: bold;color: #333;line-height:4.8;">Jakarta,</span>
@@ -621,4 +635,5 @@ table tr td{
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </html>

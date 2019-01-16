@@ -158,32 +158,34 @@
 							<!--        Here you can write extra buttons/actions for the toolbar              -->
 						</div>
 						<div class="material-datatables">
-							<table class="table table-striped table-no-bordered table-hover" style="width:100%">
-								<thead>
-									<tr>
-										<th>No</th>
-										<th>Nama</th>
-										<th>Email</th>
-										<th>Hak Akses</th>
-										<th class="disabled-sorting">Actions</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php 
+							<div class="table-responsive">
+								<table class="table table-striped table-no-bordered table-hover" style="width:100%">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Nama</th>
+											<th>Email</th>
+											<th>Hak Akses</th>
+											<th class="disabled-sorting">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php 
 										$no=1; foreach ($karyawan as $dataKaryawan) { 
-									?>
-									<tr>
-										<td><?php echo $no++; ?></td>
-										<td><?= $dataKaryawan['nama'];?></td>
-										<td><?= $dataKaryawan['email'];?></td>
-										<td><?= $dataKaryawan['hak_akses'];?></td>
-										<td>
-											<a href="<?= site_url('main/datahistory') ?>"><button type="button" class="btn btn-success">Cek Progress</button></a>
-										</td>
-									</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+											?>
+											<tr>
+												<td><?php echo $no++; ?></td>
+												<td><?= $dataKaryawan['nama'];?></td>
+												<td><?= $dataKaryawan['email'];?></td>
+												<td><?= $dataKaryawan['hak_akses'];?></td>
+												<td>
+													<a href="<?= site_url('main/datahistory') ?>"><button type="button" class="btn btn-success">Cek Progress</button></a>
+												</td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -38,9 +38,9 @@ class M_back extends CI_Model {
 	}
 	public function getAccountProfile()
 	{
-	  	$data = array ('id_users' => $this->session->userdata('id'));
-	  	$query = $this->db->get_where('users',$data);
-	  	return $query->result_array();
+		$data = array ('id_users' => $this->session->userdata('id'));
+		$query = $this->db->get_where('users',$data);
+		return $query->result_array();
 	}
 	public function load_user()
 	{
@@ -336,8 +336,13 @@ class M_back extends CI_Model {
 	// Start Harga //
 	public function load_harga()
 	{
-		$this->db->order_by('id_catat');
-		$query = $this->db->get('catatan');
+		$query = $this->db->query("SELECT * FROM catatan WHERE jenis_harga='swdkllj' or jenis_harga='stnk' or jenis_harga='tnkb' or jenis_harga='sanksi'");
+		return $query->result_array();
+	}
+	public function load_harga_jasa()
+	{
+		$jenis = array('jenis_harga' => 'jasa');
+		$query = $this->db->get_where('catatan',$jenis);
 		return $query->result_array();
 	}
 	function act_update_harga()
@@ -380,6 +385,13 @@ class M_back extends CI_Model {
 			$hasilrandom .= $random[rand(0,$hitungrandom - 1)];
 		}
 		$jenis = $this->input->post('jenis');
+		$jenis_jasa = $this->input->post('jenis_jasa');
+		$total_pajak = $this->input->post('total_pajak');
+		$total_pajak1 = $this->input->post('total_pajak1');
+		$total_pajak2 = $this->input->post('total_pajak2');
+		$biaya_jasa = $this->input->post('biaya_jasa');
+		$biaya_jasa1 = $this->input->post('biaya_jasa1');
+		$biaya_jasa2 = $this->input->post('biaya_jasa2');
 		$jenis_k = $this->input->post('jenis_swd');
 		$pkb1 = $this->input->post('pkb1');
 		$pkb2 = $this->input->post('pkb2');
@@ -411,11 +423,28 @@ class M_back extends CI_Model {
 			'Fri' => 'Jumat',
 			'Sat' => 'Sabtu'
 		);
+		if ($total_pajak == NULL AND $total_pajak1==NULL) {
+			$pajak = $total_pajak2;
+		}else if($total_pajak == NULL AND $total_pajak2==NULL){
+			$pajak = $total_pajak1;
+		}else{
+			$pajak = $total_pajak;
+		}
+
+		if ($biaya_jasa == NULL AND $biaya_jasa1==NULL) {
+			$biaya = $biaya_jasa2;
+		}else if($biaya_jasa == NULL AND $biaya_jasa2==NULL){
+			$biaya = $biaya_jasa1;
+		}else{
+			$biaya = $biaya_jasa;
+		}
+
 		$query = $this->db->insert('perpanjang', array(
 			'id_user'=>$this->session->userdata('id'),
 			'no'=>$hasilrandom,
 			'perhitungan'=>$jenis_swd,
 			'jenis'=>$jenis,
+			'jenis_jasa'=>$jenis_jasa,
 			'jenis_k'=>$jenis_k, 
 			'pkb'=>$pkb1,
 			'pkb_bulan'=>$pkb2,
@@ -433,6 +462,8 @@ class M_back extends CI_Model {
 			'ganti_plat'=>$ganti,
 			'adm_stnk'=>$adm_stnk,
 			'adm_tnkb'=>$adm_tnkb,
+			'biaya_jasa'=>filter_var($biaya,FILTER_SANITIZE_NUMBER_INT),
+			'total_pajak'=>filter_var($pajak,FILTER_SANITIZE_NUMBER_INT),
 			'total'=>filter_var($total,FILTER_SANITIZE_NUMBER_INT),
 			'hari'=>$dayList[$day],
 			'tanggal'=>$gabungan
@@ -589,6 +620,11 @@ class M_back extends CI_Model {
 		$swdllj2 = $this->input->post('swdllj2');
 		$sanksi_swdllj_b2 = $this->input->post('sanksi_swdllj_b2');
 
+		$total_hidup = $this->input->post('total_hidup');
+		$total_normal = $this->input->post('total_normal');
+		$total_bulan = $this->input->post('total_bulan');
+		$total_tahun = $this->input->post('total_tahun');
+
 		if ($pkb1 == NULL AND $pkb2==NULL) {
 			$pkb = $pkb3;
 		}else if($pkb2 == NULL AND $pkb3==NULL){
@@ -613,6 +649,15 @@ class M_back extends CI_Model {
 			$adm_stnk = $adm_stnk2;
 		}
 
+		if ($total_hidup == NULL AND $total_normal==NULL AND $total_bulan == NULL) {
+			$total = $total_tahun;
+		}else if($total_hidup == NULL AND $total_normal==NULL AND $total_tahun == NULL){
+			$total = $total_bulan;
+		}else if($total_hidup == NULL AND $total_bulan==NULL AND $total_tahun == NULL){
+			$total = $total_normal;
+		}else{
+			$total = $total_hidup;
+		}
 		if ($ganti1 == NULL) {
 			$ganti = $ganti2;
 		}else if($ganti2 == NULL){
@@ -1263,9 +1308,11 @@ class M_back extends CI_Model {
 			$dp = $this->input->post('dp');
 			$bpkb1 = $this->input->post('bpkb1');
 			$bpkb2 = $this->input->post('bpkb2');
+			$bpkb3 = $this->input->post('bpkb3');
+			$bpkb4 = $this->input->post('bpkb4');
 			$sim1 = $this->input->post('sim1');
 			$sim2 = $this->input->post('sim2');
-			$stnk1 = $this->input->post('stnk1');
+			$stnk1 = $this->input->post('stnk1'); 
 			$stnk2 = $this->input->post('stnk2');
 			$wilayah = $this->input->post('wilayah');
 			$nopol = $this->input->post('nopol');
@@ -1346,8 +1393,8 @@ class M_back extends CI_Model {
 				'harga_gb'=>$harga_bn,
 				'p_alamat'=>$p_alamat,
 				'harga_pa'=>$harga_alamat,
-				'psl'=>$harga_hilang,
-				'harga_psl'=>$harga_hilang,
+				'psl'=>$psl,
+				'harga_psl'=>$harga_psl,
 				'p_lain'=>$lainnya1,
 				'harga_lain'=>$harga_lainnya,
 				'p_lainnya'=>$lainnya2,
@@ -1559,10 +1606,10 @@ class M_back extends CI_Model {
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			$id = $this->db->insert_id();
-			redirect('main/transaksi_bn/'.$id);
+			redirect('main/transaksi_sb/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
-			redirect('main/balik_nama');
+			redirect('main/stnkh_bn');
 		}
 	}
 	public function cetak_sb()
@@ -1828,7 +1875,7 @@ class M_back extends CI_Model {
 		if ($query==TRUE) {
 			$this->session->set_flashdata('sukses', 'Berhasil Simpan data');
 			$id = $this->db->insert_id();
-			redirect('main/dashboard/');
+			redirect('main/transaksi_mb/'.$id);
 		}else{
 			$this->session->set_flashdata('gagal', 'Gagal Simpan data');
 			redirect('main/mutasi');

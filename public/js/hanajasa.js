@@ -8,28 +8,33 @@ function perpanjang() {
 		$('#pkb_tahun').hide();
 		$('#pkb_n').show();
 		$('#pkb_bulan').hide();
-		$('#form_p')[0].reset();
 		$('#cek_plat').hide();
 		$('#gantiplat').hide();
 		$('#total').show();
+		$('#total_p_n').show();
+		$('#jasa_n').show();
 		// $('.ganti-plat :select').val('');
 	}else if($('#perpanjang_p').val() == 'telat bulanan') { 
 		$('#pkb_tahun').hide();
 		$('#pkb_n').hide();
 		$('#pkb_bulan').show();
 		$('#cek_plat').hide();
-		$('#form_p')[0].reset();
 		$('#gantiplat').hide();	
 		$('#total_b').show();	
+		$('#total_p_b').show();
+		$('#jasa_b').show();
 		// $('.ganti-plat :select').val('');
 	}else if($('#perpanjang_p').val() == 'Telat lebih dari setahun') { 
 		$('#pkb_tahun').show();
 		$('#pkb_n').show();
 		$('#pkb_bulan').show();
 		$('#cek_plat').show();
-		$('#form_p')[0].reset();
 		$('#total').hide();
+		$('#total_p_n').hide();
+		$('#jasa_n').hide();
 		$('#total_b').hide();
+		$('#total_p_b').hide();
+		$('#jasa_b').hide();
 		$('#gantiplat_nor').click(function () {
 			$('.ganti-plat').fadeToggle();
 		});
@@ -39,7 +44,11 @@ function perpanjang() {
 		$('#pkb_bulan').hide();
 		$('#cek_plat').hide();
 		$('#total').hide();
+		$('#total_p_n').hide();
+		$('#jasa_n').hide();
 		$('#total_b').hide();
+		$('#total_p_b').hide();
+		$('#jasa_b').hide();
 		$('#pkb_tahun :input').val('');
 		$('#pkb_n :input').val('');
 		$('#pkb_bulan :input').val('');
@@ -54,18 +63,15 @@ function mutasi() {
 	if ($('#mutasi_stnk').val() == 'Pajak Hidup') {
 		$('#m_h').show();
 		$('#m_b').hide();
-		$('#form_p')[0].reset();
 		$('#m_t').hide();
 	}else if($('#mutasi_stnk').val() == 'Telat bulanan') { 
 		$('#m_h').hide();
 		$('#m_b').show();
-		$('#form_p')[0].reset();
 		$('#m_t').hide();
 	}else if($('#mutasi_stnk').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#m_h').hide();
 		$('#m_b').hide();
 		$('#m_t').show();
-		$('#form_p')[0].reset();
 	}else{
 		$('#m_h').hide();
 		$('#m_h :input').val('');
@@ -146,6 +152,19 @@ function ambilSwdk() {
 	})	
 }
 
+function ambiljasa() {
+	$.ajax({
+		url: url+'/main/ambiljasa/',
+		type: 'POST',
+		dataType:'json',
+		data: {nama: $("#jenisjasa").val()},
+		success:function(datanya) {
+			$(".jasa").val(datanya[0].harga);
+			console.log(datanya);
+		}
+	})	
+}
+
 function ambilselecttelat() {
 	$.ajax({
 		url: url+'/main/ambilswdkjl/',
@@ -159,7 +178,6 @@ function ambilselecttelat() {
 			// $(".admtnkb").val(datanya[3].harga);
 		}
 	})
-	
 }
 
 function ambilselect() {
@@ -298,20 +316,17 @@ function balik() {
 		$('#b_hid').show();
 		$('#b_nor').hide();
 		$('#b_bul').hide();
-		$('#form_p')[0].reset();
 		$('#b_ta').hide();
 	}else if ($('#balik_nama').val() == 'Pajak Normal') {
 		$('#b_hid').hide();
 		$('#b_nor').show();
 		$('#b_bul').hide();
-		$('#form_p')[0].reset();
 		$('#b_ta').hide();
 		$('#total_n').show();
 	}else if($('#balik_nama').val() == 'Telat bulanan') { 
 		$('#b_hid').hide();
 		$('#b_nor').hide();
 		$('#b_bul').show();
-		$('#form_p')[0].reset();
 		$('#total_b').show();
 	}else if($('#balik_nama').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#b_hid').hide();
@@ -320,13 +335,11 @@ function balik() {
 		$('#b_ta').show();
 		$('#total_h').hide();
 		$('#total_n').hide();
-		$('#form_p')[0].reset();
 		$('#total_b').hide();
 		$('#total_t').show();
 	}else if($('#balik_nama').val() == 'Pajak Lebih Dari Setahun') {
 		$('#b_hid').hide();
 		$('#b_nor').hide();
-		$('#form_p')[0].reset();
 		$('#b_bul').hide();
 		$('#b_ta').show();
 	}else{
@@ -513,6 +526,7 @@ function loopData(table,type) {
 		if (type == 'perpanjang') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -524,6 +538,7 @@ function loopData(table,type) {
 		}else if (type == 'bn') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -535,6 +550,7 @@ function loopData(table,type) {
 		}else if (type == 'mutasi') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -546,6 +562,7 @@ function loopData(table,type) {
 		}else if (type == 'm_bn') {
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -557,6 +574,7 @@ function loopData(table,type) {
 		}else if(type == 'stnk'){
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
@@ -568,6 +586,7 @@ function loopData(table,type) {
 		}else if(type == 'stnk_h'){
 			temp_array = [
 			val.no,
+			val.nama,
 			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
