@@ -323,11 +323,15 @@ function balik() {
 		$('#b_bul').hide();
 		$('#b_ta').hide();
 		$('#total_n').show();
+		$('#jasa_no').show();
+		$('#total_p_no').show();
 	}else if($('#balik_nama').val() == 'Telat bulanan') { 
 		$('#b_hid').hide();
 		$('#b_nor').hide();
 		$('#b_bul').show();
 		$('#total_b').show();
+		$('#jasa_bu').show();
+		$('#total_p_bu').show();
 	}else if($('#balik_nama').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#b_hid').hide();
 		$('#b_nor').show();
@@ -335,13 +339,15 @@ function balik() {
 		$('#b_ta').show();
 		$('#total_h').hide();
 		$('#total_n').hide();
+		$('#jasa_no').hide();
+		$('#total_p_no').hide();
+		$('#jasa_bu').hide();
+		$('#total_p_bu').hide();
+		// $('#form_p')[0].reset();
 		$('#total_b').hide();
 		$('#total_t').show();
-	}else if($('#balik_nama').val() == 'Pajak Lebih Dari Setahun') {
-		$('#b_hid').hide();
-		$('#b_nor').hide();
-		$('#b_bul').hide();
-		$('#b_ta').show();
+		$('#jasa_t').show();
+		$('#total_p_t').show();
 	}else{
 		$('#total_h').hide();
 		$('#total_h :input').val('');
@@ -359,6 +365,8 @@ function balik() {
 		$('#b_bul :input').val('');
 		$('#b_ta').hide();
 		$('#b_ta :input').val('');
+		$('#jasa_t').hide();
+		$('#total_p_t').hide();
 	}
 }
 $(document).ready(function () {

@@ -3,12 +3,12 @@
 	margin-top: 10px;
 }
 @media print {
-  #printPageButton {
-    display: none;
-  }
-  #printButton {
-    display: none;
-  }
+	#printPageButton {
+		display: none;
+	}
+	#printButton {
+		display: none;
+	}
 }
 </style>
 <div class="content">
@@ -40,6 +40,21 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group is-empty">
+											<p>Jenis Jasa</p>
+											<select name="jenis" class="form-control" onchange="ambiljasa()" id="jenisjasa">
+												<option value="" disabled="" selected>-- SILAHKAN PILIH --</option>
+												<option value="" disabled=""></option>
+												<?php foreach ($jasa->result() as $key): ?>
+													<option value="<?=$key->nama?>"><?=$key->nama?></option>
+												<?php endforeach ?>
+											</select>
+											<span class="material-input"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group is-empty">
 											<p>Jenis Kendaraan</p>
 											<select class="form-control" name="jenis_swd" onchange="ambilSwdk()" id="ambiltahun">
 												<option value="" disabled="" selected>-- SILAHKAN PILIH JENIS KENDARAAN --</option>
@@ -57,9 +72,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
-											<div class="form-group label-floating is-empty jum-t">
+											<div class="form-group label-floating is-empty jumlah_pajak_t">
 												<label class="control-label">PKB</label>
-												<input type="text" name="pkb4" id="pkb_b_t" onkeyup="b_tahun();" class="form-control jumlah_t">
+												<input type="text" name="pkb4" id="pkb_b_t" onkeyup="b_tahun();" class="form-control jumlah_p_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -68,7 +83,7 @@
 										<!-- <div class="col-md-12">
 											<div class="form-group label-floating is-empty" >
 												<label class="control-label">Telat Tahun</label>
-												<input type="text" name="telat_bln2" id="telat_thn" onkeyup="b_tahun();" class="form-control jumlah_t" >
+												<input type="text" name="telat_bln2" id="telat_thn" onkeyup="b_tahun();" class="form-control jumlah_p_t" >
 												<span class="material-input"></span>
 											</div>
 										</div> -->
@@ -118,27 +133,27 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-t">
+											<div class="form-group jumlah_pajak_t">
 												<label class="control-label">Sanksi PKB</label>
-												<input type="text" name="sanksi_pkb2" readonly id="total_pkb_t" class="form-control jumlah_t"  value="">
+												<input type="text" name="sanksi_pkb2" id="total_pkb_t" class="form-control jumlah_p_t"  value="">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-t">
+											<div class="form-group jumlah_pajak_t">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_t" >
+												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_p_t" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-t">
+											<div class="form-group jumlah_pajak_t">
 												<label class="control-label">Sanksi SWDKLLJ</label>
-												<input type="text" name="sanksi_swdllj_b2" id="" class="form-control sankswd jumlah_t" >
+												<input type="text" name="sanksi_swdllj_b2" id="" class="form-control sankswd jumlah_p_t" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -151,37 +166,55 @@
 									<div class="row">
 										<div class="col-md-12">
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Hidup</h4>
-											<div class="form-group label-floating is-empty jum-pajak jum-t">
+											<div class="form-group label-floating is-empty jumlah_pajak_t jum-pajak">
 												<label class="control-label">PKB</label>
 												<input type="text" name="pkb" id="denda_bbn_h" style="display: none;" value="0.67%" onkeyup="b_hidup();">
-												<input type="text" name="pkb1" id="pkb_b_h" onkeyup="b_hidup();" class="form-control jumlah" >
+												<input type="text" name="pkb1" id="pkb_b_h" onkeyup="b_hidup();" class="form-control jumlah_pajak">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-pajak jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="bbnkb1" id="total_bbn_h" class="form-control jumlah" >
+												<input type="text" name="bbnkb1" id="total_bbn_h" class="form-control jumlah_pajak" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-pajak jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk1" id="adm_stnk" class="form-control admstnk jumlah" >
+												<input type="text" name="adm_stnk1" id="adm_stnk" class="form-control admstnk jumlah_pajak" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="jasa_n">
+										<div class="col-md-12">
+											<div class="form-group jum-pajak">
+												<label class="control-label">Biaya Jasa</label>
+												<input type="text" name="biaya_jasa" class="form-control jasa jumlah">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="total_p_n">
+										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
+											<div class="form-group jum-pajak">
+												<label class="control-label">Total Pajak</label>
+												<input type="text" name="total_pajak" readonly id="sum_pajak" class="form-control jumlah">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row" id="total_h">
-										<div class="col-md-12">
+										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 											<div class="form-group">
-												<label class="control-label">Total</label>
-												<input type="text" name="total_hidup" id="sum" class="form-control" >
+												<label class="control-label">Total Perkiraaan Pajak</label>
+												<input type="text" name="total_hidup" readonly id="sum" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -194,37 +227,37 @@
 									<div class="row">
 										<div class="col-md-12">
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Normal</h4>
-											<div class="form-group label-floating is-empty jum-n jum-t">
+											<div class="form-group label-floating is-empty jumlah_pajak_t jum-pajak-n">
 												<label class="control-label">PKB</label>
 												<input type="text" name="pkb" id="denda_b" style="display: none;" value="0.67%" onkeyup="b_normal();">
-												<input type="text" name="pkb2" id="pkb_b" onkeyup="b_normal();" class="form-control jumlah_n jumlah_t" >
+												<input type="text" name="pkb2" id="pkb_b" onkeyup="b_normal();" class="form-control jumlah_p_t jumlah_pajak_n" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-n jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-n">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="bbnkb2" id="total_bn" readonly class="form-control jumlah_n jumlah_t">
+												<input type="text" name="bbnkb2" id="total_bn" class="form-control jumlah_p_t jumlah_pajak_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-n jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-n">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="swdkllj" class="form-control swdklksama jumlah_n jumlah_t" >
+												<input type="text" name="swdllj1" id="swdkllj" class="form-control swdklksama jumlah_p_t jumlah_pajak_n" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-n jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-n">
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk2" id="adm_stnk" class="form-control admstnk jumlah_n jumlah_t" >
+												<input type="text" name="adm_stnk2" id="adm_stnk" class="form-control admstnk jumlah_p_t jumlah_pajak_n" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -251,18 +284,36 @@
 												</select>
 												<span class="material-input"></span>
 											</div>
-											<div class="form-group jum-n jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-n">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" readonly name="adm_tnkb1" id="adm_tnkb" class="form-control jumlah_n jumlah_t">
+												<input type="text" name="adm_tnkb1" id="adm_tnkb" class="form-control jumlah_p_t jumlah_pajak_n">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="jasa_no">
+										<div class="col-md-12">
+											<div class="form-group jum-n">
+												<label class="control-label">Biaya Jasa</label>
+												<input type="text" name="biaya_jasa" class="form-control jasa jumlah_n">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="total_p_no">
+										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
+											<div class="form-group jum-n">
+												<label class="control-label">Total Pajak</label>
+												<input type="text" name="total_pajak" readonly id="sum_pajak_n" class="form-control jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row" id="total_n">
-										<div class="col-md-12">
+										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 											<div class="form-group">
-												<label class="control-label">Total</label>
-												<input type="text" name="total_normal" id="sum_n" class="form-control" >
+												<label class="control-label">Total Perkiraan Pajak</label>
+												<input type="text" name="total_normal" readonly id="sum_n" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -275,19 +326,19 @@
 									<div class="row">
 										<div class="col-md-12">
 											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Telat Bulanan</h4>
-											<div class="form-group label-floating is-empty jum-b jum-t">
+											<div class="form-group label-floating is-empty jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">PKB</label>
 												<input type="text" name="pkb" id="denda_bu" style="display: none;" value="0.67%" onkeyup="b_bulan();">
-												<input type="text" name="pkb3" id="pkb_bu" onkeyup="b_bulan();" class="form-control jumlah_b jumlah_t" >
+												<input type="text" name="pkb3" id="pkb_bu" onkeyup="b_bulan();" class="form-control jumlah_p_t jumlah_pajak_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-b jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">BBN KB</label>
-												<input type="text" name="bbnkb3" id="total_bbn_b" class="form-control jumlah_b jumlah_t" >
+												<input type="text" name="bbnkb3" id="total_bbn_b" class="form-control jumlah_p_t jumlah_pajak_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -323,36 +374,36 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-grou jum-b jum-t">
+											<div class="form-grou jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">Sanksi PKB</label>
-												<input type="text" name="sanksi_pkb1" readonly id="total_ba" class="form-control jumlah_b jumlah_t" value="">
+												<input type="text" name="sanksi_pkb1" id="total_ba" class="form-control jumlah_p_t jumlah_pajak_b" value="">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-b jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="" class="form-control swdklksama jumlah_b jumlah_t" >
+												<input type="text" name="swdllj1" id="" class="form-control swdklksama jumlah_p_t jumlah_pajak_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-b jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">Sanksi SWDKLLJ</label>
-												<input type="text" name="sanksi_swdllj_b1" id="" class="form-control sankswd jumlah_b jumlah_t" >
+												<input type="text" name="sanksi_swdllj_b1" id="" class="form-control sankswd jumlah_p_t jumlah_pajak_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group jum-b jum-t" >
+											<div class="form-group jumlah_pajak_t jum-pajak-b" >
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk2" id="adm_stnk_b" class="form-control admstnk jumlah_b jumlah_t">
+												<input type="text" name="adm_stnk2" id="adm_stnk_b" class="form-control admstnk jumlah_p_t jumlah_pajak_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -370,7 +421,7 @@
 										<div class="col-md-12">
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_k" name="jenis_k"  onchange="ambilselect()">
+												<select class="form-control" id="jenis_ken" name="jenis_k"  onchange="ambilselectbul()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -379,29 +430,65 @@
 												</select>
 												<span class="material-input"></span>
 											</div>
-											<div class="form-group jum-n jum-t">
+											<div class="form-group jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">Adm TNKB</label>
-												<input type="text" readonly name="adm_tnkb2" id="adm_tnkb" class="form-control jumlah_b jumlah_t">
+												<input type="text" name="adm_tnkb2" id="adm_tnkb_b" class="form-control jumlah_p_t jumlah_pajak_b">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="jasa_bu">
+										<div class="col-md-12">
+											<div class="form-group jum-b">
+												<label class="control-label">Biaya Jasa</label>
+												<input type="text" name="biaya_jasa" class="form-control jasa jumlah_b">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row" id="total_p_bu">
+										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
+											<div class="form-group jum-b">
+												<label class="control-label">Total Pajak</label>
+												<input type="text" name="total_pajak" readonly id="sum_pajak_b" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 									<div class="row" id="total_b">
-										<div class="col-md-12">
+										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 											<div class="form-group">
-												<label class="control-label">Total</label>
-												<input type="text" name="total_bulan" id="sum_b" class="form-control" >
+												<label class="control-label">Total Perkiraan Pajak</label>
+												<input type="text" name="total_bulan" readonly id="sum_b" class="form-control" >
 												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!-- End Bulan -->
-								<div class="row" id="total_t" style="display: none;">
+								<div class="row" id="jasa_t" style="display: none;">
 									<div class="col-md-12">
+										<div class="form-group jum-t">
+											<label class="control-label">Biaya Jasa</label>
+											<input type="text" name="biaya_jasa" class="form-control jasa jumlah_t">
+											<span class="material-input"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="total_p_t" style="display: none;">
+									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
+										<div class="form-group jum-t">
+											<label class="control-label">Total Pajak</label>
+											<input type="text" readonly name="total_pajak" id="sum_pajak_t" class="form-control jumlah_t">
+											<span class="material-input"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="total_t" style="display: none;">
+									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group">
-											<label class="control-label">Total</label>
-											<input type="text" name="total_tahun" id="sum_t" class="form-control" >
+											<label class="control-label">Total Perkiraan Pajak</label>
+											<input type="text" readonly name="total_tahun" id="sum_t" class="form-control" >
 											<span class="material-input"></span>
 										</div>
 									</div>

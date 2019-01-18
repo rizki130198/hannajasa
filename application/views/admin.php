@@ -437,6 +437,17 @@ if ($uri=="cetak") { ?>
 		// $('#sum').val(totalSum);
 		$('#sum_pajak_b').val(totalSum);
 	});
+	$('.jum-pajak-n').on('input','.jumlah_pajak_n',function(){
+		var totalSum = 0;
+		$('.jum-pajak-n .jumlah_pajak_n').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		$('#sum_pajak_n').val(totalSum);
+	});
 	$('.jum-n').on('input','.jumlah_n',function(){
 		var totalSum = 0;
 		$('.jum-n .jumlah_n').each(function(){

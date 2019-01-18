@@ -62,6 +62,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_bn($id)
@@ -94,6 +95,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_m($id)
@@ -125,6 +127,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi+Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_mb($id)
