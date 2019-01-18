@@ -227,7 +227,7 @@
 										<div class="col-md-12">
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_ken" name="jenis_k2"  onchange="ambilselectbul()">
+												<select class="form-control" id="jenis_k" name="jenis_k2"  onchange="ambilselectbul()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
