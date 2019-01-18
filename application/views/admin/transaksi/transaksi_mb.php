@@ -30,7 +30,7 @@
 						<h4 class="title">Transaksi Mutasi + Balik Nama STNK</h4>
 					</div>
 					<div class="card-content">
-						<form action="<?= site_url('main/p_mutasi') ?>" method="POST" class="form-horizontal">
+						<form action="<?= site_url('main/p_mutasibalik') ?>" method="POST" class="form-horizontal">
 							<h4>Kepada Yth.</h4>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></label>
@@ -305,14 +305,14 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"name="slp" value="ada"> Surat Laporan Kepolisian</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"name="slk" value="ada"> Surat Laporan Kepolisian</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control jumlah_biaya" name="harga_slp" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_slk" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
