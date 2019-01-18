@@ -112,6 +112,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_m($id)
@@ -132,6 +133,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi+Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_mb($id)
@@ -180,12 +182,12 @@ class Main extends CI_Controller {
 	public function cetak_stnkhilang($id)
 	{
 		$query = $this->db->query('SELECT * FROM cetak_stnk c INNER JOIN stnk_hilang p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
-		return var_dump($query);
+		// return var_dump($query);
 		if ($query->num_rows() > 0) {
 			$data['stnk'] = $query->row();
 			$this->load->view('admin/cetak/c_stnkhilang');
 		}else{
-			redirect('main/transaksi_sh'.$id);
+			redirect('main/transaksi_sh/'.$id);
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		}
 	}

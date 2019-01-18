@@ -8,7 +8,6 @@ function perpanjang() {
 		$('#pkb_tahun').hide();
 		$('#pkb_n').show();
 		$('#pkb_bulan').hide();
-		// $('#form_p')[0].reset();
 		$('#cek_plat').hide();
 		$('#gantiplat').hide();
 		$('#total').show();
@@ -20,7 +19,6 @@ function perpanjang() {
 		$('#pkb_n').hide();
 		$('#pkb_bulan').show();
 		$('#cek_plat').hide();
-		// $('#form_p')[0].reset();
 		$('#gantiplat').hide();	
 		$('#total_b').show();	
 		$('#total_p_b').show();
@@ -31,7 +29,6 @@ function perpanjang() {
 		$('#pkb_n').show();
 		$('#pkb_bulan').show();
 		$('#cek_plat').show();
-		// $('#form_p')[0].reset();
 		$('#total').hide();
 		$('#total_p_n').hide();
 		$('#jasa_n').hide();
@@ -66,18 +63,15 @@ function mutasi() {
 	if ($('#mutasi_stnk').val() == 'Pajak Hidup') {
 		$('#m_h').show();
 		$('#m_b').hide();
-		// $('#form_p')[0].reset();
 		$('#m_t').hide();
 	}else if($('#mutasi_stnk').val() == 'Telat bulanan') { 
 		$('#m_h').hide();
 		$('#m_b').show();
-		// $('#form_p')[0].reset();
 		$('#m_t').hide();
 	}else if($('#mutasi_stnk').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#m_h').hide();
 		$('#m_b').hide();
 		$('#m_t').show();
-		// $('#form_p')[0].reset();
 	}else{
 		$('#m_h').hide();
 		$('#m_h :input').val('');
@@ -322,13 +316,11 @@ function balik() {
 		$('#b_hid').show();
 		$('#b_nor').hide();
 		$('#b_bul').hide();
-		// $('#form_p')[0].reset();
 		$('#b_ta').hide();
 	}else if ($('#balik_nama').val() == 'Pajak Normal') {
 		$('#b_hid').hide();
 		$('#b_nor').show();
 		$('#b_bul').hide();
-		// $('#form_p')[0].reset();
 		$('#b_ta').hide();
 		$('#total_n').show();
 		$('#jasa_no').show();
@@ -337,7 +329,6 @@ function balik() {
 		$('#b_hid').hide();
 		$('#b_nor').hide();
 		$('#b_bul').show();
-		// $('#form_p')[0].reset();
 		$('#total_b').show();
 		$('#jasa_bu').show();
 		$('#total_p_bu').show();
