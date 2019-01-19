@@ -410,7 +410,9 @@ class M_back extends CI_Model {
 		$ganti = $this->input->post('ganti');
 		$adm_stnk = $this->input->post('adm_stnk');
 		$adm_tnkb = $this->input->post('adm_tnkb');
-		$total = $this->input->post('total');
+		$total1 = $this->input->post('total1');
+		$total2 = $this->input->post('total2');
+		$total3 = $this->input->post('total3');
 		$gabungan = date("Y-m-d");
 		$day = date('D', strtotime($gabungan));
 		$dayList = array(
@@ -436,6 +438,14 @@ class M_back extends CI_Model {
 			$biaya = $biaya_jasa1;
 		}else{
 			$biaya = $biaya_jasa;
+		}
+
+		if ($total1 == NULL AND $total2==NULL) {
+			$total = $total3;
+		}else if($total1 == NULL AND $total3==NULL){
+			$total = $total2;
+		}else{
+			$biaya = $total1;
 		}
 
 		$query = $this->db->insert('perpanjang', array(

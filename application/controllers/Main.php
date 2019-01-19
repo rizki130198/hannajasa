@@ -143,7 +143,7 @@ class Main extends CI_Controller {
 	}
 	public function cetak_mutasibn()
 	{
-		$query = $this->db->query('SELECT * FROM cetak_mutasibn c INNER JOIN mutasi_bn p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
+		$query = $this->db->query('SELECT * FROM cetak_mutasibn c INNER JOIN mutasi_bn p ON c.id_join = p.id_mutasibn where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
 			$data['mutasibn'] = $query->row();
 			$this->load->view('admin/cetak/c_mutasibn');
