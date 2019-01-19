@@ -571,7 +571,7 @@ table tr td{
 										<p style="margin-top: 30px;">STNK yang sudah selesai dapat diambil jika total kekurangan biaya sudah dilunasi semua tanpa menunggu BPKB selesai</p>
 										<div class="input-group">
 											<span class="input-group-addon" style="font-weight: bold;color: #333;line-height:4.8;">Jakarta,</span>
-											<input type="text" value="<?=$mutasi->tanggal?>" class="form-control">
+											<input type="text" value="<?= date('Y-m-d',strtotime($mutasi->tanggal))?>" class="form-control">
 										</div>
 										<p style="font-weight: bold;text-align: center;margin-top: 20%;">..................................................................................</p>
 										<p style="font-weight: bold;margin-top: -10px;text-align: center;">Penerima</p>

@@ -531,7 +531,7 @@ table tr td{
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="width: 50%;margin-left: 0;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox"<?=($stnkhilang->p_alamat==NULL)?NULL :'checked value="'.$stnkhilang->p_alamat.'"'?>> + Penyesuaian Alamat</label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox"<?=($stnkhilang->proses_pa==NULL)?NULL :'checked value="'.$stnkhilang->p_alamat.'"'?>> + Penyesuaian Alamat</label>
 																	</div>
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
@@ -579,7 +579,7 @@ table tr td{
 																	<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top:5px !important;">Total Biaya Proses</label>
 																	<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="?=$stnkhilang->total_proses?>" class="form-control">
+																		<input type="text" value="<?=$stnkhilang->total_proses?>" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -619,7 +619,7 @@ table tr td{
 										<p style="margin-top: 30px;">STNK yang sudah selesai dapat diambil jika total kekurangan biaya sudah dilunasi semua tanpa menunggu BPKB selesai</p>
 										<div class="input-group">
 											<span class="input-group-addon" style="font-weight: bold;color: #333;line-height:4.8;">Jakarta,</span>
-											<input type="text" value="" class="form-control">
+											<input type="text" value="<?= date('Y-m-d',strtotime($stnkhilang->tanggal))?>" class="form-control">
 										</div>
 										<p style="font-weight: bold;text-align: center;margin-top: 20%;">..................................................................................</p>
 										<p style="font-weight: bold;margin-top: -10px;text-align: center;">Penerima</p>

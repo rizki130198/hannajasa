@@ -141,9 +141,9 @@ class Main extends CI_Controller {
 			redirect('main/dashboard');
 		}
 	}
-	public function cetak_mutasibn()
+	public function cetak_mutasibn($id)
 	{
-		$query = $this->db->query('SELECT * FROM cetak_mutasibn c INNER JOIN mutasi_bn p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
+		$query = $this->db->query('SELECT * FROM cetak_mutasibn c INNER JOIN mutasi_bn p ON c.id_join = p.id_mutasibn where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
 			$data['mutasibn'] = $query->row();
 			$this->load->view('admin/cetak/c_mutasibn');
@@ -177,8 +177,8 @@ class Main extends CI_Controller {
 	{
 		$query = $this->db->query('SELECT * FROM cetak_stnk c INNER JOIN stnk_hilang p ON c.id_join = p.id_stnk where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
-			$data['stnkhilang'] = $query->row();
-			$this->load->view('admin/cetak/c_stnkhilang');
+			$data['stnk'] = $query->row();
+			$this->load->view('admin/cetak/c_stnkhilang',$data);
 		}else{
 			redirect('main/transaksi_sh/'.$id);
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
@@ -207,10 +207,10 @@ class Main extends CI_Controller {
 	}
 	public function cetak_stnkh_bn($id)
 	{
-		$query = $this->db->query('SELECT * FROM cetak_sb c INNER JOIN perpanjang p ON c.id_join = p.id_stnkb where c.id_join='.$id.'');
+		$query = $this->db->query('SELECT * FROM cetak_sb c INNER JOIN stnk_balik p ON c.id_join = p.id_stnkb where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
-			$data['perpanjang'] = $query->row();
-		$this->load->view('admin/cetak/c_stnkh_bn');
+			$data['stnkhilang'] = $query->row();
+		$this->load->view('admin/cetak/c_stnkh_bn',$data);
 		}else{
 			redirect('main/stnkh_bn/');
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');

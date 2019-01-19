@@ -196,7 +196,7 @@
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group">
 											<label class="control-label">Total Perkiraan Pajak</label>
-											<input type="text" name="total"  id="sum_n" class="form-control" >
+											<input type="text" name="total1"  id="sum_n" class="form-control" >
 											<span class="material-input"></span>
 										</div>
 									</div>
@@ -294,7 +294,7 @@
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group">
 											<label class="control-label">Total Perkiraan Pajak</label>
-											<input type="text" name="total" id="hasil_biaya" class="form-control" >
+											<input type="text" name="total2" id="hasil_biaya" class="form-control" >
 											<span class="material-input"></span>
 										</div>
 									</div>
@@ -363,7 +363,7 @@
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group jumlah_pajak">
 											<label class="control-label">Total Perkiraan Pajak</label>
-											<input type="text" name="total" required id="sum_t" class="form-control" >
+											<input type="text" name="total3" id="sum_t" class="form-control" >
 											<span class="material-input"></span>
 										</div>
 									</div>

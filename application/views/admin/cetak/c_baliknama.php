@@ -506,7 +506,7 @@ table tr td{
 																	<div class="checkbox" style="margin-left: 0;padding-right: 28px;">
 																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($balik->proses_lain==NULL)?NULL:'checked value="'.$balik->proses_lain.'"'?>></label>
 																	</div>
-																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$balik->harga_lainnya?>" class="form-control" placeholder="">
+																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$balik->proses_lain?>" class="form-control" placeholder="">
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																		<input type="text" value="<?=$balik->harga_lainnya?>" class="form-control">

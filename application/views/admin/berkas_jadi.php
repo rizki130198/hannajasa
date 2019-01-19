@@ -197,7 +197,7 @@
                  <tr>
                   <td><?=$key->no?></td>
                   <td><?=$key->nama?></td>
-                  <td><?=$key->perhitungan?> <span style="color: red;">(<?=$key->jenis?>)</span></td>
+                  <td><?=$key->jenis_kendaraan?> <span style="color: red;">(<?=$key->jenis?>)</span></td>
                   <td><?=$key->atas_nama?></td>
                   <td><?=$key->no_telp?></td>
                   <td><?=$key->uang_dp?></td>
