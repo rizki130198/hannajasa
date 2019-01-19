@@ -146,7 +146,7 @@ class Main extends CI_Controller {
 		$query = $this->db->query('SELECT * FROM cetak_mutasibn c INNER JOIN mutasi_bn p ON c.id_join = p.id_mutasibn where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
 			$data['mutasibn'] = $query->row();
-			$this->load->view('admin/cetak/c_mutasibn');
+			$this->load->view('admin/cetak/c_mutasibn',$data);
 		}else{
 			redirect('main/mutasibn/'.$id);
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
