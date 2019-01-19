@@ -348,6 +348,11 @@ function balik() {
 		$('#total_t').show();
 		$('#jasa_t').show();
 		$('#total_p_t').show();
+	}else if($('#balik_nama').val() == 'Pajak Lebih Dari Setahun') {
+		$('#b_hid').hide();
+		$('#b_nor').hide();
+		$('#b_bul').hide();
+		$('#b_ta').show();
 	}else{
 		$('#total_h').hide();
 		$('#total_h :input').val('');
