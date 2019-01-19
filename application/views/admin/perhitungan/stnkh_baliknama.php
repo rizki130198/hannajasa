@@ -41,7 +41,7 @@
 									<div class="col-md-12">
 										<div class="form-group is-empty">
 											<p>Jenis Jasa</p>
-											<select name="jenis" class="form-control" onchange="ambiljasa()" id="jenisjasa">
+											<select name="jenis_jasa" class="form-control" onchange="ambiljasa()" id="jenisjasa">
 												<option value="" disabled="" selected>-- SILAHKAN PILIH --</option>
 												<option value="" disabled=""></option>
 												<?php foreach ($jasa->result() as $key): ?>
@@ -102,7 +102,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-pajak">
 												<label class="control-label">Biaya Jasa</label>
-												<input type="text" name="biaya_jasa" class="form-control jasa jumlah">
+												<input type="text" name="biaya_jasa1" class="form-control jasa jumlah">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -111,7 +111,7 @@
 										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 											<div class="form-group jum-pajak">
 												<label class="control-label">Total Pajak</label>
-												<input type="text" name="total_pajak" readonly id="sum_pajak" class="form-control jumlah">
+												<input type="text" name="total_pajak1" readonly id="sum_pajak" class="form-control jumlah">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -201,7 +201,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-n">
 												<label class="control-label">Biaya Jasa</label>
-												<input type="text" name="biaya_jasa" class="form-control jasa jumlah_n">
+												<input type="text" name="biaya_jasa2" class="form-control jasa jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -210,7 +210,7 @@
 										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 											<div class="form-group jum-n">
 												<label class="control-label">Total Pajak</label>
-												<input type="text" name="total_hidup" readonly id="sum_pajak_n" class="form-control jumlah_n">
+												<input type="text" name="total_pajak2" readonly id="sum_pajak_n" class="form-control jumlah_n">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -347,7 +347,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-b">
 												<label class="control-label">Biaya Jasa</label>
-												<input type="text" name="biaya_jasa" class="form-control jumlah_b jasa">
+												<input type="text" name="biaya_jasa3" class="form-control jumlah_b jasa">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -356,7 +356,7 @@
 										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 											<div class="form-group jum-b">
 												<label class="control-label">Total Pajak</label>
-												<input type="text" name="total_bulan" id="sum_pajak_b" class="form-control jumlah_b">
+												<input type="text" name="total_pajak3" id="sum_pajak_b" class="form-control jumlah_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -595,7 +595,7 @@
 										<div class="col-md-12">
 											<div class="form-group jum-t">
 												<label class="control-label">Biaya Jasa</label>
-												<input type="text" name="biaya_jasa" class="form-control jasa jumlah_t">
+												<input type="text" name="biaya_jasa4" class="form-control jasa jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -604,7 +604,7 @@
 										<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 											<div class="form-group jum-t">
 												<label class="control-label">Total Pajak</label>
-												<input type="text" name="total_pajak" id="sum_pajak_t" class="form-control jumlah_t">
+												<input type="text" name="total_pajak4" id="sum_pajak_t" class="form-control jumlah_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
