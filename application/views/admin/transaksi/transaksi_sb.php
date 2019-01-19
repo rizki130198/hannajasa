@@ -30,7 +30,7 @@
 						<h4 class="title">STNK Hilang + Balik Nama</h4>
 					</div>
 					<div class="card-content">
-						<form action="<?= site_url('main/p_stnk') ?>" method="POST" class="form-horizontal">
+						<form action="<?= site_url('main/p_stnkbalik') ?>" method="POST" class="form-horizontal">
 							<h4>Kepada Yth.</h4>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></label>
@@ -189,7 +189,7 @@
 										</tr>
 									</thead>
 									<tbody style="border: solid 2px;">
-										<tr>
+				 						<tr>
 											<td style="border-right: solid 2px #333;vertical-align: top;">
 												<div class="form-group">
 													<div class="col-sm-5">
@@ -234,14 +234,14 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_ps" value="ada"> Biaya Proses STNK Hilang</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="proses_sh" value="ada"> Biaya Proses STNK Hilang</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control jumlah_biaya" name="harga_ps" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_sh" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -311,7 +311,7 @@
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control jumlah_biaya" name="harga_bn" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_balik" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>

@@ -539,7 +539,7 @@ table tr td{
 															<div class="form-group row" style="margin-top: 0 !important;">
 																<div class="col-sm-12" style="display: inline-flex;margin-top:-10px;">
 																	<div class="checkbox" style="margin-left: 0;padding-right: 28px;">
-																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->p_lainnya==NULL)?NULL :'checked value="'.$stnk->	.'"'?>></label>
+																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($stnk->p_lainnya==NULL)?NULL :'checked value="'.$stnk->p_lainnya.'"'?>></label>
 																	</div>
 																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$stnk->p_lainnya?>" class="form-control" placeholder="">
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
