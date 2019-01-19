@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 18, 2019 at 05:46 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 5.6.31
+-- Host: localhost:3306
+-- Generation Time: Jan 19, 2019 at 02:58 PM
+-- Server version: 10.2.21-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_jasa`
+-- Database: `u4920831_jasa`
 --
 
 -- --------------------------------------------------------
@@ -54,6 +54,13 @@ CREATE TABLE `balik_nama` (
   `hari` varchar(30) DEFAULT NULL,
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `balik_nama`
+--
+
+INSERT INTO `balik_nama` (`id_balik`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_jasa`, `jenis_k`, `pkb`, `bbnk`, `adm_stnk`, `ganti`, `ganti1`, `adm_tnkb`, `telat`, `telat_t_t`, `telat_b_t`, `sanksi_pkb`, `swdkllj`, `sanksi_swdkllj`, `biaya_jasa`, `total_pajak`, `total`, `hari`, `tanggal`) VALUES
+(5, 1, 'Motor', '084120221593317', 'Pajak Hidup', 'Jasa Konsumen Umum', '', '200000', '134000', '100000', NULL, NULL, '', '', '0', '0', '', '35000', '32000', '20000', '434000', NULL, 'Sabtu', '2019-01-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -128,7 +135,7 @@ CREATE TABLE `cetak_balik` (
   `nopol` varchar(50) DEFAULT NULL,
   `jenis_kendaraan` varchar(20) DEFAULT NULL,
   `tahun_pajak` varchar(9) DEFAULT NULL,
-  `lainnya` text,
+  `lainnya` text DEFAULT NULL,
   `pengurusan` varchar(20) DEFAULT NULL,
   `pajak_ini` varchar(11) DEFAULT NULL,
   `pajak_lalu` varchar(11) DEFAULT NULL,
@@ -139,7 +146,7 @@ CREATE TABLE `cetak_balik` (
   `adm_skp` varchar(50) DEFAULT NULL,
   `plat` varchar(50) DEFAULT NULL,
   `surat_lp` varchar(50) DEFAULT NULL,
-  `p_lainnya` text,
+  `p_lainnya` text DEFAULT NULL,
   `proses_lain` varchar(50) DEFAULT NULL,
   `harga_bn` varchar(10) DEFAULT NULL,
   `harga_adm` varchar(10) DEFAULT NULL,
@@ -154,6 +161,13 @@ CREATE TABLE `cetak_balik` (
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cetak_balik`
+--
+
+INSERT INTO `cetak_balik` (`id_cetak`, `id_join`, `id_user`, `penerima`, `no_telp`, `atas_nama`, `uang_dp`, `bpkb`, `sim`, `wilayah`, `nopol`, `jenis_kendaraan`, `tahun_pajak`, `lainnya`, `pengurusan`, `pajak_ini`, `pajak_lalu`, `harga_pajak_ini`, `harga_pajak_lalu`, `total_pajak`, `proses_bn`, `adm_skp`, `plat`, `surat_lp`, `p_lainnya`, `proses_lain`, `harga_bn`, `harga_adm`, `harga_plat`, `harga_lp`, `h_lainnya`, `harga_lainnya`, `total_proses`, `biaya_prediksi`, `biaya_kurang`, `status`, `hari`, `tanggal`) VALUES
+(3, 5, 1, 'rizki', '1231231', 'asdaf', '200000', 'ada,,', 'asli,', 'jakarta', '3636 HED', 'motor', '2020', 'asdasd', 'balik nama,', 'ada', 'ada', '200000', '200000', '400,000', 'ada', NULL, NULL, NULL, NULL, NULL, '200000', '', '', '', NULL, NULL, '200,000', '200000', '200000', '1', 'Sabtu', '2019-01-19');
 
 -- --------------------------------------------------------
 
@@ -196,7 +210,7 @@ CREATE TABLE `cetak_mutasi` (
   `nopol` varchar(50) DEFAULT NULL,
   `jenis_kendaraan` varchar(20) DEFAULT NULL,
   `tahun_pajak` varchar(9) DEFAULT NULL,
-  `lainnya` text,
+  `lainnya` text DEFAULT NULL,
   `m_stnk` varchar(20) DEFAULT NULL,
   `c_berkas` varchar(20) DEFAULT NULL,
   `pajak_ini` varchar(11) DEFAULT NULL,
@@ -207,7 +221,7 @@ CREATE TABLE `cetak_mutasi` (
   `proses_pm` varchar(11) DEFAULT NULL,
   `adm_skp` varchar(50) DEFAULT NULL,
   `stnk_hilang` varchar(50) DEFAULT NULL,
-  `p_lainnya` text,
+  `p_lainnya` text DEFAULT NULL,
   `proses_lain` varchar(50) DEFAULT NULL,
   `harga_pm` varchar(10) DEFAULT NULL,
   `harga_adm` varchar(10) DEFAULT NULL,
@@ -221,6 +235,14 @@ CREATE TABLE `cetak_mutasi` (
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cetak_mutasi`
+--
+
+INSERT INTO `cetak_mutasi` (`id_cetak`, `id_join`, `id_user`, `penerima`, `no_telp`, `atas_nama`, `uang_dp`, `bpkb`, `sim`, `stnk`, `wilayah`, `nopol`, `jenis_kendaraan`, `tahun_pajak`, `lainnya`, `m_stnk`, `c_berkas`, `pajak_ini`, `pajak_lalu`, `harga_pajak_ini`, `harga_pajak_lalu`, `total_pajak`, `proses_pm`, `adm_skp`, `stnk_hilang`, `p_lainnya`, `proses_lain`, `harga_pm`, `harga_adm`, `harga_hilang`, `h_lainnya`, `harga_lainnya`, `total_proses`, `biaya_prediksi`, `biaya_kurang`, `status`, `hari`, `tanggal`) VALUES
+(2, 0, 4, 'rizki', '1231231', 'jaka', '200000', 'ada,,', 'asli,', 'ada,', '', '', 'motor', '', 'asdasd', 'a,a', 'a,a', 'ada', 'ada', '200000', '200000', '400,000', 'ada', 'ada', NULL, NULL, NULL, '200000', '200000', '', NULL, NULL, '400,000', '200000', '200000', '1', 'Sabtu', '2019-01-19'),
+(3, 2, 4, 'dono', '1231231', 'Rizki', '200000', 'ada,,', 'asli,fotocopy', 'ada,', 'jakarta', '3123 ABC', 'motor', '2020', 'asd', 'a,a', ',', 'ada', NULL, '200000', '', '200,000', 'ada', NULL, NULL, NULL, NULL, '200000', '', '', NULL, NULL, '200,000', '200000', '29999', '1', 'Sabtu', '2019-01-19');
 
 -- --------------------------------------------------------
 
@@ -243,7 +265,7 @@ CREATE TABLE `cetak_mutasibn` (
   `nopol` varchar(50) DEFAULT NULL,
   `jenis_kendaraan` varchar(20) DEFAULT NULL,
   `tahun_pajak` varchar(9) DEFAULT NULL,
-  `lainnya` text,
+  `lainnya` text DEFAULT NULL,
   `m_stnk` varchar(20) DEFAULT NULL,
   `c_berkas` varchar(20) DEFAULT NULL,
   `pengurusan` varchar(100) DEFAULT NULL,
@@ -258,7 +280,7 @@ CREATE TABLE `cetak_mutasibn` (
   `stnk_hilang` varchar(50) DEFAULT NULL,
   `surat_lk` varchar(100) DEFAULT NULL,
   `plat` varchar(100) DEFAULT NULL,
-  `p_lainnya` text,
+  `p_lainnya` text DEFAULT NULL,
   `proses_lain` varchar(50) DEFAULT NULL,
   `harga_pm` varchar(10) DEFAULT NULL,
   `harga_bn` varchar(100) DEFAULT NULL,
@@ -275,6 +297,13 @@ CREATE TABLE `cetak_mutasibn` (
   `hari` varchar(100) DEFAULT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cetak_mutasibn`
+--
+
+INSERT INTO `cetak_mutasibn` (`id_cetak`, `id_join`, `id_user`, `penerima`, `no_telp`, `atas_nama`, `uang_dp`, `bpkb`, `sim`, `stnk`, `wilayah`, `nopol`, `jenis_kendaraan`, `tahun_pajak`, `lainnya`, `m_stnk`, `c_berkas`, `pengurusan`, `pajak_ini`, `pajak_lalu`, `harga_pajak_ini`, `harga_pajak_lalu`, `total_pajak`, `proses_pm`, `proses_bn`, `adm_skp`, `stnk_hilang`, `surat_lk`, `plat`, `p_lainnya`, `proses_lain`, `harga_pm`, `harga_bn`, `harga_adm`, `harga_hilang`, `harga_lk`, `harga_plat`, `h_lainnya`, `harga_lainnya`, `total_proses`, `biaya_prediksi`, `biaya_kurang`, `status`, `hari`, `tanggal`) VALUES
+(1, 0, 4, 'jamet', '1231231', 'danang', '400000', 'ada,,', 'asli,', 'ada,', 'jakarta', '3636 HED', 'motor', '2020', 'asd', ',', ',', 'balik nama,', 'ada', 'ada', '200000', '200000', '400,000', 'ada', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '200000', '', '', '', '', '', NULL, NULL, '200,000', '400000', '200000', '1', 'Sabtu', '2019-01-19');
 
 -- --------------------------------------------------------
 
@@ -296,7 +325,7 @@ CREATE TABLE `cetak_perpanjang` (
   `nopol` varchar(50) DEFAULT NULL,
   `jenis_kendaraan` varchar(20) DEFAULT NULL,
   `tahun_pajak` varchar(9) DEFAULT NULL,
-  `lainnya` text,
+  `lainnya` text DEFAULT NULL,
   `pajak_ini` varchar(11) DEFAULT NULL,
   `pajak_lalu` varchar(11) DEFAULT NULL,
   `harga_pajak_ini` varchar(9) DEFAULT NULL,
@@ -322,6 +351,13 @@ CREATE TABLE `cetak_perpanjang` (
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cetak_perpanjang`
+--
+
+INSERT INTO `cetak_perpanjang` (`id_cetak`, `id_join`, `id_user`, `penerima`, `no_telp`, `atas_nama`, `uang_dp`, `bpkb`, `sim`, `wilayah`, `nopol`, `jenis_kendaraan`, `tahun_pajak`, `lainnya`, `pajak_ini`, `pajak_lalu`, `harga_pajak_ini`, `harga_pajak_lalu`, `total_pajak`, `biaya_jasa`, `acc_bpkb`, `plat`, `adm_skp`, `progresif`, `proses_lain`, `harga_jasa`, `harga_bpkb`, `harga_plat`, `harga_adm`, `harga_blokir`, `harga_lainnya`, `total_proses`, `biaya_prediksi`, `biaya_kurang`, `status`, `hari`, `tanggal`) VALUES
+(0, 0, 4, 'dodo', '1124121241', 'rizki', '200000', 'Ada + Faktur,,,,,', 'Ada,', 'jakarta', '3636 HED', 'motor', '2020', '', 'ada', NULL, '200000', '', '200,000', 'ada', NULL, NULL, NULL, NULL, NULL, '300000', '', '', NULL, '', NULL, '300,000', '200000', '600', '1', 'Sabtu', '2019-01-19');
+
 -- --------------------------------------------------------
 
 --
@@ -343,7 +379,7 @@ CREATE TABLE `cetak_sb` (
   `nopol` varchar(50) DEFAULT NULL,
   `jenis_kendaraan` varchar(20) DEFAULT NULL,
   `tahun_pajak` varchar(9) DEFAULT NULL,
-  `lainnya` text,
+  `lainnya` text DEFAULT NULL,
   `pengurusan` varchar(20) DEFAULT NULL,
   `pajak_ini` varchar(11) DEFAULT NULL,
   `pajak_lalu` varchar(11) DEFAULT NULL,
@@ -358,7 +394,7 @@ CREATE TABLE `cetak_sb` (
   `balik_nama` varchar(100) DEFAULT NULL,
   `proses_pa` varchar(100) DEFAULT NULL,
   `psl` varchar(100) DEFAULT NULL,
-  `p_lainnya` text,
+  `p_lainnya` text DEFAULT NULL,
   `proses_lain` varchar(50) DEFAULT NULL,
   `harga_sh` varchar(100) DEFAULT NULL,
   `harga_bn` varchar(10) DEFAULT NULL,
@@ -474,6 +510,14 @@ CREATE TABLE `mutasi` (
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mutasi`
+--
+
+INSERT INTO `mutasi` (`id_mutasi`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_k`, `pkb`, `pkb1`, `swdkllj`, `swdkllj1`, `sanksi_swdkllj`, `adm_stnk`, `adm_tnkb`, `sanksi_pkb`, `jenis_jasa`, `biaya_jasa`, `total_pajak`, `telat`, `telat_tahun`, `total`, `hari`, `tanggal`) VALUES
+(1, 4, NULL, '657081468804157', 'Pajak Hidup', 'Motor', '300000', '', '35000', '35000', '32000', '100000', '60000', NULL, 'Jasa Konsumen Umum', '20000', '495000', '0', NULL, '515000', 'Sabtu', '2019-01-19 00:00:00'),
+(2, 4, NULL, '296969748361407', 'Pajak Telat Lebih dari 1 Tahun', 'Mobil', '300000', '100000', '143000', '143000', '100000', '200000', '100000', NULL, 'Jasa Konsumen Umum', '20000', '1986000', '0', NULL, '2006000', 'Sabtu', '2019-01-19 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -506,6 +550,13 @@ CREATE TABLE `mutasi_bn` (
   `hari` varchar(30) DEFAULT NULL,
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mutasi_bn`
+--
+
+INSERT INTO `mutasi_bn` (`id_mutasibn`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_k`, `bbnkb`, `pkb`, `pkb1`, `swdkllj`, `swdkllj1`, `sanksi_swdkllj`, `adm_stnk`, `adm_tnkb`, `sanksi_pkb`, `jenis_jasa`, `biaya_jasa`, `total_pajak`, `telat`, `telat_thn`, `telat_thn1`, `total`, `hari`, `tanggal`) VALUES
+(1, 4, NULL, '096922180194309', 'Pajak Telat Lebih dari 1 Tahun', 'Motor', '67000', '300000', '100000', '35000', '35000', '32000', '100000', '60000', '1950000', 'Jasa Konsumen Umum', '20000', '2679000', '2', '24', NULL, '2699000', 'Sabtu', '2019-01-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -543,6 +594,13 @@ CREATE TABLE `perpanjang` (
   `hari` varchar(20) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `perpanjang`
+--
+
+INSERT INTO `perpanjang` (`id_perpanjang`, `id_user`, `no`, `perhitungan`, `jenis`, `jenis_jasa`, `pkb`, `pkb_bulan`, `pkb_tahun`, `telat`, `telat_tahun`, `telat_bulan`, `sanksi_pkb`, `sanksi_pkb_t`, `swdkllj`, `swdkllj_bulan`, `swdkllj_tahun`, `sanksi_swdkllj`, `sanksi_swdkllj_t`, `ganti_plat`, `jenis_k`, `adm_stnk`, `adm_tnkb`, `biaya_jasa`, `total_pajak`, `total`, `hari`, `tanggal`) VALUES
+(0, 4, '614984846945716', 'Motor', 'normal', 'Jasa Konsumen Umum', '200000', '', '', '0', '0.25%', '0', '', '', '35000', '35000', '35000', '32000', '32000', NULL, 'Motor', '', '', '255000', '235000', '', 'Sabtu', '2019-01-19');
 
 -- --------------------------------------------------------
 
@@ -644,7 +702,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_users`, `nama`, `username`, `email`, `password`, `ulang_password`, `hak_akses`, `created_date`) VALUES
-(1, 'admin', 'admin', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'super_admin', '2018-12-29 00:00:00');
+(1, 'admin', 'admin', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'super_admin', '2018-12-29 00:00:00'),
+(2, 'sony', 'sonysur', 's@yahoo.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'cashier', '2019-01-12 00:46:54'),
+(3, 'fahmi', 'fahmi36', 'fauzifahmi55@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'orang_lapangan', '2019-01-12 00:47:20'),
+(4, 'kasir', 'kasir1', 'kasir@gmail.com', 'c7911af3adbd12a035b289556d96470a', 'kasir', 'cashier', '2019-01-19 14:47:10');
 
 --
 -- Indexes for dumped tables
@@ -760,87 +821,62 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `balik_nama`
 --
 ALTER TABLE `balik_nama`
-  MODIFY `id_balik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_balik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `blanko`
 --
 ALTER TABLE `blanko`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `catatan`
 --
 ALTER TABLE `catatan`
   MODIFY `id_catat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `cetak_balik`
 --
 ALTER TABLE `cetak_balik`
-  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `cetak_berkas`
 --
 ALTER TABLE `cetak_berkas`
   MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `cetak_mutasi`
 --
 ALTER TABLE `cetak_mutasi`
-  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `cetak_mutasibn`
 --
 ALTER TABLE `cetak_mutasibn`
   MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `cetak_perpanjang`
---
-ALTER TABLE `cetak_perpanjang`
-  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `cetak_sb`
---
-ALTER TABLE `cetak_sb`
-  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `cetak_stnk`
---
-ALTER TABLE `cetak_stnk`
-  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `history`
---
-ALTER TABLE `history`
-  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `mutasi`
 --
 ALTER TABLE `mutasi`
-  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_mutasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `mutasi_bn`
 --
 ALTER TABLE `mutasi_bn`
-  MODIFY `id_mutasibn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `perpanjang`
---
-ALTER TABLE `perpanjang`
-  MODIFY `id_perpanjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `stnk_balik`
---
-ALTER TABLE `stnk_balik`
-  MODIFY `id_stnkb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `stnk_hilang`
---
-ALTER TABLE `stnk_hilang`
-  MODIFY `id_stnk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mutasibn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
