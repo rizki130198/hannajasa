@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2019 at 11:28 AM
+-- Generation Time: Jan 18, 2019 at 05:46 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -34,6 +34,7 @@ CREATE TABLE `balik_nama` (
   `perhitungan` varchar(200) DEFAULT NULL,
   `no` varchar(20) DEFAULT NULL,
   `jenis` varchar(100) DEFAULT NULL,
+  `jenis_jasa` varchar(100) DEFAULT NULL,
   `jenis_k` varchar(225) DEFAULT NULL,
   `pkb` varchar(225) DEFAULT NULL,
   `bbnk` varchar(225) DEFAULT NULL,
@@ -47,6 +48,9 @@ CREATE TABLE `balik_nama` (
   `sanksi_pkb` varchar(225) DEFAULT NULL,
   `swdkllj` varchar(225) DEFAULT NULL,
   `sanksi_swdkllj` varchar(225) DEFAULT NULL,
+  `biaya_jasa` varchar(100) DEFAULT NULL,
+  `total_pajak` varchar(100) DEFAULT NULL,
+  `total` varchar(100) DEFAULT NULL,
   `hari` varchar(30) DEFAULT NULL,
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -80,7 +84,7 @@ CREATE TABLE `catatan` (
   `id_catat` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `jenis` enum('Motor','Mobil','Mobil Box') NOT NULL,
-  `jenis_harga` enum('swdkllj','stnk','tnkb','sanksi') NOT NULL,
+  `jenis_harga` enum('swdkllj','stnk','tnkb','sanksi','jasa') NOT NULL,
   `harga` varchar(100) NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -90,16 +94,19 @@ CREATE TABLE `catatan` (
 --
 
 INSERT INTO `catatan` (`id_catat`, `nama`, `jenis`, `jenis_harga`, `harga`, `created_at`) VALUES
-(1, 'SWDKLLJ Motor', 'Motor', 'swdkllj', '35000', '2018-12-29'),
-(2, 'SWDKLLJ Mobil', 'Mobil', 'swdkllj', '143000', '2018-12-29'),
-(3, 'SWDKLLJ Mobil Box', 'Mobil Box', 'swdkllj', '73000', '2018-12-29'),
-(4, 'Adm STNK Motor', 'Motor', 'stnk', '100000', '2018-12-29'),
-(5, 'Adm STNK Mobil', 'Mobil', 'stnk', '200000', '2018-12-29'),
-(6, 'Adm TNKB Motor', 'Motor', 'tnkb', '60000', '2018-12-29'),
+(1, 'SWDKLLJ Motor', 'Motor', 'swdkllj', '35000', '2019-01-14'),
+(2, 'SWDKLLJ Mobil', 'Mobil', 'swdkllj', '143000', '2019-01-14'),
+(3, 'SWDKLLJ Mobil Box', 'Mobil Box', 'swdkllj', '73000', '2019-01-14'),
+(4, 'Adm STNK Motor', 'Motor', 'stnk', '100000', '2019-01-14'),
+(5, 'Adm STNK Mobil', 'Mobil', 'stnk', '200000', '2019-01-14'),
+(6, 'Adm TNKB Motor', 'Motor', 'tnkb', '60000', '2019-01-14'),
 (7, 'Adm TNKB Mobil', 'Mobil', 'tnkb', '100000', '2018-12-29'),
 (8, 'Adm TNKB Mobil Box', 'Mobil Box', 'tnkb', '72000', '2018-12-29'),
-(9, 'Sanksi SWDKLLJ Motor', 'Motor', 'sanksi', '32000', '2018-12-29'),
-(10, 'Sanksi SWDKLLJ Mobil', 'Mobil', 'sanksi', '100000', '2019-01-02');
+(9, 'Sanksi SWDKLLJ Motor', 'Motor', 'sanksi', '32000', '2019-01-14'),
+(10, 'Sanksi SWDKLLJ Mobil', 'Mobil', 'sanksi', '100000', '2019-01-14'),
+(11, 'Jasa Konsumen Umum', '', 'jasa', '20000', '2019-01-16'),
+(12, 'Jasa Mediator/Cabang/Agen', '', 'jasa', '25000', '0000-00-00'),
+(13, 'Distributor', '', 'jasa', '25000', '2019-01-17');
 
 -- --------------------------------------------------------
 
@@ -218,6 +225,60 @@ CREATE TABLE `cetak_mutasi` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cetak_mutasibn`
+--
+
+CREATE TABLE `cetak_mutasibn` (
+  `id_cetak` int(11) NOT NULL,
+  `id_join` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `penerima` varchar(100) DEFAULT NULL,
+  `no_telp` varchar(16) DEFAULT NULL,
+  `atas_nama` varchar(100) DEFAULT NULL,
+  `uang_dp` varchar(20) DEFAULT NULL,
+  `bpkb` varchar(200) DEFAULT NULL,
+  `sim` varchar(100) DEFAULT NULL,
+  `stnk` varchar(100) DEFAULT NULL,
+  `wilayah` varchar(100) DEFAULT NULL,
+  `nopol` varchar(50) DEFAULT NULL,
+  `jenis_kendaraan` varchar(20) DEFAULT NULL,
+  `tahun_pajak` varchar(9) DEFAULT NULL,
+  `lainnya` text,
+  `m_stnk` varchar(20) DEFAULT NULL,
+  `c_berkas` varchar(20) DEFAULT NULL,
+  `pengurusan` varchar(100) DEFAULT NULL,
+  `pajak_ini` varchar(11) DEFAULT NULL,
+  `pajak_lalu` varchar(11) DEFAULT NULL,
+  `harga_pajak_ini` varchar(9) DEFAULT NULL,
+  `harga_pajak_lalu` varchar(10) DEFAULT NULL,
+  `total_pajak` varchar(11) DEFAULT NULL,
+  `proses_pm` varchar(11) DEFAULT NULL,
+  `proses_bn` varchar(100) DEFAULT NULL,
+  `adm_skp` varchar(50) DEFAULT NULL,
+  `stnk_hilang` varchar(50) DEFAULT NULL,
+  `surat_lk` varchar(100) DEFAULT NULL,
+  `plat` varchar(100) DEFAULT NULL,
+  `p_lainnya` text,
+  `proses_lain` varchar(50) DEFAULT NULL,
+  `harga_pm` varchar(10) DEFAULT NULL,
+  `harga_bn` varchar(100) DEFAULT NULL,
+  `harga_adm` varchar(10) DEFAULT NULL,
+  `harga_hilang` varchar(11) DEFAULT NULL,
+  `harga_lk` varchar(100) DEFAULT NULL,
+  `harga_plat` varchar(100) DEFAULT NULL,
+  `h_lainnya` varchar(20) DEFAULT NULL,
+  `harga_lainnya` varchar(20) DEFAULT NULL,
+  `total_proses` varchar(20) DEFAULT NULL,
+  `biaya_prediksi` varchar(20) DEFAULT NULL,
+  `biaya_kurang` varchar(20) DEFAULT NULL,
+  `status` enum('1','0','2') NOT NULL,
+  `hari` varchar(100) DEFAULT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cetak_perpanjang`
 --
 
@@ -277,6 +338,7 @@ CREATE TABLE `cetak_sb` (
   `uang_dp` varchar(20) DEFAULT NULL,
   `bpkb` varchar(200) DEFAULT NULL,
   `sim` varchar(100) DEFAULT NULL,
+  `stnk` varchar(100) DEFAULT NULL,
   `wilayah` varchar(100) DEFAULT NULL,
   `nopol` varchar(50) DEFAULT NULL,
   `jenis_kendaraan` varchar(20) DEFAULT NULL,
@@ -288,16 +350,24 @@ CREATE TABLE `cetak_sb` (
   `harga_pajak_ini` varchar(9) DEFAULT NULL,
   `harga_pajak_lalu` varchar(10) DEFAULT NULL,
   `total_pajak` varchar(11) DEFAULT NULL,
+  `proses_sh` varchar(100) DEFAULT NULL,
   `proses_bn` varchar(11) DEFAULT NULL,
   `adm_skp` varchar(50) DEFAULT NULL,
-  `plat` varchar(50) DEFAULT NULL,
   `surat_lp` varchar(50) DEFAULT NULL,
+  `plat` varchar(50) DEFAULT NULL,
+  `balik_nama` varchar(100) DEFAULT NULL,
+  `proses_pa` varchar(100) DEFAULT NULL,
+  `psl` varchar(100) DEFAULT NULL,
   `p_lainnya` text,
   `proses_lain` varchar(50) DEFAULT NULL,
+  `harga_sh` varchar(100) DEFAULT NULL,
   `harga_bn` varchar(10) DEFAULT NULL,
   `harga_adm` varchar(10) DEFAULT NULL,
-  `harga_plat` varchar(11) DEFAULT NULL,
   `harga_lp` varchar(20) DEFAULT NULL,
+  `harga_plat` varchar(11) DEFAULT NULL,
+  `harga_balik` varchar(100) DEFAULT NULL,
+  `harga_pa` varchar(100) DEFAULT NULL,
+  `harga_psl` varchar(100) DEFAULT NULL,
   `h_lainnya` varchar(20) DEFAULT NULL,
   `harga_lainnya` varchar(20) DEFAULT NULL,
   `total_proses` varchar(20) DEFAULT NULL,
@@ -394,6 +464,9 @@ CREATE TABLE `mutasi` (
   `adm_stnk` varchar(225) DEFAULT NULL,
   `adm_tnkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb` varchar(225) DEFAULT NULL,
+  `jenis_jasa` varchar(100) DEFAULT NULL,
+  `biaya_jasa` varchar(100) DEFAULT NULL,
+  `total_pajak` varchar(100) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
   `telat_tahun` varchar(100) DEFAULT NULL,
   `total` varchar(225) DEFAULT NULL,
@@ -423,6 +496,9 @@ CREATE TABLE `mutasi_bn` (
   `adm_stnk` varchar(225) DEFAULT NULL,
   `adm_tnkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb` varchar(225) DEFAULT NULL,
+  `jenis_jasa` varchar(100) DEFAULT NULL,
+  `biaya_jasa` varchar(100) DEFAULT NULL,
+  `total_pajak` varchar(100) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
   `telat_thn` varchar(100) DEFAULT NULL,
   `telat_thn1` varchar(100) DEFAULT NULL,
@@ -443,6 +519,7 @@ CREATE TABLE `perpanjang` (
   `no` varchar(20) NOT NULL,
   `perhitungan` varchar(200) NOT NULL,
   `jenis` varchar(100) NOT NULL,
+  `jenis_jasa` varchar(100) DEFAULT NULL,
   `pkb` varchar(9) NOT NULL,
   `pkb_bulan` varchar(100) NOT NULL,
   `pkb_tahun` varchar(100) NOT NULL,
@@ -460,6 +537,8 @@ CREATE TABLE `perpanjang` (
   `jenis_k` varchar(100) NOT NULL,
   `adm_stnk` varchar(20) NOT NULL,
   `adm_tnkb` varchar(20) NOT NULL,
+  `biaya_jasa` varchar(100) DEFAULT NULL,
+  `total_pajak` varchar(100) DEFAULT NULL,
   `total` varchar(9) NOT NULL,
   `hari` varchar(20) NOT NULL,
   `tanggal` date NOT NULL
@@ -494,6 +573,9 @@ CREATE TABLE `stnk_balik` (
   `ganti` varchar(100) DEFAULT NULL,
   `sanksi_pkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb1` varchar(100) DEFAULT NULL,
+  `jenis_jasa` varchar(100) DEFAULT NULL,
+  `biaya_jasa` varchar(100) DEFAULT NULL,
+  `total_pajak` varchar(100) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
   `telat_b_t` varchar(100) DEFAULT NULL,
   `total` varchar(225) DEFAULT NULL,
@@ -526,6 +608,9 @@ CREATE TABLE `stnk_hilang` (
   `adm_tnkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb1` varchar(100) DEFAULT NULL,
+  `jenis_jasa` varchar(100) DEFAULT NULL,
+  `biaya_jasa` varchar(100) DEFAULT NULL,
+  `total_pajak` varchar(100) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
   `telat1` varchar(100) NOT NULL,
   `telat_t` varchar(100) DEFAULT NULL,
@@ -599,6 +684,12 @@ ALTER TABLE `cetak_berkas`
 -- Indexes for table `cetak_mutasi`
 --
 ALTER TABLE `cetak_mutasi`
+  ADD PRIMARY KEY (`id_cetak`);
+
+--
+-- Indexes for table `cetak_mutasibn`
+--
+ALTER TABLE `cetak_mutasibn`
   ADD PRIMARY KEY (`id_cetak`);
 
 --
@@ -679,7 +770,7 @@ ALTER TABLE `blanko`
 -- AUTO_INCREMENT for table `catatan`
 --
 ALTER TABLE `catatan`
-  MODIFY `id_catat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_catat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `cetak_balik`
 --
@@ -689,11 +780,16 @@ ALTER TABLE `cetak_balik`
 -- AUTO_INCREMENT for table `cetak_berkas`
 --
 ALTER TABLE `cetak_berkas`
-  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_berkas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cetak_mutasi`
 --
 ALTER TABLE `cetak_mutasi`
+  MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `cetak_mutasibn`
+--
+ALTER TABLE `cetak_mutasibn`
   MODIFY `id_cetak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `cetak_perpanjang`

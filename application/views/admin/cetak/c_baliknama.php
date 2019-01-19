@@ -239,6 +239,7 @@ table tr td{
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
+
 </style>
 <body>
 	<div class="content">
@@ -585,5 +586,4 @@ table tr td{
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 </html>
