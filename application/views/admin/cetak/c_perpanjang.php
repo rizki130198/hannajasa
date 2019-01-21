@@ -376,7 +376,7 @@ table tr td{
 									<div class="col-md-4">
 										<div class="input-group" style="margin-top:-35px !important;">
 											<span class="input-group-addon">Masa Berlaku Pajak :</span>
-											<input type="text" value="<?=$perpanjang->tahun_pajak?>"" class="form-control" placeholder="Masukan Masa Berlaku">
+											<input type="text" value="<?=$perpanjang->tahun_pajak?>" class="form-control" placeholder="Masukan Masa Berlaku">
 										</div>
 									</div>
 								</div>
@@ -427,7 +427,7 @@ table tr td{
 																	<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top: 0 !important;">Total Pajak</label>
 																	<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$perpanjang->total_pajak?>" class="form-control">
+																		<input type="text" value="<?=$perpanjang->total_cpajak?>" class="form-control">
 																	</div>
 																</div>
 															</div>

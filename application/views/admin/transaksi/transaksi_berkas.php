@@ -72,7 +72,7 @@
 								<div class="col-sm-8">
 									<div class="input-group">
 										<span class="input-group-addon">Lunas/Rp</span>
-										<input type="text" class="form-control" name="kurang" placeholder="Masukan Kekurangan Biaya">
+										<input type="text" value="<?=$rowBerkas->biaya_kurang?>" class="form-control" name="kurang" placeholder="Masukan Kekurangan Biaya">
 									</div>
 								</div>
 							</div>

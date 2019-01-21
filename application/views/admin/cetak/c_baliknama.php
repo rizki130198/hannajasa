@@ -239,6 +239,7 @@ table tr td{
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
+
 </style>
 <body>
 	<div class="content">
@@ -437,7 +438,7 @@ table tr td{
 																	<label class="col-form-label" style="width: 50%;padding-left: 30px;font-weight: bold;color: #333;padding-top: 0 !important;">Total Pajak</label>
 																	<div class="input-group" style="width: 50%;margin-top: -4px;border-top: solid 1.5px #333;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
-																		<input type="text" value="<?=$balik->total_pajak?>" class="form-control">
+																		<input type="text" value="<?=$balik->total_cpajak?>" class="form-control">
 																	</div>
 																</div>
 															</div>
@@ -505,7 +506,7 @@ table tr td{
 																	<div class="checkbox" style="margin-left: 0;padding-right: 28px;">
 																		<label style="font-weight: bold;color: #333;"><input type="checkbox" <?=($balik->proses_lain==NULL)?NULL:'checked value="'.$balik->proses_lain.'"'?>></label>
 																	</div>
-																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$balik->harga_lainnya?>" class="form-control" placeholder="">
+																	<input type="text" style="width: 44%;margin-top: -4px;" value="<?=$balik->proses_lain?>" class="form-control" placeholder="">
 																	<div class="input-group" style="margin-top: -6px;width: 50%;float: right;">
 																		<span class="input-group-addon" style="font-weight: bold;color: #333;">: Rp.</span>
 																		<input type="text" value="<?=$balik->harga_lainnya?>" class="form-control">
@@ -585,5 +586,4 @@ table tr td{
 <script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 </html>

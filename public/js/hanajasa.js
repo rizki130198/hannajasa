@@ -134,7 +134,7 @@ function harga_tahun() {
 		document.getElementById('total_harga').value = "Rp. " + result;
 	}
 }
-var url = 'http://'+location.hostname+'/hannajasa';
+var url = 'http://'+location.hostname+'/';
 
 function ambilSwdk() {
 	$.ajax({
@@ -576,7 +576,7 @@ function loopData(table,type) {
 			temp_array = [
 			val.no,
 			val.nama,
-			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.jenis_k+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
 			val.uang_dp,
@@ -588,7 +588,7 @@ function loopData(table,type) {
 			temp_array = [
 			val.no,
 			val.nama,
-			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.jenis_k+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
 			val.uang_dp,
@@ -600,7 +600,7 @@ function loopData(table,type) {
 			temp_array = [
 			val.no,
 			val.nama,
-			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.jenis_k+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
 			val.uang_dp,
@@ -612,7 +612,7 @@ function loopData(table,type) {
 			temp_array = [
 			val.no,
 			val.nama,
-			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.jenis_k+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
 			val.uang_dp,
@@ -624,7 +624,7 @@ function loopData(table,type) {
 			temp_array = [
 			val.no,
 			val.nama,
-			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.jenis_k+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
 			val.uang_dp,
@@ -636,7 +636,7 @@ function loopData(table,type) {
 			temp_array = [
 			val.no,
 			val.nama,
-			val.perhitungan+"<span style='color: red;'>("+val.jenis+")</span>",
+			val.jenis_k+"<span style='color: red;'>("+val.jenis+")</span>",
 			val.atas_nama,
 			val.no_telp,
 			val.uang_dp,
