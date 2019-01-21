@@ -384,6 +384,42 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#bpkb').change(function () {
+		if (!this.checked) {
+			$('#jasabpkb').fadeOut('fast');
+		}else{ 
+			$('#jasabpkb').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#ktp').change(function () {
+		if (!this.checked) {
+			$('#jasaktp').fadeOut('fast');
+		}else{ 
+			$('#jasaktp').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#skp').change(function () {
+		if (!this.checked) {
+			$('#jasaskp').fadeOut('fast');
+		}else{ 
+			$('#jasaskp').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#loksus').change(function () {
+		if (!this.checked) {
+			$('#jasaloksus').fadeOut('fast');
+		}else{ 
+			$('#jasaloksus').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#gantiplat_bul').change(function () {
 		if (!this.checked) {
 			$('#admtnkb_b').fadeOut('fast');

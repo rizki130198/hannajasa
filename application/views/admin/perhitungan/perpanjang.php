@@ -1,4 +1,4 @@
-<style type="text/css">
+	<style type="text/css">
 .form-group{
 	margin-top: 10px;
 }
@@ -31,6 +31,22 @@
 											<option value="normal">Normal</option>
 											<option value="telat bulanan">Telat bulanan</option>
 											<option value="Telat lebih dari setahun">Telat lebih dari setahun</option>
+										</select>
+										<span class="material-input"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group is-empty">
+										<p>Jenis Wilayah</p>
+										<select name="wilayah" class="form-control" onchange="" id="wil_perpanjang">
+											<option value="" disabled="" selected>-- SILAHKAN PILIH --</option>
+											<option value="" disabled=""></option>
+											<option value="Jakarta">Jakarta</option>
+											<option value="Bekasi">Bekasi</option>
+											<option value="Tanggerang">Tanggerang</option>
+											<option value="Depok">Depok</option>
 										</select>
 										<span class="material-input"></span>
 									</div>
@@ -186,7 +202,7 @@
 								<div class="row" id="total_p_n">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 										<div class="form-group jum-n">
-											<label class="control-label">Total Pajak</label>
+											<label class="control-label">Perkiraan Total Pajak</label>
 											<input type="text" name="total_pajak" id="sum_pajak" class="form-control jumlah_n">
 											<span class="material-input"></span>
 										</div>
@@ -195,7 +211,7 @@
 								<div class="row" id="total">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group">
-											<label class="control-label">Total Perkiraan Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak dan Jasa</label>
 											<input type="text" name="total"  id="sum_n" class="form-control" >
 											<span class="material-input"></span>
 										</div>
@@ -284,7 +300,7 @@
 								<div class="row" id="total_p_b">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 										<div class="form-group jum-b">
-											<label class="control-label">Total Pajak</label>
+											<label class="control-label">Perkiraan Total Pajak</label>
 											<input type="text" name="total_pajak1" id="sum_pajak_b" class="form-control jumlah_biaya">
 											<span class="material-input"></span>
 										</div>
@@ -293,7 +309,7 @@
 								<div class="row" id="total_b">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group">
-											<label class="control-label">Total Perkiraan Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak dan Jasa</label>
 											<input type="text" name="total" id="hasil_biaya" class="form-control" >
 											<span class="material-input"></span>
 										</div>
@@ -306,16 +322,47 @@
 							<div id="cek_plat" style="display: none;">
 								<div class="row" >
 									<div class="col-md-12">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" name="ganti" id="gantiplat_nor" value="ada"> Ganti Plat
-											</label>
+										<div class="col-md-2">
+											<div class="checkbox" style="display: inline-flex;">
+												<label>
+													<input type="checkbox" name="ganti" id="gantiplat_nor" value="ada"> Ganti Plat
+												</label>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="checkbox" style="display: inline-flex;">
+												<label>
+													<input type="checkbox" name="accbpkb" id="bpkb" value="ada"> Acc BPKB
+												</label>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="checkbox" style="display: inline-flex;">
+												<label>
+													<input type="checkbox" name="" id="ktp" value="ada"> Acc KTP
+												</label>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="checkbox" style="display: inline-flex;">
+												<label>
+													<input type="checkbox" name="" id="skp" value="ada"> Adm. SKP
+												</label>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="checkbox" style="display: inline-flex;">
+												<label>
+													<input type="checkbox" name="" id="loksus" value="ada"> Loksus
+												</label>
+											</div>
 										</div>
 									</div>
 								</div>
 								<div class="ganti-plat" id="admtnkb_n" style="display: none;">
 									<div class="row">
 										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">Ganti Plat</h4>
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
 												<select class="form-control" id="jenis_k" name="jenis_k"  onchange="ambilselect()">
@@ -340,6 +387,98 @@
 										</div>
 									</div>
 								</div>
+								<div class="" id="jasabpkb" style="display: none;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">ACC BPKB</h4>
+											<div class="form-group is-empty">
+												<p>Jenis Kendaraan</p>
+												<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb"  onchange="ambilbpkb()">
+													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
+													<option value="" disabled=""></option>
+													<?php foreach ($catat->result() as $key): ?>
+														<option value="<?=$key->jenis?>"><?=$key->jenis?></option>
+													<?php endforeach ?>
+												</select>
+												<span class="material-input"></span>
+											</div>
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">Biaya Jasa ACC BPKB</label>
+												<input type="text" name="jasa_bpkb" id="acc_bpkb" class="form-control jumlah_p_t">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="" id="jasaktp" style="display: none;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">ACC KTP</h4>
+											<div class="form-group is-empty">
+												<p>Jenis Kendaraan</p>
+												<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp"  onchange="ambilktp()">
+													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
+													<option value="" disabled=""></option>
+													<?php foreach ($catat->result() as $key): ?>
+														<option value="<?=$key->jenis?>"><?=$key->jenis?></option>
+													<?php endforeach ?>
+												</select>
+												<span class="material-input"></span>
+											</div>
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">Biaya Jasa ACC KTP</label>
+												<input type="text" name="jasa_ktp" id="acc_ktp" class="form-control jumlah_p_t">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="" id="jasaskp" style="display: none;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">Adm. SKP</h4>
+											<div class="form-group is-empty">
+												<p>Jenis Kendaraan</p>
+												<select class="form-control" id="jenis_k_skp" name="jenis_k_skp"  onchange="ambilskp()">
+													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
+													<option value="" disabled=""></option>
+													<?php foreach ($catat->result() as $key): ?>
+														<option value="<?=$key->jenis?>"><?=$key->jenis?></option>
+													<?php endforeach ?>
+												</select>
+												<span class="material-input"></span>
+											</div>
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">Biaya Jasa Adm. SKP</label>
+												<input type="text" name="jasa_skp" id="adm_skp" class="form-control jumlah_p_t">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="" id="jasaloksus" style="display: none;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">Loksus</h4>
+											<div class="form-group is-empty">
+												<p>Jenis Kendaraan</p>
+												<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilloksus()">
+													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
+													<option value="" disabled=""></option>
+													<?php foreach ($catat->result() as $key): ?>
+														<option value="<?=$key->jenis?>"><?=$key->jenis?></option>
+													<?php endforeach ?>
+												</select>
+												<span class="material-input"></span>
+											</div>
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">Biaya Jasa Loksus</label>
+												<input type="text" name="jasa_loksus" id="loksus" class="form-control jumlah_p_t">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
 								<!-- End Ganti Plat -->
 								<div class="row" id="jasa_t">
 									<div class="col-md-12">
@@ -353,7 +492,7 @@
 								<div class="row" id="total_p_t">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 										<div class="form-group jum-t">
-											<label class="control-label">Total Pajak</label>
+											<label class="control-label">Perkiraan Total Pajak</label>
 											<input type="text" name="total_pajak2" id="sum_pajak_t" class="form-control jumlah_t">
 											<span class="material-input"></span>
 										</div>
@@ -362,7 +501,7 @@
 								<div class="row" id="total_t">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group jumlah_pajak">
-											<label class="control-label">Total Perkiraan Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak dan Jasa</label>
 											<input type="text" name="total" required id="sum_t" class="form-control" >
 											<span class="material-input"></span>
 										</div>
