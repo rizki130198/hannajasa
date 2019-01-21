@@ -28,7 +28,7 @@
                     <td><?=$key->atas_nama?></td>
                     <td><?=$key->nopol?></td>
                     <td>Blm tahu></td>
-                    <td><?=$key->total_pajak?></td>
+                    <td><?=$key->total_cpajak?></td>
                   </tr>
                 <?php endforeach ?>
                 <?php foreach ($balik as $b ): ?>
@@ -39,7 +39,7 @@
                     <td><?=$b->atas_nama?></td>
                     <td><?=$b->nopol?></td>
                     <td>blm tahu</td>
-                    <td><?=$b->total_pajak?></td>
+                    <td><?=$b->total_cpajak?></td>
                   </tr>
                 <?php endforeach ?>
                 <?php foreach ($mutasi as $m ): ?>
@@ -50,7 +50,7 @@
                     <td><?=$m->atas_nama?></td>
                     <td><?=$m->nopol?></td>
                     <td>blm tahu</td>
-                    <td><?=$m->total_pajak?></td>
+                    <td><?=$m->total_cpajak?></td>
                   </tr>
                 <?php endforeach ?>
                 <?php foreach ($mutasi_bn as $mbn ): ?>
@@ -61,7 +61,7 @@
                     <td><?=$mbn->atas_nama?></td>
                     <td><?=$mbn->nopol?></td>
                     <td>blm tahu</td>
-                    <td><?=$mbn->total_pajak?></td>
+                    <td><?=$mbn->total_cpajak?></td>
                   </tr>
                 <?php endforeach ?>
                 <?php foreach ($stnk as $stnk ): ?>
@@ -72,7 +72,7 @@
                     <td><?=$stnk->atas_nama?></td>
                     <td><?=$stnk->nopol?></td>
                     <td>blm tahu</td>
-                    <td><?=$stnk->total_pajak?></td>
+                    <td><?=$stnk->total_cpajak?></td>
                   </tr>
                 <?php endforeach ?>
                 <?php foreach ($stnk_bn as $stnkb ): ?>
@@ -83,7 +83,7 @@
                     <td><?=$stnkb->atas_nama?></td>
                     <td><?=$stnkb->nopol?></td>
                     <td>blm tahu</td>
-                    <td><?=$stnkb->total_pajak?></td>
+                    <td><?=$stnkb->total_cpajak?></td>
                   </tr>
                 <?php endforeach ?>
               </tbody>

@@ -1088,7 +1088,7 @@ class M_back extends CI_Model {
 				'created_at'=>$gabungan,
 			));
 			if ($query==TRUE) {
-				redirect('main/cetak/c_berkas/'.$id.'/'.$jenis);
+				redirect('main/berkas/'.$id);
 			}else{
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');

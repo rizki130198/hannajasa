@@ -179,7 +179,7 @@
 												<td><?= $dataKaryawan['email'];?></td>
 												<td><?= $dataKaryawan['hak_akses'];?></td>
 												<td>
-													<a href="<?= site_url('main/datahistory') ?>"><button type="button" class="btn btn-success">Cek Progress</button></a>
+													<a href="<?= site_url('main/datahistory/'.$dataKaryawan['id_users']) ?>"><button type="button" class="btn btn-success">Cek Progress</button></a>
 												</td>
 											</tr>
 										<?php } ?>
