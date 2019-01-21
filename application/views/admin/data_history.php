@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header" data-background-color="purple">
-            <h4 class="title">Data Berkas Jadi</h4>
+            <h4 class="title">Progress Kerjaan Karyawan</h4>
           </div>
           <div class="card-content">
             <div class="table-responsive">

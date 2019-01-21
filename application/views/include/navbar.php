@@ -76,6 +76,8 @@
                     echo "Halaman Daftar Harga Jasa";
                 }elseif ($this->uri->segment(2)=="prog_kerja") {
                     echo "Halaman Progress Kerja";
+                }elseif ($this->uri->segment(2)=="datahistory") {
+                    echo "Halaman Progress Kerjaan Karyawan";
                 }elseif ($this->uri->segment(2)=="blanko") {
                     echo "Halaman Stok Blanko";
                 }elseif ($this->uri->segment(2)=="profile") {
