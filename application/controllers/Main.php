@@ -29,7 +29,7 @@ class Main extends CI_Controller {
 	public function perpanjang()
 	{
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
 		$data['title'] = "Halaman Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
@@ -44,7 +44,7 @@ class Main extends CI_Controller {
 			redirect('main/dashboard');
 		}
 	}
-		public function cetak_perpanjang($id)
+	public function cetak_perpanjang($id)
 	{
 		$query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
@@ -62,7 +62,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_bn($id)
@@ -95,7 +95,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_m($id)
@@ -127,7 +127,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi+Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_mb($id)
@@ -159,7 +159,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman STNK Hilang";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_sh($id)
@@ -191,7 +191,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman STNK Hilang + Balik Nama";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa"');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_sb($id)
@@ -210,7 +210,7 @@ class Main extends CI_Controller {
 		$query = $this->db->query('SELECT * FROM cetak_sb c INNER JOIN stnk_balik p ON c.id_join = p.id_stnkb where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
 			$data['stnkhilang'] = $query->row();
-		$this->load->view('admin/cetak/c_stnkh_bn',$data);
+			$this->load->view('admin/cetak/c_stnkh_bn',$data);
 		}else{
 			redirect('main/stnkh_bn/');
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
@@ -540,7 +540,72 @@ class Main extends CI_Controller {
 		}
 		echo json_encode($data);
 	}
-
+	public function ambilharga()
+	{
+		$jenis = $this->input->post('jenis');
+		$wilayah = $this->input->post('wilayah');
+		$uri = $this->uri->segment(3);
+		if ($uri == 'ambilbpkb') {
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="ACC BPKB" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilktp'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="ACC KTP / ACC Perizinan" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilskp'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilloksus'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}
+		
+		
+		echo json_encode($data);
+	}
 	//start cetak pdf//
 	public function cetak()
 	{
@@ -700,7 +765,7 @@ class Main extends CI_Controller {
 		$data['balik'] = $this->db->query("SELECT * FROM cetak_balik c 
 			INNER JOIN users u ON c.id_user = u.id_users
 			INNER JOIN balik_nama p ON p.id_balik = c.id_join
-		 where c.id_user='".$id."' AND c.tanggal='".date("Y-m-d")."'")->result();
+			where c.id_user='".$id."' AND c.tanggal='".date("Y-m-d")."'")->result();
 		
 		$data['mutasi'] = $this->db->query("SELECT * FROM cetak_mutasi c 
 			INNER JOIN users u ON c.id_user = u.id_users 
@@ -723,6 +788,10 @@ class Main extends CI_Controller {
 			where c.id_user='".$id."' AND c.tanggal='".date("Y-m-d")."'")->result();
 
 		$this->load->view('admin', $data);
+	}
+	public function tambahjasa()
+	{
+		$this->M_back->tambahjasa();
 	}
 	public function logout()
 	{

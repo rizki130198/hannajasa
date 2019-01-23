@@ -339,21 +339,21 @@
 										<div class="col-md-2">
 											<div class="checkbox" style="display: inline-flex;">
 												<label>
-													<input type="checkbox" name="" id="ktp" value="ada"> Acc KTP
+													<input type="checkbox" name="accktp" id="ktp" value="ada"> Acc KTP
 												</label>
 											</div>
 										</div>
 										<div class="col-md-2">
 											<div class="checkbox" style="display: inline-flex;">
 												<label>
-													<input type="checkbox" name="" id="skp" value="ada"> Adm. SKP
+													<input type="checkbox" name="admskp" id="skp" value="ada"> Adm. SKP
 												</label>
 											</div>
 										</div>
 										<div class="col-md-2">
 											<div class="checkbox" style="display: inline-flex;">
 												<label>
-													<input type="checkbox" name="" id="loksus" value="ada"> Loksus
+													<input type="checkbox" name="loksus" id="loksus" value="ada"> Loksus
 												</label>
 											</div>
 										</div>

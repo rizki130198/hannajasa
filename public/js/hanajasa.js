@@ -134,7 +134,7 @@ function harga_tahun() {
 		document.getElementById('total_harga').value = "Rp. " + result;
 	}
 }
-var url = 'http://'+location.hostname+'/';
+var url = 'http://'+location.hostname+'/hannajasa';
 
 function ambilSwdk() {
 	$.ajax({
@@ -224,7 +224,66 @@ function ambilselectta() {
 		}
 	})
 }
-
+function ambilbpkb() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbpkb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_bpkb").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#acc_bpkb").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilktp() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilktp',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_ktp").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#acc_ktp").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilskp() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskp',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_skp").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_skp").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilloksus() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilloksus',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_lokus").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#loksus").val(datanya[0].harga);
+			}
+		}
+	})
+}
 // END PERPANJANG 
 
 // START BALIK NAMA

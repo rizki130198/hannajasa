@@ -13,6 +13,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
+				<a href="#tambahjasa" data-toggle="modal" class="btn btn-primary" style="float: right;">Tambah Jasa</a>
 				<div class="card">
 					<div class="card-header" data-background-color="purple">
 						<h4 class="title">Harga</h4>
@@ -37,6 +38,98 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+<div id="tambahjasa" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<form method="post" action="<?= site_url('main/tambahjasa')?>" accept-charset="utf-8">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="content">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card">
+										<div class="card-header" data-background-color="purple">
+											<h4 class="title">Tambah Jasa</h4>
+											<!-- <p class="category">Here is a subtitle for this table</p> -->
+										</div>
+										<div class="card-content">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label">Proses</label>
+														<select class="form-control" name="proses" required="">
+															<option value="" disabled="" selected=""></option>
+															<option value="Rubah Identitas STNK / BPKB">Rubah Identitas STNK / BPKB</option>
+															<option value="STNK Hilang">STNK Hilang</option>
+															<option value="Mutasi STNK BPKB">Mutasi STNK BPKB</option>
+															<option value="Cabut Berkas">Cabut Berkas</option>
+															<option value="Lain-Lain">Lain Lain</option>
+														</select>
+														<span class="material-input"></span>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label">Nama Jasa</label>
+														<input type="text" name="nama" class="form-control" required="">
+														<span class="material-input"></span>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label">Harga</label>
+														<input type="text" name="harga" class="form-control" required="">
+														<span class="material-input"></span>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label">Wilayah</label>
+														<select class="form-control" name="wilayah" required="">
+															<option value="" disabled="" selected=""></option>
+															<option value="Jakarta">Jakarta</option>
+															<option value="Bekasi">Bekasi</option>
+															<option value="Tanggerang">Tanggerang</option>
+															<option value="Depok">Depok</option>
+														</select>
+														<span class="material-input"></span>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label">Jenis Kendaraan</label>
+														<select class="form-control" name="jenis_k" required="">
+															<option value="" disabled="" selected=""></option>
+															<option value="Motor">Motor</option>
+															<option value="Mobil">Mobil</option>
+														</select>
+														<span class="material-input"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+					<button class="btn btn-primary" type="submit">Ya Tambah Daftar Jasa</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
 <script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>

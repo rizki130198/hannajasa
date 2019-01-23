@@ -385,6 +385,7 @@ class M_back extends CI_Model {
 		}
 		$jenis = $this->input->post('jenis');
 		$jenis_jasa = $this->input->post('jenis_jasa');
+		$wilayah = $this->input->post('wilayah');
 		$total_pajak = $this->input->post('total_pajak');
 		$total_pajak1 = $this->input->post('total_pajak1');
 		$total_pajak2 = $this->input->post('total_pajak2');
@@ -410,6 +411,22 @@ class M_back extends CI_Model {
 		$ganti = $this->input->post('ganti');
 		$adm_stnk = $this->input->post('adm_stnk');
 		$adm_tnkb = $this->input->post('adm_tnkb');
+		
+		$accbpkb = $this->input->post('accbpkb');
+		$accktp = $this->input->post('accktp');
+		$admskp = $this->input->post('admskp');
+		$loksus = $this->input->post('loksus');
+
+		$jenis_k_bpkb = $this->input->post('jenis_k_bpkb');
+		$jenis_k_ktp = $this->input->post('jenis_k_ktp');
+		$jenis_k_skp = $this->input->post('jenis_k_skp');
+		$jenis_k_loksus = $this->input->post('jenis_k_loksus');
+
+		$jasa_bpkb = $this->input->post('jasa_bpkb');
+		$jasa_ktp = $this->input->post('jasa_ktp');
+		$jasa_skp = $this->input->post('jasa_skp');
+		$jasa_loksus = $this->input->post('jasa_loksus');
+
 		$total1 = $this->input->post('total1');
 		$total2 = $this->input->post('total2');
 		$total3 = $this->input->post('total3');
@@ -465,12 +482,16 @@ class M_back extends CI_Model {
 			'sanksi_pkb_t'=>$sanksi_pkb2,
 			'swdkllj'=>$swdllj1,
 			'swdkllj_bulan'=>$swdllj2,
-			'swdkllj_tahun'=>$swdllj3,
+			'swdkllj_tahun'=>$swdllj3, 
 			'sanksi_swdkllj'=>$sanski_swdllj1,
 			'sanksi_swdkllj_t'=>$sanski_swdllj2,
 			'ganti_plat'=>$ganti,
 			'adm_stnk'=>$adm_stnk,
 			'adm_tnkb'=>$adm_tnkb,
+			'wilayah'=>$wilayah,
+			'ganti_lainnya'=>$accbpkb.','.$accktp.','.$admskp.','.$loksus.',',
+			'kendaraan'=>$jenis_k_bpkb.','.$jenis_k_ktp.','.$jenis_k_skp.','.$jenis_k_loksus.',',
+			'biaya_lainnya'=>$jasa_bpkb.','.$jasa_ktp.','.$jasa_skp.','.$jasa_loksus.',',
 			'biaya_jasa'=>filter_var($biaya,FILTER_SANITIZE_NUMBER_INT),
 			'total_pajak'=>filter_var($pajak,FILTER_SANITIZE_NUMBER_INT),
 			'total'=>filter_var($total,FILTER_SANITIZE_NUMBER_INT),
@@ -2183,6 +2204,26 @@ class M_back extends CI_Model {
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');
 			}
+		}
+	}
+	//Tambah Jasa
+	public function tambahjasa()
+	{
+		$query = $this->db->insert('catatan', array(
+			'proses'=>$this->input->post('proses'),
+			'nama'=>$this->input->post('nama'),
+			'jenis'=>$this->input->post('jenis_k'),
+			'jenis_harga'=>'jasa',
+			'harga'=>$this->input->post('harga'),
+			'wilayah'=>$this->input->post('wilayah'),
+			'created_at'=>date('Y-m-d'),
+		));
+		if ($query==TRUE) {
+			redirect('main/harga_jasa');
+			$this->session->set_flashdata('sukses', 'Berhasil Tambah data');
+		}else{
+			redirect('main/harga_jasa');
+			$this->session->set_flashdata('gagal', 'Gagal Tambah data');
 		}
 	}
 	// HARI
