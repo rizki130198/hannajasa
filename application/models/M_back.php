@@ -340,8 +340,7 @@ class M_back extends CI_Model {
 	}
 	public function load_harga_jasa()
 	{
-		$jenis = array('jenis_harga' => 'jasa');
-		$query = $this->db->get_where('catatan',$jenis);
+		$query = $this->db->query("SELECT * FROM catatan WHERE jenis_harga='jasa_select' or jenis_harga='jasa'");
 		return $query->result_array();
 	}
 	function act_update_harga()

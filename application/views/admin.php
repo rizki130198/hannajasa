@@ -479,7 +479,7 @@ if ($uri=="cetak") { ?>
 			}
 		});
 		// $('#sum').val(totalSum);
-		$('#sum_t').val(totalSum);
+		$('#sum_t').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
 	});
 	$('.jum-pajak').on('input','.jumlah',function(){
 		var totalSum = 0;
@@ -537,7 +537,6 @@ if ($uri=="cetak") { ?>
 			searchPlaceholder: "Cari Berkas",
 		}
 	});
-
 	var table = $('#datatable').DataTable();
 </script>
 <div class="col-md-12">

@@ -29,7 +29,7 @@ class Main extends CI_Controller {
 	public function perpanjang()
 	{
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa_select" GROUP BY nama');
 		$data['title'] = "Halaman Perpanjang STNK";
 		$this->load->view('admin',$data);
 	}
@@ -62,7 +62,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa_select" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_bn($id)
@@ -95,7 +95,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan  WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa_select" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_m($id)
@@ -127,7 +127,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman Mutasi+Balik Nama STNK";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa_select" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_mb($id)
@@ -159,7 +159,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman STNK Hilang";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa_select" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_sh($id)
@@ -191,7 +191,7 @@ class Main extends CI_Controller {
 	{
 		$data['title'] = "Halaman STNK Hilang + Balik Nama";
 		$data['catat'] = $this->db->query('SELECT * FROM catatan WHERE `id_catat` IN (1,2,3) GROUP BY jenis');
-		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa" GROUP BY nama');
+		$data['jasa'] = $this->db->query('SELECT * FROM catatan  WHERE jenis_harga = "jasa_select" GROUP BY nama');
 		$this->load->view('admin',$data);
 	}
 	public function transaksi_sb($id)
@@ -515,7 +515,7 @@ class Main extends CI_Controller {
 	public function ambiljasa()
 	{
 		$nama = $this->input->post('nama');
-		$query = $this->db->query('SELECT * FROM catatan WHERE jenis_harga="jasa" AND nama="'.$nama.'"');
+		$query = $this->db->query('SELECT * FROM catatan WHERE jenis_harga="jasa_select" AND nama="'.$nama.'"');
 		$i = 0;
 		$data = "";
 		foreach ($query->result() as $key) {
