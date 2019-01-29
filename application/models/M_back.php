@@ -391,18 +391,26 @@ class M_back extends CI_Model {
 		$biaya_jasa = $this->input->post('biaya_jasa');
 		$biaya_jasa1 = $this->input->post('biaya_jasa1');
 		$biaya_jasa2 = $this->input->post('biaya_jasa2');
-		$jenis_k = $this->input->post('jenis_swd');
+		$jenis_k = $this->input->post('jenis_k');
 		$pkb1 = $this->input->post('pkb1');
 		$pkb2 = $this->input->post('pkb2');
 		$pkb3 = $this->input->post('pkb3');
 		$sanksi_pkb1 = $this->input->post('sanksi_pkb1');
 		$sanksi_pkb2 = $this->input->post('sanksi_pkb2');
 		$swdllj1 = $this->input->post('swdllj1');
-		$swdllj2 = $this->input->post('swdllj2');
-		$swdllj3 = $this->input->post('swdllj3');
+		if ($jenis == 'Telat lebih dari setahun') {
+			
+			$swdllj2 = $this->input->post('swdllj2');
+			$swdllj3 = $this->input->post('swdllj3');
+			$sanski_swdllj1 = $this->input->post('sanski_swdllj1');
+			$sanski_swdllj2 = $this->input->post('sanski_swdllj2');
+		}else{
+			$swdllj2 = NULL;
+			$swdllj3 =  NULL;
+			$sanski_swdllj1 =  NULL;
+			$sanski_swdllj2 =  NULL;
+		}
 		$jenis_swd = $this->input->post('jenis_swd');
-		$sanski_swdllj1 = $this->input->post('sanski_swdllj1');
-		$sanski_swdllj2 = $this->input->post('sanski_swdllj2');
 		$telat_bln= $this->input->post('telat');
 		$telat_b_t= $this->input->post('telat_bulan');
 		$telat_thn= $this->input->post('telat_thn');

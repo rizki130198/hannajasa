@@ -1,25 +1,25 @@
 <style type="text/css">
-	.control-label{
+.control-label{
 	padding-top: 15px !important;
-    margin-bottom: 0;
-    font-size: 15px !important;
-    text-align: left !important;
-	}
-	.form-group{
-		margin: 15px 0 0 0 !important;
-		padding-bottom: 0 !important;
-	}
-	.input-group .input-group-addon{
-		padding-top: 0;
-		padding-left: 0;
-	}
-	.titik2{
-		text-align: right;
-		float: right;
-	}
-	.checkbox {
-    padding-right: 21px;
-	}
+	margin-bottom: 0;
+	font-size: 15px !important;
+	text-align: left !important;
+}
+.form-group{
+	margin: 15px 0 0 0 !important;
+	padding-bottom: 0 !important;
+}
+.input-group .input-group-addon{
+	padding-top: 0;
+	padding-left: 0;
+}
+.titik2{
+	text-align: right;
+	float: right;
+}
+.checkbox {
+	padding-right: 21px;
+}
 </style>
 <div class="content">
 	<div class="container-fluid">
@@ -167,28 +167,28 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_ini" value="ada"> Pajak Tahun ini</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_ini" <?=($perpanjang->pkb==NULL)?NULL:'checked value="'.$perpanjang->pkb.'"'?>> Pajak Tahun ini</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-pajak" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" id="p_tahun" name="harga_ini" class="form-control jumlah uang" placeholder="Masukan nominal">
+															<input type="text" id="p_tahun" name="harga_ini" class="form-control jumlah uang" value="<?=array_sum(array($perpanjang->pkb,$perpanjang->swdkllj))?>" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_lalu" value="ada">Pajak Tahun lalu (SKP)</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_lalu" <?=($perpanjang->swdkllj_tahun==NULL)?NULL:'checked value="'.$perpanjang->swdkllj_tahun.'"'?>>Pajak Tahun lalu (SKP)</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-pajak" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" id="p_lalu" name="harga_lalu" class="form-control jumlah uang" placeholder="Masukan nominal">
+															<input type="text" id="p_lalu" name="harga_lalu" class="form-control jumlah uang" value="<?=array_sum(array($perpanjang->pkb_tahun,$perpanjang->pkb_tahun,$perpanjang->swdkllj_tahun,$perpanjang->sanksi_swdkllj_t))?>" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -197,12 +197,14 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" required id="sum" class="form-control" name="total_pajak" placeholder="Masukan nominal">
+															<input type="text" required id="sum" value="<?=array_sum(array($perpanjang->pkb_tahun,$perpanjang->pkb_tahun,$perpanjang->swdkllj_tahun,$perpanjang->sanksi_swdkllj_t,$perpanjang->pkb,$perpanjang->swdkllj))?>" class="form-control" name="total_pajak" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
 												<p style="padding: 20px 14px 0;">*Biaya pajak hanya prediksi. Setiap tahunnya biasa berubah dan besarnya akan tertera di lembar SKPD/STNK</p>
 											</td>
+											<?php $acc = explode(',', $perpanjang->ganti_lainnya)?>
+											<?php $harga = explode(',', $perpanjang->biaya_lainnya)?>
 											<td style="vertical-align: top;">
 												<div class="form-group">
 													<div class="col-sm-5">
@@ -221,14 +223,14 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="acc_bpkb" value="ada"> Acc BPKB</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="acc_bpkb" value="ada" <?=($acc[0]==NULL)?NULL:'checked value="'.$acc[0].'"'?>> Acc BPKB</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control jumlah_biaya" name="harga_acc" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_acc" placeholder="Masukan nominal" <?=($harga[0]==NULL)?NULL:'value="'.$harga[0].'"'?>>
 														</div>
 													</div>
 												</div>
@@ -249,14 +251,14 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="skp_lalu" value="ada"> Adm. SKP/Pajak Lalu</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="skp_lalu" <?=($acc[2]==NULL)?NULL:'checked value="'.$acc[2].'"'?>> Adm. SKP/Pajak Lalu</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="harga_skp" class="form-control jumlah_biaya" placeholder="Masukan nominal">
+															<input type="text" name="harga_skp" class="form-control jumlah_biaya" placeholder="Masukan nominal" <?=($harga[2]==NULL)?NULL:'value="'.$harga[2].'"'?>>
 														</div>
 													</div>
 												</div>

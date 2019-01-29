@@ -97,7 +97,7 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group is-empty">
-											<input type="text" style="display: none;" id="denda" name="telat_thn" class="form-control" value="0.25%">
+											<input type="text" style="display: none;" id="denda" name="denda_tahun" class="form-control" value="0.25%">
 											<p>Telat Tahun</p>
 											<select id="telat_thn" onchange="m_sum_t();" class="form-control" name="telat_thn">
 												<option disabled selected>-- SILAHKAN PILIH --</option>

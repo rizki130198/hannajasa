@@ -38,6 +38,7 @@ class Main extends CI_Controller {
 		$querynya = $this->db->get_where('perpanjang',array('id_perpanjang'=>$id));
 		if ($querynya->num_rows() > 0) {
 			$data['title'] = "Halaman Transaksi Perpanjang STNK";
+			$data['perpanjang'] = $querynya->row();
 			$this->load->view('admin',$data);
 		}else{
 			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
