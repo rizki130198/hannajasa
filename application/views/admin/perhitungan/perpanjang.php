@@ -29,8 +29,8 @@
 											<option value="" disabled="" selected>-- SILAHKAN PILIH --</option>
 											<option value="" disabled=""></option>
 											<option value="normal">Normal</option>
-											<option value="telat bulanan">Telat bulanan</option>
-											<option value="Telat lebih dari setahun">Telat lebih dari setahun</option>
+											<!-- <option value="telat bulanan">Telat bulanan</option> -->
+											<option value="Telat lebih dari setahun">Tidak Normal</option>
 										</select>
 										<span class="material-input"></span>
 									</div>
@@ -202,7 +202,7 @@
 								<div class="row" id="total_p_n">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 										<div class="form-group jum-n">
-											<label class="control-label">Total Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak</label>
 											<input type="text" name="total_pajak" id="sum_pajak" class="form-control jumlah_n">
 											<span class="material-input"></span>
 										</div>
@@ -211,7 +211,7 @@
 								<div class="row" id="total">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group">
-											<label class="control-label">Total Perkiraan Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak dan Jasa</label>
 											<input type="text" name="total1"  id="sum_n" class="form-control" >
 											<span class="material-input"></span>
 										</div>
@@ -492,7 +492,7 @@
 								<div class="row" id="total_p_t">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-bottom: none;">
 										<div class="form-group jum-t">
-											<label class="control-label">Total Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak</label>
 											<input type="text" name="total_pajak2" id="sum_pajak_t" class="form-control jumlah_t">
 											<span class="material-input"></span>
 										</div>
@@ -501,7 +501,7 @@
 								<div class="row" id="total_t">
 									<div class="col-md-12" style="border:dotted 1.5px #f57b72;border-top: none;">
 										<div class="form-group jumlah_pajak">
-											<label class="control-label">Total Perkiraan Pajak</label>
+											<label class="control-label">Total Perkiraan Pajak dan Jasa</label>
 											<input type="text" name="total3" id="sum_t" class="form-control" >
 											<span class="material-input"></span>
 										</div>
