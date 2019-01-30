@@ -610,7 +610,7 @@ class M_back extends CI_Model {
 				if ($getdata->jenis != 'normal' OR $getdata->ganti != NULL) {
 					$this->db->query('UPDATE blanko SET stok_blanko = stok_blanko - 1');
 				}
-				redirect('main/cetak_perpanjang/'.$id);
+		    echo "<script>window.open('main/cetak_perpanjang/$id', '_blank');</script>";
 			}else{
 				$this->session->set_flashdata('gagal', 'Database Error');
 				redirect('main/dashboard');

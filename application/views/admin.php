@@ -490,7 +490,10 @@ if ($uri=="cetak") { ?>
 			}
 		});
 		// $('#sum').val(totalSum);
-		$('#sum').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+		$('#sum').val(totalSum);
+
+		var hasil = parseFloat($('#sum').val()) + parseFloat($('#hasil_biaya').val());
+		$(".biaya_prediksi").val(hasil);
 	});
 	$('.jum-b').on('input','.jumlah_biaya',function(){
 		var totalSum = 0;
@@ -501,7 +504,23 @@ if ($uri=="cetak") { ?>
 			}
 		});
 		// $('#sum').val(totalSum);
-		$('#hasil_biaya').val(totalSum.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+		$('#hasil_biaya').val(totalSum);
+
+
+		var hasil = parseFloat($('#sum').val()) + parseFloat($('#hasil_biaya').val());
+		$(".biaya_prediksi").val(hasil);
+	});
+	$('.downpay').on('input','.dp',function(){
+		var totalSum = 0;
+		$('.downpay .dp').each(function(){
+			var inputVal = this.value.replace(',','');
+			if($.isNumeric(inputVal)){
+				totalSum+=parseFloat(inputVal);
+			}
+		});
+		// $('#sum').val(totalSum);
+		var total = parseFloat($(".biaya_prediksi").val()) - parseFloat(totalSum);
+		$(".prediskisisa").val(total);
 	});
 	// $(document).ready(function(){
 	// 	$('input.jumlah').keyup(function(event){

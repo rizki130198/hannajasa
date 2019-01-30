@@ -50,11 +50,11 @@ class Main extends CI_Controller {
 		$query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
 			$data['perpanjang'] = $query->row();
+		    $this->load->view('admin/cetak/c_perpanjang', $data);
 		}else{
 			redirect('main/transaksi_p');
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
 		}
-		$this->load->view('admin/cetak/c_perpanjang', $data);
 	}
 	//end perpanjang//
 

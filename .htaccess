@@ -3,3 +3,24 @@ RewriteCond $1 !^(index\.php|resources|robots\.txt)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+<IfModule mod_expires.c>
+ ExpiresActive On
+ # Images
+ ExpiresByType image/jpeg "access plus 1 month"
+ ExpiresByType image/gif "access plus 1 month"
+ ExpiresByType image/png "access plus 1 month"
+ ExpiresByType image/webp "access plus 1 month"
+ ExpiresByType image/svg+xml "access plus 1 month"
+ ExpiresByType image/x-icon "access plus 1 month"
+ # Video
+ ExpiresByType video/mp4 "access plus 1 month"
+ ExpiresByType video/mpeg "access plus 1 month"
+ # CSS, JavaScript
+ ExpiresByType text/css "access plus 1 year"
+ ExpiresByType text/javascript "access plus 1 year"
+ ExpiresByType application/javascript "access plus 1 year"
+ # Others
+ ExpiresByType application/pdf "access plus 1 month"
+ ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
