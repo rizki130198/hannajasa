@@ -376,6 +376,10 @@ function balik() {
 		$('#b_nor').hide();
 		$('#b_bul').hide();
 		$('#b_ta').hide();
+		$('#total_h').show();
+		$('#total_t').hide();
+		$('#jasa_t').hide();
+		$('#total_p_t').hide();
 	}else if ($('#balik_nama').val() == 'Pajak Normal') {
 		$('#b_hid').hide();
 		$('#b_nor').show();
@@ -384,6 +388,9 @@ function balik() {
 		$('#total_n').show();
 		$('#jasa_no').show();
 		$('#total_p_no').show();
+		$('#total_t').hide();
+		$('#jasa_t').hide();
+		$('#total_p_t').hide();
 	}else if($('#balik_nama').val() == 'Telat bulanan') { 
 		$('#b_hid').hide();
 		$('#b_nor').hide();
@@ -391,6 +398,10 @@ function balik() {
 		$('#total_b').show();
 		$('#jasa_bu').show();
 		$('#total_p_bu').show();
+		$('#total_t').hide();
+		$('#jasa_t').hide();
+		$('#total_p_t').hide();
+		$('#bbn-bul').show();
 	}else if($('#balik_nama').val() == 'Pajak Telat Lebih dari 1 Tahun') { 
 		$('#b_hid').hide();
 		$('#b_nor').show();
@@ -401,6 +412,7 @@ function balik() {
 		$('#jasa_no').hide();
 		$('#total_p_no').hide();
 		$('#jasa_bu').hide();
+		$('#bbn-bul').hide();
 		$('#total_p_bu').hide();
 		// $('#form_p')[0].reset();
 		$('#total_b').hide();
@@ -430,6 +442,7 @@ function balik() {
 		$('#b_ta').hide();
 		$('#b_ta :input').val('');
 		$('#jasa_t').hide();
+		$('#total_t').hide();
 		$('#total_p_t').hide();
 	}
 }
@@ -475,6 +488,42 @@ $(document).ready(function () {
 			$('#jasaloksus').fadeOut('fast');
 		}else{ 
 			$('#jasaloksus').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#bbn').change(function () {
+		if (!this.checked) {
+			$('#jasabbn').fadeOut('fast');
+		}else{ 
+			$('#jasabbn').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubstnk').change(function () {
+		if (!this.checked) {
+			$('#jasarubstnk').fadeOut('fast');
+		}else{ 
+			$('#jasarubstnk').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubala').change(function () {
+		if (!this.checked) {
+			$('#jasarubala').fadeOut('fast');
+		}else{ 
+			$('#jasarubala').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#skp_b').change(function () {
+		if (!this.checked) {
+			$('#jasaskp_b').fadeOut('fast');
+		}else{ 
+			$('#jasaskp_b').fadeIn('fast');
 		}	
 	});
 });
