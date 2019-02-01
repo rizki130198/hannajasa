@@ -83,100 +83,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- Start Tahun -->
-								<div id="b_ta" style="display: none;">
-									<div class="row">
-										<div class="col-md-12">
-											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
-											<div class="form-group label-floating is-empty jumlah_pajak_t">
-												<label class="control-label">PKB</label>
-												<input type="text" name="pkb4" id="pkb_b_t" onkeyup="b_tahun();" class="form-control jumlah_p_t">
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<!-- <div class="col-md-12">
-											<div class="form-group label-floating is-empty" >
-												<label class="control-label">Telat Tahun</label>
-												<input type="text" name="telat_bln2" id="telat_thn" onkeyup="b_tahun();" class="form-control jumlah_p_t" >
-												<span class="material-input"></span>
-											</div>
-										</div> -->
-										<div class="col-md-6">
-											<div class="form-group is-empty">
-												<input type="text" name="denda_pkb" style="display: none;" value="0.25%" id="denda_b_t" onkeyup="b_tahun();">
-												<p>Telat Tahun</p>
-												<select id="telat_thn" onchange="b_tahun();" class="form-control" name="telat_bln2">
-													<option value="">-- SILAHKAN PILIH --</option>
-													<option value="12">1</option>
-													<option value="24">2</option>
-													<option value="36">3</option>
-													<option value="48">4</option>
-													<option value="60">5</option>
-													<option value="72">6</option>
-													<option value="84">7</option>
-													<option value="96">8</option>
-													<option value="108">9</option>
-													<option value="120">10</option>
-													<option value="132">11</option>
-													<option value="144">12</option>
-												</select>
-												<span class="material-input"></span>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group is-empty">
-												<p>Telat Bulan</p>
-												<select id="telat_bln" onchange="b_tahun();" class="form-control" name="telat_thn">
-													<option value="0">-- SILAHKAN PILIH --</option>
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
-												</select>
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group jumlah_pajak_t">
-												<label class="control-label">Sanksi PKB</label>
-												<input type="text" name="sanksi_pkb2" id="total_pkb_t" class="form-control jumlah_p_t"  value="">
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group jumlah_pajak_t">
-												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_p_t" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group jumlah_pajak_t">
-												<label class="control-label">Sanksi SWDKLLJ</label>
-												<input type="text" name="sanksi_swdllj_b2" id="" class="form-control sankswd jumlah_p_t" >
-												<span class="material-input"></span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--  End Tahun -->
-
 								<!-- Start Hidup -->
 								<div id="b_hid" style="display: none;">
 									<div class="row">
@@ -297,14 +203,14 @@
 											<div class="col-md-3">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="accktp" id="ktp" value="ada"> Rubah Alamat STNK dan BPKB
+														<input type="checkbox" name="accktp" id="ktp" value="Rubah Alamat STNK dan BPKB"> Rubah Alamat STNK dan BPKB
 													</label>
 												</div>
 											</div>
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="loksus" id="loksus" value="ada"> Rubah Alamat BPKB
+														<input type="checkbox" name="loksus" id="loksus" value="Rubah Alamat BPKB"> Rubah Alamat BPKB
 													</label>
 												</div>
 											</div>
@@ -524,7 +430,7 @@
 										<div class="col-md-12">
 											<div class="form-group jumlah_pajak_t jum-pajak-b">
 												<label class="control-label">SWDKLLJ</label>
-												<input type="text" name="swdllj1" id="" class="form-control swdklksama jumlah_p_t jumlah_pajak_b" >
+												<input type="text" name="swdllj2" id="" class="form-control swdklksama jumlah_p_t jumlah_pajak_b" >
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -542,7 +448,7 @@
 										<div class="col-md-12">
 											<div class="form-group jumlah_pajak_t jum-pajak-b" >
 												<label class="control-label">Adm STNK</label>
-												<input type="text" name="adm_stnk2" id="adm_stnk_b" class="form-control admstnk jumlah_p_t jumlah_pajak_b">
+												<input type="text" name="adm_stnk3" id="adm_stnk_b" class="form-control admstnk jumlah_p_t jumlah_pajak_b">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -559,28 +465,28 @@
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="accbpkb" id="bbn" value="ada"> BBN
+														<input type="checkbox" name="accbpkb2" id="bbn" value="ada"> BBN
 													</label>
 												</div>
 											</div>
 											<div class="col-md-3">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="accktp" id="rubstnk" value="ada"> Rubah Alamat STNK dan BPKB
+														<input type="checkbox" name="accktp2" id="rubstnk" value="ada"> Rubah Alamat STNK dan BPKB
 													</label>
 												</div>
 											</div>
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="loksus" id="rubala" value="ada"> Rubah Alamat BPKB
+														<input type="checkbox" name="loksus2" id="rubala" value="ada"> Rubah Alamat BPKB
 													</label>
 												</div>
 											</div>
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="admskp" id="skp_b" value="ada"> Adm. SKP
+														<input type="checkbox" name="admskp2" id="skp_b" value="ada"> Adm. SKP
 													</label>
 												</div>
 											</div>
@@ -591,7 +497,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Ganti Plat</h4>
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_ken" name="jenis_k"  onchange="ambilselectbul()">
+												<select class="form-control" id="jenis_ken" name="jenis_k2"  onchange="ambilselectbul()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -613,7 +519,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">BBN</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb"  onchange="ambilbpkb()">
+													<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb2"  onchange="ambilbpkb()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -624,7 +530,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa BBN</label>
-													<input type="text" name="jasa_bpkb" id="acc_bpkb" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_bpkb2" id="acc_bpkb" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -636,7 +542,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat STNK dan BPKB</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp"  onchange="ambilktp()">
+													<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp2"  onchange="ambilktp()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -647,7 +553,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Rubah Alamat STNK dan BPKB</label>
-													<input type="text" name="jasa_ktp" id="acc_ktp" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_ktp2" id="acc_ktp" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -659,7 +565,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilloksus()">
+													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus2"  onchange="ambilloksus()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -670,7 +576,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Rubah Alamat</label>
-													<input type="text" name="jasa_loksus" id="loksus" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_loksus2" id="loksus" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -682,7 +588,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Adm. SKP</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_skp" name="jenis_k_skp"  onchange="ambilskp()">
+													<select class="form-control" id="jenis_k_skp" name="jenis_k_skp2"  onchange="ambilskp()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -693,7 +599,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Adm. SKP</label>
-													<input type="text" name="jasa_skp" id="adm_skp" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_skp2" id="adm_skp" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -728,6 +634,101 @@
 									</div>
 								</div>
 								<!-- End Bulan -->
+								<!-- Start Tahun -->
+								<div id="b_ta" style="display: none;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4 style="font-weight: bold;text-transform: uppercase;">Pajak Lalu</h4>
+											<div class="form-group label-floating is-empty jumlah_pajak_t">
+												<label class="control-label">PKB</label>
+												<input type="text" name="pkb4" id="pkb_b_t" onkeyup="b_tahun();" class="form-control jumlah_p_t">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<!-- <div class="col-md-12">
+											<div class="form-group label-floating is-empty" >
+												<label class="control-label">Telat Tahun</label>
+												<input type="text" name="telat_bln2" id="telat_thn" onkeyup="b_tahun();" class="form-control jumlah_p_t" >
+												<span class="material-input"></span>
+											</div>
+										</div> -->
+										<div class="col-md-6">
+											<div class="form-group is-empty">
+												<input type="text" name="denda_pkb" style="display: none;" value="0.25%" id="denda_b_t" onkeyup="b_tahun();">
+												<p>Telat Tahun</p>
+												<select id="telat_thn" onchange="b_tahun();" class="form-control" name="telat_thn">
+													<option value="">-- SILAHKAN PILIH --</option>
+													<option value="12">1</option>
+													<option value="24">2</option>
+													<option value="36">3</option>
+													<option value="48">4</option>
+													<option value="60">5</option>
+													<option value="72">6</option>
+													<option value="84">7</option>
+													<option value="96">8</option>
+													<option value="108">9</option>
+													<option value="120">10</option>
+													<option value="132">11</option>
+													<option value="144">12</option>
+												</select>
+												<span class="material-input"></span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group is-empty">
+												<p>Telat Bulan</p>
+												<select id="telat_bln" onchange="b_tahun();" class="form-control" name="telat_bln2">
+													<option value="0">-- SILAHKAN PILIH --</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</select>
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">Sanksi PKB</label>
+												<input type="text" name="sanksi_pkb2" id="total_pkb_t" class="form-control jumlah_p_t"  value="">
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">SWDKLLJ</label>
+												<input type="text" name="swdllj3" id="" class="form-control swdklksama jumlah_p_t" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group jumlah_pajak_t">
+												<label class="control-label">Sanksi SWDKLLJ</label>
+												<input type="text" name="sanksi_swdllj_b2" id="" class="form-control sankswd jumlah_p_t" >
+												<span class="material-input"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--  End Tahun -->
+
+
 								<div class="row" id="jasa_t" style="display: none;">
 									<div class="col-md-12">
 										<div class="form-group jum-t">

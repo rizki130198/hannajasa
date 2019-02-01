@@ -50,7 +50,7 @@ class Main extends CI_Controller {
 		$query = $this->db->query('SELECT * FROM cetak_perpanjang c INNER JOIN perpanjang p ON c.id_join = p.id_perpanjang where c.id_join='.$id.'');
 		if ($query->num_rows() > 0) {
 			$data['perpanjang'] = $query->row();
-		    $this->load->view('admin/cetak/c_perpanjang', $data);
+			$this->load->view('admin/cetak/c_perpanjang', $data);
 		}else{
 			redirect('main/transaksi_p');
 			$this->session->set_flashdata('gagal', 'Data yang anda cari tidak ada');
@@ -71,6 +71,7 @@ class Main extends CI_Controller {
 		$querynya = $this->db->get_where('balik_nama',array('id_balik'=>$id));
 		if ($querynya->num_rows() > 0) {
 			$data['title'] = "Halaman Transaksi Balik Nama STNK";
+			$data['balik'] = $querynya->row();
 			$this->load->view('admin',$data);
 		}else{
 			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
@@ -301,7 +302,13 @@ class Main extends CI_Controller {
 	}
 	public function p_balik()
 	{
-		$this->M_back->cetak_balik();
+		if (!$this->input->is_ajax_request()) {
+			$json = array('msg'=>'No direct script access allowed','success'=>'false');
+
+			exit('No direct script access allowed');
+		}else{
+			$this->M_back->cetak_balik();
+		}
 	}
 	public function proses_mutasi()
 	{
@@ -309,7 +316,13 @@ class Main extends CI_Controller {
 	}
 	public function p_mutasi()
 	{
-		$this->M_back->cetak_mutasi();
+		if (!$this->input->is_ajax_request()) {
+			$json = array('msg'=>'No direct script access allowed','success'=>'false');
+
+			exit('No direct script access allowed');
+		}else{
+			$this->M_back->cetak_mutasi();
+		}
 	}
 	public function proses_stnk()
 	{
@@ -317,7 +330,13 @@ class Main extends CI_Controller {
 	}
 	public function p_stnk()
 	{
-		$this->M_back->cetak_stnk();
+		if (!$this->input->is_ajax_request()) {
+			$json = array('msg'=>'No direct script access allowed','success'=>'false');
+
+			exit('No direct script access allowed');
+		}else{
+			$this->M_back->cetak_stnk();
+		}
 	}
 	public function proses_stnkbalik()
 	{
@@ -325,7 +344,13 @@ class Main extends CI_Controller {
 	}
 	public function p_stnkbalik()
 	{
-		$this->M_back->cetak_sb();
+		if (!$this->input->is_ajax_request()) {
+			$json = array('msg'=>'No direct script access allowed','success'=>'false');
+
+			exit('No direct script access allowed');
+		}else{
+			$this->M_back->cetak_sb();
+		}
 	}
 	public function proses_mbn()
 	{
@@ -333,7 +358,13 @@ class Main extends CI_Controller {
 	}
 	public function p_mutasibalik()
 	{
-		$this->M_back->cetak_mb();
+		if (!$this->input->is_ajax_request()) {
+			$json = array('msg'=>'No direct script access allowed','success'=>'false');
+
+			exit('No direct script access allowed');
+		}else{
+			$this->M_back->cetak_mb();
+		}
 	}
 	//END PROSES//
 
@@ -483,7 +514,13 @@ class Main extends CI_Controller {
 
 	public function proses_cetak()
 	{
-		$this->M_back->proses_cetak();
+		if (!$this->input->is_ajax_request()) {
+			$json = array('msg'=>'No direct script access allowed','success'=>'false');
+
+			exit('No Access');
+		}else{
+			$this->M_back->proses_cetak();
+		}
 	}
 	public function load_data()
 	{

@@ -14,7 +14,7 @@
 	<?php } ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/material-dashboard.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/demo.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/css/jquery.toast.css');?>">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('public/css/style.css');?>">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('public/fonts/font-awesome/css/font-awesome.min.css'); ?>">
@@ -333,7 +333,7 @@ if ($uri=="cetak") { ?>
 <script type="text/javascript" src="<?=base_url('assets/js/demo.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?=base_url('public/js/jquery.nicescroll.min.js');?>"></script>
-<script type="text/javascript" src="<?=base_url('public/js/jquery.toast.js');?>"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="<?=base_url('public/js/hanajasa.js');?>"></script>
 <script type="text/javascript">
@@ -520,7 +520,7 @@ if ($uri=="cetak") { ?>
 		});
 		// $('#sum').val(totalSum);
 		var total = parseFloat($(".biaya_prediksi").val()) - parseFloat(totalSum);
-		$(".prediskisisa").val(total);
+		$(".prediskisisa").val(total.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."));
 	});
 	// $(document).ready(function(){
 	// 	$('input.jumlah').keyup(function(event){

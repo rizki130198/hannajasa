@@ -518,7 +518,7 @@ class M_back extends CI_Model {
 	{
 		$cek = $this->db->get_where('cetak_perpanjang', array('id_join'=>$this->input->post('id')))->num_rows();
 		if ($cek > 0) {
-			redirect('main/cetak/c_perpanjang/'.$this->input->post('id'));
+			$json = array('success'=>false, 'msg'=>'warning','id'=>$this->input->post('id'));
 		}else{
 			$id = $this->input->post('id');
 			$penerima = $this->input->post('penerima');
@@ -607,15 +607,21 @@ class M_back extends CI_Model {
 			));
 			if ($query==TRUE) {
 				$getdata =  $this->db->get_where('perpanjang', array('id_perpanjang'=>$id))->row(); 
-				if ($getdata->jenis != 'normal' OR $getdata->ganti != NULL) {
-					$this->db->query('UPDATE blanko SET stok_blanko = stok_blanko - 1');
+				if ($getdata->jenis != 'normal' OR $getdata->ganti_plat != NULL) {
+					$update = $this->db->query('UPDATE blanko SET stok_blanko = stok_blanko - 1');
+					if ($update==TRUE) {
+						$json =  array('success'=>true, 'msg'=>'Berhasil','id'=>$id);
+					}else{
+						$json =  array('success'=>false, 'msg'=>'Berhasil','id'=>$id);
+					}
+				}else{
+					$json = array('success'=>true, 'msg'=>'Berhasil','id'=>$id);
 				}
-		    echo "<script>window.open('main/cetak_perpanjang/$id', '_blank');</script>";
 			}else{
-				$this->session->set_flashdata('gagal', 'Database Error');
-				redirect('main/dashboard');
+				$json =  array('success'=>true, 'msg'=>'Gagal');
 			}
 		}
+		echo json_encode($json);
 	}
 	public function proses_balik()
 	{
@@ -628,140 +634,124 @@ class M_back extends CI_Model {
 
 		$jenis_swd = $this->input->post('jenis_swd');
 		$jenis_jasa = $this->input->post('jenis_jasa');
+		$wilayah = $this->input->post('wil_perpanjang');
 		$jenis = $this->input->post('jenis_b');
-		$jenis_k = $this->input->post('jenis_k');
-		$pkb1 = $this->input->post('pkb1');
-		$bbnk1 = $this->input->post('bbnkb1');
-		$adm_stnk1 = $this->input->post('adm_stnk1');
+		if ($jenis == 'Pajak Hidup') {
+			$pkb = $this->input->post('pkb1');
+			$bbnk = $this->input->post('bbnkb1');
+			$adm_stnk = $this->input->post('adm_stnk1');
+			$biaya_jasa = $this->input->post('biaya_jasa1');
+			$total_pajak = $this->input->post('total_pajak1');
+			$total = $this->input->post('total_hidup');
+		}else if($jenis == 'Pajak Normal'){
+			$pkb = $this->input->post('pkb2');
+			$bbnk = $this->input->post('bbnkb2');
+			$swdllj = $this->input->post('swdllj1');
+			$adm_stnk = $this->input->post('adm_stnk2');
+			$ganti = $this->input->post('ganti1');
+			$jenis_k = $this->input->post('jenis_k');
+			$adm_tnkb = $this->input->post('adm_tnkb1');
+			$accbpkb = $this->input->post('accbpkb');
+			$accktp = $this->input->post('accktp');
+			$loksus = $this->input->post('loksus');
+			$admskp = $this->input->post('admskp');
+			$jenis_k_bpkb = $this->input->post('jenis_k_bpkb');
+			$jenis_k_ktp = $this->input->post('jenis_k_ktp');
+			$jenis_k_loksus = $this->input->post('jenis_k_loksus');
+			$jenis_k_skp = $this->input->post('jenis_k_skp');
+			$jasa_bpkb = $this->input->post('jasa_bpkb');
+			$jasa_ktp = $this->input->post('jasa_ktp');
+			$jasa_loksus = $this->input->post('jasa_loksus');
+			$jasa_skp = $this->input->post('jasa_skp');
+			$biaya_jasa = $this->input->post('biaya_jasa2');
+			$total_pajak = $this->input->post('total_pajak2');
+			$total = $this->input->post('total_normal');
+		}else if($jenis == 'Telat bulanan'){
+			$pkb = $this->input->post('pkb3');
+			$bbnkb = $this->input->post('bbnkb3');
+			$telat = $this->input->post('telat_bln_t');
+			$sanksi_pkb = $this->input->post('sanksi_pkb1');
+			$swdllj = $this->input->post('swdllj2');
+			$sanksi_swdkllj = $this->input->post('sanksi_swdllj_b1');
+			$adm_stnk = $this->input->post('adm_stnk3');
+			$ganti2 = $this->input->post('ganti2');
+			$jenis_k = $this->input->post('jenis_k2');
+			$adm_tnkb = $this->input->post('adm_tnkb2');
+			$accbpkb = $this->input->post('accbpkb2');
+			$accktp = $this->input->post('accktp2');
+			$loksus = $this->input->post('loksus2');
+			$admskp = $this->input->post('admskp2');
+			$jenis_k_bpkb = $this->input->post('jenis_k_bpkb2');
+			$jenis_k_ktp = $this->input->post('jenis_k_ktp2');
+			$jenis_k_loksus = $this->input->post('jenis_k_loksus2');
+			$jenis_k_skp = $this->input->post('jenis_k_skp2');
+			$jasa_bpkb = $this->input->post('jasa_bpkb2');
+			$jasa_ktp = $this->input->post('jasa_ktp2');
+			$jasa_loksus = $this->input->post('jasa_loksus2');
+			$jasa_skp = $this->input->post('jasa_skp2');
+			$biaya_jasa = $this->input->post('biaya_jasa3');
+			$total_pajak = $this->input->post('total_pajak3');
+			$total = $this->input->post('total_bulan');
+		}else if($jenis == 'Pajak Telat Lebih dari 1 Tahun'){
+			// Normal
+			$pkb = $this->input->post('pkb2');
+			$bbnk = $this->input->post('bbnkb2');
+			$swdllj = $this->input->post('swdllj1');
+			$adm_stnk = $this->input->post('adm_stnk2');
+			$ganti = $this->input->post('ganti1');
+			$jenis_k = $this->input->post('jenis_k');
+			$adm_tnkb = $this->input->post('adm_tnkb1');
+			$accbpkb = $this->input->post('accbpkb');
+			$accktp = $this->input->post('accktp');
+			$loksus = $this->input->post('loksus');
+			$admskp = $this->input->post('admskp');
+			$jenis_k_bpkb = $this->input->post('jenis_k_bpkb');
+			$jenis_k_ktp = $this->input->post('jenis_k_ktp');
+			$jenis_k_loksus = $this->input->post('jenis_k_loksus');
+			$jenis_k_skp = $this->input->post('jenis_k_skp');
+			$jasa_bpkb = $this->input->post('jasa_bpkb');
+			$jasa_ktp = $this->input->post('jasa_ktp');
+			$jasa_loksus = $this->input->post('jasa_loksus');
+			$jasa_skp = $this->input->post('jasa_skp');
+			
+			//Telat Bulan
+			$pkb3 = $this->input->post('pkb3');
+			$bbnkb3 = $this->input->post('bbnkb3');
+			$telat = $this->input->post('telat_bln_t');
+			$sanksi_pkb = $this->input->post('sanksi_pkb1');
+			$swdllj2 = $this->input->post('swdllj2');
+			$sanksi_swdkllj = $this->input->post('sanksi_swdllj_b1');
+			$adm_stnk2 = $this->input->post('adm_stnk3');
+			$ganti2 = $this->input->post('ganti2');
+			$adm_tnkb2 = $this->input->post('adm_tnkb2');
+			$jenis_k2 = $this->input->post('jenis_k2');
+			$accbpkb2 = $this->input->post('accbpkb2');
+			$accktp2 = $this->input->post('accktp2');
+			$loksus2 = $this->input->post('loksus2');
+			$admskp2 = $this->input->post('admskp2');
+			$jenis_k_bpkb2 = $this->input->post('jenis_k_bpkb2');
+			$jenis_k_ktp2 = $this->input->post('jenis_k_ktp2');
+			$jenis_k_loksus2 = $this->input->post('jenis_k_loksus2');
+			$jenis_k_skp2 = $this->input->post('jenis_k_skp2');
+			$jasa_bpkb2 = $this->input->post('jasa_bpkb2');
+			$jasa_ktp2 = $this->input->post('jasa_ktp2');
+			$jasa_loksus2 = $this->input->post('jasa_loksus2');
+			$jasa_skp2 = $this->input->post('jasa_skp2');
 
-		$pkb2 = $this->input->post('pkb2');
-		$bbnkb2 = $this->input->post('bbnkb2');
-		$adm_stnk2 = $this->input->post('adm_stnk2');
-		$ganti1 = $this->input->post('ganti1');
-		$adm_tnkb1 = $this->input->post('adm_tnkb1');
+			// Tahun Lalu
+			$pkb4 = $this->input->post('pkb4');
+			$telat_bln = $this->input->post('telat_bln2');
+			$telat_thn = $this->input->post('telat_thn');
+			$sanksi_pkb2 = $this->input->post('sanksi_pkb2');
+			$swdllj3 = $this->input->post('swdllj3');
+			$sanksi_swdllj_b2 = $this->input->post('sanksi_swdllj_b2');
+			$biaya_jasa = $this->input->post('biaya_jasa4');
+			$total_pajak = $this->input->post('total_pajak4');
+			$total = $this->input->post('total_tahun');
 
-		$pkb3 = $this->input->post('pkb3');
-		$bbnkb3 = $this->input->post('bbnkb3');
-		$telat_bln1 = $this->input->post('telat_bln1');
-		$sanksi_pkb1 = $this->input->post('sanksi_pkb1');
-		$swdllj1 = $this->input->post('swdllj1');
-		$sanksi_swdllj_b1 = $this->input->post('sanksi_swdllj_b1');
-		$adm_stnk3 = $this->input->post('adm_stnk3');
-		$ganti2 = $this->input->post('ganti2');
-		$adm_tnkb2 = $this->input->post('adm_tnkb2');
-
-		$pkb3 = $this->input->post('pkb4');
-		$telat_bln2 = $this->input->post('telat_bln2');
-		$telat_thn = $this->input->post('telat_thn');
-		$telat_bln_t = $this->input->post('telat_bln_t');
-		$sanksi_pkb2 = $this->input->post('sanksi_pkb2');
-		$swdllj2 = $this->input->post('swdllj2');
-		$sanksi_swdllj_b2 = $this->input->post('sanksi_swdllj_b2');
-
-		$biaya_jasa1 = $this->input->post('biaya_jasa1');
-		$total_pajak1 = $this->input->post('total_pajak1');
-		$biaya_jasa2 = $this->input->post('biaya_jasa2');
-		$total_pajak2 = $this->input->post('total_pajak2');
-		$biaya_jasa3 = $this->input->post('biaya_jasa3');
-		$total_pajak3 = $this->input->post('total_pajak3');
-		$biaya_jasa4 = $this->input->post('biaya_jasa4');
-		$total_pajak4 = $this->input->post('total_pajak4');
-
-		$total_hidup = $this->input->post('total_hidup');
-		$total_normal = $this->input->post('total_normal');
-		$total_bulan = $this->input->post('total_bulan');
-		$total_tahun = $this->input->post('total_tahun');
-
-		if ($pkb1 == NULL AND $pkb2==NULL) {
-			$pkb = $pkb3;
-		}else if($pkb2 == NULL AND $pkb3==NULL){
-			$pkb = $pkb1;
-		}else{
-			$pkb = $pkb2;
 		}
 
-		if ($bbnk1 == NULL AND $bbnkb2==NULL) {
-			$bbnk = $bbnkb3;
-		}else if($bbnkb2 == NULL AND $bbnkb3==NULL){
-			$bbnk = $bbnk1;
-		}else{
-			$bbnk = $bbnkb2;
-		}
 
-		if ($adm_stnk1 == NULL AND $adm_stnk2==NULL) {
-			$adm_stnk = $adm_stnk3;
-		}else if($adm_stnk2 == NULL AND $adm_stnk3==NULL){
-			$adm_stnk = $adm_stnk1;
-		}else{
-			$adm_stnk = $adm_stnk2;
-		}
-
-		if ($total_hidup == NULL AND $total_normal==NULL AND $total_bulan == NULL) {
-			$total = $total_tahun;
-		}else if($total_hidup == NULL AND $total_normal==NULL AND $total_tahun == NULL){
-			$total = $total_bulan;
-		}else if($total_hidup == NULL AND $total_bulan==NULL AND $total_tahun == NULL){
-			$total = $total_normal;
-		}else{
-			$total = $total_hidup;
-		}
-
-		if ($biaya_jasa1 == NULL AND $biaya_jasa2==NULL AND $biaya_jasa3 == NULL) {
-			$biaya_jasa = $biaya_jasa4;
-		}else if($biaya_jasa1 == NULL AND $biaya_jasa2==NULL AND $biaya_jasa4 == NULL){
-			$biaya_jasa = $biaya_jasa3;
-		}else if($biaya_jasa1 == NULL AND $biaya_jasa4==NULL AND $biaya_jasa3 == NULL){
-			$biaya_jasa = $biaya_jasa2;
-		}else{
-			$biaya_jasa = $biaya_jasa1;
-		}
-
-		if ($total_pajak1 == NULL AND $total_pajak2==NULL AND $total_pajak3 == NULL) {
-			$total_pajak = $total_pajak4;
-		}else if($total_pajak1 == NULL AND $total_pajak2==NULL AND $total_pajak4 == NULL){
-			$total_pajak = $total_pajak3;
-		}else if($total_pajak1 == NULL AND $total_pajak4==NULL AND $total_pajak3 == NULL){
-			$total_pajak = $total_pajak2;
-		}else{
-			$total_pajak = $total_pajak1;
-		}
-
-		if ($ganti1 == NULL) {
-			$ganti = $ganti2;
-		}else if($ganti2 == NULL){
-			$ganti = $ganti1;
-		}else if($ganti1 != NULL AND $ganti2 != NULL ){
-			$ganti = $ganti1;
-			$ganti3 = $ganti2;
-		}
-		if ($adm_tnkb1 == NULL) {
-			$adm_tnkb = $adm_tnkb2;
-		}else{
-			$adm_tnkb = $adm_tnkb1;
-		}
-
-		if ($telat_bln1 == NULL) {
-			$telat = $telat_bln2;
-		}else{
-			$telat = $telat_bln1;
-		}
-
-		if ($telat_bln1 == NULL) {
-			$sanksi_pkb = $sanksi_pkb2;
-		}else{
-			$sanksi_pkb = $sanksi_pkb1;
-		}
-
-		if ($swdllj1 == NULL) {
-			$swdllj = $swdllj2;
-		}else{
-			$swdllj = $swdllj1;
-		}
-		if ($sanksi_swdllj_b1 == NULL) {
-			$sanksi_swdkllj = $sanksi_swdllj_b2;
-		}else{
-			$sanksi_swdkllj = $sanksi_swdllj_b1;
-		}
 		$gabungan = date("Y-m-d");
 		$day = date('D', strtotime($gabungan));
 		$dayList = array(
@@ -779,21 +769,42 @@ class M_back extends CI_Model {
 			'perhitungan'=>$jenis_swd,
 			'jenis'=>$jenis,
 			'jenis_jasa'=>$jenis_jasa,
+			'wilayah'=>$wilayah,
 			'jenis_k'=>$jenis_k, 
+			'jenis_ktahun'=>$jenis_k2, 
 			'pkb'=>$pkb,
-			'bbnk'=>filter_var($bbnk,FILTER_SANITIZE_NUMBER_INT),
+			'pkb_bulan'=>$pkb3,
+			'pkb_tahun'=>$pkb4,
+			'bbnk'=>$bbnk,
+			'bbnk_bulan'=>$bbnkb3,
 			'adm_stnk'=>filter_var($adm_stnk,FILTER_SANITIZE_NUMBER_INT),
+			'adm_stnkb'=>filter_var($adm_stnk2,FILTER_SANITIZE_NUMBER_INT),
 			'ganti'=>$ganti,
-			'ganti1'=>$ganti3,
+			'ganti1'=>$ganti2,
 			'adm_tnkb'=>$adm_tnkb,
+			'adm_tnkb_bulan'=>$adm_tnkb,
 			'telat'=>$telat,
 			'telat_t_t'=>$telat_thn,
-			'telat_b_t'=>$telat_bln_t,
+			'telat_b_t'=>$telat_bln,
 			'sanksi_pkb'=>filter_var($sanksi_pkb,FILTER_SANITIZE_NUMBER_INT),
+			'sanksi_pkbt'=>filter_var($sanksi_pkb2,FILTER_SANITIZE_NUMBER_INT),
 			'swdkllj'=>filter_var($swdllj,FILTER_SANITIZE_NUMBER_INT),
+			'swdkllj_bulan'=>filter_var($swdllj2,FILTER_SANITIZE_NUMBER_INT),
+			'swdkllj_tahun'=>filter_var($swdllj3,FILTER_SANITIZE_NUMBER_INT),
 			'sanksi_swdkllj'=>filter_var($sanksi_swdkllj,FILTER_SANITIZE_NUMBER_INT),
+			'sanksi_swdkllj_t'=>filter_var($sanksi_swdllj_b2,FILTER_SANITIZE_NUMBER_INT),
+
+			'ganti_lainnya'=>$accbpkb.','.$accktp.','.$admskp.','.$loksus.',',
+			'kendaraan'=>$jenis_k_bpkb.','.$jenis_k_ktp.','.$jenis_k_skp.','.$jenis_k_loksus.',',
+			'biaya_lainnya'=>$jasa_bpkb.','.$jasa_ktp.','.$jasa_skp.','.$jasa_loksus.',',
+
+			'ganti_bulan'=>$accbpkb2.','.$accktp2.','.$admskp2.','.$loksus2.',',
+			'kendaraan_bulan'=>$jenis_k_bpkb2.','.$jenis_k_ktp2.','.$jenis_k_skp2.','.$jenis_k_loksus2.',',
+			'biaya_bulan'=>$jasa_bpkb2.','.$jasa_ktp2.','.$jasa_skp2.','.$jasa_loksus2.',',
+
 			'biaya_jasa'=>filter_var($biaya_jasa,FILTER_SANITIZE_NUMBER_INT),
 			'total_pajak'=>filter_var($total_pajak,FILTER_SANITIZE_NUMBER_INT),
+			'total'=>filter_var($total,FILTER_SANITIZE_NUMBER_INT),
 			'hari'=>$dayList[$day],
 			'tanggal'=>$gabungan
 		));
@@ -810,8 +821,7 @@ class M_back extends CI_Model {
 	{
 		$cek = $this->db->get_where('cetak_balik', array('id_join'=>$this->input->post('id')))->num_rows();
 		if ($cek > 0) {
-			//$this->session->set_flashdata('gagal', 'Data sudah di isi');
-			redirect('main/cetak/c_baliknama/'.$this->input->post('id'));
+			$json = array('success'=>false, 'msg'=>'warning','id'=>$this->input->post('id'));
 		}else{
 			$id = $this->input->post('id');
 			$penerima = $this->input->post('penerima');
@@ -899,12 +909,12 @@ class M_back extends CI_Model {
 				'tanggal'=>$gabungan
 			));
 			if ($query==TRUE) {
-				redirect('main/cetak_balik/'.$id);
+				$json =  array('success'=>true, 'msg'=>'Berhasil','id'=>$id);
 			}else{
-				$this->session->set_flashdata('gagal', 'Database Error');
-				redirect('main/dashboard');
+				$json =  array('success'=>true, 'msg'=>'Gagal');
 			}
 		}
+		echo json_encode($json);
 	}
 	public function proses_mutasi()
 	{
