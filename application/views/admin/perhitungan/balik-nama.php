@@ -250,7 +250,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">BBN</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb"  onchange="ambilbpkb()">
+													<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb"  onchange="ambilbbn()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -273,7 +273,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat STNK dan BPKB</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp"  onchange="ambilktp()">
+													<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp"  onchange="ambilstnk()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -296,7 +296,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilloksus()">
+													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilalamat()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -319,7 +319,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Adm. SKP</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_skp" name="jenis_k_skp"  onchange="ambilskp()">
+													<select class="form-control" id="jenis_k_skp" name="jenis_k_skp"  onchange="ambilskpbalik()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -519,7 +519,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">BBN</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb2"  onchange="ambilbpkb()">
+													<select class="form-control" id="jenis_k_bpkb1" name="jenis_k_bpkb2"  onchange="ambilbbn1()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -530,7 +530,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa BBN</label>
-													<input type="text" name="jasa_bpkb2" id="acc_bpkb" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_bpkb2" id="acc_bpkb1" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -542,7 +542,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat STNK dan BPKB</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp2"  onchange="ambilktp()">
+													<select class="form-control" id="jenis_k_ktp1" name="jenis_k_ktp2"  onchange="ambilstnk1()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -553,7 +553,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Rubah Alamat STNK dan BPKB</label>
-													<input type="text" name="jasa_ktp2" id="acc_ktp" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_ktp2" id="acc_ktp1" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -565,7 +565,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus2"  onchange="ambilloksus()">
+													<select class="form-control" id="jenis_k_loksus1" name="jenis_k_loksus2"  onchange="ambilalamat3()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -576,7 +576,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Rubah Alamat</label>
-													<input type="text" name="jasa_loksus2" id="loksus" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_loksus2" id="loksus1" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -588,7 +588,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Adm. SKP</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_skp" name="jenis_k_skp2"  onchange="ambilskp()">
+													<select class="form-control" id="jenis_k_skp1" name="jenis_k_skp2"  onchange="ambilskpbalik1()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -599,7 +599,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Adm. SKP</label>
-													<input type="text" name="jasa_skp2" id="adm_skp" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_skp2" id="adm_skp1" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>

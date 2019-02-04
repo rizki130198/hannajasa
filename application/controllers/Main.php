@@ -639,6 +639,62 @@ class Main extends CI_Controller {
 					$i++;
 				}
 			}
+		}else if ($uri == 'ambilbbn') {
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="BBN" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilstnk'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat STNK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilskpbalik'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilalamat'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat BPKB" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
 		}
 		
 		

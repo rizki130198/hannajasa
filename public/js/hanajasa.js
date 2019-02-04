@@ -379,6 +379,129 @@ function ambilloksus() {
 }
 // END PERPANJANG 
 
+// Start Balik
+function ambilbbn() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbn',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_bpkb").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#acc_bpkb").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnk() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_ktp").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#acc_ktp").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilskpbalik() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpbalik',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_skp").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_skp").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilalamat() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilalamat',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_lokus").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#loksus").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbn1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbn',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_bpkb1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#acc_bpkb1").val(datanya[0].harga);
+				console.log(datanya);
+			}
+		}
+	})
+}
+function ambilstnk1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_ktp1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#acc_ktp1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilskpbalik1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpbalik',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_skp1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_skp1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilalamat1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilalamat',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_lokus1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#loksus1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+// END BALIK
 // START BALIK NAMA
 function b_normal() {
 	var txtFirstNumberValue = document.getElementById('pkb_b').value;
