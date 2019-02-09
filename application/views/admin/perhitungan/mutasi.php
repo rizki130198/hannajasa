@@ -225,7 +225,7 @@
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="skp" id="gantiplat_bul" value="ada"> Adm. SKP
+														<input type="checkbox" name="skp" id="gantiplat_bul" value="SKP"> Adm. SKP
 													</label>
 												</div>
 											</div>
@@ -279,7 +279,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Balik Nama</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_bpkb1" name="jenis_k_bpkb2"  onchange="ambilbbn1()">
+													<select class="form-control" id="jenis_k_bpkb1" name="jenis_k_balik"  onchange="ambilbbn1()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -302,7 +302,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">STNK Hilang</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_ktp1" name="jenis_k_ktp2"  onchange="ambilstnk1()">
+													<select class="form-control" id="jenis_k_ktp1" name="jenis_k_stnk"  onchange="ambilstnk1()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -325,7 +325,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Laporan Hilang</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_loksus1" name="jenis_k_loksus2"  onchange="ambilalamat3()">
+													<select class="form-control" id="jenis_k_loksus1" name="jenis_k_laporan"  onchange="ambilalamat3()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -537,7 +537,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Adm. SKP</h4>
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_k" name="jenis_k"  onchange="ambilselect()">
+												<select class="form-control" id="jenis_k" name="jenis_skp"  onchange="ambilskpmutasi()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -548,7 +548,7 @@
 											</div>
 											<div class="form-group jumlah_pajak_t">
 												<label class="control-label">Adm. SKP</label>
-												<input type="text" name="adm_skp_t" id="adm_tnkb" class="form-control jumlah_p_t">
+												<input type="text" name="adm_skp_t" id="adm_skp" class="form-control jumlah_p_t">
 												<span class="material-input"></span>
 											</div>
 										</div>
@@ -559,7 +559,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Balik Nama</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_bpkb" name="jenis_k_bpkb"  onchange="ambilbbn()">
+													<select class="form-control" id="jenis_kbbn" name="jenis_balik_t"  onchange="ambilbbnmutasi()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -570,7 +570,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Balik Nama</label>
-													<input type="text" name="jasa_balik_t" id="acc_bpkb" class="form-control jumlah_p_t">
+													<input type="text" name="jasa_balik_t" id="jasa_balik_t" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -582,7 +582,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">STNK Hilang</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_ktp" name="jenis_k_ktp"  onchange="ambilstnk()">
+													<select class="form-control" id="jenis_kstnk" name="jenis_stnk_t"  onchange="ambilstnkmutasi()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -593,7 +593,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa STNK Hilang</label>
-													<input type="text" name="jasa_stnk_t" id="acc_ktp" class="form-control jumlah_p_t">
+													<input type="text" name="jasa_stnk_t" id="jasa_stnk_t" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -605,7 +605,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Laporan Hilang</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilalamat()">
+													<select class="form-control" id="jenis_k_laporan" name="jenis_laporan_t"  onchange="ambillaporanmutasi()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -616,7 +616,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Rubah Alamat</label>
-													<input type="text" name="jasa_laporan_t" id="loksus" class="form-control jumlah_p_t">
+													<input type="text" name="jasa_laporan_t" id="jasa_laporan_t" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>

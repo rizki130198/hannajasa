@@ -35,9 +35,18 @@
 						<h4 class="title">Harga</h4>
 						<!-- <p class="category">Here is a subtitle for this table</p> -->
 					</div>
-					<div class="card-content">
+
+					<div class="card-content">					
+						<select class="form-control" name="get_harga" id="get_harga" onchange="gantiharga()">
+							<option value="perpanjang">Perpanjang</option>
+							<option value="bn">Balik Nama</option>
+							<option value="mutasi">Mutasi</option>
+							<option value="m_bn">Mutasi + Balik Nama</option>
+							<option value="stnk">STNK Hilang</option>
+							<option value="stnk_h">STNK Hilang + Balik Nama</option>
+						</select>
 						<div class="table-responsive">
-							<table class="table table-striped table-bordered" style="width:100%">
+							<table id="daftarharga" class="table table-striped table-bordered" style="width:100%">
 								<thead>
 									<tr>
 										<th>Daftar Harga</th>
@@ -47,7 +56,16 @@
 										<th>Tanggal Update</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id="tbodynya">
+										<?php foreach ($data as $jasa): ?>
+									<tr>
+											
+											<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="nama"><?=$jasa->nama?></td>
+											<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="wilayah"><?=$jasa->wilayah?></td>
+											<td class="table_data" id="harga" data-row_id="<?=$jasa->id_catat?>" data-column_name="harga" contenteditable><?=$jasa->harga?></td>
+											<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="created_at"><?=$jasa->created_at?></td>
+									</tr>
+										<?php endforeach ?>
 								</tbody>
 							</table>
 						</div>
@@ -73,11 +91,12 @@
 												<label class="control-label">Proses</label>
 												<select class="form-control" name="proses" required="">
 													<option value="" disabled="" selected=""></option>
-													<option value="Rubah Identitas STNK / BPKB">Rubah Identitas STNK / BPKB</option>
+													<option value="Perpanjang">Perpanjang</option>
+													<option value="Balik Nama">Balik Nama</option>
+													<option value="Mutasi">Mutasi</option>
+													<option value="Mutasi Balik">Mutasi Balik</option>
 													<option value="STNK Hilang">STNK Hilang</option>
-													<option value="Mutasi STNK BPKB">Mutasi STNK BPKB</option>
-													<option value="Cabut Berkas">Cabut Berkas</option>
-													<option value="Lain-Lain">Lain Lain</option>
+													<option value="STNK Balik">STNK Balik</option>
 												</select>
 												<span class="material-input"></span>
 											</div>
@@ -143,25 +162,6 @@
 <script type="text/javascript" src="<?=base_url('public/js/jq.js');?>"></script>
 <script type="text/javascript" language="javascript">
 	$(document).ready(function(){
-		function load_harga(){
-			$.ajax({
-				url:"<?php echo base_url('Main/load_harga_jasa'); ?>",
-				dataType:"JSON",
-				success:function(data){
-					var html = '';
-					for (var count = 0; count < data.length; count++) {
-						html += '<tr>';
-						html += '<td class="table_data" data-row_id="'+data[count].id_catat+'" data-column_name="nama">'+data[count].nama+'</td>';
-						html += '<td class="table_data" data-row_id="'+data[count].id_catat+'" data-column_name="wilayah">'+data[count].wilayah+'</td>';
-						html += '<td class="table_data" id="harga" data-row_id="'+data[count].id_catat+'" data-column_name="harga" contenteditable>'+data[count].harga+'</td>';
-						html += '<td class="table_data" data-row_id="'+data[count].id_catat+'" data-column_name="created_at">'+data[count].created_at+'</td></tr>';
-					}
-					$('tbody').html(html);
-				}
-			}); 
-		}
-		load_harga();
-
 		$(document).on('blur', '.table_data', function(){
 			var id_catat = $(this).data('row_id');
 			var table_column = $(this).data('column_name');

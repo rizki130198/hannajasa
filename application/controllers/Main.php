@@ -104,6 +104,7 @@ class Main extends CI_Controller {
 	{
 		$querynya = $this->db->get_where('mutasi',array('id_mutasi'=>$id));
 		if ($querynya->num_rows() > 0) {
+			$data['mutasi'] = $querynya->row();
 			$data['title'] = "Halaman Transaksi Mutasi";
 			$this->load->view('admin',$data);
 		}else{
@@ -491,11 +492,12 @@ class Main extends CI_Controller {
 	public function harga_jasa()
 	{
 		$data['title'] = "Halaman Harga Jasa";
+		$data['data'] = $this->M_back->load_harga_jasa();
 		$this->load->view('admin',$data);
 	}
 	public function load_harga_jasa()
 	{
-		$data = $this->M_back->load_harga_jasa();
+		$data['data'] = $this->M_back->load_harga_jasa();
 		echo json_encode($data);
 	}
 	//end harga jasa//
@@ -695,6 +697,62 @@ class Main extends CI_Controller {
 					$i++;
 				}
 			}
+		}else if($uri == 'ambilskpmutasi'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilbbnmutasi'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="BBN" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilstnkmutasi'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat SNTK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambillaporanmutasi'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
 		}
 		
 		
@@ -845,6 +903,25 @@ class Main extends CI_Controller {
 		}
 		echo json_encode($data);
 		
+	}
+	public function ambilhargajasa()
+	{
+		if ($this->input->post('jenis') == 'perpanjang') {
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Perpanjang'")->result();
+		}elseif ($this->input->post('jenis') == 'bn') {
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Balik Nama'")->result();
+		}else if ($this->input->post('jenis') == 'mutasi') {
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Mutasi'")->result();
+		}else if ($this->input->post('jenis') == 'm_bn') {
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Mutasi Balik'")->result();
+		}else if ($this->input->post('jenis') == 'stnk') {
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'STNK Hilang'")->result();
+		}else if ($this->input->post('jenis') == 'stnk_h') {
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'STNK Balik'")->result();
+		}else{
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses != NULL")->result();
+		}
+		echo json_encode($data);
 	}
 	//end cetak pdf//
 

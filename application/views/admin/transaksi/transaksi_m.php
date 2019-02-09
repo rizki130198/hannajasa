@@ -119,7 +119,7 @@
 								<div class="col-sm-5">
 									<div class="input-group">
 										<span class="input-group-addon">Wilayah : DKI/ </span>
-										<input type="text" name="wilayah" class="form-control" placeholder="Masukan Wilayah">
+										<input type="text" name="wilayah" class="form-control" value="<?=$mutasi->wilayah?>" placeholder="Masukan Wilayah">
 									</div>
 								</div>
 							</div>
@@ -197,7 +197,7 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_ini" value="ada"> Pajak Tahun ini</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_ini" <?=($mutasi->pkb1!=NULL)?'checked value="ada"':NULL?>> Pajak Tahun ini</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
@@ -211,7 +211,7 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_lalu" value="ada"> Pajak Tahun lalu (SKP)</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="pajak_lalu" <?=($mutasi->pkb!=NULL)?'checked value="ada"':NULL?>> Pajak Tahun lalu (SKP)</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>

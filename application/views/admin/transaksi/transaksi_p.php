@@ -117,7 +117,7 @@
 								<div class="col-sm-5">
 									<div class="input-group">
 										<span class="input-group-addon">Wilayah : DKI/ </span>
-										<input type="text" class="form-control" name="wilayah" placeholder="Masukan Wilayah">
+										<input type="text" class="form-control" value="<?=$perpanjang->wilayah?>" name="wilayah" placeholder="Masukan Wilayah">
 									</div>
 								</div>
 							</div>

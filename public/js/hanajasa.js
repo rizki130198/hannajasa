@@ -377,6 +377,67 @@ function ambilloksus() {
 		}
 	})
 }
+// Mutasi 
+function ambilskpmutasi() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_skp").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbnmutasi() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbnmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kbbn").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_balik_t").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkmutasi() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kstnk").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnk_t").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambillaporanmutasi() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporanmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_laporan").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_laporan_t").val(datanya[0].harga);
+			}
+		}
+	})
+}
 // END PERPANJANG 
 
 // Start Balik
@@ -875,19 +936,19 @@ function ganti() {
 
 			$.each(datanya.data, function(index, element) {
 				if ($("#get_select").val() == 'bn') {
-					$("#modalnya").html('<div id="balik'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="batal_bn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletebalik'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); }else if ($("#get_select").val() == 'mutasi') {
-						$("#modalnya").html('<div id="apmutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_mutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletemutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
-
-					}else if($("#get_select").val() == 'm_bn'){
-						$("#modalnya").html('<div id="mutasi_bn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/mutasi_bn/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_mbn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/mutasi_bn/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="del_mbn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/mutasi_bn/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
-					}else if ($("#get_select").val() == 'stnk'){
-						$("#modalnya").html('<div id="sntk'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/stnk/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_stnk'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/stnk/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="del_stnk'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/stnk/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
-					}else if ($("#get_select").val() == 'stnk_h'){
-						$("#modalnya").html('<div id="apstnk_h'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_stnkh'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletestnk_h'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
-					}
-				});
-}
-})
+					$("#modalnya").html('<div id="balik'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="batal_bn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletebalik'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/balik_nama/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+				}else if ($("#get_select").val() == 'mutasi') {
+					$("#modalnya").html('<div id="apmutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_mutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletemutasi'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/mutasi/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+				}else if($("#get_select").val() == 'm_bn'){
+					$("#modalnya").html('<div id="mutasi_bn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/mutasi_bn/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_mbn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/mutasi_bn/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="del_mbn'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/mutasi_bn/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+				}else if ($("#get_select").val() == 'stnk'){
+					$("#modalnya").html('<div id="sntk'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/stnk/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_stnk'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/stnk/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="del_stnk'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/stnk/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+				}else if ($("#get_select").val() == 'stnk_h'){
+					$("#modalnya").html('<div id="apstnk_h'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_stnkh'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletestnk_h'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
+				}
+			});
+		}
+	});
 
 }
 function loopData(table,type) {
@@ -974,6 +1035,81 @@ function loopData(table,type) {
 		array_data[array_data.length] = temp_array;
 	});
 return array_data;
+}
+function gantiharga() {
+	$.ajax({
+		url: url+'/main/ambilhargajasa/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#get_harga").val()},
+		success:function(datanya) {
+			if(datanya.data.length>0){
+				var bisa = loopDataHarga(datanya.data, $("#get_harga").val());
+				$("#daftarharga").dataTable().fnClearTable();
+				$("#daftarharga").dataTable().fnAddData(bisa);
+				$("#daftarharga").dataTable().fnDraw();
+			}else{
+				$("#daftarharga").dataTable().fnClearTable();
+				$("#daftarharga").dataTable().fnDraw();
+			}
+
+			$.each(datanya.data, function(index, element) {
+				$("#tbodynya").html('<tr><td class="table_data" data-row_id="'+element.id_catat+'" data-column_name="nama">'+element.nama+'</td> <td class="table_data" data-row_id="'+element.id_catat+'" data-column_name="wilayah">'+element.wilayah+'</td> <td class="table_data" id="harga" data-row_id="'+element.id_catat+'" data-column_name="harga" contenteditable>'+element.harga+'</td> <td class="table_data" data-row_id="'+element.id_catat+'" data-column_name="created_at">'+element.created_at+'</td> </tr>'); 
+			});
+		}
+	})
+
+}
+function loopDataHarga(table,type) {
+	var array_data = [],
+	temp_array = [];
+	$(table).each(function(key,val) {
+		temp_array = [];
+		var link;
+		if (type == 'perpanjang') {
+			temp_array = [
+			val.nama,
+			val.wilayah,
+			val.harga,
+			val.created_at
+			];
+		}else if (type == 'bn') {
+			temp_array = [
+			val.nama,
+			val.wilayah,
+			val.harga,
+			val.created_at
+			];
+		}else if (type == 'mutasi') {
+			temp_array = [
+			val.nama,
+			val.wilayah,
+			val.harga,
+			val.created_at];
+		}else if (type == 'm_bn') {
+			temp_array = [
+			val.nama,
+			val.wilayah,
+			val.harga,
+			val.created_at,];
+		}else if(type == 'stnk'){
+			temp_array = [
+			val.nama,
+			val.wilayah,
+			val.harga,
+			val.created_at];
+		}else if(type == 'stnk_h'){
+			temp_array = [
+			val.nama,
+			val.wilayah,
+			val.harga,
+			val.created_at];
+		}
+
+
+		array_data[array_data.length] = temp_array;
+	});
+	return array_data;
 }
 function print_pp() {
 	window.print();
