@@ -377,7 +377,8 @@ function ambilloksus() {
 		}
 	})
 }
-// Mutasi 
+// ENd Perpanjang
+// Mutasi dan Mutasi Balik 
 function ambilskpmutasi() {
 	$.ajax({
 		url: url+'/main/ambilharga/ambilskpmutasi',
@@ -482,7 +483,112 @@ function rubahalamatbpkb() {
 		}
 	})
 }
-// END PERPANJANG 
+/// Pembatas 
+function ambilskpmutasi1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_skp1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbnmutasi1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbnmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kbbn1").val()},
+		success:function(datanya) {
+			$("#jasa_balik_t1").val(datanya[0].harga);
+		}
+	})
+}
+function ambilstnkmutasi1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kstnk1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnk_t1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambillaporanmutasi1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporanmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_laporan1").val()},
+		success:function(datanya) {
+			$("#jasa_laporan_t1").val(datanya[0].harga);
+		}
+	})
+}
+function gantiplatmutasi1() {
+	$.ajax({
+		url: url+'/main/ambiljenis/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_plat1").val()},
+		success:function(datanya) {
+			$("#adm_tnkb1").val(datanya[1].harga);
+		}
+	})
+}
+function ambilbbnbaru1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporanmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_bbn1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			$("#acc_bbn1").val(datanya[0].harga);
+		}
+	})
+}
+function rubahalamatstnk1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbn',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_rubah1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#rubah_stnk1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamatbpkb1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_bpkb1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#rubah_bpkb1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+// END Mutasi dan mutasi balik 
 
 // Start Balik
 function ambilbbn() {
