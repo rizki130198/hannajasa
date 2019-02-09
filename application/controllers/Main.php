@@ -137,6 +137,7 @@ class Main extends CI_Controller {
 	{
 		$querynya = $this->db->get_where('mutasi_bn',array('id_mutasibn'=>$id));
 		if ($querynya->num_rows() > 0) {
+			$data['mutasi'] = $querynya->row();
 			$data['title'] = "Halaman Transaksi Balik Nama STNK";
 			$this->load->view('admin',$data);
 		}else{
@@ -701,7 +702,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="SKP" AND wilayah="'.$wilayah.'" AND proses="Mutasi" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -715,7 +716,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="BBN" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Balik Nama" AND proses="Mutasi" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -729,7 +730,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat SNTK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Stnk Hilang" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'" AND proses="Mutasi"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -743,7 +744,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Laporan Hilang" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {

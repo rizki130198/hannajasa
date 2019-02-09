@@ -398,13 +398,9 @@ function ambilbbnmutasi() {
 		url: url+'/main/ambilharga/ambilbbnmutasi',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_kbbn").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_kbbn").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#jasa_balik_t").val(datanya[0].harga);
-			}
+			$("#jasa_balik_t").val(datanya[0].harga);
 		}
 	})
 }
@@ -428,12 +424,60 @@ function ambillaporanmutasi() {
 		url: url+'/main/ambilharga/ambillaporanmutasi',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_k_laporan").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_k_laporan").val()},
+		success:function(datanya) {
+			$("#jasa_laporan_t").val(datanya[0].harga);
+		}
+	})
+}
+function gantiplatmutasi() {
+	$.ajax({
+		url: url+'/main/ambiljenis/',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_plat").val()},
+		success:function(datanya) {
+			$("#adm_tnkb").val(datanya[1].harga);
+		}
+	})
+}
+function ambilbbnbaru() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporanmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_bbn").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			$("#acc_bbn").val(datanya[0].harga);
+		}
+	})
+}
+function rubahalamatstnk() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbn',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_rubah").val(),wilayah: $("#wil_perpanjang").val()},
 		success:function(datanya) {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#jasa_laporan_t").val(datanya[0].harga);
+				$("#rubah_stnk").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamatbpkb() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_bpkb").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#rubah_bpkb").val(datanya[0].harga);
 			}
 		}
 	})
@@ -1073,8 +1117,8 @@ function ganti() {
 					$("#modalnya").html('<div id="apstnk_h'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin melanjutkan?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di lanjutkan, anda akan beralih ke halaman input berkas jadi.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="input_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-success" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div> <div id="batal_stnkh'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box batal"> <i class="material-icons">close</i> </div> <h4 class="modal-title">Yakin ingin batalkan berkas?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di batalkan, data tidak akan di tampilkan di berkas.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="batal_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-warning" type="button">Ya, lanjutkan</button></a> </div> </div> </div> </div><div id="deletestnk_h'+element.no+'" class="modal fade"> <div class="modal-dialog modal-confirm"> <div class="modal-content"> <div class="modal-header"> <div class="icon-box"> <i class="material-icons">check</i> </div> <h4 class="modal-title">Yakin ingin Delete?</h4> <a href="" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> </div> <div class="modal-body"> <p>Setelah di delete data akan terhapus dan tidak bisa di kembalikan.</p> </div> <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button> <a href="delete_berkas/stnk_hb/'+element.id_cetak+'"><button class="btn btn-danger" type="button">Ya, Hapus</button></a> </div> </div> </div> </div>'); 
 				}
 			});
-		}
-	});
+}
+});
 
 }
 function loopData(table,type) {
