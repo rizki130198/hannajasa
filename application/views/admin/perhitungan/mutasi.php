@@ -236,7 +236,7 @@
 													</label>
 												</div>
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
 														<input type="checkbox" name="stnk_h" id="rubstnk" value="STNK Hilang"> STNK Hilang

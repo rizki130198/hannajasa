@@ -293,7 +293,7 @@
 									<div class="" id="jasaloksus" style="display: none;">
 										<div class="row">
 											<div class="col-md-12">
-												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat</h4>
+												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat BPKB</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
 													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilalamat()">
