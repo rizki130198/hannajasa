@@ -770,6 +770,132 @@ $(document).ready(function () {
 		}	
 	});
 });
+$(document).ready(function () {
+	$('#adm_skp').change(function () {
+		if (!this.checked) {
+			$('#jasaskp').fadeOut('fast');
+		}else{ 
+			$('#jasaskp').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#balik_nama').change(function () {
+		if (!this.checked) {
+			$('#jasa_bn').fadeOut('fast');
+		}else{ 
+			$('#jasa_bn').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#stnk_h').change(function () {
+		if (!this.checked) {
+			$('#jasa_stnkh').fadeOut('fast');
+		}else{ 
+			$('#jasa_stnkh').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#laporan_h').change(function () {
+		if (!this.checked) {
+			$('#jasa_laporh').fadeOut('fast');
+		}else{ 
+			$('#jasa_laporh').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#bbn').change(function () {
+		if (!this.checked) {
+			$('#jasa_bbn').fadeOut('fast');
+		}else{ 
+			$('#jasa_bbn').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubala').change(function () {
+		if (!this.checked) {
+			$('#jasa_rubahstnk').fadeOut('fast');
+		}else{ 
+			$('#jasa_rubahstnk').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubah_bpkb').change(function () {
+		if (!this.checked) {
+			$('#jasa_rubahal').fadeOut('fast');
+		}else{ 
+			$('#jasa_rubahal').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#adm_skp2').change(function () {
+		if (!this.checked) {
+			$('#jasaskp2').fadeOut('fast');
+		}else{ 
+			$('#jasaskp2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#balik_nama2').change(function () {
+		if (!this.checked) {
+			$('#jasa_bn2').fadeOut('fast');
+		}else{ 
+			$('#jasa_bn2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#stnk_h2').change(function () {
+		if (!this.checked) {
+			$('#jasa_stnkh2').fadeOut('fast');
+		}else{ 
+			$('#jasa_stnkh2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#laporan_h2').change(function () {
+		if (!this.checked) {
+			$('#jasa_laporh2').fadeOut('fast');
+		}else{ 
+			$('#jasa_laporh2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#bbn2').change(function () {
+		if (!this.checked) {
+			$('#jasa_bbn2').fadeOut('fast');
+		}else{ 
+			$('#jasa_bbn2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubala2').change(function () {
+		if (!this.checked) {
+			$('#jasa_rubahstnk2').fadeOut('fast');
+		}else{ 
+			$('#jasa_rubahstnk2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubah_bpkb2').change(function () {
+		if (!this.checked) {
+			$('#jasa_rubahal2').fadeOut('fast');
+		}else{ 
+			$('#jasa_rubahal2').fadeIn('fast');
+		}	
+	});
+});
 $(function() { 
 	$(window).scroll(function() { 
 		if($(this).scrollTop()>100) { 
