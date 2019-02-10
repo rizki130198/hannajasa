@@ -318,7 +318,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="form-group" style="margin-top: 0 !important;">
+												<!-- <div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
 															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="fisik" <?=($acc[4]==NULL)?'checked value="'.$acc[4].'"':NULL?>> Ganti Plat</label>
@@ -331,7 +331,7 @@
 															<input type="text" class="form-control jumlah_biaya" name="harga_fisik" placeholder="Masukan nominal"<?=($harga[4]==NULL)?' value="'.$harga[4].'"':NULL?>>
 														</div>
 													</div>
-												</div>
+												</div> -->
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-1">
 														<div class="checkbox" style="display: contents;">
@@ -369,7 +369,7 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],))?>" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal">
+															<input type="text" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6]))?>" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -382,7 +382,7 @@
 													<div class="col-sm-6">
 														<div class="input-group">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="prediski" class="form-control biaya_prediksi" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],$mutasi->pkb,$mutasi->swdkllj,$mutasi->sanksi_swdkllj,$mutasi->sanksi_pkb,$mutasi->pkb1,$mutasi->bbnkb,$mutasi->swdkllj1,$mutasi->adm_stnk,$mutasi->adm_tnkb))?>" placeholder="Masukan nominal">
+															<input type="text" name="prediski" class="form-control biaya_prediksi" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$mutasi->pkb,$mutasi->swdkllj,$mutasi->sanksi_swdkllj,$mutasi->sanksi_pkb,$mutasi->pkb1,$mutasi->bbnkb,$mutasi->swdkllj1,$mutasi->adm_stnk,$mutasi->adm_tnkb))?>" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
@@ -391,7 +391,7 @@
 													<div class="col-sm-6">
 														<div class="input-group">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],$mutasi->pkb,$mutasi->swdkllj,$mutasi->sanksi_swdkllj,$mutasi->sanksi_pkb,$mutasi->pkb1,$mutasi->bbnkb,$mutasi->swdkllj1,$mutasi->adm_stnk,$mutasi->adm_tnkb))?>" name="kurang" class="form-control prediskisisa" placeholder="Masukan nominal">
+															<input type="text" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$mutasi->pkb,$mutasi->swdkllj,$mutasi->sanksi_swdkllj,$mutasi->sanksi_pkb,$mutasi->pkb1,$mutasi->bbnkb,$mutasi->swdkllj1,$mutasi->adm_stnk,$mutasi->adm_tnkb))?>" name="kurang" class="form-control prediskisisa" placeholder="Masukan nominal">
 														</div>
 													</div>
 												</div>
