@@ -307,7 +307,7 @@
 												</div>
 												<div class="form-group jum-pajak-b">
 													<label class="control-label">Biaya Jasa Adm. SKP</label>
-													<input type="text" name="jasa_skp" id="adm_skp" class="form-control jumlah_pajak_b">
+													<input type="text" name="jasa_skp" id="adm_skpselect" class="form-control jumlah_pajak_b">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -449,7 +449,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="" id="jasa_rubahbpkb" style="display: none;">
+									<div class="" id="jasa_rubahal" style="display: none;">
 										<div class="row">
 											<div class="col-md-12">
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat BPKB</h4>
@@ -466,7 +466,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Rubah Alamat BPKB</label>
-													<input type="text" name="jasa_rbpkb" id="rubah_bpkb" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_rbpkb" id="rubah_bpkbalamat" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
