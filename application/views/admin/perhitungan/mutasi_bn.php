@@ -449,7 +449,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="" id="jasa_rubahbpkb" style="display: none;">
+									<div class="" id="jasa_rubahal" style="display: none;">
 										<div class="row">
 											<div class="col-md-12">
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat BPKB</h4>

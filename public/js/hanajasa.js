@@ -892,6 +892,24 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#bpkb2').change(function () {
+		if (!this.checked) {
+			$('#jasabpkb2').fadeOut('fast');
+		}else{ 
+			$('#jasabpkb2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#bpkb3').change(function () {
+		if (!this.checked) {
+			$('#jasabpkb3').fadeOut('fast');
+		}else{ 
+			$('#jasabpkb3').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#ktp').change(function () {
 		if (!this.checked) {
 			$('#jasaktp').fadeOut('fast');
@@ -1063,6 +1081,15 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#balik_nama3').change(function () {
+		if (!this.checked) {
+			$('#jasa_bn3').fadeOut('fast');
+		}else{ 
+			$('#jasa_bn3').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#stnk_h2').change(function () {
 		if (!this.checked) {
 			$('#jasa_stnkh2').fadeOut('fast');
@@ -1104,6 +1131,60 @@ $(document).ready(function () {
 			$('#jasa_rubahal2').fadeOut('fast');
 		}else{ 
 			$('#jasa_rubahal2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#tanpa_ktp').change(function () {
+		if (!this.checked) {
+			$('#jasa_tanktp').fadeOut('fast');
+		}else{ 
+			$('#jasa_tanktp').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#tanpa_ktp2').change(function () {
+		if (!this.checked) {
+			$('#jasa_tanktp2').fadeOut('fast');
+		}else{ 
+			$('#jasa_tanktp2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#tanpa_ktp3').change(function () {
+		if (!this.checked) {
+			$('#jasa_tanktp3').fadeOut('fast');
+		}else{ 
+			$('#jasa_tanktp3').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#tanpa_ktpbpkb').change(function () {
+		if (!this.checked) {
+			$('#jasa_tanbpkb').fadeOut('fast');
+		}else{ 
+			$('#jasa_tanbpkb').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#tanpa_ktpbpkb2').change(function () {
+		if (!this.checked) {
+			$('#jasa_tanbpkb2').fadeOut('fast');
+		}else{ 
+			$('#jasa_tanbpkb2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#tanpa_ktpbpkb3').change(function () {
+		if (!this.checked) {
+			$('#jasa_tanbpkb3').fadeOut('fast');
+		}else{ 
+			$('#jasa_tanbpkb3').fadeIn('fast');
 		}	
 	});
 });
