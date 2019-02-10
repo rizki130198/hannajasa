@@ -1232,6 +1232,24 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#bbn3').change(function () {
+		if (!this.checked) {
+			$('#jasa_bbn3').fadeOut('fast');
+		}else{ 
+			$('#jasa_bbn3').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#bbn4').change(function () {
+		if (!this.checked) {
+			$('#jasa_bbn4').fadeOut('fast');
+		}else{ 
+			$('#jasa_bbn4').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#rubala2').change(function () {
 		if (!this.checked) {
 			$('#jasa_rubahstnk2').fadeOut('fast');
@@ -1286,6 +1304,15 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#ktpbpkb').change(function () {
+		if (!this.checked) {
+			$('#jasa_ktpfc').fadeOut('fast');
+		}else{ 
+			$('#jasa_ktpfc').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#tanpa_ktpbpkb').change(function () {
 		if (!this.checked) {
 			$('#jasa_tanbpkb').fadeOut('fast');
@@ -1309,6 +1336,24 @@ $(document).ready(function () {
 			$('#jasa_tanbpkb3').fadeOut('fast');
 		}else{ 
 			$('#jasa_tanbpkb3').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubah_stnkbpkb2').change(function () {
+		if (!this.checked) {
+			$('#jasa_stnkbpkb2').fadeOut('fast');
+		}else{ 
+			$('#jasa_stnkbpkb2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubah_stnkbpkb3').change(function () {
+		if (!this.checked) {
+			$('#jasa_stnkbpkb3').fadeOut('fast');
+		}else{ 
+			$('#jasa_stnkbpkb3').fadeIn('fast');
 		}	
 	});
 });

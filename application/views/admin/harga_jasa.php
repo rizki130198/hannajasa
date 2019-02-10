@@ -50,22 +50,22 @@
 								<thead>
 									<tr>
 										<th>Daftar Harga</th>
-										<!-- <th>Jenis</th> -->
 										<th>Wilayah</th>
+										<th>Jenis</th>
 										<th>Harga</th>
 										<th>Tanggal Update</th>
 									</tr>
 								</thead>
 								<tbody id="tbodynya">
-										<?php foreach ($data as $jasa): ?>
+									<?php foreach ($data as $jasa): ?>
 									<tr>
-											
-											<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="nama"><?=$jasa->nama?></td>
-											<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="wilayah"><?=$jasa->wilayah?></td>
-											<td class="table_data" id="harga" data-row_id="<?=$jasa->id_catat?>" data-column_name="harga" contenteditable><?=$jasa->harga?></td>
-											<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="created_at"><?=$jasa->created_at?></td>
+										<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="nama"><?=$jasa->nama?></td>
+										<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="wilayah"><?=$jasa->wilayah?></td>
+										<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="nama"><?=$jasa->jenis?></td>
+										<td class="table_data" id="harga" data-row_id="<?=$jasa->id_catat?>" data-column_name="harga" contenteditable><?=$jasa->harga?></td>
+										<td class="table_data" data-row_id="<?=$jasa->id_catat?>" data-column_name="created_at"><?=$jasa->created_at?></td>
 									</tr>
-										<?php endforeach ?>
+									<?php endforeach ?>
 								</tbody>
 							</table>
 						</div>

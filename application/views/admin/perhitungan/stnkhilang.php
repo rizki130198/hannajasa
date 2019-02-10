@@ -344,7 +344,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Ganti Plat</h4>
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_plat" name="jenis_k"  onchange="gantiplatmutasi()">
+												<select class="form-control" id="jenis_k" name="jenis_k1"  onchange="ambilselect()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -472,26 +472,6 @@
 													<input type="text" name="laporan_hilang" id="jasa_laporan_t" class="form-control jumlah_pajak_b">
 													<span class="material-input"></span>
 												</div>
-											</div>
-										</div>
-									</div>
-									<div class="row" id="admtnkb_n" style="display: none;">
-										<div class="col-md-12">
-											<div class="form-group is-empty">
-												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_k" name="jenis_k1"  onchange="ambilselect()">
-													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
-													<option value="" disabled=""></option>
-													<?php foreach ($catat->result() as $key): ?>
-														<option value="<?=$key->jenis?>"><?=$key->jenis?></option>
-													<?php endforeach ?>
-												</select>
-												<span class="material-input"></span>
-											</div>
-											<div class="form-group jum-pajak-n">
-												<label class="control-label">Adm TNKB</label>
-												<input type="text" name="adm_tnkb1" id="adm_tnkb" class="form-control jumlah_pajak_n">
-												<span class="material-input"></span>
 											</div>
 										</div>
 									</div>
@@ -649,14 +629,14 @@
 											<div class="col-md-2" style="padding-left: 15px;">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="stnk_gantung" id="loksus" value="ada"> STNK Hilang Gantung
+														<input type="checkbox" name="stnk_gantung" id="loksus" value="ada"> STNK Hilang (Gantung)
 													</label>
 												</div>
 											</div>
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
-														<input type="checkbox" name="ktp_bpkb" id="rubala2" value="ada"> KTP dan FC BPKB ada
+														<input type="checkbox" name="ktp_bpkb" id="rubala" value="ada"> KTP dan FC BPKB ada
 													</label>
 												</div>
 											</div>
