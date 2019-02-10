@@ -1106,6 +1106,33 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#stnk_gantung').change(function () {
+		if (!this.checked) {
+			$('#jasa_stnkgantung').fadeOut('fast');
+		}else{ 
+			$('#jasa_stnkgantung').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#ktp_bpkb').change(function () {
+		if (!this.checked) {
+			$('#jasa_ktpbpkb').fadeOut('fast');
+		}else{ 
+			$('#jasa_ktpbpkb').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#ktp_bpkb2').change(function () {
+		if (!this.checked) {
+			$('#jasa_ktpbpkb2').fadeOut('fast');
+		}else{ 
+			$('#jasa_ktpbpkb2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#rubah_bpkb').change(function () {
 		if (!this.checked) {
 			$('#jasa_rubahal').fadeOut('fast');
@@ -1120,6 +1147,15 @@ $(document).ready(function () {
 			$('#jasaskp2').fadeOut('fast');
 		}else{ 
 			$('#jasaskp2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#adm_skp3').change(function () {
+		if (!this.checked) {
+			$('#jasaskp3').fadeOut('fast');
+		}else{ 
+			$('#jasaskp3').fadeIn('fast');
 		}	
 	});
 });
@@ -1142,6 +1178,15 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#balik_nama4').change(function () {
+		if (!this.checked) {
+			$('#jasa_bn4').fadeOut('fast');
+		}else{ 
+			$('#jasa_bn4').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#stnk_h2').change(function () {
 		if (!this.checked) {
 			$('#jasa_stnkh2').fadeOut('fast');
@@ -1151,11 +1196,29 @@ $(document).ready(function () {
 	});
 });
 $(document).ready(function () {
+	$('#stnk_h3').change(function () {
+		if (!this.checked) {
+			$('#jasa_stnkh3').fadeOut('fast');
+		}else{ 
+			$('#jasa_stnkh3').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
 	$('#laporan_h2').change(function () {
 		if (!this.checked) {
 			$('#jasa_laporh2').fadeOut('fast');
 		}else{ 
 			$('#jasa_laporh2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#laporan_h3').change(function () {
+		if (!this.checked) {
+			$('#jasa_laporh3').fadeOut('fast');
+		}else{ 
+			$('#jasa_laporh3').fadeIn('fast');
 		}	
 	});
 });
@@ -1183,6 +1246,15 @@ $(document).ready(function () {
 			$('#jasa_rubahal2').fadeOut('fast');
 		}else{ 
 			$('#jasa_rubahal2').fadeIn('fast');
+		}	
+	});
+});
+$(document).ready(function () {
+	$('#rubah_bpkb3').change(function () {
+		if (!this.checked) {
+			$('#jasa_rubahal3').fadeOut('fast');
+		}else{ 
+			$('#jasa_rubahal3').fadeIn('fast');
 		}	
 	});
 });
