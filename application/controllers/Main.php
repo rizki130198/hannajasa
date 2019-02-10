@@ -702,7 +702,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="SKP" AND wilayah="'.$wilayah.'" AND proses="Mutasi" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -713,9 +713,6 @@ class Main extends CI_Controller {
 				}
 			}
 		}else if($uri == 'ambilbbnmutasi'){
-			if ($wilayah==NULL) {
-				$data = array('success'=> false, 'msg'=>'gagal');
-			}else{
 				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Balik Nama" AND proses="Mutasi" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
@@ -724,7 +721,6 @@ class Main extends CI_Controller {
 						'harga'=>$key->harga,
 					);
 					$i++;
-				}
 			}
 		}else if($uri == 'ambilstnkmutasi'){
 			if ($wilayah==NULL) {
@@ -741,10 +737,7 @@ class Main extends CI_Controller {
 				}
 			}
 		}else if($uri == 'ambillaporanmutasi'){
-			if ($wilayah==NULL) {
-				$data = array('success'=> false, 'msg'=>'gagal');
-			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Laporan Hilang" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Laporan Hilang"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -753,7 +746,6 @@ class Main extends CI_Controller {
 					);
 					$i++;
 				}
-			}
 		}
 		
 		

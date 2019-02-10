@@ -389,7 +389,7 @@ function ambilskpmutasi() {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#adm_skp").val(datanya[0].harga);
+				$("#adm_skpselect").val(datanya[0].harga);
 			}
 		}
 	})
@@ -428,6 +428,58 @@ function ambillaporanmutasi() {
 		data: {jenis: $("#jenis_k_laporan").val()},
 		success:function(datanya) {
 			$("#jasa_laporan_t").val(datanya[0].harga);
+		}
+	})
+}
+function ambilskpmutasi2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_ken").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_skpbulan").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbnmutasi2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbnmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kbbn2").val()},
+		success:function(datanya) {
+			$("#jasa_balik_b").val(datanya[0].harga);
+		}
+	})
+}
+function ambilstnkmutasi2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_kstnk2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnk_b").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambillaporanmutasi2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporanmutasi',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_k_laporan2").val()},
+		success:function(datanya) {
+			$("#jasa_laporan_b").val(datanya[0].harga);
 		}
 	})
 }
@@ -470,7 +522,7 @@ function rubahalamatstnk() {
 }
 function rubahalamatbpkb() {
 	$.ajax({
-		url: url+'/main/ambilharga/ambilstnk',
+		url: url+'/main/ambilharga/ambilalamat',
 		type: 'POST',
 		dataType:'json',
 		data: {jenis: $("#jenis_r_bpkb").val(),wilayah: $("#wil_perpanjang").val()},
@@ -478,7 +530,7 @@ function rubahalamatbpkb() {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#rubah_bpkb").val(datanya[0].harga);
+				$("#rubah_bpkbalamat").val(datanya[0].harga);
 			}
 		}
 	})
@@ -575,7 +627,7 @@ function rubahalamatstnk1() {
 }
 function rubahalamatbpkb1() {
 	$.ajax({
-		url: url+'/main/ambilharga/ambilstnk',
+		url: url+'/main/ambilharga/ambilalamat',
 		type: 'POST',
 		dataType:'json',
 		data: {jenis: $("#jenis_r_bpkb1").val(),wilayah: $("#wil_perpanjang").val()},
