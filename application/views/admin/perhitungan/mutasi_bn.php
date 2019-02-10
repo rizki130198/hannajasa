@@ -260,13 +260,13 @@
 													</label>
 												</div>
 											</div>
-											<div class="col-md-2">
+											<!-- <div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
 														<input type="checkbox" name="ganti1" id="gantiplat_nor" value="ada"> Ganti Plat
 													</label>
 												</div>
-											</div>
+											</div> -->
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
@@ -382,7 +382,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="row" id="admtnkb_n" style="display: none;">
+									<!-- <div class="row" id="admtnkb_n" style="display: none;">
 										<div class="col-md-12">
 											<h4 style="font-weight: bold;text-transform: uppercase;">Ganti Plat</h4>
 											<div class="form-group is-empty">
@@ -402,7 +402,7 @@
 												<span class="material-input"></span>
 											</div>
 										</div>
-									</div>
+									</div> -->
 									<div class="" id="jasa_bbn" style="display: none;">
 										<div class="row">
 											<div class="col-md-12">
@@ -671,13 +671,13 @@
 													</label>
 												</div>
 											</div>
-											<div class="col-md-2">
+											<!-- <div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
 														<input type="checkbox" name="ganti2" id="gantiplat_bul" value="ada"> Ganti Plat
 													</label>
 												</div>
-											</div>
+											</div> -->
 											<div class="col-md-2">
 												<div class="checkbox" style="display: inline-flex;">
 													<label>
@@ -793,7 +793,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="row" id="admtnkb_b" style="display: none;">
+									<!-- <div class="row" id="admtnkb_b" style="display: none;">
 										<div class="col-md-12">
 											<h4 style="font-weight: bold;text-transform: uppercase;">Ganti Plat</h4>
 											<div class="form-group is-empty">
@@ -813,7 +813,7 @@
 												<span class="material-input"></span>
 											</div>
 										</div>
-									</div>
+									</div> -->
 									<div class="" id="jasa_bbn2" style="display: none;">
 										<div class="row">
 											<div class="col-md-12">
