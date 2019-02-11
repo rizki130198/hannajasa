@@ -30,7 +30,7 @@
 						<h4 class="title">Transaksi Mutasi + Balik Nama STNK</h4>
 					</div>
 					<div class="card-content">
-						<form action="<?= site_url('main/p_mutasibalik') ?>" method="POST" class="form-horizontal">
+						<form action="javascript:void(0);" id="transaksimutasibn" method="POST" class="form-horizontal">
 							<h4>Kepada Yth.</h4>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Bpk/Ibu/Sdr-i/PT <span class="titik2">:</span></label>

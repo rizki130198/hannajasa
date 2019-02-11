@@ -211,6 +211,122 @@ $(document).ready(function () {
 			});
 		return false;
 	});
+	$("#transaksimutasi").submit(function (event) {
+		var formData = new FormData($(this)[0]);
+
+		$.ajax({
+			url: url+'/main/p_mutasi',
+			type: 'POST',
+			data: formData,
+			contentType: false,
+			cache: false,
+			processData: false,
+			success: function (dt) {
+				var dt = $.parseJSON(dt);
+				if (dt.msg=='Berhasil') {
+					toastSuccess();
+					window.open(url+'/main/cetak_mutasi'+dt.id, '_blank');
+				}else if(dt.msg=='warning'){
+					toastdata();
+					window.open(url+'/main/cetak_mutasi'+dt.id, '_blank');
+				}else{
+					toastError();
+				}
+				$('#loader').modal('hide');
+				$("#transaksimutasi")[0].reset();
+			},
+			error: function(){
+				toastserver()				}
+			});
+		return false;
+	});
+	$("#transaksimutasibn").submit(function (event) {
+		var formData = new FormData($(this)[0]);
+
+		$.ajax({
+			url: url+'/main/p_mutasibalik',
+			type: 'POST',
+			data: formData,
+			contentType: false,
+			cache: false,
+			processData: false,
+			success: function (dt) {
+				var dt = $.parseJSON(dt);
+				if (dt.msg=='Berhasil') {
+					toastSuccess();
+					window.open(url+'/main/cetak_mutasibn/'+dt.id, '_blank');
+				}else if(dt.msg=='warning'){
+					toastdata();
+					window.open(url+'/main/cetak_mutasibn/'+dt.id, '_blank');
+				}else{
+					toastError();
+				}
+				$('#loader').modal('hide');
+				$("#transaksimutasibn")[0].reset();
+			},
+			error: function(){
+				toastserver()				}
+			});
+		return false;
+	});
+	$("#transaksistnkh").submit(function (event) {
+		var formData = new FormData($(this)[0]);
+
+		$.ajax({
+			url: url+'/main/p_stnk',
+			type: 'POST',
+			data: formData,
+			contentType: false,
+			cache: false,
+			processData: false,
+			success: function (dt) {
+				var dt = $.parseJSON(dt);
+				if (dt.msg=='Berhasil') {
+					toastSuccess();
+					window.open(url+'/main/cetak_stnkhilang/'+dt.id, '_blank');
+				}else if(dt.msg=='warning'){
+					toastdata();
+					window.open(url+'/main/cetak_stnkhilang/'+dt.id, '_blank');
+				}else{
+					toastError();
+				}
+				$('#loader').modal('hide');
+				$("#transaksistnkh")[0].reset();
+			},
+			error: function(){
+				toastserver()				}
+			});
+		return false;
+	});
+	$("#transaksistnkhb").submit(function (event) {
+		var formData = new FormData($(this)[0]);
+
+		$.ajax({
+			url: url+'/main/p_stnkbalik',
+			type: 'POST',
+			data: formData,
+			contentType: false,
+			cache: false,
+			processData: false,
+			success: function (dt) {
+				var dt = $.parseJSON(dt);
+				if (dt.msg=='Berhasil') {
+					toastSuccess();
+					window.open(url+'/main/cetak_stnkh_bn/'+dt.id, '_blank');
+				}else if(dt.msg=='warning'){
+					toastdata();
+					window.open(url+'/main/cetak_stnkh_bn/'+dt.id, '_blank');
+				}else{
+					toastError();
+				}
+				$('#loader').modal('hide');
+				$("#transaksistnkhb")[0].reset();
+			},
+			error: function(){
+				toastserver()				}
+			});
+		return false;
+	});
 });
 function toastSuccess() {
 
@@ -642,6 +758,586 @@ function rubahalamatbpkb1() {
 }
 // END Mutasi dan mutasi balik 
 
+
+// Start STNK 
+function ambilskpstnkh1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_skp1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_skp1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkhb1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkhb1").val()},
+		success:function(datanya) {
+			$("#jasa_stnkhb1").val(datanya[0].harga);
+		}
+	})
+}
+function ambilstnkhl1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhl',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkhl1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnkhl1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamat1() {
+	$.ajax({
+		url: url+'/main/ambilharga/rubahalamat',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_bpkb1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_rbpkb1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbaliks1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbaliks',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_balikn1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_balikn1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilplats1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilplats',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_plat1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_tnkb1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkhg1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhg',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkg1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnkg1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilktpfcb1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilktpfcb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_ktp_f1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_ktp_f1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambiltktp1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambiltktp',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_tktp1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_tktp1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambiltktpfcb1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambiltktpfcb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_t_ktpfc1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_t_ktpfc1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambillaporans1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporans',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_laporan1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#laporan_hilang1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbnsntkh1() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbnsntkh',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_bbn1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_bbn1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamatstnk1() {
+	$.ajax({
+		url: url+'/main/ambilharga/rubahalamatstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_stnk1").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#rubah_rstnk1").val(datanya[0].harga);
+			}
+		}
+	})
+}
+/// Pembatas
+function ambilskpstnkh2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_skp2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_skp2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkhb2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkhb2").val()},
+		success:function(datanya) {
+			$("#jasa_stnkhb2").val(datanya[0].harga);
+		}
+	})
+}
+function ambilstnkhl2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhl',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkhl2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnkhl2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamat2() {
+	$.ajax({
+		url: url+'/main/ambilharga/rubahalamat',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_bpkb2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_rbpkb2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbaliks2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbaliks',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_balikn2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_balikn2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilplats2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilplats',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_plat2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_tnkb2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkhg2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhg',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkg2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnkg2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilktpfcb2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilktpfcb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_ktp_f2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_ktp_f2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambiltktp2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambiltktp',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_tktp2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_tktp2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambiltktpfcb2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambiltktpfcb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_t_ktpfc2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_t_ktpfc2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambillaporans2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporans',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_laporan2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#laporan_hilang2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbnsntkh2() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbnsntkh',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_bbn2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_bbn2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamatstnk2() {
+	$.ajax({
+		url: url+'/main/ambilharga/rubahalamatstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_stnk2").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#rubah_rstnk2").val(datanya[0].harga);
+			}
+		}
+	})
+}
+
+// Pembatas 
+function ambilskpstnkh3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilskpstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_skp3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_skp3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkhb3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkhb3").val()},
+		success:function(datanya) {
+			$("#jasa_stnkhb3").val(datanya[0].harga);
+		}
+	})
+}
+function ambilstnkhl3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhl',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkhl3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnkhl3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamat3() {
+	$.ajax({
+		url: url+'/main/ambilharga/rubahalamat',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_bpkb3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_rbpkb3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbaliks3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbaliks',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_balikn3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_balikn3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilplats3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilplats',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_plat3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#adm_tnkb3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilstnkhg3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilstnkhg',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_stnkg3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_stnkg3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilktpfcb3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilktpfcb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_ktp_f3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_ktp_f3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambiltktp3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambiltktp',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_tktp3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_tktp3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambiltktpfcb3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambiltktpfcb',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_t_ktpfc3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_t_ktpfc3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambillaporans3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambillaporans',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_laporan3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#laporan_hilang3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function ambilbbnsntkh3() {
+	$.ajax({
+		url: url+'/main/ambilharga/ambilbbnsntkh',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_bbn3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#jasa_bbn3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+function rubahalamatstnk3() {
+	$.ajax({
+		url: url+'/main/ambilharga/rubahalamatstnk',
+		type: 'POST',
+		dataType:'json',
+		data: {jenis: $("#jenis_r_stnk3").val(),wilayah: $("#wil_perpanjang").val()},
+		success:function(datanya) {
+			if (datanya.success==false) {
+				alert('Silakan Pilih wilayah');
+			}else{
+				$("#rubah_rstnk3").val(datanya[0].harga);
+			}
+		}
+	})
+}
+
+// END STNK H 
 // Start Balik
 function ambilbbn() {
 	$.ajax({

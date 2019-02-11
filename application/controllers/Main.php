@@ -171,6 +171,7 @@ class Main extends CI_Controller {
 		$querynya = $this->db->get_where('stnk_hilang',array('id_stnk'=>$id));
 		if ($querynya->num_rows() > 0) {
 			$data['title'] = "Halaman Transaksi STNK Hilang";
+			$data['stnk'] = $querynya->row();
 			$this->load->view('admin',$data);
 		}else{
 			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
@@ -203,6 +204,7 @@ class Main extends CI_Controller {
 		$querynya = $this->db->get_where('stnk_balik',array('id_stnkb'=>$id));
 		if ($querynya->num_rows() > 0) {
 			$data['title'] = "Halaman Transaksi STNK Hilang + Balik Nama";
+			$data['stnk'] = $querynya->row();
 			$this->load->view('admin',$data);
 		}else{
 			$this->session->set_flashdata('gagal', 'Data Tidak Di Temukan');
