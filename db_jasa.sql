@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2019 at 10:21 PM
+-- Generation Time: Feb 11, 2019 at 10:48 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -156,7 +156,7 @@ INSERT INTO `catatan` (`id_catat`, `proses`, `nama`, `jenis`, `jenis_harga`, `wi
 (28, 'Perpanjang', 'Cek Fisik 5 Tahun', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
 (29, 'Perpanjang', 'Cek Fisik 5 Tahun', 'Motor', 'jasa', 'Depok', '60000', '2019-01-14'),
 (30, 'Perpanjang', 'Cek Fisik 5 Tahun', 'Mobil', 'jasa', 'Depok', '75000', '2019-01-14'),
-(31, 'Perpanjang', 'ACC BPKB', 'Motor', 'jasa', 'Jakarta', 'Rubah Alamat STNK,Bekasi,450000,2018-12-29', '2019-02-08'),
+(31, 'Perpanjang', 'ACC BPKB', 'Motor', 'jasa', 'Jakarta', '10000', '2019-02-12'),
 (32, 'Perpanjang', 'ACC BPKB', 'Mobil', 'jasa', 'Jakarta', '45000', '2019-01-14'),
 (33, 'Perpanjang', 'ACC BPKB', 'Motor', 'jasa', 'Bekasi', '50000', '2018-12-29'),
 (34, 'Perpanjang', 'ACC BPKB', 'Mobil', 'jasa', 'Bekasi', '60000', '2018-12-29'),
@@ -244,7 +244,89 @@ INSERT INTO `catatan` (`id_catat`, `proses`, `nama`, `jenis`, `jenis_harga`, `wi
 (116, 'Mutasi', 'BBN', 'Motor', 'jasa', 'Tanggerang', '450000', '2019-01-30'),
 (117, 'Mutasi', 'BBN', 'Mobil', 'jasa', 'Tanggerang', '500000', '2019-01-30'),
 (118, 'Mutasi', 'BBN', 'Motor', 'jasa', 'Depok', '450000', '2019-01-30'),
-(119, 'Mutasi', 'BBN', 'Mobil', 'jasa', 'Depok', '500000', '2019-01-30');
+(119, 'Mutasi', 'BBN', 'Mobil', 'jasa', 'Depok', '500000', '2019-01-30'),
+(120, 'Mutasi', 'SKP', 'Motor', 'jasa', 'Jakarta', '340000', '2019-01-30'),
+(121, 'STNK', 'STNK Hilang (BPKB Asli)', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(122, 'STNK', 'STNK Hilang (BPKB Asli)', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(123, 'STNK', 'STNK Hilang (BPKB Asli)', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(124, 'STNK', 'STNK Hilang (BPKB Asli)', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(125, 'STNK', 'STNK Hilang (BPKB Asli)', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(126, 'STNK', 'STNK Hilang (BPKB Asli)', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(127, 'STNK', 'STNK Hilang (BPKB Asli)', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(128, 'STNK', 'STNK Hilang (BPKB Asli)', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(129, 'STNK', 'STNK Hilang (BPKB Asli)', 'Mobil', 'jasa', 'Depok', '75000', '2019-01-14'),
+(130, 'STNK', 'STNK Hilang (Leasing)', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(131, 'STNK', 'STNK Hilang (Leasing)', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(132, 'STNK', 'STNK Hilang (Leasing)', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(133, 'STNK', 'STNK Hilang (Leasing)', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(134, 'STNK', 'STNK Hilang (Leasing)', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(135, 'STNK', 'STNK Hilang (Leasing)', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(136, 'STNK', 'STNK Hilang (Leasing)', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(137, 'STNK', 'STNK Hilang (Leasing)', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(138, 'STNK', 'STNK Hilang (Leasing)', 'Mobil', 'jasa', 'Depok', '75000', '2019-01-14'),
+(139, 'STNK', 'Rubah Alamat', '', 'jasa', '', '75000', '2019-01-14'),
+(140, 'STNK', 'Balik Nama', '', 'jasa', '', '75000', '2019-01-14'),
+(141, 'STNK', 'Ganti Plat', '', 'jasa', '', '75000', '2019-01-14'),
+(142, 'STNK', 'Laporan Hilang', '', 'jasa', '', '75000', '2019-01-14'),
+(143, 'STNK', 'STNK Gantung', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(144, 'STNK', 'STNK Gantung', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(145, 'STNK', 'STNK Gantung', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(146, 'STNK', 'STNK Gantung', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(147, 'STNK', 'STNK Gantung', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(148, 'STNK', 'STNK Gantung', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(149, 'STNK', 'STNK Gantung', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(150, 'STNK', 'STNK Gantung', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(151, 'STNK', 'STNK Gantung', 'Mobil', 'jasa', 'Depok', '75000', '2019-01-14'),
+(152, 'STNK', 'KTP dan Fc BPKB Ada', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(153, 'STNK', 'KTP dan Fc BPKB Ada', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(154, 'STNK', 'KTP dan Fc BPKB Ada', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(155, 'STNK', 'KTP dan Fc BPKB Ada', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(156, 'STNK', 'KTP dan Fc BPKB Ada', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(157, 'STNK', 'KTP dan Fc BPKB Ada', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(158, 'STNK', 'KTP dan Fc BPKB Ada', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(159, 'STNK', 'KTP dan Fc BPKB Ada', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(160, 'STNK', 'KTP dan Fc BPKB Ada', 'Mobil', 'jasa', 'Depok', '75000', '2019-01-14'),
+(161, 'STNK', 'Tanpa KTP', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(162, 'STNK', 'Tanpa KTP', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(163, 'STNK', 'Tanpa KTP', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(164, 'STNK', 'Tanpa KTP', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(165, 'STNK', 'Tanpa KTP', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(166, 'STNK', 'Tanpa KTP', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(167, 'STNK', 'Tanpa KTP', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(168, 'STNK', 'Tanpa KTP', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(169, 'STNK', 'Tanpa KTP', 'Mobil', 'jasa', 'Depok', '75000', '2019-01-14'),
+(170, 'STNK', 'Tanpa KTP dan FC BPKB', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(171, 'STNK', 'Tanpa KTP dan FC BPKB', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(172, 'STNK', 'Tanpa KTP dan FC BPKB', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(173, 'STNK', 'Tanpa KTP dan FC BPKB', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(174, 'STNK', 'Tanpa KTP dan FC BPKB', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(175, 'STNK', 'Tanpa KTP dan FC BPKB', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(176, 'STNK', 'Tanpa KTP dan FC BPKB', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(177, 'STNK', 'Tanpa KTP dan FC BPKB', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(178, 'STNK', 'ADM SKP STNK', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(179, 'STNK', 'ADM SKP STNK', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(180, 'STNK', 'ADM SKP STNK', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(181, 'STNK', 'ADM SKP STNK', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(182, 'STNK', 'ADM SKP STNK', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(183, 'STNK', 'ADM SKP STNK', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(184, 'STNK', 'ADM SKP STNK', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(185, 'STNK', 'ADM SKP STNK', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29'),
+(186, 'STNK', 'Rubah Alamat STNK', 'Motor', 'jasa', 'Bekasi', '450000', '2018-12-29'),
+(187, 'STNK', 'Rubah Alamat STNK', 'Mobil', 'jasa', 'Bekasi', '550000', '2018-12-29'),
+(188, 'STNK', 'Rubah Alamat STNK', 'Motor', 'jasa', 'Tanggerang', '450000', '2019-01-14'),
+(189, 'STNK', 'Rubah Alamat STNK', 'Mobil', 'jasa', 'Tanggerang', '550000', '2019-01-14'),
+(190, 'STNK', 'Rubah Alamat STNK', 'Motor', 'jasa', 'Depok', '450000', '2019-01-16'),
+(191, 'STNK', 'Rubah Alamat STNK', 'Mobil', 'jasa', 'Depok', '550000', '2019-01-21'),
+(192, 'STNK', 'Rubah Alamat SNTK', 'Motor', 'jasa', 'Jakarta', '260000', '2019-01-30'),
+(193, 'STNK', 'Rubah Alamat SNTK', 'Mobil', 'jasa', 'Jakarta', '300000', '2019-01-30'),
+(194, 'STNK', 'BBN', 'Motor', 'jasa', 'Jakarta', '25000', '2019-01-14'),
+(195, 'STNK', 'BBN', 'Mobil', 'jasa', 'Jakarta', '35000', '2019-02-08'),
+(196, 'STNK', 'BBN', 'Motor', 'jasa', 'bekasi', '60000', '2019-01-14'),
+(197, 'STNK', 'BBN', 'Mobil', 'jasa', 'Bekasi', '75000', '2019-01-14'),
+(198, 'STNK', 'BBN', 'Motor', 'jasa', 'Tanggerang', '60000', '2019-01-14'),
+(199, 'STNK', 'BBN', 'Mobil', 'jasa', 'Tanggerang', '75000', '2019-01-14'),
+(200, 'STNK', 'BBN', 'Mobil', 'jasa', 'Tanggerang', '75000', '2018-12-29'),
+(201, 'STNK', 'BBN', 'Motor', 'jasa', 'Depok', '60000', '2018-12-29');
 
 -- --------------------------------------------------------
 
@@ -817,6 +899,9 @@ CREATE TABLE `stnk_balik` (
   `sanksi_pkb` varchar(225) DEFAULT NULL,
   `sanksi_pkb1` varchar(100) DEFAULT NULL,
   `jenis_jasa` varchar(100) DEFAULT NULL,
+  `wilayah` varchar(100) DEFAULT NULL,
+  `jasa` text,
+  `harga_jasa` text,
   `biaya_jasa` varchar(100) DEFAULT NULL,
   `total_pajak` varchar(100) DEFAULT NULL,
   `telat` varchar(225) DEFAULT NULL,
@@ -830,9 +915,9 @@ CREATE TABLE `stnk_balik` (
 -- Dumping data for table `stnk_balik`
 --
 
-INSERT INTO `stnk_balik` (`id_stnkb`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_k`, `jenis_kendaraan`, `pkb`, `pkb1`, `bbnk`, `swdkllj`, `swdkllj1`, `sanksi_swdkllj`, `sanksi_swdkllj1`, `telat_thn`, `cek_telat`, `jenis_telat`, `adm_stnk`, `adm_tnkb`, `ganti`, `sanksi_pkb`, `sanksi_pkb1`, `jenis_jasa`, `biaya_jasa`, `total_pajak`, `telat`, `telat_b_t`, `total`, `hari`, `tanggal`) VALUES
-(1, 4, 'Motor', '611862637147268', 'Pajak Hidup', NULL, '', '300000', NULL, '201000', '35000', '35000', '32000', '', '0.25%', NULL, '', '100000', '', NULL, '', '', 'Jasa Konsumen Umum', '20000', '601000', '0', NULL, NULL, 'Sabtu', '2019-01-19 00:00:00'),
-(2, 4, 'Motor', '242270227478819', 'Pajak Hidup', NULL, '', '435000', NULL, '291450', '35000', '35000', '32000', '', '0.25%', NULL, '', '100000', '', NULL, '', '', 'Jasa Konsumen Umum', '20000', '826450', '0', NULL, NULL, 'Sabtu', '2019-01-19 00:00:00');
+INSERT INTO `stnk_balik` (`id_stnkb`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_k`, `jenis_kendaraan`, `pkb`, `pkb1`, `bbnk`, `swdkllj`, `swdkllj1`, `sanksi_swdkllj`, `sanksi_swdkllj1`, `telat_thn`, `cek_telat`, `jenis_telat`, `adm_stnk`, `adm_tnkb`, `ganti`, `sanksi_pkb`, `sanksi_pkb1`, `jenis_jasa`, `wilayah`, `jasa`, `harga_jasa`, `biaya_jasa`, `total_pajak`, `telat`, `telat_b_t`, `total`, `hari`, `tanggal`) VALUES
+(1, 4, 'Motor', '611862637147268', 'Pajak Hidup', NULL, '', '300000', NULL, '201000', '35000', '35000', '32000', '', '0.25%', NULL, '', '100000', '', NULL, '', '', 'Jasa Konsumen Umum', NULL, NULL, NULL, '20000', '601000', '0', NULL, NULL, 'Sabtu', '2019-01-19 00:00:00'),
+(2, 4, 'Motor', '242270227478819', 'Pajak Hidup', NULL, '', '435000', NULL, '291450', '35000', '35000', '32000', '', '0.25%', NULL, '', '100000', '', NULL, '', '', 'Jasa Konsumen Umum', NULL, NULL, NULL, '20000', '826450', '0', NULL, NULL, 'Sabtu', '2019-01-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -848,7 +933,7 @@ CREATE TABLE `stnk_hilang` (
   `jenis` varchar(100) DEFAULT NULL,
   `jenis_k` varchar(225) DEFAULT NULL,
   `jenis_k1` varchar(100) DEFAULT NULL,
-  `ganti` varchar(100) DEFAULT NULL,
+  `ganti` text,
   `pkb` varchar(225) DEFAULT NULL,
   `pkb1` varchar(100) DEFAULT NULL,
   `swdkllj` varchar(225) DEFAULT NULL,
@@ -870,16 +955,19 @@ CREATE TABLE `stnk_hilang` (
   `k_telat` varchar(100) DEFAULT NULL,
   `total` varchar(225) DEFAULT NULL,
   `hari` varchar(30) DEFAULT NULL,
-  `tanggal` datetime NOT NULL
+  `tanggal` datetime NOT NULL,
+  `wilayah` varchar(100) DEFAULT NULL,
+  `jasa` text,
+  `harga_jasa` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `stnk_hilang`
 --
 
-INSERT INTO `stnk_hilang` (`id_stnk`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_k`, `jenis_k1`, `ganti`, `pkb`, `pkb1`, `swdkllj`, `swdkllj1`, `sanksi_swdkllj`, `sanksi_swdkllj1`, `adm_stnk`, `adm_tnkb`, `sanksi_pkb`, `sanksi_pkb1`, `jenis_jasa`, `biaya_jasa`, `total_pajak`, `telat`, `telat1`, `telat_t`, `telat_b_t`, `telat_t2`, `k_telat`, `total`, `hari`, `tanggal`) VALUES
-(1, 4, NULL, '450031357105674', 'Pajak Hidup', 'Mobil', '', NULL, '', '', '143000', '143000', '100000', '', '200000', '', '', '', 'Jasa Konsumen Umum', '20000', '', NULL, '0.02%%', '', NULL, NULL, NULL, '', 'Sabtu', '2019-01-19 00:00:00'),
-(2, 4, NULL, '861793240854837', 'Pajak Hidup', 'Mobil', '', NULL, '', '', '143000', '143000', '100000', '', '200000', '', '', '', 'Jasa Mediator/Cabang/Agen', '25000', '', NULL, '0.02%%', '', NULL, NULL, NULL, '', 'Sabtu', '2019-01-19 00:00:00');
+INSERT INTO `stnk_hilang` (`id_stnk`, `id_user`, `perhitungan`, `no`, `jenis`, `jenis_k`, `jenis_k1`, `ganti`, `pkb`, `pkb1`, `swdkllj`, `swdkllj1`, `sanksi_swdkllj`, `sanksi_swdkllj1`, `adm_stnk`, `adm_tnkb`, `sanksi_pkb`, `sanksi_pkb1`, `jenis_jasa`, `biaya_jasa`, `total_pajak`, `telat`, `telat1`, `telat_t`, `telat_b_t`, `telat_t2`, `k_telat`, `total`, `hari`, `tanggal`, `wilayah`, `jasa`, `harga_jasa`) VALUES
+(1, 4, NULL, '450031357105674', 'Pajak Hidup', 'Mobil', '', NULL, '', '', '143000', '143000', '100000', '', '200000', '', '', '', 'Jasa Konsumen Umum', '20000', '', NULL, '0.02%%', '', NULL, NULL, NULL, '', 'Sabtu', '2019-01-19 00:00:00', NULL, NULL, NULL),
+(2, 4, NULL, '861793240854837', 'Pajak Hidup', 'Mobil', '', NULL, '', '', '143000', '143000', '100000', '', '200000', '', '', '', 'Jasa Mediator/Cabang/Agen', '25000', '', NULL, '0.02%%', '', NULL, NULL, NULL, '', 'Sabtu', '2019-01-19 00:00:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1032,7 +1120,7 @@ ALTER TABLE `blanko`
 -- AUTO_INCREMENT for table `catatan`
 --
 ALTER TABLE `catatan`
-  MODIFY `id_catat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id_catat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 --
 -- AUTO_INCREMENT for table `cetak_balik`
 --

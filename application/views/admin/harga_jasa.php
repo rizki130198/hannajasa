@@ -37,14 +37,14 @@
 					</div>
 
 					<div class="card-content">					
-						<select class="form-control" name="get_harga" id="get_harga" onchange="gantiharga()">
+						<!-- <select class="form-control" name="get_harga" id="get_harga" onchange="gantiharga()">
 							<option value="perpanjang">Perpanjang</option>
 							<option value="bn">Balik Nama</option>
 							<option value="mutasi">Mutasi</option>
 							<option value="m_bn">Mutasi + Balik Nama</option>
 							<option value="stnk">STNK Hilang</option>
 							<option value="stnk_h">STNK Hilang + Balik Nama</option>
-						</select>
+						</select> -->
 						<div class="table-responsive">
 							<table id="daftarharga" class="table table-striped table-bordered" style="width:100%">
 								<thead>

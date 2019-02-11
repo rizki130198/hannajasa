@@ -418,9 +418,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jumlah_pajak_t jum-pajak-n">
+												<div class="form-group jum-pajak-b">
 													<label class="control-label">Biaya Jasa BBN</label>
-													<input type="text" name="jasa_bbn" id="acc_bbn" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_bbn" id="acc_bbn" class="form-control jumlah_p_t jumlah_pajak_b">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -441,9 +441,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jumlah_pajak_t jum-pajak-n">
+												<div class="form-group jum-pajak-b">
 													<label class="control-label">Biaya Jasa Rubah Alamat STNK dan BPKB</label>
-													<input type="text" name="jasa_rubah" id="rubah_stnk" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_rubah" id="rubah_stnk" class="form-control jumlah_pajak_b">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -464,9 +464,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jumlah_pajak_t jum-pajak-n">
+												<div class="form-group jum-pajak-b">
 													<label class="control-label">Biaya Jasa Rubah Alamat BPKB</label>
-													<input type="text" name="jasa_rbpkb" id="rubah_bpkbalamat" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_rbpkb" id="rubah_bpkbalamat" class="form-control  jumlah_pajak_b">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -716,9 +716,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jum-pajak-b">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Adm. SKP</label>
-													<input type="text" name="jasa_skp2" id="adm_skp1" class="form-control jumlah_pajak_b">
+													<input type="text" name="jasa_skp2" id="adm_skp1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -739,9 +739,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jum-pajak-b">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Balik Nama</label>
-													<input type="text" name="balik_nama2" id="jasa_balik_t1" class="form-control jumlah_pajak_b">
+													<input type="text" name="balik_nama2" id="jasa_balik_t1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -762,9 +762,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jum-pajak-b">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa STNK Hilang</label>
-													<input type="text" name="stnk_hilang2" id="jasa_stnk_t1" class="form-control jumlah_pajak_b">
+													<input type="text" name="stnk_hilang2" id="jasa_stnk_t1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -785,9 +785,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jum-pajak-b">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Laporan Hilang</label>
-													<input type="text" name="laporan_hilang2" id="jasa_laporan_t1" class="form-control jumlah_pajak_b">
+													<input type="text" name="laporan_hilang2" id="jasa_laporan_t1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -829,9 +829,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jumlah_pajak_t jum-pajak-n">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa BBN</label>
-													<input type="text" name="jasa_bbn2" id="acc_bbn1" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_bbn2" id="acc_bbn1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -852,9 +852,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jumlah_pajak_t jum-pajak-n">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Rubah Alamat STNK dan BPKB</label>
-													<input type="text" name="jasa_rubah2" id="rubah_stnk1" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_rubah2" id="rubah_stnk1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>
@@ -875,9 +875,9 @@
 													</select>
 													<span class="material-input"></span>
 												</div>
-												<div class="form-group jumlah_pajak_t jum-pajak-n">
+												<div class="form-group jumlah_pajak_t">
 													<label class="control-label">Biaya Jasa Rubah Alamat</label>
-													<input type="text" name="jasa_rbpkb2" id="rubah_bpkb1" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_rbpkb2" id="rubah_bpkb1" class="form-control jumlah_p_t">
 													<span class="material-input"></span>
 												</div>
 											</div>

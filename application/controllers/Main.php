@@ -715,14 +715,14 @@ class Main extends CI_Controller {
 				}
 			}
 		}else if($uri == 'ambilbbnmutasi'){
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Balik Nama" AND proses="Mutasi" AND jenis="'.$jenis.'"');
-				$i = 0;
-				$data = "";
-				foreach ($query->result() as $key) {
-					$data[$i] = array(
-						'harga'=>$key->harga,
-					);
-					$i++;
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Balik Nama" AND proses="Mutasi" AND jenis="'.$jenis.'"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
 			}
 		}else if($uri == 'ambilstnkmutasi'){
 			if ($wilayah==NULL) {
@@ -739,7 +739,20 @@ class Main extends CI_Controller {
 				}
 			}
 		}else if($uri == 'ambillaporanmutasi'){
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Laporan Hilang"');
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Laporan Hilang"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
+			}
+		}else if($uri == 'ambilskpstnk'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="ADM SKP STNK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -748,6 +761,155 @@ class Main extends CI_Controller {
 					);
 					$i++;
 				}
+			}
+		}else if($uri == 'ambilstnkhl'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="STNK Hilang (Leasing)" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilstnkhb'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="STNK Hilang (BPKB Asli)" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'rubahalamat'){
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat" AND proses="STNK"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
+			}
+		}else if($uri == 'ambilbaliks'){
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Balik Nama" AND proses="STNK"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
+			}
+		}else if($uri == 'ambilplats'){
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Ganti Plat" AND proses="STNK"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
+			}
+		}else if($uri == 'ambilstnkhg'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="STNK Gantung" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambilktpfcb'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="KTP dan Fc BPKB Ada" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambiltktp'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Tanpa KTP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambiltktpfcb'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Tanpa KTP dan FC BPKB" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'ambillaporans'){
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Laporan Hilang" and proses="STNK"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
+			}
+		}else if($uri == 'ambilbbnsntkh'){
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="BBN" and proses="STNK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
+			}
+		}else if($uri == 'rubahalamatstnk'){
+			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat STNK"');
+			$i = 0;
+			$data = "";
+			foreach ($query->result() as $key) {
+				$data[$i] = array(
+					'harga'=>$key->harga,
+				);
+				$i++;
+			}
 		}
 		
 		

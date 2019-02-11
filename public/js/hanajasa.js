@@ -780,7 +780,7 @@ function ambilstnkhb1() {
 		url: url+'/main/ambilharga/ambilstnkhb',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_stnkhb1").val()},
+		data: {jenis: $("#jenis_stnkhb1").val(),wilayah: $("#wil_perpanjang").val()},
 		success:function(datanya) {
 			$("#jasa_stnkhb1").val(datanya[0].harga);
 		}
@@ -806,13 +806,9 @@ function rubahalamat1() {
 		url: url+'/main/ambilharga/rubahalamat',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_r_bpkb1").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_r_bpkb1").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#jasa_rbpkb1").val(datanya[0].harga);
-			}
+			$("#jasa_rbpkb1").val(datanya[0].harga);
 		}
 	})
 }
@@ -821,13 +817,9 @@ function ambilbaliks1() {
 		url: url+'/main/ambilharga/ambilbaliks',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_balikn1").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_balikn1").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#jasa_balikn1").val(datanya[0].harga);
-			}
+			$("#jasa_balikn1").val(datanya[0].harga);
 		}
 	})
 }
@@ -836,13 +828,9 @@ function ambilplats1() {
 		url: url+'/main/ambilharga/ambilplats',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_plat1").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_plat1").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#adm_tnkb1").val(datanya[0].harga);
-			}
+			$("#adm_tnkb1").val(datanya[0].harga);
 		}
 	})
 }
@@ -911,13 +899,9 @@ function ambillaporans1() {
 		url: url+'/main/ambilharga/ambillaporans',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_laporan1").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_laporan1").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#laporan_hilang1").val(datanya[0].harga);
-			}
+			$("#laporan_hilang1").val(datanya[0].harga);
 		}
 	})
 }
@@ -972,7 +956,7 @@ function ambilstnkhb2() {
 		url: url+'/main/ambilharga/ambilstnkhb',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_stnkhb2").val()},
+		data: {jenis: $("#jenis_stnkhb2").val(),wilayah: $("#wil_perpanjang").val()},
 		success:function(datanya) {
 			$("#jasa_stnkhb2").val(datanya[0].harga);
 		}
@@ -998,7 +982,7 @@ function rubahalamat2() {
 		url: url+'/main/ambilharga/rubahalamat',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_r_bpkb2").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_r_bpkb2").val()},
 		success:function(datanya) {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
@@ -1013,7 +997,7 @@ function ambilbaliks2() {
 		url: url+'/main/ambilharga/ambilbaliks',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_balikn2").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_balikn2").val()},
 		success:function(datanya) {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
@@ -1028,13 +1012,9 @@ function ambilplats2() {
 		url: url+'/main/ambilharga/ambilplats',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_plat2").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_plat2").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#adm_tnkb2").val(datanya[0].harga);
-			}
+			$("#adm_tnkb2").val(datanya[0].harga);
 		}
 	})
 }
@@ -1103,13 +1083,9 @@ function ambillaporans2() {
 		url: url+'/main/ambilharga/ambillaporans',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_laporan2").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_laporan2").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#laporan_hilang2").val(datanya[0].harga);
-			}
+			$("#laporan_hilang2").val(datanya[0].harga);
 		}
 	})
 }
@@ -1165,7 +1141,7 @@ function ambilstnkhb3() {
 		url: url+'/main/ambilharga/ambilstnkhb',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_stnkhb3").val()},
+		data: {jenis: $("#jenis_stnkhb3").val(),wilayah: $("#wil_perpanjang").val()},
 		success:function(datanya) {
 			$("#jasa_stnkhb3").val(datanya[0].harga);
 		}
@@ -1191,13 +1167,9 @@ function rubahalamat3() {
 		url: url+'/main/ambilharga/rubahalamat',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_r_bpkb3").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_r_bpkb3").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#jasa_rbpkb3").val(datanya[0].harga);
-			}
+			$("#jasa_rbpkb3").val(datanya[0].harga);
 		}
 	})
 }
@@ -1206,13 +1178,9 @@ function ambilbaliks3() {
 		url: url+'/main/ambilharga/ambilbaliks',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_balikn3").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_balikn3").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#jasa_balikn3").val(datanya[0].harga);
-			}
+			$("#jasa_balikn3").val(datanya[0].harga);
 		}
 	})
 }
@@ -1221,13 +1189,9 @@ function ambilplats3() {
 		url: url+'/main/ambilharga/ambilplats',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_plat3").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_plat3").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#adm_tnkb3").val(datanya[0].harga);
-			}
+			$("#adm_tnkb3").val(datanya[0].harga);
 		}
 	})
 }
@@ -1296,13 +1260,9 @@ function ambillaporans3() {
 		url: url+'/main/ambilharga/ambillaporans',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_laporan3").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_laporan3").val()},
 		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#laporan_hilang3").val(datanya[0].harga);
-			}
+			$("#laporan_hilang3").val(datanya[0].harga);
 		}
 	})
 }
