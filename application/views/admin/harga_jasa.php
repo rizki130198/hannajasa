@@ -37,14 +37,14 @@
 					</div>
 
 					<div class="card-content">					
-						<!-- <select class="form-control" name="get_harga" id="get_harga" onchange="gantiharga()">
+						<select class="form-control" name="get_harga" id="get_harga" onchange="gantiharga()">
 							<option value="perpanjang">Perpanjang</option>
 							<option value="bn">Balik Nama</option>
 							<option value="mutasi">Mutasi</option>
 							<option value="m_bn">Mutasi + Balik Nama</option>
 							<option value="stnk">STNK Hilang</option>
 							<option value="stnk_h">STNK Hilang + Balik Nama</option>
-						</select> -->
+						</select>
 						<div class="table-responsive">
 							<table id="daftarharga" class="table table-striped table-bordered" style="width:100%">
 								<thead>
@@ -94,9 +94,9 @@
 													<option value="Perpanjang">Perpanjang</option>
 													<option value="Balik Nama">Balik Nama</option>
 													<option value="Mutasi">Mutasi</option>
-													<option value="Mutasi Balik">Mutasi Balik</option>
-													<option value="STNK Hilang">STNK Hilang</option>
-													<option value="STNK Balik">STNK Balik</option>
+													<option value="Mutasi">Mutasi Balik</option>
+													<option value="STNK">STNK Hilang</option>
+													<option value="STNK">STNK Balik</option>
 												</select>
 												<span class="material-input"></span>
 											</div>
@@ -172,7 +172,7 @@
 				data:{id_catat:id_catat, table_column:table_column, value:value},
 				success:function(data)
 				{
-					load_harga();
+					gantiharga();
 				}
 			})
 		});

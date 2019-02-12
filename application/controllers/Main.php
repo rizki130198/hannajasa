@@ -1065,20 +1065,26 @@ class Main extends CI_Controller {
 	{
 		if ($this->input->post('jenis') == 'perpanjang') {
 			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Perpanjang'")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}elseif ($this->input->post('jenis') == 'bn') {
 			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Balik Nama'")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}else if ($this->input->post('jenis') == 'mutasi') {
 			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Mutasi'")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}else if ($this->input->post('jenis') == 'm_bn') {
-			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Mutasi Balik'")->result();
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'Mutasi'")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}else if ($this->input->post('jenis') == 'stnk') {
-			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'STNK Hilang'")->result();
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'STNK'")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}else if ($this->input->post('jenis') == 'stnk_h') {
-			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'STNK Balik'")->result();
+			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses = 'STNK'")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}else{
 			$data['data'] = $this->db->query("SELECT * FROM catatan WHERE proses != NULL")->result();
+			$this->load->view('admin/hargajasa', $data);
 		}
-		echo json_encode($data);
 	}
 	//end cetak pdf//
 

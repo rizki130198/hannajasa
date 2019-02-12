@@ -2222,77 +2222,15 @@ function gantiharga() {
 	$.ajax({
 		url: url+'/main/ambilhargajasa/',
 		type: 'POST',
-		dataType:'json',
+		dataType:'html',
 		data: {jenis: $("#get_harga").val()},
 		success:function(datanya) {
-			if(datanya.data.length>0){
-				var bisa = loopDataHarga(datanya.data, $("#get_harga").val());
-				$("#daftarharga").dataTable().fnClearTable();
-				$("#daftarharga").dataTable().fnAddData(bisa);
-				$("#daftarharga").dataTable().fnDraw();
-			}else{
-				$("#daftarharga").dataTable().fnClearTable();
-				$("#daftarharga").dataTable().fnDraw();
-			}
-
-			$.each(datanya.data, function(index, element) {
-				$("#tbodynya").html('<tr><td class="table_data" data-row_id="'+element.id_catat+'" data-column_name="nama">'+element.nama+'</td> <td class="table_data" data-row_id="'+element.id_catat+'" data-column_name="wilayah">'+element.wilayah+'</td> <td class="table_data" id="harga" data-row_id="'+element.id_catat+'" data-column_name="harga" contenteditable>'+element.harga+'</td> <td class="table_data" data-row_id="'+element.id_catat+'" data-column_name="created_at">'+element.created_at+'</td> </tr>'); 
-			});
+			$("#tbodynya").html(datanya);
 		}
 	})
 
 }
-function loopDataHarga(table,type) {
-	var array_data = [],
-	temp_array = [];
-	$(table).each(function(key,val) {
-		temp_array = [];
-		var link;
-		if (type == 'perpanjang') {
-			temp_array = [
-			val.nama,
-			val.wilayah,
-			val.harga,
-			val.created_at
-			];
-		}else if (type == 'bn') {
-			temp_array = [
-			val.nama,
-			val.wilayah,
-			val.harga,
-			val.created_at
-			];
-		}else if (type == 'mutasi') {
-			temp_array = [
-			val.nama,
-			val.wilayah,
-			val.harga,
-			val.created_at];
-		}else if (type == 'm_bn') {
-			temp_array = [
-			val.nama,
-			val.wilayah,
-			val.harga,
-			val.created_at,];
-		}else if(type == 'stnk'){
-			temp_array = [
-			val.nama,
-			val.wilayah,
-			val.harga,
-			val.created_at];
-		}else if(type == 'stnk_h'){
-			temp_array = [
-			val.nama,
-			val.wilayah,
-			val.harga,
-			val.created_at];
-		}
 
-
-		array_data[array_data.length] = temp_array;
-	});
-	return array_data;
-}
 function print_pp() {
 	window.print();
 
