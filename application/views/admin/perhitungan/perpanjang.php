@@ -462,7 +462,7 @@
 											<h4 style="font-weight: bold;text-transform: uppercase;">Loksus</h4>
 											<div class="form-group is-empty">
 												<p>Jenis Kendaraan</p>
-												<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilloksus()">
+												<select class="form-control" id="jenis_k_lokus" name="jenis_k_loksus"  onchange="ambilloksus()">
 													<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 													<option value="" disabled=""></option>
 													<?php foreach ($catat->result() as $key): ?>
@@ -473,7 +473,7 @@
 											</div>
 											<div class="form-group jumlah_pajak_t">
 												<label class="control-label">Biaya Jasa Loksus</label>
-												<input type="text" name="jasa_loksus" id="loksus" class="form-control jumlah_p_t">
+												<input type="text" name="jasa_loksus" id="jasa_loksus" class="form-control jumlah_p_t">
 												<span class="material-input"></span>
 											</div>
 										</div>

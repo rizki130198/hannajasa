@@ -250,14 +250,14 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_bn" value="ada"> Biaya Proses BN/PA</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_bn" <?=($acc[5]==NULL)?NULL:'checked value="'.$acc[5].'"'?>> Biaya Proses BN/PA</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control jumlah_biaya" name="harga_bn" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_bn" placeholder="Masukan nominal"<?=($harga[5]==NULL)?NULL:'value="'.$harga[5].'"'?>>
 														</div>
 													</div>
 												</div>
@@ -278,7 +278,7 @@
 												<div class="form-group" style="margin-top: 0 !important;">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox"name="slp" <?=($acc[6]==NULL)?NULL:'checked value="'.$acc[6].'"'?>> Surat Laporan Kepolisian</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox"name="slp" <?=($acc[11]==NULL)?NULL:'checked value="'.$acc[6].'"'?>> Surat Laporan Kepolisian</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
@@ -382,7 +382,7 @@
 													<div class="col-sm-7">
 														<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],$harga[7],$harga[9],$harga[10],$harga[11],$harga[12]))?>">
+															<input type="text" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[5],$harga[6]))?>">
 														</div>
 													</div>
 												</div>

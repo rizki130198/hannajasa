@@ -488,7 +488,7 @@ function ambilloksus() {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#loksus").val(datanya[0].harga);
+				$("#jasa_loksus").val(datanya[0].harga);
 			}
 		}
 	})
@@ -623,7 +623,7 @@ function ambilbbnbaru() {
 }
 function rubahalamatstnk() {
 	$.ajax({
-		url: url+'/main/ambilharga/ambilbbn',
+		url: url+'/main/ambilharga/rubahalamatstnk',
 		type: 'POST',
 		dataType:'json',
 		data: {jenis: $("#jenis_k_rubah").val(),wilayah: $("#wil_perpanjang").val()},
@@ -728,7 +728,7 @@ function ambilbbnbaru1() {
 }
 function rubahalamatstnk1() {
 	$.ajax({
-		url: url+'/main/ambilharga/ambilbbn',
+		url: url+'/main/ambilharga/rubahalamatstnk',
 		type: 'POST',
 		dataType:'json',
 		data: {jenis: $("#jenis_k_rubah1").val(),wilayah: $("#wil_perpanjang").val()},
@@ -915,22 +915,7 @@ function ambilbbnsntkh1() {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#jasa_bbn1").val(datanya[0].harga);
-			}
-		}
-	})
-}
-function rubahalamatstnk1() {
-	$.ajax({
-		url: url+'/main/ambilharga/rubahalamatstnk',
-		type: 'POST',
-		dataType:'json',
-		data: {jenis: $("#jenis_r_stnk1").val(),wilayah: $("#wil_perpanjang").val()},
-		success:function(datanya) {
-			if (datanya.success==false) {
-				alert('Silakan Pilih wilayah');
-			}else{
-				$("#rubah_rstnk1").val(datanya[0].harga);
+				$("#harga_bbn1").val(datanya[0].harga);
 			}
 		}
 	})
@@ -1099,7 +1084,7 @@ function ambilbbnsntkh2() {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#jasa_bbn2").val(datanya[0].harga);
+				$("#harga_bbn2").val(datanya[0].harga);
 			}
 		}
 	})
@@ -1276,7 +1261,7 @@ function ambilbbnsntkh3() {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#jasa_bbn3").val(datanya[0].harga);
+				$("#harga_bbn3").val(datanya[0].harga);
 			}
 		}
 	})
@@ -1349,12 +1334,12 @@ function ambilalamat() {
 		url: url+'/main/ambilharga/ambilalamat',
 		type: 'POST',
 		dataType:'json',
-		data: {jenis: $("#jenis_k_lokus").val(),wilayah: $("#wil_perpanjang").val()},
+		data: {jenis: $("#jenis_ambil").val(),wilayah: $("#wil_perpanjang").val()},
 		success:function(datanya) {
 			if (datanya.success==false) {
 				alert('Silakan Pilih wilayah');
 			}else{
-				$("#loksus").val(datanya[0].harga);
+				$("#alamat_ambil").val(datanya[0].harga);
 			}
 		}
 	})

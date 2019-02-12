@@ -353,7 +353,7 @@
 												<div class="col-sm-7">
 													<div class="input-group" style="margin-top: -4px;border-top: solid 1.5px #333;">
 														<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-														<input type="text" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],$harga[7],$harga[9],$harga[10]))?>">
+														<input type="text" name="total" id="hasil_biaya" class="form-control" placeholder="Masukan nominal" value="<?=array_sum(array($harga[0],$harga[1],$harga[2],$harga[6],$harga[5],$harga[11]))?>">
 													</div>
 												</div>
 											</div>
@@ -366,7 +366,7 @@
 												<div class="col-sm-6">
 													<div class="input-group">
 														<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-														<input type="text" name="prediski" class="form-control biaya_prediksi" placeholder="Masukan nominal" value="<?=($stnk->jenis=='Pajak Telat Lebih dari 1 Tahun')?array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],$harga[7],$harga[9],$harga[10],$stnk->pkb,$stnk->pkb1,$stnk->swdkllj,$stnk->swdkllj1,$stnk->sanksi_swdkllj,$stnk->sanksi_swdkllj1,$stnk->adm_stnk,$stnk->sanksi_pkb1,$stnk->sanksi_pkb)):NULL?>">
+														<input type="text" name="prediski" class="form-control biaya_prediksi" placeholder="Masukan nominal" value="<?=($stnk->jenis=='Pajak Telat Lebih dari 1 Tahun')?array_sum(array($harga[0],$harga[1],$harga[2],$harga[6],$harga[5],$harga[11],$stnk->pkb,$stnk->pkb1,$stnk->swdkllj,$stnk->swdkllj1,$stnk->sanksi_swdkllj,$stnk->sanksi_swdkllj1,$stnk->adm_stnk,$stnk->sanksi_pkb1,$stnk->sanksi_pkb)):NULL?>">
 													</div>
 												</div>
 											</div>
@@ -375,7 +375,7 @@
 												<div class="col-sm-6">
 													<div class="input-group">
 														<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-														<input type="text" name="kurang" class="form-control prediskisisa" placeholder="Masukan nominal" value="<?=($stnk->jenis=='Pajak Telat Lebih dari 1 Tahun')?array_sum(array($harga[0],$harga[1],$harga[2],$harga[3],$harga[4],$harga[5],$harga[6],$harga[7],$harga[7],$harga[9],$harga[10],$stnk->pkb,$stnk->pkb1,$stnk->swdkllj,$stnk->swdkllj1,$stnk->sanksi_swdkllj,$stnk->sanksi_swdkllj1,$stnk->adm_stnk,$stnk->sanksi_pkb1,$stnk->sanksi_pkb)):NULL?>">
+														<input type="text" name="kurang" class="form-control prediskisisa" placeholder="Masukan nominal" value="<?=($stnk->jenis=='Pajak Telat Lebih dari 1 Tahun')?array_sum(array($harga[0],$harga[1],$harga[2],$harga[6],$harga[5],$harga[11],$stnk->pkb,$stnk->pkb1,$stnk->swdkllj,$stnk->swdkllj1,$stnk->sanksi_swdkllj,$stnk->sanksi_swdkllj1,$stnk->adm_stnk,$stnk->sanksi_pkb1,$stnk->sanksi_pkb)):NULL?>">
 													</div>
 												</div>
 											</div>

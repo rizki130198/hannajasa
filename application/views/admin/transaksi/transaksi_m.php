@@ -239,14 +239,14 @@
 												<div class="form-group">
 													<div class="col-sm-5">
 														<div class="checkbox" style="display: contents;">
-															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_pm" value="Proses Mutasi" > Biaya Proses Mutasi</label>
+															<label style="font-weight: bold;color: #333;"><input type="checkbox" name="biaya_pm" <?=($mutasi->biaya_jasa==NULL)?NULL:'checked value="Proses Mutasi"'?> > Biaya Proses Mutasi</label>
 															<span class="titik2">:</span>
 														</div>
 													</div>
 													<div class="col-sm-7">
 														<div class="input-group jum-b" style="margin-top: -6px;">
 															<span class="input-group-addon" style="font-weight: bold;color: #333;">Rp.</span>
-															<input type="text" class="form-control jumlah_biaya" name="harga_pm" placeholder="Masukan nominal">
+															<input type="text" class="form-control jumlah_biaya" name="harga_pm" placeholder="Masukan nominal" <?=($mutasi->biaya_jasa==NULL)?NULL:'value="'.$mutasi->biaya_jasa.'"'?>>
 														</div>
 													</div>
 												</div>

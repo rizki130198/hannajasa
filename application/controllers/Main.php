@@ -634,7 +634,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Adm SKP" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Loksus" AND  wilayah="'.$wilayah.'" AND jenis="'.$jenis.'" ');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -662,7 +662,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat STNK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat STNK" AND proses="Balik Nama" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'" ');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -824,7 +824,7 @@ class Main extends CI_Controller {
 			if ($wilayah==NULL) {
 				$data = array('success'=> false, 'msg'=>'gagal');
 			}else{
-				$query = $this->db->query('SELECT * FROM catatan WHERE nama="STNK Gantung" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="STNK Gantung" AND proses="STNK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
 				$i = 0;
 				$data = "";
 				foreach ($query->result() as $key) {
@@ -901,14 +901,18 @@ class Main extends CI_Controller {
 				}
 			}
 		}else if($uri == 'rubahalamatstnk'){
-			$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat STNK"');
-			$i = 0;
-			$data = "";
-			foreach ($query->result() as $key) {
-				$data[$i] = array(
-					'harga'=>$key->harga,
-				);
-				$i++;
+			if ($wilayah==NULL) {
+				$data = array('success'=> false, 'msg'=>'gagal');
+			}else{
+				$query = $this->db->query('SELECT * FROM catatan WHERE nama="Rubah Alamat STNK" AND proses="STNK" AND wilayah="'.$wilayah.'" AND jenis="'.$jenis.'"');
+				$i = 0;
+				$data = "";
+				foreach ($query->result() as $key) {
+					$data[$i] = array(
+						'harga'=>$key->harga,
+					);
+					$i++;
+				}
 			}
 		}
 		

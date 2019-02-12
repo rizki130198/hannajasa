@@ -296,7 +296,7 @@
 												<h4 style="font-weight: bold;text-transform: uppercase;">Rubah Alamat BPKB</h4>
 												<div class="form-group is-empty">
 													<p>Jenis Kendaraan</p>
-													<select class="form-control" id="jenis_k_loksus" name="jenis_k_loksus"  onchange="ambilalamat()">
+													<select class="form-control" id="jenis_ambil" name="jenis_k_loksus"  onchange="ambilalamat()">
 														<option value="">-- SILAHKAN PILIH JENIS KENDARAAN --</option>
 														<option value="" disabled=""></option>
 														<?php foreach ($catat->result() as $key): ?>
@@ -307,7 +307,7 @@
 												</div>
 												<div class="form-group jumlah_pajak_t jum-pajak-n">
 													<label class="control-label">Biaya Jasa Rubah Alamat</label>
-													<input type="text" name="jasa_loksus" id="loksus" class="form-control jumlah_p_t jumlah_pajak_n">
+													<input type="text" name="jasa_loksus" id="alamat_ambil" class="form-control jumlah_p_t jumlah_pajak_n">
 													<span class="material-input"></span>
 												</div>
 											</div>
